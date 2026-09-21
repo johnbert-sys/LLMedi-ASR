@@ -1,0 +1,509 @@
+# Neurologie (Neurologie)
+# Quelle: medical_asr generated_v2, Modul neurology — unveraendert uebernommen.
+#
+# Reihenfolge = ASR-Prioritaet (nicht Korpushaeufigkeit): vorne stehen die
+# Begriffe, an denen ein allgemeines ASR am ehesten scheitert.
+# Stufen 100 / 250 / 500 nehmen jeweils die ersten N Zeilen,
+# daher gelten die Stufen per Konstruktion als Praefixe voneinander.
+# Zeilen mit # sind Kommentare. Reihenfolge NICHT alphabetisch sortieren.
+
+transitorische ischämische Attacke
+sensomotorische Hemiparese
+Subarachnoidalblutung
+Dysdiadochokinese
+intravenöse Thrombolyse
+mechanische Thrombektomie
+Babinski-Zeichen
+intrazerebrale Blutung
+spastische Tetraparese
+somatosensibel evozierte Potenziale
+Sinusvenenthrombose
+schlaffe Paraparese
+dysarthrisch
+SEP
+intravenöse Immunglobulintherapie
+Stent-Retriever-Thrombektomie
+Hoffmann-Tinel-Zeichen
+Stent-Retriever
+Wake-up-Stroke
+Basilaristhrombose
+brachiofaziale Hemiparese
+motorisch evozierte Potenziale
+Karotisdissektion
+Hypästhesie
+aphasisch
+MEP
+neurologische Frührehabilitation
+dekompressive Hemikraniektomie
+Lasègue-Zeichen
+Vertebralisdissektion
+Parästhesie
+visuell evozierte Potenziale
+zerebrale Mikroangiopathie
+Dysästhesie
+hemiparetisch
+VEP
+repetitive transkranielle Magnetstimulation
+Karotisendarteriektomie
+Romberg-Versuch
+zerebrale Amyloidangiopathie
+Allodynie
+repetitive Nervenstimulation
+hämodynamischer Grenzzoneninfarkt
+Pallhypästhesie
+tetraparetisch
+NLG
+externe Ventrikeldrainage
+Dix-Hallpike-Manöver
+transiente globale Amnesie
+dissoziierte Sensibilitätsstörung
+Einzelfaser-Elektromyographie
+hypoxisch-ischämische Enzephalopathie
+Reithosenanästhesie
+bradykinetisch
+CIDP
+ventrikuloperitoneale Shuntanlage
+Epley-Manöver
+Temporallappenepilepsie
+Pyramidenbahnzeichen
+Nervenleitgeschwindigkeit
+nichtkonvulsiver Status epilepticus
+Faszikulation
+rigid-akinetisch
+GBS
+tiefe Hirnstimulation
+Lhermitte-Zeichen
+Autoimmunenzephalitis
+Dysmetrie
+quantitativ sensorische Testung
+Optikusneuritis
+zerebelläre Ataxie
+ataktisch
+ALS
+Plasmapherese
+Uhthoff-Phänomen
+Guillain-Barré-Syndrom
+Stand- und Gangataxie
+Liquoröffnungsdruckmessung
+chronisch inflammatorische demyelinisierende Polyneuropathie
+Apraxie
+dysmetrisch
+NMOSD
+Immunadsorption
+Small-Fiber-Neuropathie
+Neglect
+Reiber-Diagramm
+Critical-Illness-Polyneuropathie
+Anosognosie
+hypästhetisch
+MOGAD
+Sulcus-ulnaris-Syndrom
+Sprechapraxie
+Aquaporin-4-Antikörper
+Meralgia paraesthetica
+Paraphasie
+demyelinisierend
+PML
+zervikale Myelopathie
+Prosopagnosie
+MOG-Antikörper
+Cauda-equina-Syndrom
+Quadrantenanopsie
+juxtakortikal
+NIHSS
+Multisystematrophie
+homonyme Hemianopsie
+Acetylcholinrezeptor-Antikörper
+progressive supranukleäre Blickparese
+internukleäre Ophthalmoplegie
+leptomeningeal
+EDSS
+kortikobasales Syndrom
+konjugierte Blickdeviation
+MuSK-Antikörper
+Lewy-Körperchen-Demenz
+supranukleäre Blickparese
+polyradikulär
+FEES
+frontotemporale Demenz
+Downbeat-Nystagmus
+Video-EEG-Monitoring
+primär progressive Aphasie
+Blickrichtungsnystagmus
+SAB
+Normaldruckhydrozephalus
+Oszillopsie
+transkranielle Dopplersonographie
+Wernicke-Enzephalopathie
+Lagophthalmus
+ICB
+Hemispasmus facialis
+neurogene Dysphagie
+transkranielle Duplexsonographie
+Chorea Huntington
+Xanthochromie
+PRES
+spinozerebelläre Ataxie
+Liquorpleozytose
+extrakranielle Duplexsonographie
+Restless-Legs-Syndrom
+zytoalbuminäre Dissoziation
+RCVS
+REM-Schlaf-Verhaltensstörung
+oligoklonale Banden
+CT-Perfusion
+amyotrophe Lateralsklerose
+intrathekale Immunglobulinsynthese
+myasthene Krise
+Blut-Liquor-Schrankenstörung
+diffusionsgewichtete Magnetresonanztomographie
+Trigeminusneuralgie
+epilepsietypisches Potenzial
+idiopathische intrakranielle Hypertension
+Spike-Wave-Komplex
+digitale Subtraktionsangiographie
+spontanes Liquorunterdrucksyndrom
+Fibrillationspotenzial
+benigner paroxysmaler Lagerungsschwindel
+Fatigabilität
+DaT-SPECT
+akute unilaterale Vestibulopathie
+Herpes-simplex-Enzephalitis
+NIH Stroke Scale
+Neuroborreliose
+Meningoenzephalitis
+modifizierte Rankin-Skala
+Frühsommer-Meningoenzephalitis
+Spondylodiszitis
+Expanded Disability Status Scale
+Vestibularisschwannom
+Hoehn-und-Yahr-Stadium
+MDS-UPDRS
+ASPECTS
+TOAST-Klassifikation
+McDonald-Kriterien
+HINTS-Test
+Video-Kopfimpulstest
+fiberendoskopische Schluckuntersuchung
+reversibles zerebrales Vasokonstriktionssyndrom
+posteriores reversibles Enzephalopathiesyndrom
+Neuromyelitis-optica-Spektrum-Erkrankung
+MOG-Antikörper-assoziierte Erkrankung
+akute disseminierte Enzephalomyelitis
+Anti-NMDA-Rezeptor-Enzephalitis
+progressive multifokale Leukenzephalopathie
+multifokale motorische Neuropathie
+neuralgische Schulteramyotrophie
+Creutzfeldt-Jakob-Krankheit
+Lambert-Eaton-Myasthenie-Syndrom
+Einschlusskörpermyositis
+Meningeosis neoplastica
+ischämischer Schlaganfall
+Aphasie
+Elektroneurographie
+fokale Epilepsie
+Dysarthrie
+EMG
+Stroke Unit
+Status epilepticus
+Nystagmus
+Elektromyographie
+Multiple Sklerose
+ENG
+Karpaltunnelsyndrom
+Elektroenzephalographie
+Fazialisparese
+MS
+Parkinson-Krankheit
+Lumbalpunktion
+Myasthenia gravis
+Subduralhämatom
+Monoparese
+akustisch evozierte Potenziale
+Epiduralhämatom
+Hyperalgesie
+paraphasisch
+RRMS
+Bridging-Therapie
+Aspirationsthrombektomie
+Bragard-Zeichen
+Flow Diverter
+Wearing-off
+symptomatische Karotisstenose
+Thermhypästhesie
+F-Wellen-Latenz
+intrakranielle Gefäßstenose
+Astereognosie
+spastisch
+SPMS
+Schubtherapie
+Karotisstentimplantation
+Unterberger-Tretversuch
+ventrikuloperitonealer Shunt
+On-off-Phänomen
+arteriovenöse Malformation
+sensibles Niveau
+H-Reflex
+durale arteriovenöse Fistel
+Muskeleigenreflexabschwächung
+myoklonisch
+PPMS
+Pulstherapie
+Aneurysmacoiling
+Semont-Manöver
+intrathekale Medikamentenpumpe
+Off-Phase
+Kavernom
+Hyperreflexie
+Blinkreflex
+vertebrobasiläre Insuffizienz
+Areflexie
+dyston
+DBS
+Immunrekonstitutionstherapie
+Aneurysmaclipping
+Simpson-Test
+Neurostimulator
+Peak-Dose-Dyskinesie
+lakunärer Hirninfarkt
+Klonus
+autonome Funktionsdiagnostik
+thromboembolischer Hirninfarkt
+Myoklonie
+choreatisch
+EVD
+verlaufsmodifizierende Therapie
+Vagusnervstimulation
+Froment-Zeichen
+Hirnstimulationselektrode
+maligner Mediainfarkt
+Myotonie
+Nervensonographie
+Wallenberg-Syndrom
+Zahnradphänomen
+myoton
+RLS
+anfallssuppressive Dauertherapie
+Botulinumtoxin-Injektion
+Horner-Syndrom
+Vagusnervstimulator
+Locked-in-Syndrom
+Bradykinese
+Muskelbiopsie
+vaskuläre Enzephalopathie
+Akinese
+areflexisch
+Anfallsprophylaxe
+Blutpatch
+Todd-Parese
+Fußheberorthese
+generalisierte Epilepsie
+Hypomimie
+Nervenbiopsie
+Frontallappenepilepsie
+Mikrographie
+parästhetisch
+intrathekale Baclofentherapie
+periradikuläre Therapie
+juvenile myoklonische Epilepsie
+Festination
+Albuminquotient
+Absence-Epilepsie
+Freezing of Gait
+axonal
+Schlucktherapie
+refraktärer Status epilepticus
+posturale Instabilität
+Liquorzytologie
+psychogener nicht epileptischer Anfall
+Ruhetremor
+myopathisch
+neuropsychologische Rehabilitation
+akut symptomatischer Anfall
+Aktionstremor
+Gangliosid-Antikörper
+Entzugskrampfanfall
+Intentionstremor
+myasthen
+funktionelle Elektrostimulation
+klinisch isoliertes Syndrom
+Rumpfataxie
+Anti-GAD-Antikörper
+limbische Enzephalitis
+Gliedmaßenataxie
+supratentoriell
+Kopfschmerzprophylaxe
+transverse Myelitis
+Retropulsion
+Anti-LGI1-Antikörper
+diabetische Polyneuropathie
+Lateropulsion
+infratentoriell
+Vestibularisrehabilitation
+alkoholtoxische Polyneuropathie
+Fußheberparese
+Tau-Protein
+chemotherapieinduzierte Polyneuropathie
+Pronationstendenz
+periventrikulär
+Lagerungsmanöver
+axonale Polyneuropathie
+Extinktionsphänomen
+Phospho-Tau
+hereditäre motorisch-sensible Neuropathie
+ideomotorische Apraxie
+intrathekal
+antithrombotische Sekundärprävention
+Charcot-Marie-Tooth-Erkrankung
+Anomie
+Amyloid-Beta-Quotient
+Mononeuritis multiplex
+Agrammatismus
+radikulär
+Critical-Illness-Myopathie
+Alexie
+Neurofilament-Leichtkette
+Loge-de-Guyon-Syndrom
+Agraphie
+extrapyramidal
+Peroneusneuropathie
+Akalkulie
+Langzeit-EEG
+Radialisparese
+Diplopie
+postiktal
+Plexus-brachialis-Läsion
+Sakkadendysmetrie
+Schlafentzugs-EEG
+lumbosakrale Plexopathie
+Skew Deviation
+interiktal
+zervikale Radikulopathie
+Anisokorie
+Fotostimulation
+lumbosakrale Radikulopathie
+Ptosis
+iktal
+Syringomyelie
+Bell-Phänomen
+MR-Perfusion
+Alzheimer-Krankheit
+Dysphonie
+Korsakow-Syndrom
+bulbäre Dysarthrie
+MR-Angiographie
+essentieller Tremor
+Zungendeviation
+zervikale Dystonie
+Hypoglossusparese
+kranielle Magnetresonanztomographie
+Blepharospasmus
+Gaumensegelparese
+Narkolepsie
+stille Aspiration
+spinale Magnetresonanztomographie
+spinale Muskelatrophie
+Meningismus
+Dermatomyositis
+Stauungspapille
+neuropsychologische Testung
+Rhabdomyolyse
+Sharp Wave
+funktionelle neurologische Störung
+Burst-Suppression-Muster
+Montreal Cognitive Assessment
+Migräne mit Aura
+lateralisierte periodische Entladung
+vestibuläre Migräne
+photoparoxysmale Reaktion
+Mini-Mental-Status-Test
+Status migränosus
+postiktale Verlangsamung
+Clusterkopfschmerz
+positive scharfe Welle
+DemTect
+postherpetische Neuralgie
+Leitungsblock
+medikamenteninduzierter Kopfschmerz
+temporale Dispersion
+Aachener Aphasie-Test
+postpunktioneller Kopfschmerz
+Dekrement
+bilaterale Vestibulopathie
+chronisch neurogener Umbau
+Barthel-Index
+Morbus Menière
+pathologische Spontanaktivität
+Varizella-Zoster-Enzephalitis
+Kataplexie
+Hunt-und-Hess-Klassifikation
+bakterielle Meningitis
+Hypersomnie
+Glioblastom
+anterograde Amnesie
+kalorische Vestibularisprüfung
+Meningeom
+Konfabulation
+ZNS-Lymphom
+exekutive Dysfunktion
+vestibulär evozierte myogene Potenziale
+komplexes regionales Schmerzsyndrom
+Videofluoroskopie des Schluckakts
+Kipptischuntersuchung
+L-Dopa-Test
+Liquorablassversuch
+TIA
+EEG
+vaskuläre Demenz
+Muskelatrophie
+Muskelsonographie
+Delir
+Rigor
+neurogen
+chronische Migräne
+Spastik
+Spannungskopfschmerz
+Hirnabszess
+Hirnmetastase
+Subclavian-Steal-Syndrom
+Haltetremor
+Anti-CASPR2-Antikörper
+Neurosarkoidose
+Spiegeltherapie
+Flow-Diverter-Implantation
+Gowers-Zeichen
+lumboperitonealer Shunt
+vaskulitische Neuropathie
+Trail Making Test
+Tarsaltunnelsyndrom
+Constraint-Induced Movement Therapy
+stereotaktische Hirnbiopsie
+programmierbares Shuntventil
+Ramsay-Hunt-Syndrom
+Elektronystagmographie
+spinaler Infarkt
+transkranielle Gleichstromstimulation
+Temporallappenresektion
+spinale durale arteriovenöse Fistel
+semantische Demenz
+selektive Amygdalohippokampektomie
+orthostatischer Tremor
+Meige-Syndrom
+Okzipitalisblockade
+Friedreich-Ataxie
+Polymyositis
+immunvermittelte nekrotisierende Myopathie
+myotone Dystrophie
+fazioskapulohumerale Muskeldystrophie
+Gliedergürtelmuskeldystrophie
+Stiff-Person-Syndrom
+hemiplegische Migräne
+Glossopharyngeusneuralgie
+Okzipitalisneuralgie
+paroxysmale Hemikranie
+Hemicrania continua
+Vestibularisparoxysmie
+persistierender postural-perzeptiver Schwindel
+epiduraler Abszess
+posturales orthostatisches Tachykardiesyndrom
+RT-QuIC

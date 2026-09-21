@@ -1,0 +1,259 @@
+# Anatomie Thorax (Anatomie Thorax)
+# Quelle: medical_asr generated_v2, Modul anatomy.thorax — unveraendert uebernommen.
+#
+# Reihenfolge = ASR-Prioritaet (nicht Korpushaeufigkeit): vorne stehen die
+# Begriffe, an denen ein allgemeines ASR am ehesten scheitert.
+# Stufen 100 / 250 nehmen jeweils die ersten N Zeilen,
+# daher gelten die Stufen per Konstruktion als Praefixe voneinander.
+# Zeilen mit # sind Kommentare. Reihenfolge NICHT alphabetisch sortieren.
+
+Truncus pulmonalis
+Arteria pulmonalis dextra
+Arteria pulmonalis sinistra
+Venae pulmonales
+Aorta ascendens
+Arcus aortae
+Aorta thoracica descendens
+Truncus brachiocephalicus
+Vena cava superior
+Vena brachiocephalica dextra
+Vena brachiocephalica sinistra
+Vena azygos
+Vena hemiazygos
+Ductus thoracicus
+Nervus phrenicus
+Nervus laryngeus recurrens
+Ligamentum arteriosum
+Ligamentum pulmonale
+Recessus costodiaphragmaticus
+Recessus costomediastinalis
+Recessus phrenicomediastinalis
+Pleura visceralis
+Pleura parietalis
+Pleura mediastinalis
+Pleura diaphragmatica
+Cupula pleurae
+Hilum pulmonis
+Radix pulmonis
+Fissura obliqua pulmonis
+Fissura horizontalis pulmonis dextri
+Lobus superior pulmonis dextri
+Lobus medius pulmonis dextri
+Lobus inferior pulmonis dextri
+Lobus superior pulmonis sinistri
+Lobus inferior pulmonis sinistri
+Lingula pulmonis sinistri
+Bronchus principalis dexter
+Bronchus principalis sinister
+Bronchus intermedius
+Carina tracheae
+Pars thoracica tracheae
+Pars thoracica oesophagi
+Hiatus oesophageus
+Hiatus aorticus
+Foramen venae cavae
+Centrum tendineum
+Crus dextrum diaphragmatis
+Crus sinistrum diaphragmatis
+Mediastinum superius
+Mediastinum anterius
+Mediastinum medium
+Mediastinum posterius
+Spatium retrosternale
+Spatium retrocardiacum
+Trigonum sternocostale
+Trigonum lumbocostale
+Arteria thoracica interna
+Arteria intercostalis posterior
+Arteria intercostalis anterior
+Arteria pericardiacophrenica
+Arteria musculophrenica
+Arteriae bronchiales
+Plexus pulmonalis
+Plexus oesophageus
+Truncus sympathicus
+Ganglion cervicothoracicum
+Nodi lymphoidei tracheobronchiales
+Nodi lymphoidei bronchopulmonales
+Nodi lymphoidei paratracheales
+Nodi lymphoidei mediastinales posteriores
+Nodi lymphoidei parasternales
+Angulus venosus
+Sinus transversus pericardii
+Sinus obliquus pericardii
+Septum interatriale
+Septum interventriculare
+Auricula dextra
+Auricula sinistra
+Sulcus coronarius
+Sulcus interventricularis anterior
+Segmentum apicale pulmonis
+Segmentum posterius pulmonis
+Segmentum anterius pulmonis
+Segmentum laterale lobi medii
+Segmentum mediale lobi medii
+Segmentum superius lobi inferioris
+Segmentum basale mediale
+Segmentum basale anterius
+Segmentum basale laterale
+Segmentum basale posterius
+Segmentum apicoposterius
+Segmentum lingulare superius
+Segmentum lingulare inferius
+Segmentum basale anteromediale
+Bronchus lobaris superior dexter
+Bronchus lobaris medius
+Bronchus lobaris inferior dexter
+Bronchus lobaris superior sinister
+Bronchus lobaris inferior sinister
+Bronchus segmentalis
+Bronchiolus terminalis
+Bronchiolus respiratorius
+Ductus alveolaris
+Acinus pulmonis
+Lobulus pulmonis
+Septum interlobulare
+peribronchovaskuläres Interstitium
+subpleurales Interstitium
+Apex pulmonis
+Basis pulmonis
+Facies costalis pulmonis
+Facies mediastinalis pulmonis
+Facies diaphragmatica pulmonis
+Margo anterior pulmonis
+Margo inferior pulmonis
+Incisura cardiaca pulmonis sinistri
+Impressio cardiaca pulmonis
+Sulcus aorticus
+Cavitas pleuralis
+Pleura costalis
+Fascia endothoracica
+Membrana suprapleuralis
+Apertura thoracis superior
+Apertura thoracis inferior
+Angulus infrasternalis
+Arcus costalis
+Spatium intercostale
+Sulcus costae
+Caput costae
+Collum costae
+Tuberculum costae
+Angulus costae
+Corpus costae
+Costa prima
+Costa secunda
+Costae fluctuantes
+Cartilago costalis
+Manubrium sterni
+Corpus sterni
+Processus xiphoideus
+Angulus sterni
+Incisura jugularis
+Incisura clavicularis
+Articulatio sternoclavicularis
+Articulatio sternocostalis
+Articulatio capitis costae
+Articulatio costotransversaria
+Ligamentum costotransversarium
+Ligamentum capitis costae radiatum
+Symphysis manubriosternalis
+Musculus intercostalis externus
+Musculus intercostalis internus
+Musculus intercostalis intimus
+Musculus transversus thoracis
+Musculus subcostalis
+Musculus serratus anterior
+Musculus pectoralis major
+Musculus pectoralis minor
+Musculus subclavius
+Musculus latissimus dorsi
+Musculus serratus posterior superior
+Musculus serratus posterior inferior
+Fascia clavipectoralis
+Fascia pectoralis
+Trigonum clavipectorale
+Sulcus deltoideopectoralis
+Diaphragma
+Pars sternalis diaphragmatis
+Pars costalis diaphragmatis
+Pars lumbalis diaphragmatis
+Ligamentum arcuatum medianum
+Ligamentum arcuatum mediale
+Ligamentum arcuatum laterale
+Nervus intercostalis
+Nervus subcostalis
+Nervus intercostobrachialis
+Nervus thoracicus longus
+Nervus thoracodorsalis
+Nervus splanchnicus major
+Nervus splanchnicus minor
+Nervus splanchnicus imus
+Nervus vagus
+Truncus vagalis anterior
+Truncus vagalis posterior
+Ganglia thoracica
+Arteria subclavia
+Arteria thoracoacromialis
+Arteria thoracica lateralis
+Arteria thoracodorsalis
+Arteria intercostalis suprema
+Arteria subcostalis
+Arteria phrenica superior
+Vena subclavia
+Vena thoracica interna
+Vena intercostalis superior
+Vena hemiazygos accessoria
+Venae bronchiales
+Vena thoracoepigastrica
+Vena thoracica lateralis
+Ductus lymphaticus dexter
+Cisterna chyli
+Truncus bronchomediastinalis
+Truncus subclavius
+Nodi lymphoidei intercostales
+Nodi lymphoidei phrenici superiores
+Nodi lymphoidei axillares
+Nodi lymphoidei supraclaviculares
+Thymus
+Pericardium fibrosum
+Pericardium serosum
+Cavitas pericardiaca
+Epicardium
+Myocardium
+Endocardium
+Apex cordis
+Basis cordis
+Facies sternocostalis cordis
+Facies diaphragmatica cordis
+Atrium dextrum
+Atrium sinistrum
+Ventriculus dexter
+Ventriculus sinister
+Valva aortae
+Valva trunci pulmonalis
+Valva tricuspidalis
+Valva mitralis
+Vena cava inferior
+Sinus coronarius
+Arteria coronaria dextra
+Arteria coronaria sinistra
+Ramus interventricularis anterior
+Ramus circumflexus
+Ramus interventricularis posterior
+Constrictio bronchoaortica
+Adventitia oesophagi
+Muscularis oesophagi
+Tela submucosa oesophagi
+Musculus trachealis
+Pars membranacea tracheae
+Cartilago trachealis
+Ligamentum anulare tracheae
+Mesooesophagus
+Glandula mammaria
+Processus axillaris mammae
+Ductus lactiferus
+Papilla mammaria
+Areola mammae
+Ligamenta suspensoria mammaria
+Spatium retromammarium
+Lobulus glandulae mammariae

@@ -1,0 +1,33 @@
+# Neurologie – Handelsnamen (Neurologie)
+# Quelle: medical_asr generated_v2, Modul meds.neurology.trade — unveraendert uebernommen.
+#
+# Reihenfolge = ASR-Prioritaet (nicht Korpushaeufigkeit): vorne stehen die
+# Begriffe, an denen ein allgemeines ASR am ehesten scheitert.
+# Stufen 24 nehmen jeweils die ersten N Zeilen,
+# daher gelten die Stufen per Konstruktion als Praefixe voneinander.
+# Zeilen mit # sind Kommentare. Reihenfolge NICHT alphabetisch sortieren.
+
+Keppra
+Vimpat
+Briviact
+Lamictal
+Neupro
+Ocrevus
+Kesimpta
+Tysabri
+Tecfidera
+Vumerity
+Gilenya
+Mayzent
+Duodopa
+Produodopa
+Botox
+Aquipta
+Imigran
+Naramig
+Requip
+Evrysdi
+Fintepla
+Xyrem
+Rystiggo
+Zilbrysq

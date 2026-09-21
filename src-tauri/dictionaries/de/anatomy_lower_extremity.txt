@@ -1,0 +1,259 @@
+# Anatomie untere Extremität (Anatomie untere Extremität)
+# Quelle: medical_asr generated_v2, Modul anatomy.lower_extremity — unveraendert uebernommen.
+#
+# Reihenfolge = ASR-Prioritaet (nicht Korpushaeufigkeit): vorne stehen die
+# Begriffe, an denen ein allgemeines ASR am ehesten scheitert.
+# Stufen 100 / 250 nehmen jeweils die ersten N Zeilen,
+# daher gelten die Stufen per Konstruktion als Praefixe voneinander.
+# Zeilen mit # sind Kommentare. Reihenfolge NICHT alphabetisch sortieren.
+
+Ligamentum cruciatum anterius
+Ligamentum cruciatum posterius
+Ligamentum collaterale tibiale
+Ligamentum collaterale fibulare
+Ligamentum popliteum obliquum
+Ligamentum popliteum arcuatum
+Ligamentum patellae
+Retinaculum patellae mediale
+Retinaculum patellae laterale
+Ligamentum patellofemorale mediale
+Ligamentum meniscofemorale anterius
+Ligamentum meniscofemorale posterius
+Ligamentum transversum genus
+Meniscus medialis
+Meniscus lateralis
+Hinterhorn des Innenmeniskus
+Hinterhorn des Außenmeniskus
+Vorderhorn des Innenmeniskus
+Vorderhorn des Außenmeniskus
+Ligamentum iliofemorale
+Ligamentum ischiofemorale
+Ligamentum pubofemorale
+Ligamentum capitis femoris
+Labrum acetabuli
+Ligamentum talofibulare anterius
+Ligamentum talofibulare posterius
+Ligamentum calcaneofibulare
+Ligamentum deltoideum
+Ligamentum tibiofibulare anterius
+Ligamentum tibiofibulare posterius
+Ligamentum calcaneonaviculare plantare
+Ligamentum bifurcatum
+Ligamentum plantare longum
+Ligamentum talocalcaneum interosseum
+Ligamentum cuneometatarsale interosseum
+Syndesmosis tibiofibularis
+Sinus tarsi
+Canalis tarsi
+Nervus ischiadicus
+Nervus femoralis
+Nervus obturatorius
+Nervus tibialis
+Nervus fibularis communis
+Nervus fibularis superficialis
+Nervus fibularis profundus
+Nervus suralis
+Nervus saphenus
+Nervus cutaneus femoris lateralis
+Nervus cutaneus femoris posterior
+Nervus plantaris medialis
+Nervus plantaris lateralis
+Arteria femoralis
+Arteria profunda femoris
+Arteria poplitea
+Arteria tibialis anterior
+Arteria tibialis posterior
+Arteria fibularis
+Arteria dorsalis pedis
+Arteria plantaris medialis
+Arteria plantaris lateralis
+Arcus plantaris profundus
+Vena femoralis
+Vena poplitea
+Vena saphena magna
+Vena saphena parva
+Hiatus adductorius
+Canalis adductorius
+Trigonum femorale
+Lacuna musculorum
+Lacuna vasorum
+Canalis femoralis
+Trochanter major
+Trochanter minor
+Fossa intercondylaris
+Tuberositas tibiae
+Tuberositas ossis metatarsalis quinti
+Sustentaculum tali
+Processus lateralis tali
+Tuber calcanei
+Tendo calcaneus
+Articulatio coxae
+Articulatio genus
+Articulatio femoropatellaris
+Articulatio tibiofibularis
+Articulatio talocruralis
+Articulatio subtalaris
+Articulatio talocalcaneonavicularis
+Articulatio calcaneocuboidea
+Articulatio tarsi transversa
+Articulationes tarsometatarsales
+Articulationes metatarsophalangeae
+Articulationes interphalangeae pedis
+Acetabulum
+Fossa acetabuli
+Facies lunata acetabuli
+Incisura acetabuli
+Ligamentum transversum acetabuli
+Caput femoris
+Fovea capitis femoris
+Collum femoris
+Linea intertrochanterica
+Crista intertrochanterica
+Fossa trochanterica
+Tuberositas glutea
+Linea aspera
+Condylus medialis femoris
+Condylus lateralis femoris
+Epicondylus medialis femoris
+Epicondylus lateralis femoris
+Tuberculum adductorium
+Facies patellaris femoris
+Facies articularis patellae
+Condylus medialis tibiae
+Condylus lateralis tibiae
+Eminentia intercondylaris
+Area intercondylaris anterior
+Area intercondylaris posterior
+Malleolus medialis
+Incisura fibularis tibiae
+Linea musculi solei
+Caput fibulae
+Collum fibulae
+Malleolus lateralis
+Fossa malleoli lateralis
+Caput tali
+Collum tali
+Trochlea tali
+Sulcus tali
+Processus posterior tali
+Tuberculum laterale processus posterioris tali
+Sulcus tendinis musculi flexoris hallucis longi
+Sulcus calcanei
+Processus medialis tuberis calcanei
+Trochlea fibularis
+Os naviculare
+Tuberositas ossis navicularis
+Os cuboideum
+Os cuneiforme mediale
+Os cuneiforme intermedium
+Os cuneiforme laterale
+Phalanx proximalis pedis
+Phalanx distalis pedis
+Ossa sesamoidea pedis
+Os trigonum
+Zona orbicularis
+Plica synovialis mediopatellaris
+Plica synovialis infrapatellaris
+Corpus adiposum infrapatellare
+Bursa suprapatellaris
+Bursa prepatellaris
+Bursa infrapatellaris profunda
+Bursa subtendinea musculi gastrocnemii medialis
+Bursa musculi semimembranosi
+Bursa trochanterica
+Bursa iliopectinea
+Bursa anserina
+Bursa tendinis calcanei
+Pes anserinus
+Tractus iliotibialis
+Fascia lata
+Hiatus saphenus
+Septum intermusculare femoris laterale
+Septum intermusculare femoris mediale
+Fascia cruris
+Membrana interossea cruris
+Retinaculum musculorum extensorum superius
+Retinaculum musculorum extensorum inferius
+Retinaculum musculorum flexorum pedis
+Retinaculum musculorum fibularium superius
+Retinaculum musculorum fibularium inferius
+Aponeurosis plantaris
+Ligamentum metatarsale transversum profundum
+Ligamentum calcaneocuboideum plantare
+Ligamentum talonaviculare dorsale
+Pars tibiotalaris anterior
+Pars tibiotalaris posterior
+Pars tibiocalcanea
+Pars tibionavicularis
+Musculus iliopsoas
+Musculus psoas major
+Musculus iliacus
+Musculus gluteus maximus
+Musculus gluteus medius
+Musculus gluteus minimus
+Musculus tensor fasciae latae
+Musculus piriformis
+Musculus obturatorius internus
+Musculus obturatorius externus
+Musculus gemellus superior
+Musculus gemellus inferior
+Musculus quadratus femoris
+Musculus sartorius
+Musculus quadriceps femoris
+Musculus rectus femoris
+Musculus vastus medialis
+Musculus vastus lateralis
+Musculus vastus intermedius
+Musculus pectineus
+Musculus adductor longus
+Musculus adductor brevis
+Musculus adductor magnus
+Musculus gracilis
+Musculus biceps femoris
+Musculus semitendinosus
+Musculus semimembranosus
+Musculus popliteus
+Musculus tibialis anterior
+Musculus extensor hallucis longus
+Musculus extensor digitorum longus
+Musculus fibularis longus
+Musculus fibularis brevis
+Musculus fibularis tertius
+Musculus gastrocnemius
+Musculus soleus
+Musculus plantaris
+Musculus tibialis posterior
+Musculus flexor hallucis longus
+Musculus flexor digitorum longus
+Musculus extensor hallucis brevis
+Musculus extensor digitorum brevis
+Musculus abductor hallucis
+Musculus flexor hallucis brevis
+Musculus adductor hallucis
+Musculus flexor digitorum brevis
+Musculus quadratus plantae
+Musculus abductor digiti minimi pedis
+Musculus flexor digiti minimi brevis pedis
+Musculi lumbricales pedis
+Musculi interossei dorsales pedis
+Musculi interossei plantares
+Chiasma crurale
+Chiasma plantare
+Arcus tendineus musculi solei
+Fossa poplitea
+Ramus infrapatellaris nervi sapheni
+Nervus cutaneus surae medialis
+Nervi digitales plantares communes
+Nervi digitales plantares proprii
+Arteria circumflexa femoris medialis
+Arteria circumflexa femoris lateralis
+Arteria genus descendens
+Arteria recurrens tibialis anterior
+Arteriae metatarsales dorsales
+Arteriae metatarsales plantares
+Rete articulare genus
+Arcus venosus dorsalis pedis
+Venae perforantes cruris
+Nodi lymphoidei poplitei
+Nodi lymphoidei inguinales superficiales
+Nodi lymphoidei inguinales profundi

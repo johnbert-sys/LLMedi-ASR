@@ -1,0 +1,509 @@
+# Nephrologie (Nephrologie)
+# Quelle: medical_asr generated_v2, Modul internal.nephrology — unveraendert uebernommen.
+#
+# Reihenfolge = ASR-Prioritaet (nicht Korpushaeufigkeit): vorne stehen die
+# Begriffe, an denen ein allgemeines ASR am ehesten scheitert.
+# Stufen 100 / 250 / 500 nehmen jeweils die ersten N Zeilen,
+# daher gelten die Stufen per Konstruktion als Praefixe voneinander.
+# Zeilen mit # sind Kommentare. Reihenfolge NICHT alphabetisch sortieren.
+
+membranoproliferative Glomerulonephritis
+dysmorphe Erythrozyten
+Albumin-Kreatinin-Quotient
+fokal segmentale Glomerulosklerose
+kontinuierliche venovenöse Hämodiafiltration
+membranöse Nephropathie
+glomeruläre Hämaturie
+Protein-Kreatinin-Quotient
+IgA-Nephropathie
+kontinuierliche venovenöse Hämofiltration
+rapid-progressive Glomerulonephritis
+nephrotische Proteinurie
+glomeruläre Filtrationsrate
+ANCA-assoziierte Glomerulonephritis
+kontinuierliche venovenöse Hämodialyse
+Anti-GBM-Glomerulonephritis
+Akanthozyturie
+Kreatinin-Clearance
+tubulointerstitielle Nephritis
+intermittierende Hämodialyse
+thrombotische Mikroangiopathie
+Erythrozytenzylinder
+Cystatin-C-Bestimmung
+hämolytisch-urämisches Syndrom
+Online-Hämodiafiltration
+atypisches hämolytisch-urämisches Syndrom
+Leukozytenzylinder
+Urinsedimentmikroskopie
+diabetische Nephropathie
+automatisierte Peritonealdialyse
+hypertensive Nephrosklerose
+granulierte Zylinder
+Phasenkontrastmikroskopie
+autosomal-dominante polyzystische Nierenerkrankung
+kontinuierliche ambulante Peritonealdialyse
+akute Tubulusnekrose
+tubuläre Proteinurie
+fraktionelle Natriumausscheidung
+nephrotisches Syndrom
+Plasmapherese
+nephritisches Syndrom
+albuminurische Nierenkrankheit
+fraktionelle Harnstoffausscheidung
+kardiorenales Syndrom
+Immunadsorption
+hepatorenales Syndrom
+intradialytische Hypotonie
+renale Duplexsonographie
+renale Osteodystrophie
+Lipoproteinapherese
+sekundärer Hyperparathyreoidismus
+postobstruktive Polyurie
+Nierenarterienduplex
+Calciphylaxie
+arteriovenöse Fistelanlage
+chronische Transplantatnephropathie
+tubuläre Atrophie
+Transplantatsonographie
+BK-Polyomavirus-Nephropathie
+Shuntrevision
+antikörpervermittelte Transplantatabstoßung
+interstitielle Fibrose
+Peritoneal-Äquilibrationstest
+T-Zell-vermittelte Transplantatabstoßung
+Shuntthrombektomie
+urämische Perikarditis
+mesangiale Proliferation
+Dialyseadäquanzmessung
+renale tubuläre Azidose
+Shuntangioplastie
+endokapilläre Hyperzellularität
+HLA-Antikörperscreening
+transjuguläre Nierenbiopsie
+extrakapilläre Proliferation
+donor-spezifischer Antikörpernachweis
+perkutane Nierenbiopsie
+subepitheliale Immundepots
+Phospholipase-A2-Rezeptor-Antikörper
+Nierentransplantation
+subendotheliale Immundepots
+glomeruläre Immunfluoreszenz
+kombinierte Pankreas-Nieren-Transplantation
+glomeruläre Basalmembranverdickung
+Elektronenmikroskopie
+Podozytenfußfortsatzverschmelzung
+nephrogenetische Diagnostik
+akute Nierenschädigung
+chronische Nierenkrankheit
+regionale Zitratantikoagulation
+terminale Niereninsuffizienz
+prärenales Nierenversagen
+heparinfreie Dialyse
+postrenales Nierenversagen
+Hyperkaliämie
+systemische Heparinisierung
+Hypokaliämie
+Hyponatriämie
+nephroprotektive Therapie
+Hypernatriämie
+metabolische Azidose
+antiproteinurische Therapie
+metabolische Alkalose
+Hyperphosphatämie
+immunsuppressive Induktionstherapie
+Hypophosphatämie
+Hypokalzämie
+immunsuppressive Erhaltungstherapie
+Hyperkalzämie
+Hypermagnesiämie
+antirejektive Therapie
+Hypomagnesiämie
+renale Anämie
+Steroidstoßtherapie
+nephrogener Diabetes insipidus
+Nierenarterienstenose
+Komplementinhibition
+Nierenarterienthrombose
+Nierenvenenthrombose
+B-Zell-Depletion
+Niereninfarkt
+akute Pyelonephritis
+Erythropoesestimulation
+chronische Pyelonephritis
+Urosepsis
+intravenöse Eisensubstitution
+Hydronephrose
+Nephrolithiasis
+Phosphatbindertherapie
+Hyperoxalurie
+Hyperkalziurie
+Kaliumbindertherapie
+urämische Enzephalopathie
+Dialyse-Shunt-Thrombose
+Bikarbonatsubstitution
+Dialyse-Shunt-Stenose
+Peritonealdialyse-assoziierte Peritonitis
+Kaliumrestriktion
+Dialysekatheterinfektion
+Transplantatpyelonephritis
+Phosphatrestriktion
+akute Transplantatabstoßung
+nephrogene systemische Fibrose
+Kochsalzrestriktion
+Kristallnephropathie
+Myelomniere
+eiweißmodifizierte Ernährung
+Lupusnephritis
+Restless-Legs-Syndrom
+intradialytische parenterale Ernährung
+konservative Nierenersatzplanung
+Volumenmanagement
+Trockengewichtsadaptation
+Ultrafiltrationsprofil
+Natriumprofil
+Dialysattemperaturabsenkung
+Low-Flux-Dialyse
+High-Flux-Dialyse
+inkrementelle Dialyse
+assistierte Peritonealdialyse
+Peritonitisprophylaxe
+Transplantatnachsorge
+Minimal-Change-Glomerulopathie
+C3-Glomerulopathie
+fibrilläre Glomerulonephritis
+immunotaktoide Glomerulopathie
+postinfektiöse Glomerulonephritis
+Immunkomplexglomerulonephritis
+IgA-Vaskulitis
+renale Amyloidose
+Leichtkettenablagerungskrankheit
+monoklonale Gammopathie renaler Signifikanz
+oxalatinduzierte Nephropathie
+Uratnephropathie
+Analgetikanephropathie
+Lithiumnephropathie
+Kontrastmittel-assoziierte akute Nierenschädigung
+Pigmentnephropathie
+Refluxnephropathie
+obstruktive Uropathie
+Nierenpapillennekrose
+Cholesterinemboliesyndrom
+sklerodermische renale Krise
+maligne Nephrosklerose
+Alport-Syndrom
+Dünnbasalmembran-Nephropathie
+autosomal-rezessive polyzystische Nierenerkrankung
+medulläre Schwammniere
+Nephronophthise
+autosomal-dominante tubulointerstitielle Nierenerkrankung
+Fabry-Nephropathie
+Zystinurie
+primäre Hyperoxalurie
+Dent-Krankheit
+Fanconi-Syndrom
+Bartter-Syndrom
+Gitelman-Syndrom
+Liddle-Syndrom
+Gordon-Syndrom
+renaler Phosphatverlust
+renales Salzverlustsyndrom
+hyporeninämischer Hypoaldosteronismus
+SIADH
+urämische Polyneuropathie
+Dialyseamyloidose
+Dialyse-Dysäquilibrium-Syndrom
+enkapsulierende Peritonealsklerose
+renales Protein-Energie-Wasting
+nephrogener Aszites
+tertiärer Hyperparathyreoidismus
+adyname Knochenerkrankung
+Osteitis fibrosa
+nephrogene Osteomalazie
+nephrogener Pruritus
+Transplantatglomerulopathie
+Transplantatnierenarterienstenose
+PTLD
+transplantatassoziierte thrombotische Mikroangiopathie
+hypertensive Notfallsituation
+membranöse Lupusnephritis
+proliferative Lupusnephritis
+pauci-immune Glomerulonephritis
+Halbmondglomerulonephritis
+AA-Amyloidose
+AL-Amyloidose
+fibrinoide Arteriolennekrose
+akute Phosphatnephropathie
+enterische Hyperoxalurie
+Hypozitraturie
+isolierte renale Glukosurie
+Shunt-Steal-Syndrom
+High-Output-Herzinsuffizienz
+Shuntaneurysma
+Shuntpseudoaneurysma
+zentrale Venenstenose
+Katheterthrombose
+Kathetersepsis
+Exit-Site-Infektion
+Tunnelinfektion
+Dialysatleckage
+Ultrafiltrationsversagen
+Hydrothorax bei Peritonealdialyse
+posttransplantärer Diabetes mellitus
+verzögerte Transplantatfunktion
+primäre Transplantatnichtfunktion
+akute kortikale Nekrose
+erworbene zystische Nierenerkrankung
+perirenales Hämatom
+glomerulär
+tubulointerstitiell
+mesangioproliferativ
+membranoproliferativ
+pauci-immun
+nephrotoxisch
+nephroprotektiv
+nephrotisch
+nephritisch
+oligurisch
+anurisch
+polyurisch
+azotämisch
+urämisch
+dialysepflichtig
+dialyseassoziiert
+intradialytisch
+interdialytisch
+peritoneal
+prärenal
+intrarenal
+postrenal
+proteinurisch
+albuminurisch
+hämaturisch
+hypervolämisch
+hypovolämisch
+euvolämisch
+hyperkaliämisch
+hyponatriämisch
+hyperphosphatämisch
+hypokalzämisch
+hyposthenurisch
+isosthenurisch
+immunsupprimiert
+antikörpervermittelt
+komplementvermittelt
+steroidresistent
+steroidabhängig
+steroidresponsiv
+dialysierbar
+zitratantikoaguliert
+glomerulosklerotisch
+Albuminurie
+Sammelurin
+Hämodialyse
+Dialysator
+Mikroalbuminurie
+Spontanurin
+Hämofiltration
+Hämofilter
+Makroalbuminurie
+Mittelstrahlurin
+Hämodiafiltration
+Dialysekatheter
+Mikrohämaturie
+Urinkultur
+Peritonealdialyse
+getunnelter Vorhofkatheter
+Makrohämaturie
+Urinstatus
+Heimdialyse
+Tenckhoff-Katheter
+Leukozyturie
+Urinosmolalität
+Akutdialyse
+Peritonealdialyse-Cycler
+Bakteriurie
+Serumosmolalität
+isolierte Ultrafiltration
+arteriovenöse Fistel
+Zylindrurie
+Osmolalitätslücke
+sequenzielle Ultrafiltration
+radiozephale Fistel
+Kristallurie
+Anionenlücke
+Hämoperfusion
+brachiozephale Fistel
+Glukosurie
+Urin-Anionenlücke
+extrakorporale Blutreinigung
+brachiobasiläre Fistel
+Aminoazidurie
+Bikarbonatbestimmung
+Dialysekatheteranlage
+Dialyseprothese
+Oligurie
+venöse Blutgasanalyse
+Dialysekatheterwechsel
+Dialysekanüle
+Anurie
+arterielle Blutgasanalyse
+Dialysekatheterentfernung
+Hämoadsorber
+Polyurie
+Kaliumbestimmung
+Peritonealdialysekatheterimplantation
+Nykturie
+Natriumbestimmung
+Peritonealdialysekatheterrevision
+Isosthenurie
+Phosphatbestimmung
+Peritonealdialysekatheterexplantation
+Hyposthenurie
+Magnesiumbestimmung
+Knopflochpunktion
+Azotämie
+ionisiertes Kalzium
+Strickleiterpunktion
+Urämie
+Parathormonbestimmung
+Shuntbanding
+Hyperurikämie
+Vitamin-D-Status
+Shuntligatur
+Hypervolämie
+Ferritinbestimmung
+Prothesenshuntanlage
+Hypovolämie
+Transferrinsättigung
+Venenballondilatation
+Exsikkose
+Retikulozytenhämoglobin
+Nierenarterienstenting
+Anasarka
+Serumelektrophorese
+renale Denervation
+periorbitales Ödem
+Urinelektrophorese
+perkutane Nephrostomie
+Hypalbuminämie
+Immunfixation
+Harnleiterschienung
+Kreatininanstieg
+freie Leichtketten
+native Nephrektomie
+Harnstoffretention
+Kryoglobulinbestimmung
+Transplantatnephrektomie
+Restdiurese
+Komplementdiagnostik
+Lebendnierenspende
+Dialysepflichtigkeit
+Anti-GBM-Antikörper
+präemptive Nierentransplantation
+interdialytische Gewichtszunahme
+MPO-ANCA
+ABO-inkompatible Nierentransplantation
+urämischer Foetor
+antinukleäre Antikörper
+Desensibilisierung
+urämische Blutungsneigung
+Anti-dsDNA-Antikörper
+Parathyreoidektomie
+intradialytische Hypertonie
+Anti-THSD7A-Antikörper
+Shuntgeräusch
+BK-Virus-PCR
+Shuntschwirren
+CMV-PCR
+verlängerte Nachblutung
+HLA-Typisierung
+Rezirkulation
+Crossmatch
+verminderte Dialyseeffektivität
+Lymphozytentoxizitätstest
+trübes Dialysat
+Durchflusszytometrie-Crossmatch
+fibrinhaltiges Dialysat
+Nierensonographie
+peritonealer Eiweißverlust
+Restharnsonographie
+Harnkonzentrationsstörung
+MAG3-Szintigraphie
+Natriumretention
+DMSA-Szintigraphie
+osmotische Diurese
+Nierenfunktionsszintigraphie
+Hyporeninämie
+Computertomographie-Urographie
+Hypoaldosteronismus
+Magnetresonanz-Urographie
+Non-Dipping
+Nierenangiographie
+glomeruläre Hypertrophie
+Shuntsonographie
+Parenchymverschmälerung
+Shuntflussmessung
+erhöhte Parenchymechogenität
+Shuntangiographie
+Rinden-Mark-Differenzierung
+Bioimpedanzspektroskopie
+Kelchgruppenektasie
+Langzeitblutdruckmessung
+Ureterektasie
+Orthostasetest
+Nierenlagerklopfschmerz
+Nierenbiopsie
+peritubuläre Kapillaritis
+Transplantatbiopsie
+Glomerulitis
+Banff-Klassifikation
+Tubulitis
+Oxford-Klassifikation
+Intimaarteriitis
+MEST-C-Score
+Komplementverbrauch
+KDIGO-Klassifikation
+Hypokomplementämie
+CKD-EPI-Formel
+donor-spezifische Antikörper
+Kidney Failure Risk Equation
+C4d-Ablagerung
+Harnstoffreduktionsrate
+Kt/V
+Dialysance-Messung
+Renin-Aldosteron-Quotient
+Urin-pH-Messung
+Säurebelastungstest
+Durstversuch
+Desmopressintest
+Steinanalytik
+Tubulusfunktionsdiagnostik
+Beta-2-Mikroglobulin
+Alpha-1-Mikroglobulin
+Erythrozytenmorphologie
+CKD
+AKI
+ADPKD
+ARPKD
+FSGS
+MGRS
+HUS
+aHUS
+RPGN
+ANCA
+eGFR
+UACR
+UPCR
+CAPD
+APD
+CVVH
+CVVHD
+CVVHDF
+SLED
+HD
+HDF
+PD
+DSA
+HLA
+PTH
+CKD-MBD

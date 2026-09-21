@@ -1,0 +1,70 @@
+# Kardiologie – Handelsnamen (Pharmakologie / Kardiologie)
+# Quelle: medical_asr_harness_v0_1, Modul meds.cardiology.trade — unveraendert uebernommen.
+#
+# Reihenfolge = ASR-Prioritaet (nicht Korpushaeufigkeit): vorne stehen die
+# Begriffe, an denen ein allgemeines ASR am ehesten scheitert.
+# Stufen 25 / 50 / 60 nehmen jeweils die ersten N Zeilen, daher gilt 25 ⊂ 50 ⊂ 60
+# per Konstruktion. Nur diese eine Datei wird gebuendelt; die Stufen-Dateien
+# des Pakets sind exakte Praefixe davon und waeren redundant.
+# Zeilen mit # sind Kommentare. Reihenfolge NICHT alphabetisch sortieren.
+
+Lercanidipin-Hennig
+Beloc-Zok
+Eliquis
+Xarelto
+Lixiana
+Pradaxa
+Marcumar
+Clexane
+Fragmin
+Arixtra
+Aspirin
+Plavix
+Efient
+Brilique
+Concor
+Dilatrend
+Nebilet
+Delix
+Xanef
+Coversum
+Atacand
+Diovan
+Lorzaar
+Micardis
+Entresto
+Aldactone
+Inspra
+Forxiga
+Jardiance
+Procoralan
+Verquvo
+Lanoxin
+Lanitop
+Lasix
+Unat
+Esidrix
+Hygroton
+Norvasc
+Adalat
+Isoket
+Monoket
+Corvaton
+Ebrantil
+Cordarex
+Tambocor
+Rytmonorm
+Gilurytmal
+Crestor
+Sortis
+Ezetrol
+Repatha
+Praluent
+Leqvio
+Nilemdo
+Revatio
+Adcirca
+Tracleer
+Opsumit
+Volibris
+Adempas

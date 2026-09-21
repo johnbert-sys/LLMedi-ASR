@@ -1,0 +1,509 @@
+# Radiologie (Radiologie)
+# Quelle: medical_asr generated_v2, Modul radiology — unveraendert uebernommen.
+#
+# Reihenfolge = ASR-Prioritaet (nicht Korpushaeufigkeit): vorne stehen die
+# Begriffe, an denen ein allgemeines ASR am ehesten scheitert.
+# Stufen 100 / 250 / 500 nehmen jeweils die ersten N Zeilen,
+# daher gelten die Stufen per Konstruktion als Praefixe voneinander.
+# Zeilen mit # sind Kommentare. Reihenfolge NICHT alphabetisch sortieren.
+
+Diffusionsrestriktion
+Diffusionsbildgebung
+diffusionsrestringiert
+Spondylodiszitis
+Suszeptibilitätsartefakt
+Suszeptibilitätsbildgebung
+SWI
+Signalalteration
+diffusionsgewichtete Sequenz
+Choledocholithiasis
+Kontrastmittelextravasation
+FLAIR-Sequenz
+FLAIR
+Fettgewebsimbibierung
+Magnetresonanz-Cholangiopankreatikographie
+multiparametrische Prostata-MRT
+Blooming-Artefakt
+digitale Subtraktionsangiographie
+isodens
+Spondylarthrose
+Aufhärtungsartefakt
+CT-Perfusion
+perkutane transluminale Angioplastie
+TOF
+Stentgraft
+Partialvolumeneffekt
+MR-Perfusion
+isointens
+Unkovertebralarthrose
+Signalinhomogenität
+STIR-Sequenz
+Stentangioplastie
+MIP
+Vena-cava-Filter
+Fettsuppression
+protonendichtegewichtete Sequenz
+kontrastmittelaufnehmend
+Spondylolisthesis
+Randenhancement
+Gradientenechosequenz
+mechanische Thrombektomie
+MPR
+Embolisationscoil
+noduläres Enhancement
+Dixon-Technik
+hypervaskularisiert
+Spondylolyse
+leptomeningeales Enhancement
+Time-of-Flight-Angiographie
+transarterielle Chemoembolisation
+DSA
+Pigtailkatheter
+pachymeningeales Enhancement
+diffusionstensorbasierte Traktographie
+hypovaskularisiert
+Spinalkanalstenose
+peripheres noduläres Pooling
+MR-Enterographie
+selektive interne Radiotherapie
+MRCP
+Osteosynthesematerial
+Wash-in
+MR-Arthrographie
+spikuliert
+Myelomalazie
+Wash-out
+MR-Mammographie
+Radiofrequenzablation
+CEUS
+Spondylodeseimplantat
+arterielle Hypervaskularisation
+dynamische Kontrastmittelbildgebung
+lobuliert
+Sakruminsuffizienzfraktur
+Perfusionsdefizit
+Late Gadolinium Enhancement
+Mikrowellenablation
+HRCT
+Penumbra
+Chemical-Shift-Imaging
+solide-zystisch
+Osteomyelitis
+Kollateralisierung
+Opposed-Phase-Sequenz
+CT-gesteuerte Drainageanlage
+PTA
+Gefäßrarefizierung
+fettgesättigte Sequenz
+zystisch-nekrotisch
+Osteonekrose
+Füllungsdefekt
+Diffusionskoeffizient
+sonographisch gesteuerte Stanzbiopsie
+TACE
+Pulsatilitätsindex
+ADC-Karte
+osteolytisch
+Osteochondrosis dissecans
+Intimaflap
+Maximumintensitätsprojektion
+transjugulärer intrahepatischer portosystemischer Shunt
+SIRT
+Endoleak
+Dual-Energy-CT
+osteoblastisch
+Sakroiliitis
+In-Stent-Restenose
+hochauflösende Thorax-CT
+perkutane transhepatische Cholangiodrainage
+EVAR
+Gefäßummauerung
+Low-Dose-CT
+osteochondral
+Chondrokalzinose
+Mittellinienverlagerung
+CT-Koronarangiographie
+perkutane Nephrostomie
+TEVAR
+transependymaler Liquorübertritt
+CT-Urographie
+juxtakortikal
+Rotatorenmanschettenruptur
+Liquorzirkulationsstörung
+digitale Mammographie
+Coilembolisation
+Marklagerläsion
+Tomosynthese
+leptomeningeal
+Supraspinatussehnenruptur
+Leukoaraiose
+stereotaktische Vakuumbiopsie
+endovaskuläre Aneurysmaausschaltung
+Enzephalomalazie
+Kontrastmittelsonographie
+pachymeningeal
+Subskapularissehnenruptur
+Hämosiderinablagerung
+farbkodierte Duplexsonographie
+Vertebroplastie
+kortikale Superfizialsiderose
+Bolustracking
+peribronchovaskulär
+SLAP-Läsion
+perifokales Ödem
+LI-RADS-Klassifikation
+Kyphoplastie
+vasogenes Ödem
+Bosniak-Klassifikation
+zentrilobulär
+Bankart-Läsion
+zytotoxisches Ödem
+Fleischner-Kriterien
+periradikuläre Therapie
+intramedulläre Signalalteration
+RECIST-Kriterien
+perilymphatisch
+Hill-Sachs-Läsion
+Myelopathiesignal
+Modic-Klassifikation
+Facettengelenkinfiltration
+Nervenwurzelkompression
+ASPECTS
+perifissural
+Tendinosis calcarea
+Neuroforamenstenose
+Rezessusstenose
+peripankreatisch
+Subarachnoidalblutung
+Duralschlauchkompression
+Bandscheibensequestration
+periportal
+Subduralhämatom
+Vakuumphänomen
+Hinterkantenbeteiligung
+exophytisch
+intrazerebrale Blutung
+Sinterungsfraktur
+Fettmarkverdrängung
+extrakapsulär
+zerebrale Sinusvenenthrombose
+Osteolyse
+Osteosklerose
+zerebrale Amyloidangiopathie
+Periostreaktion
+Kortikalisunterbrechung
+Normaldruckhydrozephalus
+Kortikalisarrosion
+subchondrale Sklerosierung
+Vestibularisschwannom
+osteochondraler Defekt
+Meniskusextrusion
+Hypophysenmakroadenom
+Korbhenkelriss
+Muskelfettatrophie
+Meningeosis neoplastica
+Enthesiopathie
+Lipohämarthros
+Aortendissektion
+Weichteilemphysem
+retikuläre Zeichnungsvermehrung
+intramurales Aortenhämatom
+Honigwabenmuster
+Crazy-Paving-Muster
+Pseudoaneurysma
+Tree-in-Bud-Muster
+Mosaikperfusion
+infrarenales Bauchaortenaneurysma
+Air Trapping
+Traktionsbronchiektase
+Mesenterialischämie
+Bronchialwandverdickung
+Luftbronchogramm
+Pfortaderthrombose
+Rundatelektase
+Kompressionsatelektase
+Pankreasadenokarzinom
+Lungenrundherd
+subsolider Rundherd
+hepatozelluläres Karzinom
+spikulierte Raumforderung
+mediastinale Lymphadenopathie
+Cholangiokarzinom
+Lymphknotenkonglomerat
+Mesenterialödem
+intraduktale papillär-muzinöse Neoplasie
+Omental Cake
+Pneumoperitoneum
+fokale noduläre Hyperplasie
+Pneumatosis intestinalis
+Closed-Loop-Konfiguration
+nekrotisierende Pankreatitis
+Darmwandstratifizierung
+Pneumobilie
+Sigmadivertikulitis
+Double-Duct-Zeichen
+Gallengangsdilatation
+perityphlitischer Abszess
+Pankreasgangdilatation
+Walled-off-Nekrose
+Peritonealkarzinose
+peripankreatische Flüssigkeitskollektion
+Mikrokalzifikation
+Nierenzellkarzinom
+Architekturstörung
+Non-Mass-Enhancement
+Urothelkarzinom
+Spikula
+dorsale Schallverstärkung
+Angiomyolipom
+dorsaler Schallschatten
+Reverberationsartefakt
+Ureterolithiasis
+Kometenschweifartefakt
+Nephrokalzinose
+Nebennierenadenom
+Phäochromozytom
+Endometriom
+Tuboovarialabszess
+penetrierendes Aortenulkus
+Kontrastmittelanreicherung
+Magnetresonanztomographie
+hyperdens
+Lungenarterienembolie
+Raumforderung
+Computertomographie
+DWI
+Knochenmarködem
+CT-Angiographie
+hypodens
+Milchglastrübung
+MR-Angiographie
+ADC
+multiplanare Rekonstruktion
+hyperintens
+BI-RADS-Klassifikation
+PI-RADS-Klassifikation
+hypointens
+Metallartefakt
+T1-gewichtete Sequenz
+echoreich
+Osteochondrose
+Flussartefakt
+T2-gewichtete Sequenz
+Rotationsatherektomie
+STIR
+fenestrierte Endoprothese
+Pulsationsartefakt
+Spinechosequenz
+echoarm
+Bandscheibenprolaps
+Aliasing-Artefakt
+Turbo-Spinechosequenz
+kathetergestützte Thrombolyse
+PICC
+gebranchte Endoprothese
+Signalabsenkung
+Echo-Planar-Imaging
+echofrei
+Bandscheibenprotrusion
+Signalanhebung
+Inversion-Recovery-Sequenz
+Kryoablation
+Gefäßverschlussplug
+septales Enhancement
+Phasenkontrastangiographie
+avaskulär
+osteoporotische Wirbelkörperfraktur
+zentripetales Auffüllen
+Arterial Spin Labeling
+Uterusarterienembolisation
+Nephrostomiekatheter
+Kontrastmittelretention
+MR-Spektroskopie
+septiert
+Achillessehnenruptur
+portovenöse Kontrastierung
+funktionelle Magnetresonanztomographie
+Prostataarterienembolisation
+Gallengangsdrainage
+hepatobiliäre Phase
+MR-Neurographie
+infiltrativ
+plantare Fasziitis
+Spätphasenaufnahme
+MR-Myelographie
+Bronchialarterienembolisation
+Doppel-J-Schiene
+Mismatch
+MR-Urographie
+sklerosiert
+Baker-Zyste
+Reperfusionszeichen
+MR-Defäkographie
+Pfortaderembolisation
+Portkatheter
+Gefäßabbruch
+kardiale Magnetresonanztomographie
+subchondral
+Knochenmetastase
+Pendelfluss
+T1-Mapping
+Abszessdrainage
+Flow Diverter
+Resistenzindex
+T2-Mapping
+periostal
+Epiduralhämatom
+falsches Lumen
+In-Phase-Sequenz
+Clipmarkierung
+Markerclip
+wahres Lumen
+kontrastmittelverstärkte Sequenz
+intramedullär
+arteriovenöse Malformation
+Wandthrombus
+Subtraktionsbildgebung
+Drahtmarkierung
+Stentgraftmigration
+Minimumintensitätsprojektion
+extramedullär
+Glioblastom
+Plaqueulzeration
+Volume Rendering
+Gefäßektasie
+iterative Rekonstruktion
+intradural
+Meningeom
+Gefäßwandkontrastierung
+Spektral-CT
+Gefäßinvasion
+virtuelle Nativserie
+extradural
+Hirnabszess
+Tumorthrombus
+CT-Enterographie
+Raumforderungseffekt
+CT-Kolonographie
+intrakonal
+subdurales Empyem
+Ventrikelkompression
+CT-Myelographie
+Gliosezone
+Cone-Beam-CT
+extrakonal
+Cholesteatom
+Mikroblutung
+digitale Volumentomographie
+Myelonkontakt
+Kontrastmittelmammographie
+retrobulbär
+Nierenarterienstenose
+Anulusfissur
+Mammasonographie
+Deckplattenimpression
+Scherwellenelastographie
+periventrikulär
+Lebervenenthrombose
+Knochenmarkkonversion
+Kompressionssonographie
+subchondrale Zyste
+Power-Doppler-Sonographie
+subependymal
+Leberhämangiom
+Gelenkspaltverschmälerung
+B-Bild-Sonographie
+Randosteophyt
+Ösophagusbreischluck
+subpleural
+Leberadenom
+Usur
+Videofluoroskopie
+Knorpeldelamination
+Fistulographie
+pleuraständig
+Cholezystolithiasis
+Rampenläsion
+Lymphangiographie
+Wurzelläsion des Meniskus
+Ganzkörper-MRT
+mesenterial
+Cholezystitis
+Sehnenretraktion
+Osteodensitometrie
+Muskelödem
+EKG-Triggerung
+artefaktüberlagert
+Ileitis terminalis
+Synovialproliferation
+Atemtriggerung
+Weichteilverkalkung
+Lung-RADS-Klassifikation
+Invagination
+Phlebolith
+TNM-Klassifikation
+Konsolidierung
+Fazekas-Skala
+Volvulus
+Plattenatelektase
+Pfirrmann-Klassifikation
+Pleuraplaque
+Bridenileus
+Pleuraverdickung
+Kavitation
+Pyelonephritis
+Hilusverbreiterung
+Lymphknotennekrose
+Nierenabszess
+Peritonealverdickung
+Aszites
+Prostatakarzinom
+portales Venengas
+Kalibersprung
+Adnexraumforderung
+Darmwandhyperämie
+Kokardenzeichen
+Uterusmyom
+Pankreasatrophie
+Zystenseptierung
+Ovarialtorsion
+muraler Knoten
+Harntransportstörung
+Mammakarzinom
+Nierenparenchymverschmälerung
+perirenale Flüssigkeitskollektion
+Fibroadenom
+Nephrogrammverzögerung
+Schallauslöschung
+Implantatruptur
+Schallkopfdruckschmerz
+Miktionszysturethrographie
+Hysterosalpingographie
+MRT
+Bewegungsartefakt
+Durchleuchtungsuntersuchung
+retroperitoneal
+mechanischer Ileus
+Flussbeschleunigung
+Flussumkehr
+intramural
+verstrichene Hirnfurchen
+Sehnendegeneration
+Gelenkerguss
+chemisches Verschiebungsartefakt
+Photon-Counting-CT
+synoviale Chondromatose
+Jodkarte
+iRECIST
+Bursitis trochanterica
+Osteochondrom
+Enchondrom
+Chondrosarkom
+Liposarkom
+Sinusitis sphenoidalis
+Mastoiditis
+Retrobulbärhämatom
+Orbitaphlegmone
+fibromuskuläre Dysplasie
+CT
+tenosynovialer Riesenzelltumor

@@ -1,0 +1,509 @@
+# Gastroenterologie/Hepatologie (Gastroenterologie/Hepatologie)
+# Quelle: medical_asr generated_v2, Modul internal.gastro_hepatology — unveraendert uebernommen.
+#
+# Reihenfolge = ASR-Prioritaet (nicht Korpushaeufigkeit): vorne stehen die
+# Begriffe, an denen ein allgemeines ASR am ehesten scheitert.
+# Stufen 100 / 250 / 500 nehmen jeweils die ersten N Zeilen,
+# daher gelten die Stufen per Konstruktion als Praefixe voneinander.
+# Zeilen mit # sind Kommentare. Reihenfolge NICHT alphabetisch sortieren.
+
+Choledocholithiasis
+Hämatochezie
+endoskopisch retrograde Cholangiopankreatikographie
+endoskopische Papillotomie
+primär sklerosierende Cholangitis
+Hämatemesis
+Magnetresonanz-Cholangiopankreatikographie
+cholangiocelluläres Karzinom
+endoskopische Mukosaresektion
+Helicobacter-pylori-Eradikation
+MRCP
+lumenadaptierender Metallstent
+intraduktale papillär-muzinöse Neoplasie
+Odynophagie
+hochauflösende Ösophagusmanometrie
+eosinophile Ösophagitis
+endoskopische Submukosadissektion
+EUS
+Over-the-Scope-Clip
+gastroösophageale Refluxkrankheit
+Steatorrhö
+pH-Impedanzmessung
+nekrotisierende Pankreatitis
+endoskopische Vollwandresektion
+EMR
+exokrine Pankreasinsuffizienz
+Walled-off-Nekrose
+Videokapselendoskopie
+hepatische Enzephalopathie
+Gallengangsstentimplantation
+ESD
+Ösophagusvarizenblutung
+Kontaktvulnerabilität
+Doppelballonenteroskopie
+Barrett-Ösophagus
+endoskopische Varizenligatur
+TIPS
+Clostridioides-difficile-Infektion
+sessile serratierte Läsion
+endosonographische Feinnadelbiopsie
+Pankreasadenokarzinom
+Argonplasmakoagulation
+PTCD
+Helicobacter-pylori-Gastritis
+tubulovillöses Adenom
+fäkales Calprotectin
+endoskopische Nekrosektomie
+IPMN
+hochgradige intraepitheliale Neoplasie
+Transglutaminase-IgA-Antikörper
+transjugulärer intrahepatischer portosystemischer Shunt
+Forrest-Klassifikation
+perkutane transhepatische Cholangiodrainage
+perkutane endoskopische Gastrostomie
+perorale endoskopische Myotomie
+endosonographische Zystogastrostomie
+Over-the-Scope-Clip-Applikation
+Pankreatikoduodenektomie
+spontan bakterielle Peritonitis
+hepatorenales Syndrom
+Sengstaken-Blakemore-Sonde
+portale hypertensive Gastropathie
+Cholezystolithiasis
+Ösophagogastroduodenoskopie
+Morbus Crohn
+Polypektomie
+ERCP
+Colitis ulcerosa
+Ileokoloskopie
+Sigmadivertikulitis
+ÖGD
+Endosonographie
+primär biliäre Cholangitis
+Meläna
+Kontrastmittelsonographie
+Autoimmunhepatitis
+perkutane endoskopische Jejunostomie
+cholestatisch
+Remissionsinduktion
+CED
+selbstexpandierender Metallstent
+Murphy-Zeichen
+hepatozelluläres Karzinom
+Dysphagie
+transiente Elastographie
+portale Hypertension
+endosonographische Gallengangsdrainage
+hepatofugal
+Mukosaheilung
+PSC
+vollbeschichteter Metallstent
+metabolische Dysfunktion-assoziierte steatotische Lebererkrankung
+Tenesmus
+Scherwellenelastographie
+metabolische Dysfunktion-assoziierte Steatohepatitis
+transpapilläre Drainage
+hepatopetal
+Pankreasenzymsubstitution
+PBC
+Doppel-Pigtail-Stent
+akut-auf-chronisches Leberversagen
+okkulte gastrointestinale Blutung
+Langzeit-pH-Metrie
+dekompensierte Leberzirrhose
+mechanische Lithotripsie
+periampullär
+fäkaler Mikrobiomtransfer
+MASLD
+Pankreasgangstent
+Pfortaderthrombose
+Asterixis
+anorektale Manometrie
+Hämochromatose
+Pneumodilatation
+peripankreatisch
+endoskopische Blutstillung
+MASH
+Gallengangsplastikstent
+Zöliakie
+Hepatosplenomegalie
+Cholangioskopie
+lymphozytäre Kolitis
+Ösophagusbougierung
+pericholezystitisch
+HCC
+Ösophagusstent
+kollagene Kolitis
+Cholestase
+Chromendoskopie
+ischämische Kolitis
+Stenosedilatation
+transpapillär
+GIST
+Hämostaseclip
+Ileitis terminalis
+Hyperbilirubinämie
+Narrow Band Imaging
+Proktosigmoiditis
+Schlingenresektion
+transmural
+POEM
+Polypektomieschlinge
+fistulierender Morbus Crohn
+Transaminasenerhöhung
+Bürstenzytologie
+stenosierender Morbus Crohn
+En-bloc-Resektion
+submukosal
+APC
+PEG-Sonde
+toxisches Megakolon
+Lebersynthesestörung
+Leberstanzbiopsie
+perforierte Divertikulitis
+Piecemeal-Resektion
+intraepithelial
+PEG-J-Sonde
+kolorektales Karzinom
+Hypalbuminämie
+transjuguläre Leberbiopsie
+gastrointestinaler Stromatumor
+Clipapplikation
+intraduktal
+neuroendokriner Tumor
+portosystemische Kollaterale
+Aszitespunktion
+perihiläres Cholangiokarzinom
+Bolusextraktion
+prästenotisch dilatiert
+Ösophagusadenokarzinom
+Gallengangsdilatation
+hepatisch-venöser Druckgradient
+Ösophagusplattenepithelkarzinom
+endoskopische Vakuumtherapie
+fistulierend
+Peritonealkarzinose
+intrahepatische Cholestase
+Harnstoff-Atemtest
+Achalasie
+Papillektomie
+kontaktvulnerabel
+Ösophagusmotilitätsstörung
+extrahepatische Cholestase
+Urease-Schnelltest
+Ösophagusstenose
+transarterielle Chemoembolisation
+aphthös
+Zenker-Divertikel
+Pneumobilie
+H2-Atemtest
+Refluxösophagitis
+pyloruserhaltende Pankreaskopfresektion
+hämatinbelegt
+Soorösophagitis
+Gallenblasensludge
+Pankreaselastase im Stuhl
+Mallory-Weiss-Syndrom
+Hepatikojejunostomie
+adenomatös
+Autoimmungastritis
+Pankreasgangdilatation
+fäkaler immunchemischer Test
+gastroduodenale Ulkuskrankheit
+Fundoplikatio
+villös
+Ulcus ventriculi
+peripankreatische Flüssigkeitskollektion
+Endomysium-Antikörper
+Ulcus duodeni
+Cholezystektomie
+muzinös
+Magenausgangsstenose
+infizierte Pankreasnekrose
+antimitochondriale Antikörper
+Gastroparese
+großvolumige Parazentese
+sessil
+Fruktosemalabsorption
+Pflastersteinrelief
+HBV-DNA
+Gallensäureverlustsyndrom
+erosiv-ulzerös
+bakterielle Dünndarmfehlbesiedlung
+Skip-Läsion
+HCV-RNA
+perianale Fistel
+cholangiographisch
+Pouchitis
+Schleimhautgranularität
+Alpha-Fetoprotein
+Angiodysplasie
+endosonographisch
+Dieulafoy-Läsion
+aphthöse Läsion
+Child-Pugh-Klassifikation
+aszendierende Cholangitis
+Gallengangsstenose
+Pseudopolyp
+MELD-Score
+Gallengangsleckage
+biliäre Pankreatitis
+sessiler Polyp
+FIB-4-Index
+Autoimmunpankreatitis
+chronisch kalzifizierende Pankreatitis
+flache Neoplasie
+Los-Angeles-Klassifikation
+Pankreaspseudozyste
+Pankreasgangstenose
+tubuläres Adenom
+Paris-Klassifikation
+medikamenteninduzierter Leberschaden
+fokale noduläre Hyperplasie
+villöses Adenom
+Boston Bowel Preparation Scale
+niedriggradige intraepitheliale Neoplasie
+Mayo-Score
+intestinale Metaplasie
+Marsh-Klassifikation
+Becherzellmetaplasie
+Glasgow-Blatchford-Score
+Zottenatrophie
+Dünndarmsonographie
+Kryptenhyperplasie
+Sellink-MRT
+Kryptenabszess
+Rektosigmoidoskopie
+subepitheliale Läsion
+Non-Lifting-Zeichen
+Gallensäurediarrhö
+Anastomoseninsuffizienz
+Fettgewebsimbibierung
+enterokutane Fistel
+enteroenterale Fistel
+Mesenterialischämie
+alkoholassoziierte Lebererkrankung
+Meteorismus
+Lebersteifigkeitsmessung
+Leberfibrose
+Ballonextraktion
+intrahepatisch
+Remissionserhaltung
+PEG
+Leberabszess
+Regurgitation
+Hepatitisserologie
+Pankolitis
+Körbchenextraktion
+extrahepatisch
+Divertikelblutung
+Splenomegalie
+Mukosabiopsie
+Rektumkarzinom
+Kaltabtragung
+stenosierend
+Magenfrühkarzinom
+Gallenblasenhydrops
+Stufenbiopsie
+Lebermetastase
+endoskopische Unterspritzung
+fibrinbelegt
+maligner Aszites
+Schleimhauterosion
+Polypenhistologie
+Hiatushernie
+endoskopische Fremdkörperbergung
+fibrosierend
+chemisch-reaktive Gastritis
+gestielter Polyp
+Proktoskopie
+atrophische Gastritis
+Lebertransplantation
+funktionelle Dyspepsie
+Reizdarmsyndrom
+Stentextraktion
+Laktoseintoleranz
+Kurzdarmsyndrom
+Stentwechsel
+Stuhlinkontinenz
+Analfissur
+perianaler Abszess
+akute Cholezystitis
+Pankreasfistel
+Hepatitis B
+Hepatitis C
+alkoholassoziierte Hepatitis
+Leberhämangiom
+Maldigestion
+Malabsorption
+Budd-Chiari-Syndrom
+Singultus
+Ballonexpulsionstest
+Morbus Wilson
+endosonographische Gastroenterostomie
+präpapillär
+Treat-to-Target-Strategie
+PEJ
+teilbeschichteter Metallstent
+Courvoisier-Zeichen
+CMV-Kolitis
+Säureregurgitation
+Defäkographie
+Strahlenproktitis
+elektrohydraulische Lithotripsie
+postbulbär
+exklusive enterale Ernährung
+Duodenalstent
+neuroendokrines Karzinom
+Caput medusae
+Push-Enteroskopie
+MALT-Lymphom
+Gallengangsbougierung
+serratiert
+Low-FODMAP-Diät
+Kolonstent
+Ampullenkarzinom
+Spider naevi
+Pankreatikoskopie
+Karzinoidsyndrom
+Kontaktkoagulation
+makrovesikulär
+Sekundärprophylaxe der Varizenblutung
+Linton-Nachlas-Sonde
+Zollinger-Ellison-Syndrom
+Palmarerythem
+virtuelle Chromendoskopie
+familiäre adenomatöse Polyposis
+Hämostasepulverapplikation
+mikronodulär
+neoadjuvante Radiochemotherapie
+nasobiliäre Sonde
+Lynch-Syndrom
+Hypersplenismus
+Vergrößerungsendoskopie
+serratiertes Polyposissyndrom
+Varizensklerosierung
+diffuser Ösophagusspasmus
+Double-Duct-Zeichen
+Asziteszytologie
+epiphrenisches Divertikel
+Gewebekleberinjektion
+paraösophageale Hernie
+Pankreasparenchymatrophie
+Serum-Aszites-Albumin-Gradient
+medikamenteninduzierte Ösophagitis
+endoskopische Fistelversorgung
+Boerhaave-Syndrom
+Kokardenphänomen
+Helicobacter-pylori-Stuhlantigen
+Ösophagusperforation
+endoskopische Septotomie
+Dumping-Syndrom
+Gefäßrarefizierung
+LKM-Antikörper
+intestinales Pseudoobstruktionssyndrom
+Radiofrequenzablation bei Barrett-Ösophagus
+Slow-Transit-Obstipation
+longitudinale Ulzeration
+SLA/LP-Antikörper
+Beckenbodendyssynergie
+selektive interne Radiotherapie
+Cuffitis
+intraepitheliale Lymphozytose
+Carbohydrat-Antigen 19-9
+enterovesikale Fistel
+Mikrowellenablation
+rektovaginale Fistel
+epitheloidzelliges Granulom
+Carcinoembryonales Antigen
+gastrale antrale vaskuläre Ektasie
+Pankreaslinksresektion
+akalkulöse Cholezystitis
+Resektionsrandinfiltration
+Prag-Klassifikation
+sekundär sklerosierende Cholangitis
+ileoanale Pouchanlage
+IgG4-assoziierte Cholangitis
+Lymphangiosis carcinomatosa
+Harvey-Bradshaw-Index
+Mirizzi-Syndrom
+laparoskopische Sigmaresektion
+Pankreasdivisum
+Perineuralscheideninfiltration
+Crohn's Disease Activity Index
+seröses Zystadenom
+muzinöse zystische Neoplasie
+Linitis plastica
+Rutgeerts-Score
+hepatopulmonales Syndrom
+portopulmonale Hypertonie
+Säureexpositionszeit
+Montreal-Klassifikation
+hepatischer Hydrothorax
+kryptogene Leberzirrhose
+sekretorische Diarrhö
+Atlanta-Klassifikation
+Echinokokkose
+Giardiasis
+osmotische Diarrhö
+Balthazar-Score
+Campylobacter-Enteritis
+Yersinienileitis
+Rockall-Score
+eosinophile Gastroenteritis
+Morbus Whipple
+BCLC-Klassifikation
+Leberadenom
+Refeeding-Syndrom
+LI-RADS
+IgG4-Bestimmung
+Ceruloplasmin
+Transferrinsättigung
+Magenentleerungsszintigraphie
+CT-Enterographie
+Peutz-Jeghers-Syndrom
+Laserlithotripsie
+gedeckte Darmperforation
+peritoneale Reizung
+antinukleäre Antikörper
+Anastomosenrezidiv
+enterale Ernährungstherapie
+Bridenileus
+Gallenblasenwandverdickung
+paralytischer Ileus
+parenterale Ernährungstherapie
+Sarkopenie
+freie intraabdominelle Luft
+enterale Sondenernährung
+Darmwandverdickung
+Fibrinbelag
+Mukosadefekt
+Analkarzinom
+Globusgefühl
+Laktosebelastungstest
+Gallenblasenkarzinom
+endoskopische Polypenmarkierung
+Biofeedbacktherapie
+maligner Ileus
+postprandiales Völlegefühl
+Fruktosebelastungstest
+Insulinom
+glutenfreie Ernährung
+Gastrinom
+Gallereflux
+Anoskopie
+Magenperforation
+chronisches Darmversagen
+periportales Ödem
+anorektale Funktionsstörung
+Rektozele
+Rektumprolaps
+Analvenenthrombose
+Hepatitis D
+Hepatitis E
+ischämische Hepatitis
+Salmonellenenteritis
+Norovirusgastroenteritis
+Strahlenenteritis
+Morbus Meulengracht
+polyzystische Lebererkrankung

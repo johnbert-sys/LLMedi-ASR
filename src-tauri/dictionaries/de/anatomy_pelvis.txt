@@ -1,0 +1,259 @@
+# Anatomie Becken (Anatomie Becken)
+# Quelle: medical_asr generated_v2, Modul anatomy.pelvis — unveraendert uebernommen.
+#
+# Reihenfolge = ASR-Prioritaet (nicht Korpushaeufigkeit): vorne stehen die
+# Begriffe, an denen ein allgemeines ASR am ehesten scheitert.
+# Stufen 100 / 250 nehmen jeweils die ersten N Zeilen,
+# daher gelten die Stufen per Konstruktion als Praefixe voneinander.
+# Zeilen mit # sind Kommentare. Reihenfolge NICHT alphabetisch sortieren.
+
+Arteria iliaca communis
+Arteria iliaca interna
+Arteria iliaca externa
+Vena iliaca communis
+Vena iliaca interna
+Vena iliaca externa
+Arteria obturatoria
+Arteria pudenda interna
+Arteria glutea superior
+Arteria glutea inferior
+Arteria uterina
+Arteria vesicalis superior
+Arteria vesicalis inferior
+Arteria rectalis media
+Arteria rectalis inferior
+Plexus venosus prostaticus
+Plexus venosus vesicalis
+Plexus venosus rectalis
+Plexus venosus uterinus
+Plexus hypogastricus superior
+Plexus hypogastricus inferior
+Nervus pudendus
+Nervus obturatorius
+Nervus ischiadicus
+Nervi splanchnici pelvici
+Canalis pudendalis
+Canalis obturatorius
+Foramen ischiadicum majus
+Foramen ischiadicum minus
+Foramen suprapiriforme
+Foramen infrapiriforme
+Ligamentum sacrospinale
+Ligamentum sacrotuberale
+Ligamentum puboprostaticum
+Ligamentum pubovesicale
+Ligamentum cardinale
+Ligamentum sacrouterinum
+Ligamentum latum uteri
+Ligamentum teres uteri
+Ligamentum ovarii proprium
+Ligamentum suspensorium ovarii
+Excavatio rectouterina
+Excavatio vesicouterina
+Excavatio rectovesicalis
+Spatium retropubicum
+Fossa ischioanalis
+Fascia rectoprostatica
+Septum rectovaginale
+Mesorektum
+Musculus levator ani
+Musculus puborectalis
+Musculus pubococcygeus
+Musculus iliococcygeus
+Musculus coccygeus
+Musculus sphincter ani internus
+Musculus sphincter ani externus
+Musculus sphincter urethrae externus
+Centrum tendineum perinei
+Membrana perinei
+Diaphragma pelvis
+Spina ischiadica
+Tuber ischiadicum
+Promontorium
+Linea terminalis
+Symphysis pubica
+Articulatio sacroiliaca
+Acetabulum
+Foramen obturatum
+Trigonum vesicae
+Ostium ureteris
+Ostium urethrae internum
+Colliculus seminalis
+Ductus ejaculatorius
+Vesicula seminalis
+Portio vaginalis cervicis
+Fornix vaginae
+Parametrium
+Mesometrium
+Mesosalpinx
+Mesovarium
+Pelvis major
+Pelvis minor
+Apertura pelvis superior
+Apertura pelvis inferior
+Os coxae
+Os ilium
+Os ischii
+Os pubis
+Corpus ossis ilii
+Ala ossis ilii
+Crista iliaca
+Spina iliaca anterior superior
+Spina iliaca anterior inferior
+Spina iliaca posterior superior
+Spina iliaca posterior inferior
+Fossa iliaca
+Facies auricularis ossis ilii
+Tuberositas iliaca
+Linea arcuata
+Linea glutea posterior
+Linea glutea anterior
+Linea glutea inferior
+Corpus ossis ischii
+Ramus ossis ischii
+Incisura ischiadica major
+Incisura ischiadica minor
+Corpus ossis pubis
+Ramus superior ossis pubis
+Ramus inferior ossis pubis
+Tuberculum pubicum
+Pecten ossis pubis
+Crista pubica
+Eminentia iliopubica
+Fossa acetabuli
+Facies lunata acetabuli
+Incisura acetabuli
+Labrum acetabuli
+Ligamentum transversum acetabuli
+Os sacrum
+Ala ossis sacri
+Canalis sacralis
+Hiatus sacralis
+Cornu sacrale
+Foramina sacralia anteriora
+Foramina sacralia posteriora
+Os coccygis
+Articulatio sacrococcygea
+Ligamentum sacroiliacum anterius
+Ligamentum sacroiliacum posterius
+Ligamentum sacroiliacum interosseum
+Ligamentum iliolumbale
+Ligamentum pubicum superius
+Ligamentum arcuatum pubis
+Arcus pubis
+Musculus obturatorius internus
+Musculus piriformis
+Musculus transversus perinei superficialis
+Musculus transversus perinei profundus
+Musculus bulbospongiosus
+Musculus ischiocavernosus
+Fascia pelvis parietalis
+Fascia pelvis visceralis
+Fascia obturatoria
+Fascia perinei superficialis
+Spatium perinei superficiale
+Spatium perinei profundum
+Trigonum urogenitale
+Trigonum anale
+Raphe perinei
+Vesica urinaria
+Apex vesicae
+Corpus vesicae
+Fundus vesicae
+Cervix vesicae
+Musculus detrusor vesicae
+Plica interureterica
+Uvula vesicae
+Ligamentum umbilicale medianum
+Ligamentum umbilicale mediale
+Pars pelvica ureteris
+Pars intramuralis ureteris
+Urethra masculina
+Urethra feminina
+Pars prostatica urethrae
+Pars membranacea urethrae
+Pars spongiosa urethrae
+Ostium urethrae externum
+Fossa navicularis urethrae
+Apex prostatae
+Basis prostatae
+Zona peripherica prostatae
+Zona centralis prostatae
+Transitionszone der Prostata
+Stroma fibromusculare anterius prostatae
+Capsula prostatae
+Sinus prostaticus
+Utriculus prostaticus
+Glandula bulbourethralis
+Ampulla ductus deferentis
+Funiculus spermaticus
+Plexus pampiniformis
+Tunica vaginalis testis
+Lamina visceralis tunicae vaginalis
+Lamina parietalis tunicae vaginalis
+Tunica albuginea testis
+Mediastinum testis
+Caput epididymidis
+Corpus epididymidis
+Cauda epididymidis
+Ductus epididymidis
+Ductus deferens
+Tunica dartos
+Septum scroti
+Corpus cavernosum penis
+Corpus spongiosum penis
+Bulbus penis
+Crus penis
+Glans penis
+Praeputium penis
+Frenulum preputii
+Ligamentum suspensorium penis
+Fascia penis profunda
+Arteria profunda penis
+Arteria dorsalis penis
+Vena dorsalis profunda penis
+Nervus dorsalis penis
+Fundus uteri
+Corpus uteri
+Isthmus uteri
+Cervix uteri
+Cavitas uteri
+Canalis cervicis uteri
+Ostium uteri
+Endometrium
+Myometrium
+Perimetrium
+Tuba uterina
+Infundibulum tubae uterinae
+Ampulla tubae uterinae
+Isthmus tubae uterinae
+Pars uterina tubae uterinae
+Fimbriae tubae uterinae
+Hilum ovarii
+Vestibulum vaginae
+Labium majus pudendi
+Labium minus pudendi
+Crus clitoridis
+Glans clitoridis
+Bulbus vestibuli
+Glandula vestibularis major
+Ampulla recti
+Canalis analis
+Linea pectinata
+Columnae anales
+Sinus anales
+Pecten analis
+Junctio anorectalis
+Corpus cavernosum recti
+Fascia propria recti
+Nodi lymphoidei iliaci interni
+Nodi lymphoidei iliaci externi
+Nodi lymphoidei sacrales
+Truncus lumbosacralis
+Plexus sacralis
+Plexus coccygeus
+Nervus cutaneus femoris posterior
+Arteria sacralis mediana
+Arteriae sacrales laterales
+Arteria iliolumbalis
+Arteria vaginalis

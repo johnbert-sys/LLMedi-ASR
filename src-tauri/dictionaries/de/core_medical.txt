@@ -1,0 +1,260 @@
+# Medical Core (fachübergreifend)
+# Quelle: medical_asr_harness_v0_1, Modul core.medical — unveraendert uebernommen.
+#
+# Reihenfolge = ASR-Prioritaet (nicht Korpushaeufigkeit): vorne stehen die
+# Begriffe, an denen ein allgemeines ASR am ehesten scheitert.
+# Stufen 100 / 250 nehmen jeweils die ersten N Zeilen, daher gilt 100 ⊂ 250
+# per Konstruktion. Nur diese eine Datei wird gebuendelt; die Stufen-Dateien
+# des Pakets sind exakte Praefixe davon und waeren redundant.
+# Zeilen mit # sind Kommentare. Reihenfolge NICHT alphabetisch sortieren.
+
+reduzierter Allgemeinzustand
+komplikationsloser Verlauf
+körperliche Untersuchung
+kreislaufstabil
+kreislaufinstabil
+kardiopulmonal
+respiratorisch
+oxygenierungspflichtig
+allseits orientiert
+guter Allgemeinzustand
+klopfschmerzhaft
+nicht palpabel
+Sozialanamnese
+Familienanamnese
+Vegetativanamnese
+Medikamentenanamnese
+Allergieanamnese
+Aufnahmeanamnese
+Verlaufsbeurteilung
+Entlassungsdiagnose
+Differenzialdiagnose
+Verdachtsdiagnose
+Arbeitsdiagnose
+Begleiterkrankung
+Therapieempfehlung
+Weiterbehandlung
+Verlaufskontrolle
+Wiedervorstellung
+Anschlussheilbehandlung
+Rehabilitation
+Belastungsaufbau
+Thrombozytenaggregationshemmung
+interventionelle Therapie
+intermittierend
+therapierefraktär
+selbstlimitierend
+progredienter Verlauf
+komplizierter Verlauf
+postinterventionell
+präinterventionell
+posttraumatisch
+nicht infektiös
+Sekundärprophylaxe
+Primärprophylaxe
+Rezidivprophylaxe
+klinische Untersuchung
+Duplexsonographie
+Dopplersonographie
+Echokardiographie
+Feinnadelpunktion
+Katheterisierung
+Stentimplantation
+Rekonstruktion
+Immobilisation
+afebril
+subfebril
+febril
+normotherm
+hämodynamisch
+spontanatmend
+vigil
+somnolent
+soporös
+komatös
+desorientiert
+kooperativ
+adäquat
+kachektisch
+adipös
+euvolem
+hypovoläm
+hypervoläm
+eupnoisch
+tachypnoisch
+dyspnoisch
+zyanotisch
+anikterisch
+ikterisch
+reizlos
+gerötet
+überwärmt
+druckdolent
+indolent
+palpabel
+verschieblich
+fixiert
+fluktuierend
+induriert
+ödematös
+seitengleich
+Epikrise
+Eigenanamnese
+Fremdanamnese
+Hauptdiagnose
+Nebendiagnose
+Vorerkrankung
+Risikofaktor
+Nachsorge
+Mobilisation
+Kostaufbau
+Karenz
+Defibrillation
+Antikoagulation
+Immunsuppression
+Strahlentherapie
+supportive Therapie
+konservative Therapie
+operative Therapie
+symptomatische Therapie
+kausale Therapie
+seitenbetont
+symmetrisch
+asymmetrisch
+proximal
+distal
+ipsilateral
+kontralateral
+bilateral
+unilateral
+multifokal
+diffus
+lokalisiert
+umschrieben
+zirkulär
+segmental
+persistierend
+progredient
+regredient
+stationär
+rezidivierend
+refraktär
+akut
+subakut
+chronisch
+perakut
+fulminant
+exazerbiert
+dekompensiert
+kompensiert
+stabilisiert
+remittiert
+remittierend
+postoperativ
+präoperativ
+perioperativ
+intraoperativ
+atraumatisch
+iatrogen
+idiopathisch
+kongenital
+erworben
+hereditär
+familiär
+sporadisch
+benigne
+maligne
+invasiv
+nicht invasiv
+entzündlich
+infektiös
+autoimmun
+ischämisch
+hämorrhagisch
+thrombotisch
+embolisch
+stenosierend
+okkludierend
+obstruktiv
+restriktiv
+degenerativ
+Prophylaxe
+nekrotisch
+fibrotisch
+sklerotisch
+ulzerierend
+perforiert
+rupturiert
+disseziert
+luxiert
+subluxiert
+disloziert
+impaktiert
+komminut
+pathologisch
+physiologisch
+Inspektion
+Palpation
+Perkussion
+Auskultation
+Sonographie
+Endoskopie
+Biopsie
+Punktion
+Stanzbiopsie
+Exzision
+Inzision
+Resektion
+Extirpation
+Exstirpation
+Ablation
+Drainage
+Dilatation
+Osteosynthese
+Endoprothese
+Implantation
+Explantation
+Revision
+Reoperation
+Anastomose
+Debridement
+Débridement
+Lavagespülung
+Spülung
+Tamponade
+Kompression
+Reposition
+Reanimation
+Kardioversion
+Intubation
+Extubation
+Tracheotomie
+Tracheostoma
+Beatmung
+Narkose
+Sedierung
+Analgesie
+Chemotherapie
+Immuntherapie
+Embolie
+Ischämie
+Stenose
+Okklusion
+Aneurysma
+Dissektion
+Ruptur
+Hämatom
+Erguss
+Aszites
+Abszess
+Phlegmone
+Fistel
+Perforation
+Obstruktion
+Ileus
+Bypass
+Thrombose
+Infarkt
+Blutung
+Ödem
+Sepsis

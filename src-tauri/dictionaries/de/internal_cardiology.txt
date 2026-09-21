@@ -1,0 +1,510 @@
+# Kardiologie (Innere Medizin / Kardiologie)
+# Quelle: medical_asr_harness_v0_1, Modul internal.cardiology — unveraendert uebernommen.
+#
+# Reihenfolge = ASR-Prioritaet (nicht Korpushaeufigkeit): vorne stehen die
+# Begriffe, an denen ein allgemeines ASR am ehesten scheitert.
+# Stufen 100 / 250 / 500 nehmen jeweils die ersten N Zeilen, daher gilt 100 ⊂ 250 ⊂ 500
+# per Konstruktion. Nur diese eine Datei wird gebuendelt; die Stufen-Dateien
+# des Pakets sind exakte Praefixe davon und waeren redundant.
+# Zeilen mit # sind Kommentare. Reihenfolge NICHT alphabetisch sortieren.
+
+Tachykardie-Bradykardie-Syndrom
+paroxysmale supraventrikuläre Tachykardie
+AV-Knoten-Reentrytachykardie
+AV-Reentrytachykardie
+Wolff-Parkinson-White-Syndrom
+fokale atriale Tachykardie
+multifokale atriale Tachykardie
+monomorphe ventrikuläre Tachykardie
+polymorphe ventrikuläre Tachykardie
+Torsade-de-pointes-Tachykardie
+nicht anhaltende ventrikuläre Tachykardie
+anhaltende ventrikuläre Tachykardie
+Long-QT-Syndrom
+Short-QT-Syndrom
+Katecholaminerge polymorphe ventrikuläre Tachykardie
+AV-Block ersten Grades
+AV-Block zweiten Grades
+AV-Block dritten Grades
+kompletter AV-Block
+PQ-Verlängerung
+QT-Verlängerung
+implantierbarer Loop-Recorder
+CHA2DS2-VASc-Score
+HAS-BLED-Score
+ST-Hebungsinfarkt
+Nicht-ST-Hebungsinfarkt
+instabile Angina pectoris
+instantaneous wave-free ratio
+Belastungs-EKG
+Dobutamin-Stressechokardiographie
+CT-Koronarangiographie
+Herzinsuffizienz mit reduzierter Ejektionsfraktion
+Herzinsuffizienz mit erhaltener Ejektionsfraktion
+Herzinsuffizienz mit leicht reduzierter Ejektionsfraktion
+High-Output-Herzinsuffizienz
+paroxysmale nächtliche Dyspnoe
+hypertroph-obstruktive Kardiomyopathie
+arrhythmogene rechtsventrikuläre Kardiomyopathie
+Peripartum-Kardiomyopathie
+Transthyretin-Amyloidose
+ATTR-Amyloidose
+VA-ECMO
+Low-Flow-Low-Gradient-Aortenstenose
+paroxysmales Vorhofflimmern
+persistierendes Vorhofflimmern
+permanentes Vorhofflimmern
+tachykardes Vorhofflimmern
+bradykardes Vorhofflimmern
+Sick-Sinus-Syndrom
+supraventrikuläre Tachykardie
+ventrikuläre Tachykardie
+ventrikuläre Extrasystole
+supraventrikuläre Extrasystole
+NSVT
+Brugada-Syndrom
+CPVT
+AV-Block
+Wenckebach-Periodik
+intraventrikuläre Leitungsverzögerung
+linksanteriorer Hemiblock
+linksposteriorer Hemiblock
+transkatheter Edge-to-Edge-Reparatur
+hämodynamisch relevanter Perikarderguss
+isolierte systolische Hypertonie
+24-Stunden-Blutdruckmessung
+Aorta-ascendens-Aneurysma
+postkapilläre pulmonale Hypertonie
+präkapilläre pulmonale Hypertonie
+kombinierte prä- und postkapilläre pulmonale Hypertonie
+Speckle-Tracking-Echokardiographie
+globaler longitudinaler Strain
+QTc-Zeit
+pathologische Q-Zacke
+ST-Hebung
+ST-Senkung
+T-Negativierung
+Frührepolarisationsmuster
+Langzeit-EKG
+Holter-EKG
+Elektrophysiologische Untersuchung
+EPU
+PVI
+pharmakologische Kardioversion
+KHK
+ACS
+STEMI
+NSTEMI
+subakuter Myokardinfarkt
+stabile Angina pectoris
+Prinzmetal-Angina
+In-Stent-Restenose
+spontane Koronararteriendissektion
+SCAD
+Herzkatheteruntersuchung
+perkutane Koronarintervention
+PCI
+PTCA
+Drug-eluting Stent
+DES
+Bare-Metal-Stent
+BMS
+intravaskulärer Ultraschall
+IVUS
+optische Kohärenztomographie
+OCT
+fraktionelle Flussreserve
+FFR
+Late Gadolinium Enhancement
+DDD-Schrittmacher
+VVI-Schrittmacher
+AAI-Schrittmacher
+implantierbarer Kardioverter-Defibrillator
+ICD-Implantation
+S-ICD
+CRT-P
+CRT-D
+Conduction-System-Pacing
+inadäquater ICD-Schock
+adäquater ICD-Schock
+CABG
+LIMA-Bypass
+RIMA-Bypass
+Arteria-radialis-Bypass
+Off-Pump-CABG
+MIDCAB
+Myokardperfusionsszintigraphie
+Koronar-CT
+chronische Herzinsuffizienz
+kongestive Herzinsuffizienz
+dekompensierte Herzinsuffizienz
+linksventrikuläre Ejektionsfraktion
+LVEF
+NYHA-Stadium
+NYHA I
+NYHA II
+NYHA III
+NYHA IV
+Low-Output-Syndrom
+dilatative Kardiomyopathie
+DCM
+hypertrophe Kardiomyopathie
+HCM
+HOCM
+restriktive Kardiomyopathie
+ARVC
+arrhythmogene Kardiomyopathie
+Takotsubo-Syndrom
+alkoholtoxische Kardiomyopathie
+ischämische Kardiomyopathie
+AL-Amyloidose
+rechtsventrikuläre Hypertrophie
+linksventrikuläre Dilatation
+rechtsventrikuläre Dilatation
+mechanische Kreislaufunterstützung
+LVAD
+RVAD
+intraaortale Ballonpumpe
+IABP
+extrakorporale Membranoxygenierung
+hochgradige Aortenstenose
+Aortenklappeninsuffizienz
+Mitralklappeninsuffizienz
+primäre Mitralinsuffizienz
+sekundäre Mitralinsuffizienz
+funktionelle Mitralinsuffizienz
+Barlow-Syndrom
+Trikuspidalklappeninsuffizienz
+Trikuspidalklappenstenose
+Pulmonalklappeninsuffizienz
+Mitralklappenringverkalkung
+mechanische Klappenprothese
+biologische Klappenprothese
+Trikuspidalklappenersatz
+Vorhofflimmern
+Vorhofflattern
+absolute Arrhythmie
+Sinustachykardie
+Sinusbradykardie
+Sinusarrhythmie
+Sinusknotensyndrom
+Präexzitationssyndrom
+Vorhoftachykardie
+Kammertachykardie
+Kammerflimmern
+Kammerflattern
+Mobitz II
+Linksschenkelblock
+Rechtsschenkelblock
+bifaszikulärer Block
+trifaszikulärer Block
+Mitralklappenrekonstruktion
+Trikuspidalklappenrekonstruktion
+TAVI
+TAVR
+transkatheter Aortenklappenimplantation
+SAVR
+TEER
+Mitralklappenvalvuloplastie
+Aortenklappenvalvuloplastie
+rezidivierende Perikarditis
+konstriktive Perikarditis
+lymphozytäre Myokarditis
+bakterielle Endokarditis
+rechtsseitige Endokarditis
+Nativklappenendokarditis
+Device-Endokarditis
+Schrittmacherendokarditis
+hypertensive Entgleisung
+orthostatische Hypotonie
+Langzeitblutdruckmessung
+Typ-A-Dissektion
+Typ-B-Dissektion
+Stanford-A-Dissektion
+Stanford-B-Dissektion
+thorakales Aortenaneurysma
+penetrierendes Aortenulkus
+Marfan-Syndrom
+Loeys-Dietz-Syndrom
+pulmonalarterielle Hypertonie
+PAH
+Rechtsherzdekompensation
+Eisenmenger-Syndrom
+transthorakale Echokardiographie
+TTE
+transösophageale Echokardiographie
+TEE
+Kontrastechokardiographie
+Strain-Analyse
+GLS
+R-Verlust
+R-Progression
+Repolarisationsstörung
+Elektrokardiogramm
+EKG
+Loop-Recorder
+Katheterablation
+Pulmonalvenenisolation
+Isthmusablation
+Radiofrequenzablation
+Elektrokardioversion
+Rhythmuskontrolle
+Frequenzkontrolle
+koronare Herzkrankheit
+akutes Koronarsyndrom
+Myokardinfarkt
+Vorderwandinfarkt
+Hinterwandinfarkt
+Inferiorinfarkt
+Lateralinfarkt
+Posteriorinfarkt
+Rechtsherzinfarkt
+anteroseptaler Infarkt
+anterolateraler Infarkt
+stummer Myokardinfarkt
+Myokardischämie
+Belastungsischämie
+Angina pectoris
+vasospastische Angina
+mikrovaskuläre Angina
+Koronarspasmus
+Koronarstenose
+Hauptstammstenose
+Mehrgefäßerkrankung
+Eingefäßerkrankung
+Zweigefäßerkrankung
+Dreigefäßerkrankung
+Stentthrombose
+Koronarthrombose
+Koronardissektion
+Koronaraneurysma
+Koronarangiographie
+Linksherzkatheter
+Rechtsherzkatheter
+Ballondilatation
+Bifurkationsstent
+Stentimplantation
+Rotationsatherektomie
+linksventrikuläre Funktion
+rechtsventrikuläre Funktion
+diastolische Dysfunktion
+E/A-Verhältnis
+E/e'-Verhältnis
+TAPSE
+FAC
+enddiastolisches Volumen
+linksatrialer Volumenindex
+regionale Wandbewegungsstörung
+Rechts-links-Shunt
+Links-rechts-Shunt
+Herz-MRT
+kardiale Magnetresonanztomographie
+LGE
+Schrittmacherimplantation
+Schrittmacherabhängigkeit
+Loss of Capture
+ICD
+subkutaner ICD
+CRT
+kardiale Resynchronisationstherapie
+biventrikulärer Schrittmacher
+His-Bündel-Pacing
+Linksschenkel-Pacing
+Device-Infektion
+Device-Extraktion
+ATP
+ASD
+VSD
+iFR
+Thrombusaspiration
+Bypassoperation
+Hybridrevaskularisation
+Revaskularisation
+Ischämiediagnostik
+Stressechokardiographie
+Herzinsuffizienz
+akute Herzinsuffizienz
+Linksherzinsuffizienz
+Rechtsherzinsuffizienz
+Globalherzinsuffizienz
+kardiale Dekompensation
+kardiales Lungenödem
+HFrEF
+HFmrEF
+HFpEF
+Ejektionsfraktion
+Vorwärtsversagen
+Rückwärtsversagen
+kardiogener Schock
+Belastungsdyspnoe
+periphere Ödeme
+Stauungszeichen
+Halsvenenstauung
+hepatojugulärer Reflux
+Kardiomyopathie
+Stresskardiomyopathie
+Amyloidkardiomyopathie
+Linksherzhypertrophie
+reverse Remodeling
+ventrikuläre Dilatation
+BiVAD
+Herztransplantation
+Aortenklappenstenose
+Aorteninsuffizienz
+Mitralinsuffizienz
+Mitralklappenstenose
+Mitralklappenprolaps
+Trikuspidalinsuffizienz
+Pulmonalklappenstenose
+Mehrklappenvitium
+Klappenendokarditis
+Klappenvegetation
+bikuspide Aortenklappe
+Aortenklappensklerose
+Mitralklappenverkalkung
+paravalvuläre Leckage
+Prothesenendokarditis
+Prothesendysfunktion
+Prothesenthrombose
+Klappenprothese
+Aortenklappenersatz
+Mitralklappenersatz
+Klappenrekonstruktion
+Sinusrhythmus
+Bigeminus
+Trigeminus
+Couplet
+Salve
+Mobitz I
+Kommissurotomie
+Valvuloplastie
+Ballonvalvuloplastie
+Klappenöffnungsfläche
+mittlerer Druckgradient
+maximaler Druckgradient
+Regurgitationsfraktion
+Regurgitationsvolumen
+Vena contracta
+Koaptationsdefekt
+akute Perikarditis
+Perikarderguss
+Herzbeuteltamponade
+Perikardtamponade
+Perikardpunktion
+Perikardiozentese
+Perikardfenster
+Perikardektomie
+akute Myokarditis
+fulminante Myokarditis
+Riesenzellmyokarditis
+Myoperikarditis
+Perimyokarditis
+infektiöse Endokarditis
+Linksherzendokarditis
+Endokarditisprophylaxe
+vegetationsverdächtig
+intrakardialer Thrombus
+Vorhofthrombus
+linksatrialer Thrombus
+Ventrikelthrombus
+arterielle Hypertonie
+hypertensive Krise
+hypertensiver Notfall
+resistente Hypertonie
+sekundäre Hypertonie
+maligne Hypertonie
+Weißkittelhypertonie
+maskierte Hypertonie
+arterielle Hypotonie
+Aortendissektion
+Aortenaneurysma
+Aortenwurzelaneurysma
+Aortenbogenaneurysma
+Aortenintramuralhämatom
+akutes Aortensyndrom
+pulmonale Hypertonie
+Rechtsherzbelastung
+Eventrecorder
+Kryoablation
+Reinfarkt
+Ruheischämie
+Koronarfistel
+Koronarstent
+Rotablation
+systolische Funktion
+diastolische Funktion
+Herzzeitvolumen
+Schlagvolumenindex
+endsystolisches Volumen
+linksatriales Volumen
+Wandbewegungsstörung
+basale Hypokinesie
+apikale Akinesie
+Septumbewegung
+paradoxe Septumbewegung
+intrakardialer Shunt
+Bubble-Test
+T1-Mapping
+T2-Mapping
+Perfusionsdefekt
+Vitalitätsdiagnostik
+Herzschrittmacher
+Einkammerschrittmacher
+Zweikammerschrittmacher
+Schrittmacheraggregat
+Schrittmachersonde
+Ventrikelsonde
+Sondenrevision
+Sondendislokation
+Sondenextraktion
+Schrittmacherabfrage
+Schrittmacherkontrolle
+Stimulationsschwelle
+Leadless Pacemaker
+antitachykardes Pacing
+Vorhofseptumdefekt
+Ventrikelseptumdefekt
+Koronarbypass
+Venenbypass
+Ergometrie
+Lungenödem
+orthopnoisch
+Orthopnoe
+Kardiomegalie
+Pleuraerguss
+Remodeling
+Impella
+Kunstherz
+Aortenstenose
+Mitralstenose
+Klappenvitium
+Vitium cordis
+Bioprothese
+MitraClip
+TriClip
+Annuloplastie
+Druckgradient
+Perikarditis
+Myokarditis
+Endokarditis
+Hypertonie
+Aortenisthmus
+Aortenruptur
+Aortensyndrom
+Cor pulmonale
+Schluckecho
+Herzindex
+Schlagvolumen
+Hypokinesie
+Akinesie
+Dyskinesie
+Ödemnachweis
+Myokardnarbe
+Vorhofsonde
+Sondenfraktur
+Eigenrhythmus
+Sensing
+Capture
+Oversensing
+Undersensing
+Micra

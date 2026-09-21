@@ -1,0 +1,509 @@
+# Endokrinologie/Diabetologie (Endokrinologie/Diabetologie)
+# Quelle: medical_asr generated_v2, Modul internal.endocrinology_diabetology — unveraendert uebernommen.
+#
+# Reihenfolge = ASR-Prioritaet (nicht Korpushaeufigkeit): vorne stehen die
+# Begriffe, an denen ein allgemeines ASR am ehesten scheitert.
+# Stufen 100 / 250 / 500 nehmen jeweils die ersten N Zeilen,
+# daher gelten die Stufen per Konstruktion als Praefixe voneinander.
+# Zeilen mit # sind Kommentare. Reihenfolge NICHT alphabetisch sortieren.
+
+primäre Nebennierenrindeninsuffizienz
+Nüchternhyperglykämie
+oraler Glukosetoleranztest
+sekundäre Nebennierenrindeninsuffizienz
+transsphenoidale Adenomresektion
+intensivierte konventionelle Insulintherapie
+adrenogenitales Syndrom
+postprandiale Hyperglykämie
+kontinuierliche Glukosemessung
+primärer Hyperaldosteronismus
+endoskopische Hypophysenoperation
+kontinuierliche subkutane Insulininfusion
+Phäochromozytom
+nächtliche Hypoglykämie
+ambulantes Glukoseprofil
+Hypophysenvorderlappeninsuffizienz
+Nebenschilddrüsenautotransplantation
+sensorunterstützte Pumpentherapie
+Panhypopituitarismus
+Glukosevariabilität
+C-Peptid-Bestimmung
+hypophysäres Cushing-Syndrom
+automatisierte Insulindosierung
+ektopes ACTH-Syndrom
+Dawn-Phänomen
+Inselzellautoantikörper
+Akromegalie
+Hybrid-Closed-Loop-Therapie
+Prolaktinom
+Acetongeruch
+Glutamatdecarboxylase-Antikörper
+Kraniopharyngeom
+Basal-Bolus-Therapie
+lymphozytäre Hypophysitis
+Kussmaul-Atmung
+Zinktransporter-8-Antikörper
+thyreotoxische Krise
+mahlzeitenbezogene Insulindosierung
+Hashimoto-Thyreoiditis
+Hyperketonämie
+Insulinom-assoziiertes Antigen 2
+Morbus Basedow
+Hypoglykämiewahrnehmungstraining
+endokrine Orbitopathie
+Ketonurie
+Dexamethason-Hemmtest
+primärer Hyperparathyreoidismus
+strukturierte Diabetesschulung
+Hypoparathyreoidismus
+Acanthosis nigricans
+ACTH-Stimulationstest
+diabetische Ketoazidose
+Schilddrüsenhormonsubstitution
+hyperosmolares hyperglykämisches Syndrom
+Striae rubrae
+Insulinhypoglykämietest
+euglykämische Ketoazidose
+thyreostatische Therapie
+diabetisches Fußsyndrom
+Stammfettsucht
+Corticotropin-Releasing-Hormon-Test
+diabetische Charcot-Neuroosteoarthropathie
+Radiojodtherapie
+Hypoglykämiewahrnehmungsstörung
+supraklavikuläres Fettpolster
+Arginin-Stimulationstest
+pankreopriver Diabetes mellitus
+Glukokortikoidsubstitution
+latenter Autoimmundiabetes im Erwachsenenalter
+proximale Myopathie
+Copeptin-Stimulationstest
+monogener Diabetes mellitus
+Mineralokortikoidsubstitution
+familiäre Hypercholesterinämie
+Akrenvergröberung
+Aldosteron-Renin-Quotient
+familiäre kombinierte Hyperlipidämie
+perioperative Stressdosis
+polyglanduläres Autoimmunsyndrom
+Makroglossie
+Metanephrinbestimmung
+antiresorptive Therapie
+Hyperpigmentierung
+freies Kortisol im Sammelurin
+osteoanabole Therapie
+prätibiales Myxödem
+nächtliches Speichelkortisol
+Exophthalmus
+Schilddrüsenszintigraphie
+Lidretraktion
+Nebenschilddrüsenszintigraphie
+endokrine Diplopie
+Nebennierenvenenkatheter
+Hirsutismus
+Sinus-petrosus-Katheter
+Virilisierung
+duale Röntgenabsorptiometrie
+Galaktorrhö
+trabekulärer Knochenscore
+Gynäkomastie
+transkutane Sauerstoffpartialdruckmessung
+Diabetes mellitus Typ 1
+Diabetes mellitus Typ 2
+Adrenalektomie
+Gestationsdiabetes
+Prädiabetes
+laparoskopische Adrenalektomie
+Steroiddiabetes
+Posttransplantationsdiabetes
+bilaterale Adrenalektomie
+diabetische Polyneuropathie
+diabetische Nephropathie
+kortexerhaltende Adrenalektomie
+diabetische Retinopathie
+diabetische Makulopathie
+Thyreoidektomie
+diabetische autonome Neuropathie
+diabetische Gastroparese
+Hemithyreoidektomie
+Hypoglykämie
+Hyperglykämie
+Komplettierungsthyreoidektomie
+Insulinresistenz
+metabolisches Syndrom
+Parathyreoidektomie
+Adipositas
+Sarkopenie
+selektive Adenomexstirpation
+Osteoporose
+Glukokortikoid-induzierte Osteoporose
+Schilddrüsenradiofrequenzablation
+Osteomalazie
+Hyperthyreose
+Schilddrüsenethanolablation
+Hypothyreose
+subklinische Hyperthyreose
+bariatrische Operation
+subklinische Hypothyreose
+Schilddrüsenautonomie
+Schlauchmagenresektion
+Struma nodosa
+Struma multinodosa
+Roux-en-Y-Magenbypass
+subakute Thyreoiditis
+Postpartum-Thyreoiditis
+metabolische Chirurgie
+Amiodaron-induzierte Thyreotoxikose
+Schilddrüsenkarzinom
+Fußulkusdebridement
+papilläres Schilddrüsenkarzinom
+follikuläres Schilddrüsenkarzinom
+Revaskularisation
+medulläres Schilddrüsenkarzinom
+anaplastisches Schilddrüsenkarzinom
+Druckentlastungsoperation
+Nebenniereninzidentalom
+Nebennierenrindenadenom
+Minoramputation
+Nebennierenrindenkarzinom
+Addison-Krise
+Inselzelltransplantation
+iatrogenes Cushing-Syndrom
+Hypogonadismus
+Pankreastransplantation
+hypergonadotroper Hypogonadismus
+hypogonadotroper Hypogonadismus
+polyzystisches Ovarialsyndrom
+Hyperprolaktinämie
+Hypophysenmakroadenom
+Hypophysenmikroadenom
+Wachstumshormonmangel
+Arginin-Vasopressin-Mangel
+Arginin-Vasopressin-Resistenz
+Syndrom der inadäquaten ADH-Sekretion
+Hyperkalzämie
+Hypokalzämie
+Hyponatriämie
+Hypernatriämie
+Hypertriglyzeridämie
+Dyslipidämie
+Vitamin-D-Mangel
+Insulinom
+Gastrinom
+Glukagonom
+VIPom
+Somatostatinom
+Karzinoidsyndrom
+multiple endokrine Neoplasie Typ 1
+multiple endokrine Neoplasie Typ 2
+familiäre hypokalziurische Hyperkalzämie
+Pseudohypoparathyreoidismus
+Hypophosphatasie
+primäre Nebennierenhyperplasie
+bilaterale makronoduläre Nebennierenhyperplasie
+Nebennierenmyelolipom
+nichtklassisches adrenogenitales Syndrom
+21-Hydroxylase-Mangel
+Hypoaldosteronismus
+mineralokortikoider Exzess
+hormoninaktives Hypophysenadenom
+thyreotropes Hypophysenadenom
+Hypophysenapoplex
+Empty-Sella-Syndrom
+Sheehan-Syndrom
+Kallmann-Syndrom
+Nelson-Syndrom
+Rathke-Spaltenzyste
+hypothalamische Adipositas
+Pubertas praecox
+Pubertas tarda
+prämature Ovarialinsuffizienz
+Androgenresistenz
+Klinefelter-Syndrom
+Turner-Syndrom
+androgenproduzierender Tumor
+kongenitale Hypothyreose
+zentrale Hypothyreose
+Schilddrüsenhormonresistenz
+Riedel-Thyreoiditis
+atrophische Autoimmunthyreoiditis
+Jodmangelstruma
+thyreotoxische periodische Paralyse
+Myxödemkoma
+Struma ovarii
+Schilddrüsenlymphom
+Nebenschilddrüsenadenom
+Nebenschilddrüsenhyperplasie
+Nebenschilddrüsenkarzinom
+sekundärer Hyperparathyreoidismus
+tertiärer Hyperparathyreoidismus
+tumorinduzierte Osteomalazie
+onkogene Hyperkalzämie
+Hypophosphatämie
+familiäre Hypophosphatämie
+renale Osteodystrophie
+Morbus Paget
+Hypervitaminose D
+Lipodystrophie
+Lipohypertrophie
+Lipoatrophie
+Insulinallergie
+Insulin-Autoimmunsyndrom
+reaktive Hypoglykämie
+postbariatrische Hypoglykämie
+Hypoglykämie factitia
+zystische-Fibrose-assoziierter Diabetes
+Hämochromatose
+familiäre Dysbetalipoproteinämie
+Chylomikronämiesyndrom
+hypophosphatämische Rachitis
+proteinenergetische Mangelernährung
+Refeeding-Syndrom
+diabetische Amyotrophie
+neuropathisches Fußulkus
+neuroischämisches Fußulkus
+diabetische Osteomyelitis
+Malum perforans
+Hypoglykämie-assoziiertes autonomes Versagen
+thyreotoxische Kardiomyopathie
+euthyreot
+hyperthyreot
+hypothyreot
+thyreotoxisch
+hyperglykämisch
+hypoglykämisch
+ketoazidotisch
+hyperosmolar
+insulinpflichtig
+insulinresistent
+insulinotrop
+lipohypertroph
+hyperkortisolämisch
+hypokortisolämisch
+hyperandrogenämisch
+hypogonadal
+hypophysär
+hypothalamisch
+adrenokortikal
+hormonaktiv
+hormoninaktiv
+osteoporotisch
+osteomalazisch
+hyperkalzämisch
+hypokalzämisch
+hyperkalziurisch
+hypophosphatämisch
+thyreostatisch
+antiresorptiv
+osteoanabol
+neuroischämisch
+neuropathisch
+bariatrisch
+hyperprolaktinämisch
+hypergonadotrop
+hypogonadotrop
+Polyurie
+HbA1c
+basalunterstützte orale Therapie
+Insulinpumpe
+Polydipsie
+Nüchternplasmaglukose
+konventionelle Insulintherapie
+Patchpumpe
+Glukosurie
+Fruktosamin
+Basalinsulintherapie
+Insulinpen
+Hypoglykämiesymptomatik
+Ketonkörperbestimmung
+prandiale Insulintherapie
+Glukosesensor
+adrenerge Gegenregulation
+Beta-Hydroxybutyrat
+Insulinpumpenschulung
+kontinuierliches Glukosemesssystem
+Neuroglykopenie
+Insulinautoantikörper
+Kohlenhydratberechnung
+Insulininfusionsset
+viszerale Adipositas
+HOMA-Index
+Bolusrechner
+subkutane Insulinkanüle
+abdominelle Adipositas
+Insulinsensitivität
+temporäre Basalrate
+Diabetesschutzschuh
+Facies lunata
+Time in Range
+verzögerter Bolus
+diabetesadaptierte Fußbettung
+Büffelnacken
+Time below Range
+dualer Bolus
+Vorfußentlastungsschuh
+Hautatrophie
+Time above Range
+medizinische Ernährungstherapie
+Hämatomneigung
+Glukosemanagementindikator
+Adipositastherapie
+Hyperhidrose
+Variationskoeffizient
+Wachstumshormonsubstitution
+feinschlägiger Tremor
+Hypoglykämieprotokoll
+Desmopressinsubstitution
+diffuse Struma
+Blutzuckertagesprofil
+Dopaminagonistentherapie
+retrosternale Struma
+Sensorauswertung
+Somatostatinanalogatherapie
+Schilddrüsenknoten
+Basalratentest
+Steroidogenesehemmung
+Druckdolenz der Schilddrüse
+Kohlenhydratfaktor
+Glukokortikoidrezeptorblockade
+Schilddrüsenkompression
+Korrekturfaktor
+Orbitadekompression
+Hyporeflexie
+Spritzstelleninspektion
+lipidsenkende Therapie
+verzögerte Reflexrelaxation
+Monofilamenttest
+Lipoproteinapherese
+Akropachie
+Stimmgabeltest
+podologische Komplexbehandlung
+Amenorrhö
+Neuropathie-Defizit-Score
+Total-Contact-Cast
+Oligomenorrhö
+Neuropathie-Symptom-Score
+diabetische Fußentlastung
+Anovulation
+Knöchel-Arm-Index
+Fertilitätsinduktion
+erektile Dysfunktion
+Zehendruckmessung
+Hodenatrophie
+Funduskopie
+Hyperandrogenämie
+Albumin-Kreatinin-Quotient
+Hypoöstrogenämie
+Schilddrüsensonographie
+Hyperöstrogenämie
+Elastographie
+Hyperinsulinämie
+Schilddrüsenfeinnadelpunktion
+Hyperkortisolismus
+Bethesda-Klassifikation
+Hypokortisolismus
+EU-TIRADS
+ACTH-Suppression
+Thyreoglobulinbestimmung
+supprimiertes TSH
+Thyreoglobulin-Antikörper
+Hyperkalziurie
+Thyreoperoxidase-Antikörper
+Hypokalziurie
+TSH-Rezeptor-Antikörper
+Hypophosphatämie-bedingte Muskelschwäche
+Calcitoninbestimmung
+periorale Parästhesie
+Kalziumstimulationstest
+Karpopedalspasmus
+Radiojodtest
+Tetanie
+Ganzkörperszintigraphie
+Chvostek-Zeichen
+Sestamibi-Szintigraphie
+Trousseau-Zeichen
+Cholin-PET/CT
+Fragilitätsfraktur
+Parathormonbestimmung
+Wirbelkörperkompressionsfraktur
+ionisiertes Kalzium
+Hyperkeratose
+25-Hydroxyvitamin D
+Fußdeformität
+Knochenstoffwechselmarker
+autonome Dysfunktion
+knochenspezifische alkalische Phosphatase
+orthostatische Hypotonie
+Osteocalcin
+Wundheilungsstörung
+Prokollagen-Typ-I-N-Propeptid
+Pseudohyponatriämie
+C-terminales Telopeptid
+Euvolämie
+FRAX
+Hyperosmolalität
+vertebrale Frakturanalyse
+Hypoosmolalität
+Knochenalterbestimmung
+Hypophysen-MRT
+Gesichtsfeldperimetrie
+Wachstumshormonsuppressionstest
+Prolaktinbestimmung
+Makroprolaktinbestimmung
+gonadotrope Achse
+thyreotrope Achse
+kortikotrope Achse
+somatotrope Achse
+Gonadotropin-Releasing-Hormon-Test
+HCG-Stimulationstest
+ACTH-Bestimmung
+Reninbestimmung
+Aldosteronbestimmung
+Kochsalzbelastungstest
+Captopriltest
+Fludrokortison-Suppressionstest
+Plasma-Metanephrine
+Urin-Katecholamine
+DHEA-S
+Androstendion
+17-Hydroxyprogesteron
+Sexualhormon-bindendes Globulin
+freier Androgenindex
+Lipoprotein(a)
+Apolipoprotein B
+LDL-Cholesterin
+HDL-Cholesterin
+Non-HDL-Cholesterin
+genetische Diabetesdiagnostik
+MEN-Diagnostik
+Hungerversuch
+Mischmahlzeitentest
+Durstversuch
+Desmopressintest
+Osmolalitätsmessung
+Bioimpedanzanalyse
+Edmonton Obesity Staging System
+indirekte Kalorimetrie
+lipoatrophisch
+MODY
+LADA
+PCOS
+MEN
+AGS
+ACTH
+TSH
+CGM
+rtCGM
+AID
+CSII
+ICT
+BOT
+DKA
+HHS
+TIR
+TBR
+TAR
+GMI
+DXA
+SHBG
+IGF-1

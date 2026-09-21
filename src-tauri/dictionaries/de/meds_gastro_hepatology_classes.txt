@@ -1,0 +1,55 @@
+# Gastroenterologie/Hepatologie – Wirkstoffklassen (Gastroenterologie/Hepatologie)
+# Quelle: medical_asr generated_v2, Modul meds.gastro_hepatology.classes — unveraendert uebernommen.
+#
+# Reihenfolge = ASR-Prioritaet (nicht Korpushaeufigkeit): vorne stehen die
+# Begriffe, an denen ein allgemeines ASR am ehesten scheitert.
+# Stufen 25 / 46 nehmen jeweils die ersten N Zeilen,
+# daher gelten die Stufen per Konstruktion als Praefixe voneinander.
+# Zeilen mit # sind Kommentare. Reihenfolge NICHT alphabetisch sortieren.
+
+Protonenpumpeninhibitoren
+Histamin-H2-Rezeptorantagonisten
+Aminosalicylate
+Thiopurine
+Calcineurininhibitoren
+TNF-alpha-Inhibitoren
+Integrinantagonisten
+Interleukin-12/23-Inhibitoren
+Interleukin-23-Inhibitoren
+Januskinase-Inhibitoren
+Sphingosin-1-Phosphat-Rezeptormodulatoren
+NS3/4A-Proteaseinhibitoren
+NS5A-Inhibitoren
+NS5B-Polymeraseinhibitoren
+Nukleosidanaloga
+Nukleotidanaloga
+Gallensäuresequestrierer
+periphere Opioidrezeptorantagonisten
+Guanylatcyclase-C-Agonisten
+GLP-2-Analoga
+Glukokortikoide
+Somatostatinanaloga
+Vasopressinanaloga
+Pankreasenzyme
+Gallensäuren
+Antazida
+Alginate
+Prokinetika
+Antiemetika
+5-HT3-Rezeptorantagonisten
+NK1-Rezeptorantagonisten
+5-HT4-Rezeptoragonisten
+osmotische Laxanzien
+stimulierende Laxanzien
+Quellmittel
+Spasmolytika
+Antidiarrhoika
+Enkephalinasehemmer
+Chelatbildner
+nichtselektive Betablocker
+Aldosteronantagonisten
+Schleifendiuretika
+Echinocandine
+Makrolide
+Nitroimidazole
+Fluorchinolone

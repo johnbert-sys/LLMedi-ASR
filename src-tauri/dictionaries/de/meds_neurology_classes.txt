@@ -1,0 +1,53 @@
+# Neurologie – Wirkstoffklassen (Neurologie)
+# Quelle: medical_asr generated_v2, Modul meds.neurology.classes — unveraendert uebernommen.
+#
+# Reihenfolge = ASR-Prioritaet (nicht Korpushaeufigkeit): vorne stehen die
+# Begriffe, an denen ein allgemeines ASR am ehesten scheitert.
+# Stufen 25 / 44 nehmen jeweils die ersten N Zeilen,
+# daher gelten die Stufen per Konstruktion als Praefixe voneinander.
+# Zeilen mit # sind Kommentare. Reihenfolge NICHT alphabetisch sortieren.
+
+Antikonvulsiva
+Natriumkanalblocker
+SV2A-Liganden
+AMPA-Rezeptorantagonisten
+Carboanhydrasehemmer
+Dopaminagonisten
+Monoaminoxidase-B-Hemmer
+Catechol-O-Methyltransferase-Hemmer
+Dopa-Decarboxylasehemmer
+Acetylcholinesterasehemmer
+NMDA-Rezeptorantagonisten
+CGRP-Antikörper
+CGRP-Rezeptorantagonisten
+Triptane
+Ditane
+Sphingosin-1-Phosphat-Rezeptormodulatoren
+Anti-CD20-Antikörper
+Integrinantagonisten
+Komplementinhibitoren
+FcRn-Inhibitoren
+Antisense-Oligonukleotide
+Botulinumtoxine
+Benzodiazepine
+Barbiturate
+Gabapentinoide
+Anticholinergika
+Muskelrelaxanzien
+trizyklische Antidepressiva
+Serotonin-Noradrenalin-Wiederaufnahmehemmer
+selektive Serotonin-Wiederaufnahmehemmer
+Neuroleptika
+atypische Antipsychotika
+VMAT2-Hemmer
+Beta-Interferone
+Fumarate
+Immunglobuline
+Glukokortikoide
+Plättchenaggregationshemmer
+direkte orale Antikoagulanzien
+Vitamin-K-Antagonisten
+Thrombolytika
+Anti-Amyloid-Antikörper
+Transthyretin-Stabilisatoren
+RNA-Interferenz-Therapeutika

@@ -1,0 +1,259 @@
+# Anatomie Wirbelsäule (Anatomie Wirbelsäule)
+# Quelle: medical_asr generated_v2, Modul anatomy.spine — unveraendert uebernommen.
+#
+# Reihenfolge = ASR-Prioritaet (nicht Korpushaeufigkeit): vorne stehen die
+# Begriffe, an denen ein allgemeines ASR am ehesten scheitert.
+# Stufen 100 / 250 nehmen jeweils die ersten N Zeilen,
+# daher gelten die Stufen per Konstruktion als Praefixe voneinander.
+# Zeilen mit # sind Kommentare. Reihenfolge NICHT alphabetisch sortieren.
+
+Articulatio atlantooccipitalis
+Articulatio atlantoaxialis mediana
+Articulatio atlantoaxialis lateralis
+Ligamentum transversum atlantis
+Ligamentum cruciforme atlantis
+Ligamentum alare
+Ligamentum apicis dentis
+Membrana tectoria
+Membrana atlantooccipitalis anterior
+Membrana atlantooccipitalis posterior
+Membrana atlantoaxialis anterior
+Membrana atlantoaxialis posterior
+Ligamentum longitudinale anterius
+Ligamentum longitudinale posterius
+Ligamentum flavum
+Ligamentum interspinale
+Ligamentum supraspinale
+Ligamentum intertransversarium
+Ligamentum nuchae
+Ligamentum iliolumbale
+Articulatio zygapophysialis
+Unkovertebralgelenk
+Foramen intervertebrale
+Recessus lateralis
+Foramen transversarium
+Sulcus arteriae vertebralis
+Pediculus arcus vertebrae
+Lamina arcus vertebrae
+Pars interarticularis
+Processus uncinatus vertebrae
+Processus articularis superior
+Processus articularis inferior
+Discus intervertebralis
+Anulus fibrosus
+Nucleus pulposus
+Wirbelkörperdeckplatte
+Wirbelkörpergrundplatte
+Conus medullaris
+Cauda equina
+Filum terminale internum
+Filum terminale externum
+Intumescentia cervicalis
+Intumescentia lumbosacralis
+Ligamentum denticulatum
+Spatium epidurale
+Spatium subarachnoideum
+Dura mater spinalis
+Arachnoidea mater spinalis
+Pia mater spinalis
+Radix anterior nervi spinalis
+Radix posterior nervi spinalis
+Ganglion spinale
+Ramus meningeus nervi spinalis
+Plexus venosus vertebralis internus
+Plexus venosus vertebralis externus
+Vena basivertebralis
+Arteria radicularis magna
+Arteria spinalis anterior
+Arteria spinalis posterior
+Arteria vertebralis
+Arteria cervicalis ascendens
+Arteria cervicalis profunda
+Arteriae lumbales
+Arteriae sacrales laterales
+Arteria sacralis mediana
+Plexus cervicalis
+Plexus brachialis
+Plexus lumbalis
+Plexus sacralis
+Truncus lumbosacralis
+Tractus corticospinalis lateralis
+Tractus spinothalamicus lateralis
+Tractus spinocerebellaris posterior
+Fasciculus gracilis
+Fasciculus cuneatus
+Sulcus posterolateralis
+Sulcus anterolateralis
+Fissura mediana anterior
+Septum medianum posterius
+Fascia thoracolumbalis
+Columna vertebralis
+Canalis vertebralis
+Foramen vertebrale
+Corpus vertebrae
+Arcus vertebrae
+Processus spinosus
+Processus transversus
+Incisura vertebralis superior
+Incisura vertebralis inferior
+Facies articularis superior
+Facies articularis inferior
+Dens axis
+Arcus anterior atlantis
+Arcus posterior atlantis
+Massa lateralis atlantis
+Fovea dentis
+Tuberculum anterius atlantis
+Tuberculum posterius atlantis
+Facies articularis anterior dentis
+Facies articularis posterior dentis
+Tuberculum caroticum
+Sulcus nervi spinalis
+Tuberculum anterius vertebrae cervicalis
+Tuberculum posterius vertebrae cervicalis
+Vertebra prominens
+Fovea costalis superior
+Fovea costalis inferior
+Fovea costalis processus transversi
+Processus costalis vertebrae lumbalis
+Processus mamillaris
+Processus accessorius
+Os sacrum
+Basis ossis sacri
+Apex ossis sacri
+Ala ossis sacri
+Promontorium
+Facies auricularis ossis sacri
+Tuberositas sacralis
+Crista sacralis mediana
+Crista sacralis intermedia
+Crista sacralis lateralis
+Foramina sacralia anteriora
+Foramina sacralia posteriora
+Canalis sacralis
+Hiatus sacralis
+Cornu sacrale
+Os coccygis
+Articulatio sacrococcygea
+Articulatio sacroiliaca
+Ligamentum sacroiliacum anterius
+Ligamentum sacroiliacum posterius
+Ligamentum sacroiliacum interosseum
+Ligamentum sacrotuberale
+Ligamentum sacrospinale
+Articulatio capitis costae
+Articulatio costotransversaria
+Ligamentum capitis costae radiatum
+Ligamentum capitis costae intraarticulare
+Ligamentum costotransversarium
+Ligamentum costotransversarium superius
+Ligamentum costotransversarium laterale
+Collum costae
+Caput costae
+Tuberculum costae
+Medulla spinalis
+Pars cervicalis medullae spinalis
+Pars thoracica medullae spinalis
+Pars lumbalis medullae spinalis
+Pars sacralis medullae spinalis
+Canalis centralis
+Cornu anterius medullae spinalis
+Cornu posterius medullae spinalis
+Cornu laterale medullae spinalis
+Commissura alba anterior
+Funiculus anterior
+Funiculus lateralis
+Funiculus posterior
+Sulcus medianus posterior
+Sulcus intermedius posterior
+Tractus corticospinalis anterior
+Tractus spinothalamicus anterior
+Tractus spinocerebellaris anterior
+Tractus rubrospinalis
+Tractus vestibulospinalis
+Tractus reticulospinalis
+Nervus spinalis
+Ramus anterior nervi spinalis
+Ramus posterior nervi spinalis
+Truncus sympathicus
+Ganglion cervicothoracicum
+Ganglion cervicale superius
+Ganglion impar
+Nervus suboccipitalis
+Nervus occipitalis major
+Nervus occipitalis tertius
+Nervus occipitalis minor
+Nervus auricularis magnus
+Ansa cervicalis
+Nervus phrenicus
+Nervus dorsalis scapulae
+Nervus thoracicus longus
+Nervus subcostalis
+Nervus iliohypogastricus
+Nervus ilioinguinalis
+Nervus genitofemoralis
+Nervus cutaneus femoris lateralis
+Nervus femoralis
+Nervus obturatorius
+Nervus ischiadicus
+Nervus pudendus
+Nervi clunium superiores
+Nervi clunium medii
+Musculus erector spinae
+Musculus iliocostalis lumborum
+Musculus iliocostalis thoracis
+Musculus iliocostalis cervicis
+Musculus longissimus thoracis
+Musculus longissimus cervicis
+Musculus longissimus capitis
+Musculus spinalis thoracis
+Musculus spinalis cervicis
+Musculus semispinalis thoracis
+Musculus semispinalis cervicis
+Musculus semispinalis capitis
+Musculus multifidus
+Musculi rotatores breves
+Musculi rotatores longi
+Musculi interspinales
+Musculi intertransversarii
+Musculi levatores costarum
+Musculus splenius capitis
+Musculus splenius cervicis
+Musculus rectus capitis posterior major
+Musculus rectus capitis posterior minor
+Musculus obliquus capitis superior
+Musculus obliquus capitis inferior
+Musculus rectus capitis anterior
+Musculus rectus capitis lateralis
+Musculus longus colli
+Musculus longus capitis
+Musculus scalenus anterior
+Musculus scalenus medius
+Musculus scalenus posterior
+Musculus levator scapulae
+Musculus trapezius
+Musculus rhomboideus major
+Musculus rhomboideus minor
+Musculus serratus posterior superior
+Musculus serratus posterior inferior
+Musculus quadratus lumborum
+Musculus psoas major
+Musculus iliacus
+Arteria intercostalis posterior
+Arteria subcostalis
+Ramus spinalis arteriae vertebralis
+Arteria radicularis anterior
+Arteria radicularis posterior
+Vena vertebralis
+Vena intervertebralis
+Vena spinalis anterior
+Vena lumbalis ascendens
+Trigonum suboccipitale
+Trigonum lumbale superius
+Trigonum lumbale inferius
+Fascia prevertebralis
+Spatium retropharyngeum
+kraniozervikaler Übergang
+zervikothorakaler Übergang
+thorakolumbaler Übergang
+lumbosakraler Übergang

@@ -1,0 +1,260 @@
+# Anatomie Herz und Gefäße (Anatomie)
+# Quelle: medical_asr_harness_v0_1, Modul anatomy.heart_vessels — unveraendert uebernommen.
+#
+# Reihenfolge = ASR-Prioritaet (nicht Korpushaeufigkeit): vorne stehen die
+# Begriffe, an denen ein allgemeines ASR am ehesten scheitert.
+# Stufen 100 / 250 nehmen jeweils die ersten N Zeilen, daher gilt 100 ⊂ 250
+# per Konstruktion. Nur diese eine Datei wird gebuendelt; die Stufen-Dateien
+# des Pakets sind exakte Praefixe davon und waeren redundant.
+# Zeilen mit # sind Kommentare. Reihenfolge NICHT alphabetisch sortieren.
+
+Sinus transversus pericardii
+Sinus obliquus pericardii
+Musculus papillaris anterior
+Musculus papillaris posterior
+Musculus papillaris septalis
+Ramus interventricularis anterior
+Ramus marginalis sinister
+Ramus interventricularis posterior
+AV-Knotenarterie
+Vena obliqua atrii sinistri
+Arteria carotis communis dextra
+Arteria carotis communis sinistra
+Arteria subclavia dextra
+Arteria subclavia sinistra
+Septum interventriculare
+rechte obere Pulmonalvene
+rechte untere Pulmonalvene
+linke obere Pulmonalvene
+linke untere Pulmonalvene
+Arteria carotis communis
+Arteria thoracica interna
+Arteria mammaria interna
+Arcus palmaris superficialis
+Arcus palmaris profundus
+Arteria gastrica sinistra
+Arteria hepatica communis
+Arteria mesenterica superior
+Arteria mesenterica inferior
+Arteria femoralis communis
+Arteria femoralis superficialis
+Arteria profunda femoris
+Arteria tibialis anterior
+Arteria tibialis posterior
+Trabecula septomarginalis
+Trikuspidalklappenanulus
+linksventrikulärer Ausflusstrakt
+LVOT
+rechtsventrikulärer Ausflusstrakt
+RVOT
+RCA
+LM
+RIVA
+LAD
+RCX
+LCX
+Ramus marginalis dexter
+OM-Ast
+RIVP
+PDA
+PL-Ast
+Vena cordis magna
+Vena cordis media
+Vena cordis parva
+Venae cardiacae minimae
+Thebesius-Venen
+SA-Knoten
+AV-Knoten
+Nodus atrioventricularis
+Fasciculus atrioventricularis
+rechter Tawara-Schenkel
+linker Tawara-Schenkel
+Purkinje-Fasern
+Bachmann-Bündel
+akzessorische Leitungsbahn
+Truncus brachiocephalicus
+Vena cava superior
+Vena cava inferior
+rechter Vorhof
+rechtes Atrium
+rechtes Herzohr
+linkes Herzohr
+rechter Ventrikel
+linker Ventrikel
+Septum interatriale
+Ventrikelseptum
+Crista terminalis
+Sulcus terminalis
+Arteria carotis interna
+Arteria carotis externa
+Arteria iliaca communis
+Arteria iliaca externa
+Arteria iliaca interna
+Arteria dorsalis pedis
+Vena jugularis interna
+Vena jugularis externa
+Trabeculae carneae
+Papillarmuskel
+Chordae tendineae
+Trikuspidalklappe
+Pulmonalklappe
+Valva mitralis
+Valva tricuspidalis
+Valva pulmonalis
+Aortenklappenanulus
+Mitralklappenanulus
+Pulmonalklappenanulus
+rechtskoronare Tasche
+linkskoronare Tasche
+nichtkoronare Tasche
+vorderes Mitralsegel
+hinteres Mitralsegel
+anteriores Mitralsegel
+posteriores Mitralsegel
+Sinus Valsalvae
+Sinotubulärer Übergang
+Koronararterie
+rechte Koronararterie
+linke Koronararterie
+linker Hauptstamm
+Ramus circumflexus
+Vena mediana cubiti
+Vena iliaca communis
+Vena iliaca externa
+Vena iliaca interna
+Vena femoralis communis
+Vena profunda femoris
+Vena tibialis anterior
+Vena tibialis posterior
+Vena saphena magna
+Vena saphena parva
+proximaler Gefäßabschnitt
+mittlerer Gefäßabschnitt
+Ramus intermedius
+Ramus diagonalis
+Obtuse Marginal
+Posterolateralast
+Sinusknotenarterie
+Sinus coronarius
+Herzkranzgefäße
+Koronardominanz
+Rechtsdominanz
+Nodus sinuatrialis
+His-Bündel
+Rechtsschenkel
+vorderer Faszikel
+hinterer Faszikel
+Reizleitungssystem
+Kent-Bündel
+Aorta ascendens
+Aorta descendens
+Aorta thoracica
+Aorta abdominalis
+Arteria pulmonalis
+Truncus pulmonalis
+rechte Pulmonalarterie
+linke Pulmonalarterie
+obere Hohlvene
+untere Hohlvene
+Perikard
+Epikard
+Myokard
+Endokard
+Herzbeutel
+Perikardhöhle
+Perikardsinus
+linker Vorhof
+linkes Atrium
+Herzspitze
+Apex cordis
+Herzbasis
+Basis cordis
+Vorhofseptum
+Fossa ovalis
+Foramen ovale
+Vena hemiazygos
+Ductus arteriosus
+Ligamentum arteriosum
+Karotisbifurkation
+Bulbus caroticus
+Arteria vertebralis
+Arteria basilaris
+Arteria subclavia
+Arteria axillaris
+Arteria intercostalis
+Arteria brachialis
+Arteria radialis
+Arteria ulnaris
+Truncus coeliacus
+Arteria splenica
+Arteria renalis
+Arteria poplitea
+Arteria fibularis
+Arteria peronea
+Truncus tibiofibularis
+Vena subclavia
+Vena brachiocephalica
+Vena axillaris
+Vena brachialis
+Vena cephalica
+Moderatorband
+Aortenklappe
+Mitralklappe
+Valva aortae
+Aortentasche
+Koronartasche
+Kommissur
+Aortenwurzel
+Koronargefäß
+Left Main
+Vena femoralis
+Vena fibularis
+Tunica adventitia
+Gefäßbifurkation
+distaler Gefäßabschnitt
+intraperikardial
+extraperikardial
+Diagonalast
+Septalast
+Konusarterie
+Koronarostium
+Koronarostien
+Koronarsinus
+Linksdominanz
+Kodominanz
+Sinusknoten
+Linksschenkel
+Aortenbogen
+Arcus aortae
+Herz
+Pulmonalvene
+Vena azygos
+Aortenisthmus
+Vena basilica
+Vena portae
+Pfortader
+Vena hepatica
+Lebervene
+Vena renalis
+Vena poplitea
+Crosse
+Venenklappe
+Tunica intima
+Intima
+Tunica media
+Media
+Adventitia
+Endothel
+Gefäßlumen
+Gefäßwand
+Arterienwand
+Venenwand
+Gefäßabgang
+Gefäßostium
+Gefäßsegment
+intrathorakal
+extrathorakal
+infrarenal
+suprarenal
+juxtarenal
+Aorta

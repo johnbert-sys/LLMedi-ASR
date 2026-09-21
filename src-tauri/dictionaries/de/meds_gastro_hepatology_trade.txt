@@ -1,0 +1,34 @@
+# Gastroenterologie/Hepatologie – Handelsnamen (Gastroenterologie/Hepatologie)
+# Quelle: medical_asr generated_v2, Modul meds.gastro_hepatology.trade — unveraendert uebernommen.
+#
+# Reihenfolge = ASR-Prioritaet (nicht Korpushaeufigkeit): vorne stehen die
+# Begriffe, an denen ein allgemeines ASR am ehesten scheitert.
+# Stufen 25 nehmen jeweils die ersten N Zeilen,
+# daher gelten die Stufen per Konstruktion als Praefixe voneinander.
+# Zeilen mit # sind Kommentare. Reihenfolge NICHT alphabetisch sortieren.
+
+Salofalk
+Budenofalk
+Ursofalk
+Entyvio
+Humira
+Rinvoq
+Skyrizi
+Jorveza
+Xifaxan
+Kreon
+Moviprep
+Plenvu
+Epclusa
+Maviret
+Vemlidy
+Hepcludex
+Omvoh
+Azafalk
+Endofalk
+Movicol
+Mucofalk
+Harvoni
+Vosevi
+Constella
+Laxofalk

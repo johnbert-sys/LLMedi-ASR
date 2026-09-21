@@ -1,0 +1,509 @@
+# Onkologie (Onkologie)
+# Quelle: medical_asr generated_v2, Modul internal.oncology — unveraendert uebernommen.
+#
+# Reihenfolge = ASR-Prioritaet (nicht Korpushaeufigkeit): vorne stehen die
+# Begriffe, an denen ein allgemeines ASR am ehesten scheitert.
+# Stufen 100 / 250 / 500 nehmen jeweils die ersten N Zeilen,
+# daher gelten die Stufen per Konstruktion als Praefixe voneinander.
+# Zeilen mit # sind Kommentare. Reihenfolge NICHT alphabetisch sortieren.
+
+hepatozelluläres Karzinom
+lymphogene Metastasierung
+Immunhistochemie
+intrahepatisches Cholangiokarzinom
+zytoreduktive Chirurgie
+neoadjuvante Systemtherapie
+extrahepatisches Cholangiokarzinom
+hämatogene Metastasierung
+molekulares Tumorprofiling
+Pankreasadenokarzinom
+hypertherme intraperitoneale Chemotherapie
+adjuvante Chemotherapie
+gastroösophageales Übergangskarzinom
+perineurale Invasion
+prädiktive Biomarkerdiagnostik
+kolorektales Karzinom
+transarterielle Chemoembolisation
+perioperative Chemotherapie
+gastrointestinaler Stromatumor
+lymphovaskuläre Invasion
+Mikrosatelliteninstabilität
+neuroendokrines Karzinom
+selektive interne Radiotherapie
+definitive Radiochemotherapie
+neuroendokriner Tumor
+Gefäßinvasion
+Mismatch-Repair-Defizienz
+nichtkleinzelliges Lungenkarzinom
+stereotaktische Radiochirurgie
+simultane Radiochemotherapie
+kleinzelliges Lungenkarzinom
+extranodales Wachstum
+homologe Rekombinationsdefizienz
+Pleuramesotheliom
+perkutane Radiofrequenzablation
+sequenzielle Radiochemotherapie
+Urothelkarzinom
+mikroskopischer Residualtumor
+Tumormutationslast
+Nierenzellkarzinom
+Mikrowellenablation
+Immuncheckpoint-Blockade
+kastrationsresistentes Prostatakarzinom
+makroskopischer Residualtumor
+zirkulierende Tumor-DNA
+triple-negatives Mammakarzinom
+irreversible Elektroporation
+bispezifische Antikörpertherapie
+inflammatorisches Mammakarzinom
+tumorfreie Resektionsränder
+Liquid Biopsy
+Endometriumkarzinom
+Peptidrezeptor-Radionuklidtherapie
+Antikörper-Wirkstoff-Konjugat
+Zervixkarzinom
+zirkumferenzieller Resektionsrand
+Next-Generation-Sequencing
+Adenokarzinom unbekannten Primarius
+PSMA-Radioligandentherapie
+molekular zielgerichtete Therapie
+Plattenepithelkarzinom
+pathologische Komplettremission
+RNA-Sequenzierung
+Leiomyosarkom
+interventionelle Tumorembolisation
+endokrine Kombinationstherapie
+dedifferenziertes Liposarkom
+metabolische Komplettremission
+Fluoreszenz-in-situ-Hybridisierung
+Ewing-Sarkom
+perkutane transhepatische Cholangiodrainage
+Androgendeprivation
+Rhabdomyosarkom
+Pseudoprogression
+HER2-Amplifikation
+Merkelzellkarzinom
+endoskopische biliäre Stenteinlage
+ovarielle Funktionssuppression
+Aderhautmelanom
+Hyperprogression
+EGFR-Mutationsanalyse
+Glioblastom
+Pleurodese
+PARP-Inhibition
+adenoidzystisches Karzinom
+oligoprogressive Erkrankung
+ALK-Rearrangement
+Meningeosis carcinomatosa
+therapeutische Aszitespunktion
+CDK4/6-Inhibition
+Lymphangiosis carcinomatosa
+gemischtes Therapieansprechen
+ROS1-Rearrangement
+Peritonealkarzinose
+antiangiogene Therapie
+paraneoplastisches Syndrom
+Primärresistenz
+NTRK-Genfusion
+Immuncheckpoint-Inhibitor-assoziierte Kolitis
+antiemetische Prophylaxe
+Immuncheckpoint-Inhibitor-assoziierte Pneumonitis
+erworbene Therapieresistenz
+RET-Genfusion
+Granulozytenkolonie-stimulierender Faktor
+paraneoplastische Hyperkalzämie
+BRAF-V600-Mutation
+osteoprotektive Therapie
+therapieassoziierte Myelosuppression
+KRAS-Mutationsanalyse
+multimodale Tumortherapie
+NRAS-Mutationsanalyse
+BRCA1-Mutation
+BRCA2-Mutation
+PIK3CA-Mutation
+ESR1-Mutation
+PD-L1-Expression
+kombinierter positiver Score
+Tumor Proportion Score
+histopathologischer Regressionsgrad
+Sentinel-Lymphknotenbiopsie
+Mammakarzinom
+Prostatakarzinom
+Lungenadenokarzinom
+Ösophaguskarzinom
+Magenkarzinom
+Kolonkarzinom
+Rektumkarzinom
+Analkarzinom
+Dünndarmkarzinom
+Appendixkarzinom
+Gallenblasenkarzinom
+Ampullenkarzinom
+Ovarialkarzinom
+Tubenkarzinom
+Vulvakarzinom
+Vaginalkarzinom
+Peniskarzinom
+Nierenbeckenkarzinom
+Ureterkarzinom
+Hodentumor
+Seminom
+Nichtseminom
+Keimzelltumor
+malignes Melanom
+kutanes Plattenepithelkarzinom
+Basalzellkarzinom
+Kopf-Hals-Karzinom
+Oropharynxkarzinom
+Hypopharynxkarzinom
+Larynxkarzinom
+Nasopharynxkarzinom
+Mundhöhlenkarzinom
+Speicheldrüsenkarzinom
+Schilddrüsenkarzinom
+Nebennierenrindenkarzinom
+Weichgewebesarkom
+Osteosarkom
+Chondrosarkom
+Synovialsarkom
+Angiosarkom
+Kaposi-Sarkom
+Desmoidtumor
+Thymom
+Thymuskarzinom
+retroperitoneales Sarkom
+solitärer fibröser Tumor
+maligner peripherer Nervenscheidentumor
+leptomeningeale Metastasierung
+Oligometastasierung
+Tumorkachexie
+Tumorlysesyndrom
+febrile Neutropenie
+neutropenische Sepsis
+maligne Hyperkalzämie
+maligner Pleuraerguss
+maligner Aszites
+obere Einflussstauung
+tumorbedingte Rückenmarkkompression
+pathologische Fraktur
+Tumorblutung
+maligner Ileus
+Karzinoidsyndrom
+Immuncheckpoint-Inhibitor-assoziierte Hepatitis
+Immuncheckpoint-Inhibitor-assoziierte Myokarditis
+Immuncheckpoint-Inhibitor-assoziierte Hypophysitis
+Chemotherapie-induzierte Polyneuropathie
+Chemotherapie-induzierte Mukositis
+Strahlenpneumonitis
+Strahlenproktitis
+Strahlenzystitis
+Osteoradionekrose
+medikamentenassoziierte Kieferosteonekrose
+invasiv lobuläres Mammakarzinom
+duktales Carcinoma in situ
+metaplastisches Mammakarzinom
+Siegelringzellkarzinom
+muzinöses Adenokarzinom
+adenosquamöses Karzinom
+fibrolamelläres Leberkarzinom
+gemischtes hepatozellulär-cholangiozelluläres Karzinom
+endometriales Stromasarkom
+Uteruskarzinosarkom
+embryonales Karzinom
+Dottersacktumor
+Chorionkarzinom
+Teratom
+epithelioides Sarkom
+undifferenziertes pleomorphes Sarkom
+Dermatofibrosarcoma protuberans
+PECom
+Medulloblastom
+Ependymom
+Oligodendrogliom
+Astrozytom
+diffuses Mittelliniengliom
+Krukenberg-Tumor
+Pseudomyxoma peritonei
+Lynch-Syndrom
+familiäre adenomatöse Polyposis
+Li-Fraumeni-Syndrom
+hereditäres Brust- und Eierstockkrebssyndrom
+hereditäres diffuses Magenkarzinom
+von-Hippel-Lindau-Syndrom
+Peutz-Jeghers-Syndrom
+Lambert-Eaton-Myasthenie-Syndrom
+paraneoplastische limbische Enzephalitis
+Trousseau-Syndrom
+Immuntherapie-induzierter Diabetes
+Hand-Fuß-Syndrom
+Hand-Fuß-Hautreaktion
+akneiformes Exanthem
+Strahlendermatitis
+Radiation-Recall-Reaktion
+Chemotherapie-induzierte Kardiomyopathie
+anthrazyklinassoziierte Kardiotoxizität
+Immuncheckpoint-Inhibitor-assoziierte Nephritis
+neoadjuvant
+adjuvant
+perioperativ
+kurativ
+palliativ
+metastasiert
+oligometastasiert
+oligoprogressiv
+lokoregionär
+resektabel
+grenzwertig resektabel
+irresektabel
+inoperabel
+therapierefraktär
+chemosensitiv
+chemoresistent
+radiosensitiv
+radioresistent
+hormonrezeptorpositiv
+HER2-positiv
+HER2-low
+triple-negativ
+mikrosatelliteninstabil
+mikrosatellitenstabil
+mismatch-repair-defizient
+mutationspositiv
+histologisch gesichert
+molekular stratifiziert
+undifferenziert
+pleomorph
+spindelzellig
+epithelioid
+muzinös
+neuroendokrin
+desmoplastisch
+lymphangitisch
+perineural
+angioinvasiv
+extrakapsulär
+intramukosal
+submukosal
+transmural
+Lymphknotenmetastase
+Tumorprogression
+Exzisionsbiopsie
+En-bloc-Resektion
+Erstlinientherapie
+Portkatheter
+Lokalrezidiv
+Inzisionsbiopsie
+Metastasektomie
+Zweitlinientherapie
+PICC
+Fernrezidiv
+Feinnadelaspiration
+Sentinel-Lymphonodektomie
+Drittlinientherapie
+Pleuraverweilkatheter
+Zweitmalignom
+endosonographische Feinnadelbiopsie
+Salvage-Operation
+Erhaltungstherapie
+biliärer Metallstent
+synchrones Malignom
+Mediastinoskopie
+Debulking
+Konsolidierungstherapie
+Ösophagusstent
+metachrones Malignom
+diagnostische Laparoskopie
+Nachresektion
+Induktionstherapie
+Duodenalstent
+multifokales Wachstum
+Mamma-MRT
+Portimplantation
+Salvage-Therapie
+Kolonstent
+multizentrisches Wachstum
+multiparametrische Prostata-MRT
+Portexplantation
+Reinduktion
+Nephrostomiekatheter
+infiltratives Wachstum
+PSMA-PET/CT
+Pleurapunktion
+Rechallenge
+PEG-Sonde
+exophytisches Wachstum
+FDG-PET/CT
+Pleuradrainage
+Monochemotherapie
+Kühlhaube
+Tumornekrose
+Somatostatinrezeptor-PET/CT
+Tumorprothesenimplantation
+Polychemotherapie
+Tumorendoprothese
+Desmoplasie
+Skelettszintigraphie
+Vertebroplastie
+metronomische Chemotherapie
+peritumorales Ödem
+Ganzkörper-MRT
+Kyphoplastie
+orale Tumortherapie
+Tumorthrombus
+Restaging
+prophylaktische Osteosynthese
+platinbasierte Chemotherapie
+Tumorruptur
+Responsebeurteilung
+Kryoablation
+taxanbasierte Chemotherapie
+Satellitenmetastase
+RECIST
+Laserablation
+anthrazyklinhaltige Chemotherapie
+In-transit-Metastase
+iRECIST
+photodynamische Therapie
+palliative Systemtherapie
+Serosadurchbruch
+PERCIST
+Kryokonservierung von Spermien
+kurative Therapie
+Organinfiltration
+TNM-Klassifikation
+Kryokonservierung von Oozyten
+organerhaltende Therapie
+Gefäßummauerung
+UICC-Stadium
+stereotaktische Körperbestrahlung
+Knochenmarkkarzinose
+FIGO-Stadium
+hypofraktionierte Strahlentherapie
+lymphatische Obstruktion
+Gleason-Score
+Brachytherapie
+Dysphagie
+ISUP-Graduierung
+Protonentherapie
+Odynophagie
+Nottingham-Grading
+intensitätsmodulierte Strahlentherapie
+Hämoptyse
+Breslow-Tumordicke
+bildgeführte Strahlentherapie
+Tenesmen
+Ki-67-Proliferationsindex
+Ganzhirnbestrahlung
+Fatigue
+Östrogenrezeptorstatus
+prophylaktische Schädelbestrahlung
+Dysgeusie
+HER2-Status
+Schmerzbestrahlung
+Xerostomie
+Mismatch-Repair-Proteinexpression
+Best Supportive Care
+Alopezie
+MLH1-Promotormethylierung
+psychoonkologische Betreuung
+Mukositis
+Keimbahndiagnostik
+onkologische Rehabilitation
+Stomatitis
+humangenetische Beratung
+Mukositisprophylaxe
+Enteritis
+Pharmakogenetik
+Tumorlyseprophylaxe
+Proktitis
+Dihydropyrimidin-Dehydrogenase-Aktivität
+Pneumocystis-Prophylaxe
+Neutropenie
+DPYD-Genotypisierung
+Immunglobulinsubstitution
+Thrombozytopenie
+UGT1A1-Genotypisierung
+Transfusionssupport
+Panzytopenie
+Tumormarkerverlauf
+Dosisintensität
+Hepatotoxizität
+carcinoembryonales Antigen
+kumulative Dosis
+Nephrotoxizität
+Alpha-Fetoprotein
+Therapieeskalation
+Neurotoxizität
+prostataspezifisches Antigen
+Therapiedeeskalation
+Ototoxizität
+CA 19-9
+Off-Label-Therapie
+Kardiotoxizität
+CA 125
+aktive Überwachung
+Phototoxizität
+CA 15-3
+Watchful Waiting
+Infusionsreaktion
+neuronenspezifische Enolase
+Extravasation
+Chromogranin A
+osteoblastische Metastase
+ECOG-Performance-Status
+Karzinomzellen im Erguss
+Karnofsky-Index
+biochemisches Rezidiv
+geriatrisches Assessment
+molekulares Rezidiv
+G8-Screening
+nichtmessbare Läsion
+CARG-Score
+messbare Zielläsion
+CTCAE
+Nichtzielläsion
+EORTC QLQ-C30
+Tumorlast
+Distress-Thermometer
+Tumorverdopplungszeit
+Nutritional Risk Screening
+Rezidivfreiheit
+Tumorboard
+krankheitsfreies Überleben
+molekulares Tumorboard
+progressionsfreies Überleben
+Rebiopsie
+Gesamtüberleben
+Klonalitätsanalyse
+objektives Ansprechen
+Resistenzmutation
+Ansprechdauer
+messbare Resterkrankung
+dosislimitierende Toxizität
+NSCLC
+SCLC
+CUP
+GIST
+NET
+NEC
+HCC
+RCC
+MSI
+MSS
+dMMR
+HRD
+TMB
+ctDNA
+TPS
+CPS
+TACE
+SIRT
+HIPEC
+PRRT
+SBRT
+IMRT
+IGRT
+OS
+PFS
+ORR
+DCR

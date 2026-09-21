@@ -1,0 +1,62 @@
+# Kardiologie – Wirkstoffklassen (Pharmakologie / Kardiologie)
+# Quelle: medical_asr_harness_v0_1, Modul meds.cardiology.classes — unveraendert uebernommen.
+#
+# Reihenfolge = ASR-Prioritaet (nicht Korpushaeufigkeit): vorne stehen die
+# Begriffe, an denen ein allgemeines ASR am ehesten scheitert.
+# Stufen 25 / 50 / 52 nehmen jeweils die ersten N Zeilen, daher gilt 25 ⊂ 50 ⊂ 52
+# per Konstruktion. Nur diese eine Datei wird gebuendelt; die Stufen-Dateien
+# des Pakets sind exakte Praefixe davon und waeren redundant.
+# Zeilen mit # sind Kommentare. Reihenfolge NICHT alphabetisch sortieren.
+
+AT1-Rezeptorblocker
+Angiotensin-Rezeptorblocker
+Mineralokortikoidrezeptor-Antagonist
+Dihydropyridin-Calciumantagonist
+Nicht-Dihydropyridin-Calciumantagonist
+Klasse-I-Antiarrhythmikum
+Klasse-Ic-Antiarrhythmikum
+Klasse-II-Antiarrhythmikum
+Klasse-III-Antiarrhythmikum
+Klasse-IV-Antiarrhythmikum
+Glykoprotein-IIb/IIIa-Inhibitor
+ACE-Hemmer
+ARNI
+HMG-CoA-Reduktasehemmer
+PCSK9-Inhibitor
+siRNA-Therapeutikum
+Endothelin-Rezeptorantagonist
+SGLT2-Hemmer
+thiazidartiges Diuretikum
+kaliumsparendes Diuretikum
+löslicher Guanylatzyklase-Stimulator
+Nitrathaltiges Vasodilatans
+Thrombozytenaggregationshemmer
+P2Y12-Inhibitor
+DOAK
+NOAK
+Vitamin-K-Antagonist
+niedermolekulares Heparin
+unfraktioniertes Heparin
+Faktor-Xa-Inhibitor
+Cholesterinresorptionshemmer
+Aldosteronantagonist
+Schleifendiuretikum
+Thiaziddiuretikum
+Carboanhydrasehemmer
+Calciumantagonist
+PDE-5-Hemmer
+Antiarrhythmikum
+Betablocker
+Sartan
+Thrombininhibitor
+Prostazyklinanalogon
+Fibrinolytikum
+Thrombolytikum
+Herzglykosid
+Antikoagulans
+Statin
+Inotropikum
+Katecholamin
+Vasopressor
+Vasodilatator
+Antidot

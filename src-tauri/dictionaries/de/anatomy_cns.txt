@@ -1,0 +1,259 @@
+# Anatomie ZNS (Anatomie ZNS)
+# Quelle: medical_asr generated_v2, Modul anatomy.cns — unveraendert uebernommen.
+#
+# Reihenfolge = ASR-Prioritaet (nicht Korpushaeufigkeit): vorne stehen die
+# Begriffe, an denen ein allgemeines ASR am ehesten scheitert.
+# Stufen 100 / 250 nehmen jeweils die ersten N Zeilen,
+# daher gelten die Stufen per Konstruktion als Praefixe voneinander.
+# Zeilen mit # sind Kommentare. Reihenfolge NICHT alphabetisch sortieren.
+
+Arteria cerebri media
+Arteria cerebri anterior
+Arteria cerebri posterior
+Arteria communicans anterior
+Arteria communicans posterior
+Arteria choroidea anterior
+Arteria cerebelli superior
+Arteria cerebelli inferior anterior
+Arteria cerebelli inferior posterior
+Arteria basilaris
+Arteria vertebralis
+Circulus arteriosus cerebri
+Sinus sagittalis superior
+Sinus sagittalis inferior
+Sinus rectus
+Sinus transversus
+Sinus sigmoideus
+Sinus cavernosus
+Sinus petrosus superior
+Sinus petrosus inferior
+Vena magna cerebri
+Vena basalis
+Vena cerebri interna
+Foramen interventriculare
+Aqueductus mesencephali
+Apertura mediana ventriculi quarti
+Apertura lateralis ventriculi quarti
+Cisterna cerebellomedullaris
+Cisterna interpeduncularis
+Cisterna ambiens
+Cisterna quadrigeminalis
+Cisterna suprasellaris
+Capsula interna
+Crus anterius capsulae internae
+Genu capsulae internae
+Crus posterius capsulae internae
+Tractus corticospinalis
+Tractus corticonuclearis
+Tractus spinothalamicus
+Fasciculus longitudinalis medialis
+Pedunculus cerebellaris superior
+Pedunculus cerebellaris medius
+Pedunculus cerebellaris inferior
+Pedunculus cerebri
+Substantia nigra
+Nucleus ruber
+Nucleus caudatus
+Nucleus lentiformis
+Globus pallidus
+Nucleus subthalamicus
+Corpus callosum
+Genu corporis callosi
+Splenium corporis callosi
+Gyrus precentralis
+Gyrus postcentralis
+Sulcus centralis
+Sulcus lateralis
+Gyrus cinguli
+Gyrus parahippocampalis
+Hippocampus
+Amygdala
+Gyrus supramarginalis
+Gyrus angularis
+Gyrus temporalis superior
+Fissura longitudinalis cerebri
+Tentorium cerebelli
+Falx cerebri
+Foramen magnum
+Medulla oblongata
+Formatio reticularis
+Nucleus dentatus
+Vermis cerebelli
+Tonsilla cerebelli
+Chiasma opticum
+Tractus opticus
+Radiatio optica
+Corpus geniculatum laterale
+Corpus geniculatum mediale
+Hypothalamus
+Hypophysenstiel
+Lobus frontalis
+Lobus parietalis
+Lobus temporalis
+Lobus occipitalis
+Insula
+Operculum frontale
+Operculum parietale
+Operculum temporale
+Gyrus frontalis superior
+Gyrus frontalis medius
+Gyrus frontalis inferior
+Gyrus rectus
+Lobulus paracentralis
+Lobulus parietalis superior
+Lobulus parietalis inferior
+Precuneus
+Cuneus
+Gyrus lingualis
+Gyrus fusiformis
+Gyrus temporalis medius
+Gyrus temporalis inferior
+Gyri temporales transversi
+Sulcus parietooccipitalis
+Sulcus calcarinus
+Sulcus cinguli
+Sulcus intraparietalis
+Sulcus precentralis
+Sulcus postcentralis
+Fissura transversa cerebri
+Uncus
+Cortex entorhinalis
+Gyrus dentatus
+Fimbria hippocampi
+Fornix
+Columna fornicis
+Commissura anterior
+Commissura posterior
+Septum pellucidum
+Cavum septi pellucidi
+Centrum semiovale
+Corona radiata
+Capsula externa
+Capsula extrema
+Claustrum
+Putamen
+Thalamus
+Pulvinar thalami
+Adhaesio interthalamica
+Epithalamus
+Habenula
+Epiphysis cerebri
+Corpus mamillare
+Tuber cinereum
+Eminentia mediana
+Adenohypophyse
+Neurohypophyse
+Sella turcica
+Diaphragma sellae
+Bulbus olfactorius
+Tractus olfactorius
+Trigonum olfactorium
+Substantia perforata anterior
+Substantia perforata posterior
+Mesencephalon
+Pons
+Tectum mesencephali
+Tegmentum mesencephali
+Colliculus superior
+Colliculus inferior
+Nucleus accumbens
+Fossa interpeduncularis
+Locus caeruleus
+Pyramis medullae oblongatae
+Decussatio pyramidum
+Oliva
+Nucleus olivaris inferior
+Lemniscus medialis
+Lemniscus lateralis
+Fasciculus gracilis
+Fasciculus cuneatus
+Nucleus gracilis
+Nucleus cuneatus
+Tractus spinocerebellaris
+Lobus anterior cerebelli
+Lobus posterior cerebelli
+Lobus flocculonodularis
+Flocculus
+Nodulus
+Nucleus fastigii
+Arbor vitae cerebelli
+Fissura prima
+Velum medullare superius
+Velum medullare inferius
+Ventriculus lateralis
+Cornu frontale ventriculi lateralis
+Cornu occipitale ventriculi lateralis
+Cornu temporale ventriculi lateralis
+Pars centralis ventriculi lateralis
+Atrium ventriculi lateralis
+Ventriculus tertius
+Ventriculus quartus
+Plexus choroideus
+Tela choroidea
+Recessus infundibularis
+Fossa rhomboidea
+Obex
+Dura mater
+Arachnoidea mater
+Pia mater
+Spatium subarachnoideum
+Granulationes arachnoideae
+Falx cerebelli
+Cisterna pontis
+Cisterna cruralis
+Confluens sinuum
+Sinus occipitalis
+Sinus sphenoparietalis
+Vena anastomotica superior
+Vena anastomotica inferior
+Venae cerebri superiores
+Vena cerebri media profunda
+Arteriae centrales anterolaterales
+Arteria recurrens Heubneri
+Arteria pericallosa
+Arteria callosomarginalis
+Arteria frontopolaris
+Arteriae pontis
+Arteria labyrinthi
+Arteria meningea media
+Cavum Vergae
+Nervus olfactorius
+Nervus opticus
+Nervus oculomotorius
+Nervus trochlearis
+Nervus trigeminus
+Nervus abducens
+Nervus facialis
+Nervus vestibulocochlearis
+Nervus glossopharyngeus
+Nervus vagus
+Nervus accessorius
+Nervus hypoglossus
+Nucleus nervi oculomotorii
+Nucleus accessorius nervi oculomotorii
+Nucleus nervi trochlearis
+Nucleus motorius nervi trigemini
+Nucleus spinalis nervi trigemini
+Nucleus nervi abducentis
+Nucleus nervi facialis
+Nucleus ambiguus
+Nucleus tractus solitarii
+Nucleus dorsalis nervi vagi
+Nucleus nervi hypoglossi
+Nuclei vestibulares
+Nuclei cochleares
+Medulla spinalis
+Conus medullaris
+Cauda equina
+Filum terminale
+Intumescentia cervicalis
+Cornu anterius medullae spinalis
+Cornu posterius medullae spinalis
+Cornu laterale medullae spinalis
+Canalis centralis
+Commissura alba anterior
+Funiculus lateralis
+Funiculus posterior
+Arteria spinalis anterior
+Arteria spinalis posterior
+Arteria radicularis magna

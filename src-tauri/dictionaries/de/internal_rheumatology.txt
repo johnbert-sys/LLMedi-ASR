@@ -1,0 +1,509 @@
+# Rheumatologie (Rheumatologie)
+# Quelle: medical_asr generated_v2, Modul internal.rheumatology — unveraendert uebernommen.
+#
+# Reihenfolge = ASR-Prioritaet (nicht Korpushaeufigkeit): vorne stehen die
+# Begriffe, an denen ein allgemeines ASR am ehesten scheitert.
+# Stufen 100 / 250 / 500 nehmen jeweils die ersten N Zeilen,
+# daher gelten die Stufen per Konstruktion als Praefixe voneinander.
+# Zeilen mit # sind Kommentare. Reihenfolge NICHT alphabetisch sortieren.
+
+rheumatoide Arthritis
+symmetrische Polyarthritis
+Antikörper gegen citrullinierte Peptide
+Psoriasisarthritis
+intraartikuläre Glukokortikoidinjektion
+krankheitsmodifizierende antirheumatische Therapie
+axiale Spondyloarthritis
+asymmetrische Oligoarthritis
+antinukleäre Antikörper
+nicht-röntgenologische axiale Spondyloarthritis
+Radiosynoviorthese
+konventionelle synthetische Basistherapie
+ankylosierende Spondylitis
+Daktylitis
+extrahierbare nukleäre Antigene
+systemischer Lupus erythematodes
+biologische Basistherapie
+Sjögren-Erkrankung
+Enthesitis
+Anti-dsDNA-Antikörper
+systemische Sklerose
+zielgerichtete synthetische Basistherapie
+limitierte kutane systemische Sklerose
+Sakroiliitis
+Anti-Sm-Antikörper
+diffuse kutane systemische Sklerose
+TNF-Inhibition
+idiopathische inflammatorische Myopathie
+Synovitis
+Anti-U1-RNP-Antikörper
+Dermatomyositis
+Interleukin-6-Rezeptorblockade
+Polymyositis
+Gelenkerguss
+Anti-SSA/Ro-Antikörper
+immunvermittelte nekrotisierende Myopathie
+Interleukin-17-Inhibition
+Antisynthetasesyndrom
+synoviale Hypertrophie
+Anti-SSB/La-Antikörper
+Einschlusskörpermyositis
+Interleukin-23-Inhibition
+Mischkollagenose
+gelenknahe Osteopenie
+Anti-Scl-70-Antikörper
+undifferenzierte Kollagenose
+Interleukin-1-Blockade
+Antiphospholipidsyndrom
+subchondrale Erosion
+Antizentromer-Antikörper
+Polymyalgia rheumatica
+Januskinase-Inhibition
+Riesenzellarteriitis
+Pencil-in-Cup-Deformität
+Anti-RNA-Polymerase-III-Antikörper
+Takayasu-Arteriitis
+B-Zell-Depletion
+Granulomatose mit Polyangiitis
+Schwanenhalsdeformität
+Anti-Jo-1-Antikörper
+mikroskopische Polyangiitis
+T-Zell-Kostimulationsblockade
+eosinophile Granulomatose mit Polyangiitis
+Knopflochdeformität
+Anti-MDA5-Antikörper
+Polyarteriitis nodosa
+BAFF-Inhibition
+kryoglobulinämische Vaskulitis
+Ulnardeviation
+Anti-TIF1-gamma-Antikörper
+IgA-Vaskulitis
+Glukokortikoidstoßtherapie
+Morbus Behçet
+Z-Deformität
+Anti-HMGCR-Antikörper
+rezidivierende Polychondritis
+remissionsinduzierende Therapie
+IgG4-assoziierte Erkrankung
+Rheumaknoten
+Anti-SRP-Antikörper
+adulte Still-Erkrankung
+remissionserhaltende Therapie
+familiäres Mittelmeerfieber
+entzündlicher Rückenschmerz
+Proteinase-3-Antikörper
+Kalziumpyrophosphat-Arthropathie
+Treat-to-Target-Strategie
+septische Arthritis
+alternierender Gesäßschmerz
+Myeloperoxidase-Antikörper
+kristallinduzierte Arthritis
+uratsenkende Therapie
+rheumatoide Vaskulitis
+Raynaud-Phänomen
+Antikardiolipin-Antikörper
+sklerodermische renale Krise
+Lupusnephritis
+Sklerodaktylie
+Beta-2-Glykoprotein-I-Antikörper
+Makrophagenaktivierungssyndrom
+digitale Ulzeration
+Lupus-Antikoagulans
+Fingerkuppennekrose
+Nagelfalzkapillarmikroskopie
+Teleangiektasie
+Polarisationsmikroskopie
+Kalzinose
+muskuloskelettale Sonographie
+Sicca-Symptomatik
+Power-Doppler-Sonographie
+Xerophthalmie
+Iliosakralgelenk-MRT
+Keratoconjunctivitis sicca
+Temporalarterienbiopsie
+Gottron-Papeln
+Speicheldrüsenbiopsie
+heliotropes Erythem
+Myositis-Antikörperprofil
+Mechanikerhände
+HLA-B27-Bestimmung
+Schmetterlingserythem
+Livedo racemosa
+palpable Purpura
+Kieferclaudicatio
+Amaurosis fugax
+pulsloser Arm
+Muskelenzymerhöhung
+seropositive rheumatoide Arthritis
+seronegative rheumatoide Arthritis
+ultraschallgesteuerte Gelenkinjektion
+palindromischer Rheumatismus
+reaktive Arthritis
+periartikuläre Infiltration
+enteropathische Arthritis
+periphere Spondyloarthritis
+Sehnenscheideninfiltration
+undifferenzierte Arthritis
+juvenile idiopathische Arthritis
+therapeutische Gelenkpunktion
+Gichtarthritis
+chronische tophöse Gicht
+Synovektomie
+erosive Fingerpolyarthrose
+Rhizarthrose
+Arthrodese
+Heberden-Arthrose
+Bouchard-Arthrose
+Gelenkendoprothetik
+aktivierte Gonarthrose
+Coxarthrose
+Karpaltunnelspaltung
+Omarthrose
+Fibromyalgiesyndrom
+Korrekturosteotomie
+Osteoporose
+Osteomalazie
+Apherese
+Osteonekrose
+rheumatoide Lungenerkrankung
+Immunadsorption
+Kollagenose-assoziierte interstitielle Lungenerkrankung
+pulmonalarterielle Hypertonie
+Plasmaaustausch
+Lupuspleuritis
+Lupusperikarditis
+digitale Sympathektomie
+Lupusmyokarditis
+neuropsychiatrischer Lupus
+Kalkdepotentfernung
+kutaner Lupus erythematodes
+subakut kutaner Lupus erythematodes
+autologe Stammzelltransplantation
+diskoider Lupus erythematodes
+medikamenteninduzierter Lupus
+neonatales Lupussyndrom
+katastrophales Antiphospholipidsyndrom
+Kryoglobulinämie
+leukozytoklastische Vaskulitis
+kutane Polyarteriitis nodosa
+Urtikariavaskulitis
+primäre ZNS-Vaskulitis
+Aortitis
+Periaortitis
+retroperitoneale Fibrose
+Sarkoidose
+Löfgren-Syndrom
+SAPHO-Syndrom
+chronisch nichtbakterielle Osteomyelitis
+VEXAS-Syndrom
+Schnitzler-Syndrom
+Behçet-Uveitis
+Spondylodiszitis
+Lyme-Arthritis
+paraneoplastische Arthritis
+Psoriasisspondylitis
+Felty-Syndrom
+RS3PE-Syndrom
+rheumatoide Kachexie
+Steroidosteoporose
+Amyloidose
+TRAPS
+Mevalonatkinase-Defizienz
+Cryopyrin-assoziiertes periodisches Syndrom
+PFAPA-Syndrom
+Blau-Syndrom
+DADA2
+hypokomplementämische Urtikariavaskulitis
+Cogan-Syndrom
+Susac-Syndrom
+eosinophile Fasziitis
+lineare Sklerodermie
+Morphea
+Skleromyxödem
+nephrogene systemische Fibrose
+eosinophiles Myalgiesyndrom
+antisynthetaseassoziierte interstitielle Lungenerkrankung
+amyopathische Dermatomyositis
+Anti-MDA5-Dermatomyositis
+overlapassoziierte Myositis
+medikamenteninduzierte Myopathie
+Glukokortikoidmyopathie
+statinassoziierte autoimmune Myopathie
+Jaccoud-Arthropathie
+hypertrophe Osteoarthropathie
+Hämochromatose-Arthropathie
+Hydroxylapatit-Arthropathie
+Milwaukee-Schulter-Syndrom
+Crowned-Dens-Syndrom
+synoviale Chondromatose
+tenosynovialer Riesenzelltumor
+komplexes regionales Schmerzsyndrom
+diffuse idiopathische Skeletthyperostose
+Osteitis condensans ilii
+transiente Osteoporose
+Morbus Paget
+Osteochondrosis dissecans
+Achillessehnenenthesitis
+Plantarfasziitis
+Bursitis trochanterica
+Bursitis olecrani
+Bursitis subacromialis
+Tenosynovitis
+Tendovaginitis stenosans
+Karpaltunnelsyndrom
+Baker-Zyste
+atlantoaxiale Instabilität
+zervikale Myelopathie
+Zervikobrachialgie
+mesenteriale Vaskulitis
+alveoläres Hämorrhagiesyndrom
+thrombotische Mikroangiopathie
+thrombotisch-thrombozytopenische Purpura
+autoimmunhämolytische Anämie
+Immunthrombozytopenie
+assoziierte Sjögren-Erkrankung
+seropositiv
+seronegativ
+erosiv
+destruierend
+proliferativ
+ankylosierend
+mutilierend
+oligoartikulär
+polyartikulär
+monoartikulär
+entheseal
+synovial
+periartikulär
+extraartikulär
+juxtaartikulär
+subchondral
+subkortikal
+sklerodermiform
+lichenoid
+photosensitiv
+vaskulitisch
+leukozytoklastisch
+granulomatös
+nekrotisierend
+pauci-immun
+immunkomplexvermittelt
+autoinflammatorisch
+autoimmun
+hypokomplementämisch
+kryoglobulinämisch
+hyperurikämisch
+tophös
+polymyalgisch
+myositisch
+steroidresponsiv
+steroidrefraktär
+steroidabhängig
+krankheitsmodifizierend
+immunsuppressiv
+antirheumatisch
+antiphlogistisch
+rezidivierend
+schubförmig
+organschädigend
+Morgensteifigkeit
+Rheumafaktor
+Basistherapieeskalation
+Handgelenkorthese
+Anlaufschmerz
+Anti-CCP
+Basistherapiewechsel
+Daumensattelgelenkorthese
+Bewegungseinschränkung
+ANCA
+Glukokortikoidreduktion
+Fingerschiene
+Gelenkkontraktur
+cANCA
+steroidsparende Therapie
+Vorfußentlastungsschuh
+Gelenkdestruktion
+pANCA
+Bridging-Therapie
+Silikonfingerprothese
+Gelenkspaltverschmälerung
+Komplement C3
+NSAR-Therapie
+Ellenbogenendoprothese
+Ankylosierung
+Komplement C4
+lokale Glukokortikoidtherapie
+Sprunggelenkendoprothese
+Syndesmophyten
+CH50
+antiphlogistische Therapie
+thermoplastische Lagerungsschiene
+Spondylophyten
+Kryoglobulinbestimmung
+antithrombotische Therapie
+Knochenmarködem
+Aldolase
+Immunglobulintherapie
+Osteitis
+Albumin-Kreatinin-Quotient
+antifibrotische Therapie
+Bursitis
+Gelenkpunktion
+Prostazyklintherapie
+Tendinitis
+Synovialanalyse
+Endothelinrezeptorblockade
+Sehnenruptur
+Synovialzellzahl
+Phosphodiesterase-5-Inhibition
+Plantarenthesitis
+Kristallnachweis
+Osteoporoseprophylaxe
+positives Gaenslen-Zeichen
+Uratkristalle
+antiresorptive Therapie
+Facettengelenkarthritis
+Kalziumpyrophosphatkristalle
+osteoanabole Therapie
+kostosternale Arthritis
+Synovialkultur
+Gelenkschutztraining
+Nageltüpfelung
+Erosionsnachweis
+Funktionstraining
+Ölfleckphänomen
+Dual-Energy-CT
+rheumatologische Rehabilitation
+Onycholyse
+FDG-PET/CT
+Kryotherapie
+Psoriasisplaques
+Gefäßultraschall
+orthopädietechnische Versorgung
+Enthesiophyt
+Halo-Zeichen
+Fatigue-Management
+Keratodermie
+Kompressionszeichen
+Tränenersatztherapie
+orale Aphthen
+Aorten-MR-Angiographie
+Speichelersatztherapie
+genitale Ulzeration
+Muskel-MRT
+Pneumocystis-Prophylaxe
+Pathergiephänomen
+Muskelbiopsie
+digitale Ulkusbehandlung
+Uveitis anterior
+Elektromyographie
+purinarme Ernährung
+Skleritis
+Nervenleitgeschwindigkeit
+Gichtanfallsprophylaxe
+Episkleritis
+Schirmer-Test
+retinale Vaskulitis
+Saxon-Test
+retinale Gefäßokklusion
+unstimulierter Speichelfluss
+Parotisschwellung
+Speicheldrüsensonographie
+Xerostomie
+Fokus-Score
+Photosensitivität
+Ocular Staining Score
+nichtvernarbende Alopezie
+Lungenfunktionsprüfung
+Vaskulitisläsion
+Diffusionskapazität
+Nagelfalzblutung
+hochauflösende Thorax-CT
+Splitterblutung
+Rechtsherzkatheter
+Akrozyanose
+Knochendichtemessung
+Riesenkapillaren
+FRAX
+puffy fingers
+DAS28
+Mikrostomie
+CDAI
+Sklerodermiegesicht
+SDAI
+proximale Muskelschwäche
+BASDAI
+Dysphagie
+ASDAS
+Dysphonie
+BASFI
+Serositis
+BASMI
+Hypokomplementämie
+DAPSA
+Hypergammaglobulinämie
+PASDAS
+beschleunigte Blutsenkung
+PASI
+Entzündungsaktivität
+SLEDAI
+persistierende Krankheitsaktivität
+BILAG
+klinische Remission
+ESSDAI
+irreversible Organschädigung
+ESSPRI
+Steroidabhängigkeit
+BVAS
+Steroidresistenz
+Vaskulitis-Schadensindex
+rezidivierende Thrombose
+modifizierter Rodnan-Hautscore
+habituelle Fehlgeburt
+HAQ-DI
+pleuritischer Thoraxschmerz
+Schmerzvisuelle Analogskala
+neuropathischer Schmerz
+Patient Global Assessment
+Physician Global Assessment
+Gelenkstatus
+Enthesitis-Score
+Schober-Zeichen
+Ott-Zeichen
+Finger-Boden-Abstand
+Thoraxexkursion
+Okziput-Wand-Abstand
+ACR/EULAR-Klassifikationskriterien
+ASAS-Klassifikationskriterien
+CASPAR-Kriterien
+Interferon-Gamma-Release-Assay
+Hepatitis-B-Screening
+Hepatitis-C-Screening
+Tuberkulosescreening
+TPMT-Aktivität
+Hydroxychloroquin-Retinopathiescreening
+RA
+PsA
+axSpA
+SLE
+SSc
+MCTD
+APS
+PMR
+GCA
+GPA
+MPA
+EGPA
+PAN
+FMF
+CPPD
+DMARD
+csDMARD
+bDMARD
+tsDMARD
+JAK
+ACPA
+ANA
+ENA
+ILD
+RS3PE

@@ -1,0 +1,509 @@
+# Angiologie (Angiologie)
+# Quelle: medical_asr generated_v2, Modul internal.angiology — unveraendert uebernommen.
+#
+# Reihenfolge = ASR-Prioritaet (nicht Korpushaeufigkeit): vorne stehen die
+# Begriffe, an denen ein allgemeines ASR am ehesten scheitert.
+# Stufen 100 / 250 / 500 nehmen jeweils die ersten N Zeilen,
+# daher gelten die Stufen per Konstruktion als Praefixe voneinander.
+# Zeilen mit # sind Kommentare. Reihenfolge NICHT alphabetisch sortieren.
+
+periphere arterielle Verschlusskrankheit
+Claudicatio intermittens
+farbkodierte Duplexsonographie
+chronische gliedmaßenbedrohende Ischämie
+perkutane transluminale Angioplastie
+duale Plättchenhemmung
+akute Extremitätenischämie
+Claudicatio glutealis
+Kompressionssonographie
+aortoiliakale Verschlusskrankheit
+kathetergestützte Thrombolyse
+therapeutische Antikoagulation
+femoropopliteale Verschlusskrankheit
+Claudicatio abdominalis
+Dopplerverschlussdruckmessung
+infrapopliteale Verschlusskrankheit
+pharmakomechanische Thrombektomie
+verlängerte Sekundärprophylaxe
+Leriche-Syndrom
+ischämischer Ruheschmerz
+Knöchel-Arm-Index
+Thrombangiitis obliterans
+Aspirationsthrombektomie
+strukturierte Gehtherapie
+thromboembolischer Arterienverschluss
+akrale Nekrose
+Zehen-Arm-Index
+Cholesterinemboliesyndrom
+Rotationsatherektomie
+komplexe physikalische Entstauungstherapie
+Poplitealarterienaneurysma
+trophische Hautveränderung
+transkutane Sauerstoffpartialdruckmessung
+Bauchaortenaneurysma
+direktionale Atherektomie
+manuelle Lymphdrainage
+Aortendissektion
+aufgehobener Fußpuls
+optische Pulsoszillographie
+intramurales Aortenhämatom
+intravaskuläre Lithotripsie
+medizinische Kompressionstherapie
+penetrierendes Aortenulkus
+pathologischer Knöchel-Arm-Index
+Lichtreflexionsrheographie
+fibromuskuläre Dysplasie
+subintimale Rekanalisation
+intermittierende pneumatische Kompression
+chronische mesenteriale Ischämie
+monophasisches Flussprofil
+Venenverschlussplethysmographie
+akute Mesenterialischämie
+antegrade Rekanalisation
+Mehrkomponenten-Kompressionsverband
+Nierenarterienstenose
+tardus-parvus-Flussprofil
+digitale Subtraktionsangiographie
+Subclavian-Steal-Syndrom
+retrograde Rekanalisation
+adaptive Kompressionstherapie
+Karotisstenose
+poststenotische Turbulenz
+Kontrastmittel-MR-Angiographie
+vertebrobasiläre Insuffizienz
+femoropopliteale Bypassanlage
+Ulkuskompression
+tiefe Venenthrombose
+hämodynamisch relevante Stenose
+CT-Angiographie
+iliofemorale Venenthrombose
+femorokrurale Bypassanlage
+kathetergestützte lokale Lysetherapie
+Phlegmasia coerulea dolens
+filiforme Restperfusion
+intravaskulärer Ultraschall
+postthrombotisches Syndrom
+Thrombendarteriektomie
+chronisch venöse Insuffizienz
+Kollateralkreislauf
+Nagelfalzkapillarmikroskopie
+pelvines Stauungssyndrom
+endovaskuläre Aneurysmaausschaltung
+May-Thurner-Syndrom
+retrograder Vertebralisfluss
+Lymphszintigraphie
+Paget-von-Schroetter-Syndrom
+thorakale endovaskuläre Aortenreparatur
+chronisch thromboembolische pulmonale Hypertonie
+Wandadhärenz des Thrombus
+Indocyaningrün-Lymphographie
+primäres Lymphödem
+endovenöse Laserablation
+sekundäres Lymphödem
+inkomplette Rekanalisation
+MR-Lymphangiographie
+Lipödem
+endovenöse Radiofrequenzablation
+Lipodermatosklerose
+postthrombotische Wandveränderung
+Thrombophiliediagnostik
+Antiphospholipidsyndrom
+ultraschallgesteuerte Schaumsklerotherapie
+heparininduzierte Thrombozytopenie
+pathologischer venöser Reflux
+funktionelle venöse Diagnostik
+mechanochemische Ablation
+Corona phlebectatica
+lymphovenöse Anastomose
+positives Stemmer-Zeichen
+subkutane Fibrosierung
+papillomatöse Hautveränderung
+Lipohypertrophie
+arterielle Thrombose
+arterielle Embolie
+medikamentenbeschichteter Ballon
+Mikroemboliesyndrom
+Blue-Toe-Syndrom
+selbstexpandierender Stent
+Akrozyanose
+Raynaud-Syndrom
+ballonexpandierender Stent
+Erythromelalgie
+diabetische Angiopathie
+gecoverter Stent
+diabetisches Fußsyndrom
+neuroischämisches Fußulkus
+fenestrierte Aortenprothese
+Ulcus cruris arteriosum
+Ulcus cruris venosum
+gebranchte Aortenprothese
+Ulcus cruris mixtum
+Kompartmentsyndrom
+bifurkierte Aortenendoprothese
+Reperfusionssyndrom
+Arteriosklerose
+Gefäßprothese
+Mediasklerose
+In-Stent-Restenose
+Veneninterponat
+Bypassstenose
+Bypassverschluss
+Vena-cava-Filter
+Gefäßprotheseninfektion
+Anastomosenaneurysma
+Embolieprotektionssystem
+arteriovenöse Fistel
+arteriovenöse Malformation
+Thrombektomiekatheter
+vaskuläre Malformation
+venöse Malformation
+Lysekatheter
+lymphatische Malformation
+Riesenzellarteriitis
+Atherektomiekatheter
+Takayasu-Arteriitis
+Aortitis
+intravaskulärer Lithotripsieballon
+Polyarteriitis nodosa
+ANCA-assoziierte Vaskulitis
+Reentry-Katheter
+kutane Vaskulitis
+Kryoglobulinämie
+Gefäßverschlussdevice
+Behçet-Syndrom
+Faktor-V-Leiden-Mutation
+Kurzzugbinde
+Prothrombinmutation
+Antithrombinmangel
+adaptive Kompressionsbandage
+Protein-C-Mangel
+Protein-S-Mangel
+Ulkusstrumpfsystem
+tumorassoziierte Thrombose
+oberflächliche Venenthrombose
+Varikophlebitis
+septische Thrombophlebitis
+Katheterthrombose
+Armvenenthrombose
+Muskelvenenthrombose
+Unterschenkelvenenthrombose
+Beckenvenenthrombose
+Vena-cava-Thrombose
+Pfortaderthrombose
+Mesenterialvenenthrombose
+Budd-Chiari-Syndrom
+Stammvarikose
+Seitenastvarikose
+Perforansinsuffizienz
+Rezidivvarikose
+retikuläre Varikose
+Besenreiservarikose
+Varizenblutung
+Stauungsekzem
+Atrophie blanche
+Lymphangitis
+Erysipel
+Phlebolymphödem
+Lymphfistel
+Lymphozele
+Chylaszites
+Chylothorax
+Elephantiasis
+Lipolymphödem
+Entrapment-Syndrom der Arteria poplitea
+zystische Adventitiadegeneration
+arterielles Thoracic-Outlet-Syndrom
+venöses Thoracic-Outlet-Syndrom
+vaskuläres Ehlers-Danlos-Syndrom
+Marfan-Syndrom
+Loeys-Dietz-Syndrom
+segmentale arterielle Mediolyse
+mykotisches Aneurysma
+inflammatorisches Aortenaneurysma
+rupturiertes Bauchaortenaneurysma
+gedeckt rupturiertes Aortenaneurysma
+Iliakalarterienaneurysma
+Femoralarterienaneurysma
+Milzarterienaneurysma
+Nierenarterienaneurysma
+extrakranielle Karotisdissektion
+Vertebralisdissektion
+spontane isolierte Mesenterialarteriendissektion
+Median-Arcuate-Ligament-Syndrom
+Nutcracker-Syndrom
+aortokavale Fistel
+aortoenterale Fistel
+thrombosiertes Aneurysma
+Livedovaskulopathie
+Calciphylaxie
+Martorell-Ulkus
+Pyoderma gangraenosum
+Morbus Mondor
+Thrombophlebitis migrans
+Phlegmasia alba dolens
+Klippel-Trénaunay-Syndrom
+Parkes-Weber-Syndrom
+Yellow-Nail-Syndrom
+zentralvenöse Obstruktion
+Vena-cava-superior-Syndrom
+Aortenwandthrombus
+Amaurosis fugax
+transitorische ischämische Attacke
+ischämischer Schlaganfall
+Shunt-Steal-Syndrom
+Dialyseshuntstenose
+Dialyseshuntthrombose
+Aneurysma spurium
+thorakoabdominelles Aortenaneurysma
+arteriosklerotisch
+thromboembolisch
+hämodynamisch relevant
+hochgradig stenosiert
+subtotal verschlossen
+komplett okkludiert
+kollateralisiert
+rekanalisiert
+poststenotisch
+monophasisch
+biphasisch
+triphasisch
+pulssynchron
+retrograd
+intraluminal
+subintimal
+transmural
+aneurysmatisch
+disseziert
+rupturiert
+wandständig
+flottierend
+postthrombotisch
+varikös
+lymphostatisch
+lipödematös
+induriert
+hyperpigmentiert
+ulzeriert
+gangränös
+ischämisch
+neuroischämisch
+akral
+infrarenal
+suprarenal
+juxtarenal
+infrapopliteal
+supragenual
+infragenual
+krural
+pedal
+iliakal
+femoropopliteal
+verminderte Gehstrecke
+arterielle Duplexsonographie
+Stentimplantation
+Thrombozytenaggregationshemmung
+belastungsabhängiger Wadenschmerz
+venöse Duplexsonographie
+Stentgraftimplantation
+lipidsenkende Therapie
+verzögerte Rekapillarisierung
+Karotisduplexsonographie
+Embolektomie
+antihypertensive Therapie
+Akrohypothermie
+Vertebralisduplexsonographie
+Thrombektomie
+vaskuläres Risikofaktormanagement
+abhängige Rötung
+transkranielle Dopplersonographie
+Patchplastik
+Gefäßsport
+Pulslosigkeit
+Aortensonographie
+Profundaplastik
+Druckentlastung
+Strömungsgeräusch
+Nierenarterienduplex
+Crossover-Bypass
+feuchte Wundbehandlung
+tastbares Schwirren
+Viszeralarterienduplex
+aortobifemoraler Bypass
+antimikrobielle Wundauflage
+pulsatile Raumforderung
+Shuntsonographie
+axillobifemoraler Bypass
+Kompressionsstrumpfversorgung
+Ulkusbelag
+Bypasssonographie
+femorodistaler Bypass
+Flachstrickversorgung
+Beinumfangsdifferenz
+kontrastverstärkte Sonographie
+Pedalbypass
+Rundstrickversorgung
+eindrückbares Ödem
+kontinuierliche Dopplersonographie
+Hybridrevaskularisation
+periinterventionelles Gerinnungsmanagement
+derbes Ödem
+gepulste Dopplersonographie
+Karotisendarteriektomie
+Antikoagulationsüberbrückung
+Orthostaseabhängigkeit
+Spitzengeschwindigkeit
+Karotisstenting
+Reperfusionsbehandlung
+venöse Claudicatio
+enddiastolische Geschwindigkeit
+Nierenarterienstenting
+Prostanoidinfusion
+Phlebektasie
+Stenosegeschwindigkeitsquotient
+Mesenterialarterienstenting
+Vasodilatatorentherapie
+Teleangiektasie
+Resistance-Index
+venöses Stenting
+Vaskulitisimmunsuppression
+Kollateralvenen
+Pulsatilitätsindex
+Iliakalvenenstenting
+gefäßmedizinische Rehabilitation
+Bauchwandkollateralen
+Intima-Media-Dicke
+Vena-cava-Filterimplantation
+Fußrückenödem
+Plaquemorphologie
+Vena-cava-Filterbergung
+Kastenzehe
+NASCET-Stenosegrad
+Coil-Embolisation
+Zehenfaltenvertiefung
+ECST-Stenosegrad
+Plug-Embolisation
+Lymphbläschen
+Belastungsdoppler
+Thrombininjektion
+asymmetrische Extremitätenschwellung
+Laufbandergometrie
+Gefäßverschluss mit Verschlusssystem
+symmetrische Fettvermehrung
+Zehendruckmessung
+Varizenstripping
+orthostatische Ödemzunahme
+segmentale Druckmessung
+Crossektomie
+Intimaflap
+Lagerungsprobe nach Ratschow
+Miniphlebektomie
+wahres Lumen
+Allen-Test
+Perforansligatur
+falsches Lumen
+Faustschlussprobe
+Flüssigsklerotherapie
+Entry
+Kälteprovokationstest
+Cyanoacrylatverschluss
+Reentry
+Photoplethysmographie
+Kompressionssklerotherapie
+perfundiertes falsches Lumen
+venöse Wiederauffüllzeit
+Ulkusdebridement
+thrombosiertes falsches Lumen
+venöser Ausstromtest
+Nekrosektomie
+Endoleak
+Perforansmapping
+Spalthauttransplantation
+Aneurysmawachstum
+präoperatives Venenmapping
+Zehenamputation
+Wandthrombus
+Varizenmapping
+Vorfußamputation
+Plaqueulzeration
+Phlebographie
+Unterschenkelamputation
+echoluzente Plaque
+CT-Phlebographie
+Oberschenkelamputation
+echoreiche Plaque
+MR-Phlebographie
+Fasziotomie
+zirkuläre Verkalkung
+CO2-Angiographie
+vaskularisierter Lymphknotentransfer
+intraluminaler Thrombus
+Ulkusbiopsie
+Liposuktion
+Gefäßkalibersprung
+Dopplerdruckkontrolle
+Shuntrevision
+Gefäßelongation
+Fontaine-Klassifikation
+Shuntbanding
+Gefäßkinking
+Rutherford-Klassifikation
+Shuntligatur
+Gefäßtortuosität
+WIfI-Klassifikation
+hoher peripherer Widerstand
+GLASS-Klassifikation
+verminderter peripherer Widerstand
+TASC-Klassifikation
+Spitzengeschwindigkeitserhöhung
+CEAP-Klassifikation
+Spektralverbreiterung
+Villalta-Score
+Atemmodulation
+Venous Clinical Severity Score
+fehlende Atemmodulation
+Wells-Score
+fehlende Komprimierbarkeit
+D-Dimer-Bestimmung
+flottierender Thrombus
+Antiphospholipid-Antikörper
+rekanalisierter Thrombus
+Lupus-Antikoagulans
+echoreicher Restthrombus
+APC-Resistenz
+venöse Wandverdickung
+Anti-Xa-Aktivität
+Restthrombuslast
+INR-Kontrolle
+Gefäßverschlussstrecke
+transösophageale Echokardiographie
+distales Ausstrombett
+Emboliequellensuche
+Run-off
+Gefäß-MRT
+Anschlussgefäß
+PET/CT bei Großgefäßvaskulitis
+Hämosiderinpigmentierung
+Perometrie
+Bioimpedanzspektroskopie
+pAVK
+CLTI
+ABI
+TBI
+PTA
+DSA
+IVUS
+EVAR
+TEVAR
+DCB
+DES
+TVT
+CVI
+PTS
+CTEPH
+IPC
+KPE
+DAPT
+DOAK
+VKA
+UFH
+NMH

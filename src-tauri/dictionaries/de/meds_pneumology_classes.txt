@@ -1,0 +1,50 @@
+# Pneumologie – Wirkstoffklassen (Pneumologie)
+# Quelle: medical_asr generated_v2, Modul meds.pneumology.classes — unveraendert uebernommen.
+#
+# Reihenfolge = ASR-Prioritaet (nicht Korpushaeufigkeit): vorne stehen die
+# Begriffe, an denen ein allgemeines ASR am ehesten scheitert.
+# Stufen 25 / 41 nehmen jeweils die ersten N Zeilen,
+# daher gelten die Stufen per Konstruktion als Praefixe voneinander.
+# Zeilen mit # sind Kommentare. Reihenfolge NICHT alphabetisch sortieren.
+
+Beta-2-Sympathomimetika
+kurzwirksame Beta-2-Agonisten
+langwirksame Beta-2-Agonisten
+kurzwirksame Muskarinrezeptorantagonisten
+langwirksame Muskarinrezeptorantagonisten
+inhalative Glukokortikoide
+Leukotrienrezeptorantagonisten
+Phosphodiesterase-4-Hemmer
+Anti-IgE-Antikörper
+Anti-IL-5-Antikörper
+Anti-IL-5-Rezeptor-Antikörper
+Anti-IL-4-Rezeptor-Antikörper
+Anti-TSLP-Antikörper
+Endothelinrezeptorantagonisten
+Phosphodiesterase-5-Hemmer
+Stimulatoren der löslichen Guanylatcyclase
+Prostacyclinanaloga
+Prostacyclinrezeptoragonisten
+CFTR-Potentiatoren
+CFTR-Korrektoren
+Anticholinergika
+Methylxanthine
+Antifibrotika
+Mukolytika
+Antitussiva
+Surfactant-Präparate
+Aminoglykoside
+Polymyxine
+Makrolide
+Fluorchinolone
+Tetrazykline
+Cephalosporine
+Carbapeneme
+Oxazolidinone
+Rifamycine
+Azolantimykotika
+Echinocandine
+Polyenantimykotika
+Neuraminidasehemmer
+Nikotinersatzpräparate
+monoklonale Antikörper

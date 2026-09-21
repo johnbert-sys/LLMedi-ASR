@@ -1,0 +1,259 @@
+# Anatomie Kopf/Hals (Anatomie Kopf/Hals)
+# Quelle: medical_asr generated_v2, Modul anatomy.head_neck — unveraendert uebernommen.
+#
+# Reihenfolge = ASR-Prioritaet (nicht Korpushaeufigkeit): vorne stehen die
+# Begriffe, an denen ein allgemeines ASR am ehesten scheitert.
+# Stufen 100 / 250 nehmen jeweils die ersten N Zeilen,
+# daher gelten die Stufen per Konstruktion als Praefixe voneinander.
+# Zeilen mit # sind Kommentare. Reihenfolge NICHT alphabetisch sortieren.
+
+Arteria carotis communis
+Arteria carotis interna
+Arteria carotis externa
+Bifurcatio carotidis
+Sinus caroticus
+Glomus caroticum
+Arteria vertebralis
+Arteria thyroidea superior
+Arteria thyroidea inferior
+Arteria lingualis
+Arteria facialis
+Arteria maxillaris
+Arteria temporalis superficialis
+Arteria meningea media
+Arteria ophthalmica
+Vena jugularis interna
+Vena jugularis externa
+Vena retromandibularis
+Plexus pterygoideus
+Nervus facialis
+Nervus trigeminus
+Nervus glossopharyngeus
+Nervus hypoglossus
+Nervus vagus
+Nervus accessorius
+Nervus laryngeus superior
+Nervus laryngeus recurrens
+Nervus lingualis
+Nervus alveolaris inferior
+Nervus infraorbitalis
+Nervus mentalis
+Ganglion trigeminale
+Ganglion pterygopalatinum
+Ganglion cervicale superius
+Plexus cervicalis
+Ansa cervicalis
+Spatium parapharyngeum
+Spatium retropharyngeum
+Spatium peritonsillare
+Spatium submandibulare
+Spatium sublinguale
+Vagina carotica
+Fascia pretrachealis
+Fascia prevertebralis
+Lamina superficialis fasciae cervicalis
+Trigonum caroticum
+Trigonum submandibulare
+Trigonum omotracheale
+Fossa pterygopalatina
+Fossa infratemporalis
+Foramen ovale
+Foramen rotundum
+Foramen spinosum
+Foramen jugulare
+Canalis caroticus
+Canalis nervi hypoglossi
+Meatus acusticus internus
+Foramen stylomastoideum
+Lamina cribrosa
+Lamina papyracea
+Fissura orbitalis superior
+Fissura orbitalis inferior
+Recessus sphenoethmoidalis
+Infundibulum ethmoidale
+Hiatus semilunaris
+Processus uncinatus ossis ethmoidalis
+Sinus sphenoidalis
+Sinus maxillaris
+Sinus frontalis
+Cellulae ethmoidales
+Articulatio temporomandibularis
+Discus articularis temporomandibularis
+Processus condylaris mandibulae
+Processus coronoideus mandibulae
+Ductus parotideus
+Ductus submandibularis
+Recessus piriformis
+Commissura anterior laryngis
+Plica vocalis
+Plica vestibularis
+Os temporale
+Os occipitale
+Os sphenoidale
+Os ethmoidale
+Os zygomaticum
+Os palatinum
+Basis cranii
+Fossa cranii anterior
+Fossa cranii media
+Fossa cranii posterior
+Sutura coronalis
+Sutura sagittalis
+Sutura lambdoidea
+Sutura squamosa
+Clivus
+Sella turcica
+Dorsum sellae
+Processus clinoideus anterior
+Processus clinoideus posterior
+Ala major ossis sphenoidalis
+Ala minor ossis sphenoidalis
+Processus pterygoideus
+Lamina lateralis processus pterygoidei
+Lamina medialis processus pterygoidei
+Hamulus pterygoideus
+Pars petrosa ossis temporalis
+Processus mastoideus
+Processus styloideus
+Arcus zygomaticus
+Fossa mandibularis
+Tuberculum articulare
+Angulus mandibulae
+Ramus mandibulae
+Corpus mandibulae
+Foramen mandibulae
+Canalis mandibulae
+Foramen mentale
+Fossa submandibularis
+Fossa sublingualis
+Processus alveolaris maxillae
+Pars alveolaris mandibulae
+Processus palatinus maxillae
+Foramen incisivum
+Canalis incisivus
+Palatum durum
+Palatum molle
+Uvula palatina
+Arcus palatoglossus
+Arcus palatopharyngeus
+Tonsilla palatina
+Tonsilla pharyngealis
+Tonsilla lingualis
+Ostium pharyngeum tubae auditivae
+Torus tubarius
+Recessus pharyngeus
+Pars nasalis pharyngis
+Pars oralis pharyngis
+Pars laryngea pharyngis
+Concha nasalis inferior
+Concha nasalis media
+Concha nasalis superior
+Meatus nasi inferior
+Meatus nasi medius
+Meatus nasi superior
+Septum nasi
+Choana
+Crista galli
+Bulla ethmoidalis
+Agger nasi
+Recessus frontalis
+Ductus nasolacrimalis
+Saccus lacrimalis
+Glandula lacrimalis
+Canalis opticus
+Nervus opticus
+Nervus oculomotorius
+Nervus trochlearis
+Nervus abducens
+Nervus ophthalmicus
+Nervus maxillaris
+Nervus mandibularis
+Nervus supraorbitalis
+Nervus auriculotemporalis
+Nervus buccalis
+Chorda tympani
+Nervus petrosus major
+Nervus occipitalis major
+Nervus occipitalis minor
+Nervus auricularis magnus
+Musculus sternocleidomastoideus
+Musculus omohyoideus
+Musculus sternohyoideus
+Musculus sternothyroideus
+Musculus thyrohyoideus
+Musculus digastricus
+Musculus mylohyoideus
+Musculus geniohyoideus
+Musculus stylohyoideus
+Musculus masseter
+Musculus temporalis
+Musculus pterygoideus medialis
+Musculus pterygoideus lateralis
+Musculus buccinator
+Musculus orbicularis oris
+Musculus orbicularis oculi
+Platysma
+Musculus genioglossus
+Musculus hyoglossus
+Musculus styloglossus
+Musculus levator veli palatini
+Musculus tensor veli palatini
+Musculus constrictor pharyngis superior
+Musculus constrictor pharyngis medius
+Musculus constrictor pharyngis inferior
+Musculus cricopharyngeus
+Musculus cricothyroideus
+Musculus cricoarytenoideus posterior
+Musculus thyroarytenoideus
+Musculus vocalis
+Os hyoideum
+Cartilago thyroidea
+Cartilago cricoidea
+Cartilago arytenoidea
+Membrana thyrohyoidea
+Ligamentum cricothyroideum
+Ligamentum vocale
+Conus elasticus
+Rima glottidis
+Ventriculus laryngis
+Aditus laryngis
+Epiglottis
+Vallecula epiglottica
+Plica aryepiglottica
+Commissura posterior laryngis
+Cavitas infraglottica
+Glandula parotidea
+Glandula submandibularis
+Glandula sublingualis
+Glandula thyroidea
+Isthmus glandulae thyroideae
+Lobus pyramidalis glandulae thyroideae
+Glandula parathyroidea
+Membrana tympanica
+Cavitas tympani
+Recessus epitympanicus
+Antrum mastoideum
+Cellulae mastoideae
+Tuba auditiva
+Fenestra vestibuli
+Fenestra cochleae
+Cochlea
+Vestibulum labyrinthi
+Canalis semicircularis anterior
+Canalis semicircularis posterior
+Canalis semicircularis lateralis
+Meatus acusticus externus
+Arteria auricularis posterior
+Arteria occipitalis
+Arteria palatina descendens
+Arteria sphenopalatina
+Arteria alveolaris inferior
+Vena facialis
+Vena thyroidea superior
+Vena thyroidea media
+Vena thyroidea inferior
+Nodi lymphoidei cervicales profundi
+Nodi lymphoidei submandibulares
+Nodi lymphoidei submentales
+Nodi lymphoidei retropharyngei
+Nodus lymphoideus jugulodigastricus

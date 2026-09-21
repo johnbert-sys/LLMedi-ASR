@@ -1,0 +1,509 @@
+# Hämatologie (Hämatologie)
+# Quelle: medical_asr generated_v2, Modul internal.hematology — unveraendert uebernommen.
+#
+# Reihenfolge = ASR-Prioritaet (nicht Korpushaeufigkeit): vorne stehen die
+# Begriffe, an denen ein allgemeines ASR am ehesten scheitert.
+# Stufen 100 / 250 / 500 nehmen jeweils die ersten N Zeilen,
+# daher gelten die Stufen per Konstruktion als Praefixe voneinander.
+# Zeilen mit # sind Kommentare. Reihenfolge NICHT alphabetisch sortieren.
+
+akute myeloische Leukämie
+Panzytopenie
+Knochenmarkaspiration
+akute lymphatische Leukämie
+allogene hämatopoetische Stammzelltransplantation
+myeloablative Konditionierung
+akute Promyelozytenleukämie
+Bizytopenie
+Knochenmarktrepanbiopsie
+chronische myeloische Leukämie
+autologe Stammzelltransplantation
+intensitätsreduzierte Konditionierung
+chronische lymphatische Leukämie
+Retikulozytopenie
+Immunphänotypisierung
+chronische myelomonozytäre Leukämie
+haploidentische Stammzelltransplantation
+lymphodepletierende Chemotherapie
+myelodysplastische Neoplasie
+leukoerythroblastisches Blutbild
+multiparametrische Durchflusszytometrie
+myeloproliferative Neoplasie
+periphere Stammzellapherese
+Graft-versus-Host-Prophylaxe
+primäre Myelofibrose
+Linksverschiebung
+Fluoreszenz-in-situ-Hybridisierung
+essentielle Thrombozythämie
+Spenderlymphozyteninfusion
+bispezifische Antikörpertherapie
+Polycythaemia vera
+Blastenvermehrung
+molekulargenetische Leukämiediagnostik
+diffuses großzelliges B-Zell-Lymphom
+CAR-T-Zell-Therapie
+hypomethylierende Therapie
+follikuläres Lymphom
+Auerstäbchen
+Next-Generation-Sequencing
+Mantelzelllymphom
+extrakorporale Photopherese
+differenzierungsinduzierende Therapie
+Marginalzonenlymphom
+Gumprecht-Kernschatten
+quantitative Polymerase-Kettenreaktion
+Hodgkin-Lymphom
+therapeutischer Plasmaaustausch
+tyrosinkinasegerichtete Therapie
+Burkitt-Lymphom
+Ring-Sideroblasten
+BCR::ABL1-Nachweis
+multiples Myelom
+Erythrozytenaustausch
+Immuntoleranzinduktion
+lymphoplasmozytisches Lymphom
+pseudo-Pelger-Huët-Anomalie
+JAK2-V617F-Mutation
+monoklonale Gammopathie unklarer Signifikanz
+Leukapherese
+Gerinnungsfaktorsubstitution
+aplastische Anämie
+Howell-Jolly-Körperchen
+CALR-Mutation
+paroxysmale nächtliche Hämoglobinurie
+Thrombozytapherese
+Thrombopoetinrezeptoragonistentherapie
+autoimmunhämolytische Anämie
+basophile Tüpfelung
+MPL-Mutation
+thrombotisch-thrombozytopenische Purpura
+Erythropoesestimulation
+Immunthrombozytopenie
+Anisopoikilozytose
+NPM1-Mutation
+heparininduzierte Thrombozytopenie
+Eisenchelation
+von-Willebrand-Syndrom
+Geldrollenbildung
+FLT3-ITD
+disseminierte intravasale Gerinnung
+Immunglobulinsubstitution
+hämophagozytische Lymphohistiozytose
+Knochenmarkfibrose
+TP53-Mutation
+Graft-versus-Host-Erkrankung
+antifungale Prophylaxe
+Zytokinfreisetzungssyndrom
+extramedulläre Hämatopoese
+ADAMTS13-Aktivität
+Immunzell-assoziiertes Neurotoxizitätssyndrom
+monoklonales Paraprotein
+ADAMTS13-Inhibitor
+Bence-Jones-Proteinurie
+Heparin-induzierter Plättchenaktivierungstest
+messbare Resterkrankung
+von-Willebrand-Faktor-Aktivität
+molekulares Rezidiv
+Thrombozytenaggregometrie
+Transfusionsabhängigkeit
+febrile Aplasie
+Eisenmangelanämie
+megaloblastäre Anämie
+perniziöse Anämie
+renale Anämie
+hämolytische Anämie
+Sichelzellkrankheit
+Beta-Thalassämie
+Alpha-Thalassämie
+hereditäre Sphärozytose
+Glukose-6-Phosphat-Dehydrogenase-Mangel
+Pyruvatkinasemangel
+Anämie bei chronischer Erkrankung
+sideroblastische Anämie
+Blutungsanämie
+Hämophilie A
+Hämophilie B
+erworbene Hämophilie
+Thrombozytenfunktionsstörung
+Antiphospholipidsyndrom
+Faktor-V-Leiden-Mutation
+Prothrombinmutation
+Protein-C-Mangel
+Protein-S-Mangel
+Antithrombinmangel
+febrile Neutropenie
+neutropenische Sepsis
+Tumorlysesyndrom
+Hyperviskositätssyndrom
+Leukostasesyndrom
+Sinusoidales Obstruktionssyndrom
+Transplantatversagen
+Transfusionsreaktion
+transfusionsassoziierte Volumenüberlastung
+transfusionsassoziierte akute Lungeninsuffizienz
+akute hämolytische Transfusionsreaktion
+verzögerte hämolytische Transfusionsreaktion
+CMV-Reaktivierung
+invasive Aspergillose
+Pneumocystis-jirovecii-Pneumonie
+Plasmozytom
+Plasmazellleukämie
+Haarzellleukämie
+T-Prolymphozytenleukämie
+peripheres T-Zell-Lymphom
+anaplastisches großzelliges Lymphom
+primäres ZNS-Lymphom
+MALT-Lymphom
+kutanes T-Zell-Lymphom
+Mycosis fungoides
+Sézary-Syndrom
+nodales TFH-Zell-Lymphom vom angioimmunoblastischen Typ
+Posttransplantationslymphoproliferation
+akute Leukämie gemischten Phänotyps
+akute megakaryoblastäre Leukämie
+myeloisches Sarkom
+therapieassoziierte myeloische Neoplasie
+AML mit myelodysplasieassoziierten Veränderungen
+blastische plasmazytoide dendritische Zellneoplasie
+chronische neutrophile Leukämie
+chronische eosinophile Leukämie
+myelodysplastische/myeloproliferative Neoplasie
+postpolyzythämische Myelofibrose
+postthrombozythämische Myelofibrose
+präfibrotische Myelofibrose
+systemische Mastozytose
+hypereosinophiles Syndrom
+klonale Hämatopoese unbestimmten Potenzials
+klonale Zytopenie unbestimmter Signifikanz
+LGL-Leukämie
+T-lymphoblastisches Lymphom
+B-lymphoblastisches Lymphom
+extranodales NK/T-Zell-Lymphom
+enteropathieassoziiertes T-Zell-Lymphom
+hepatosplenisches T-Zell-Lymphom
+primäres mediastinales B-Zell-Lymphom
+hochmalignes B-Zell-Lymphom
+noduläres lymphozytenprädominantes B-Zell-Lymphom
+Richter-Transformation
+AL-Amyloidose
+Leichtkettenablagerungskrankheit
+POEMS-Syndrom
+schwelendes multiples Myelom
+extramedulläres Plasmozytom
+nichtsekretorisches Myelom
+Leichtkettenmyelom
+Kälteagglutininkrankheit
+Kältehämoglobinurie
+Evans-Syndrom
+hereditäre Elliptozytose
+hereditäre Stomatozytose
+Methämoglobinämie
+Diamond-Blackfan-Anämie
+Fanconi-Anämie
+reine Erythrozytenaplasie
+schwere kongenitale Neutropenie
+zyklische Neutropenie
+Dyskeratosis congenita
+Bernard-Soulier-Syndrom
+Glanzmann-Thrombasthenie
+MYH9-assoziierte Thrombozytopenie
+Storage-Pool-Erkrankung
+Faktor-XI-Mangel
+Faktor-XIII-Mangel
+Afibrinogenämie
+Dysfibrinogenämie
+erworbenes von-Willebrand-Syndrom
+Purpura fulminans
+thrombotische Mikroangiopathie
+atypisches hämolytisch-urämisches Syndrom
+transfusionsbedingte Eisenüberladung
+Hämochromatose
+reaktive Thrombozytose
+Pseudothrombozytopenie
+Medikamentenagranulozytose
+hämorrhagische Zystitis
+Engraftment-Syndrom
+Transplantations-assoziierte Mikroangiopathie
+variables Immundefektsyndrom
+Hypogammaglobulinämie
+Castleman-Krankheit
+Rosai-Dorfman-Erkrankung
+Langerhans-Zell-Histiozytose
+Erdheim-Chester-Erkrankung
+myelodysplastisch
+myeloproliferativ
+lymphoproliferativ
+lymphoblastisch
+myeloblastisch
+promyelozytär
+megakaryozytär
+erythroblastär
+plasmazellulär
+blastär
+aplastisch
+hypoplastisch
+hämolytisch
+megaloblastär
+sideroblastisch
+mikrozytär
+makrozytär
+neutropenisch
+thrombozytopenisch
+panzytopenisch
+transfusionspflichtig
+transfusionsrefraktär
+therapierefraktär
+rezidiviert
+allogen
+autolog
+haploidentisch
+HLA-identisch
+myeloablativ
+lymphodepletiert
+immunsupprimiert
+extramedullär
+leukämisch
+aleukämisch
+monoklonal
+hämorrhagisch
+thrombophil
+hyperfibrinolytisch
+MRD-negativ
+MRD-positiv
+Mikrozytose
+Differenzialblutbild
+Stammzellmobilisierung
+Induktionschemotherapie
+Portkatheter
+Makrozytose
+peripherer Blutausstrich
+Stammzellkryokonservierung
+Konsolidierungstherapie
+Hickman-Katheter
+Hypochromie
+Retikulozytenzählung
+Stammzellreinfusion
+Erhaltungstherapie
+Broviac-Katheter
+Hyperchromie
+Retikulozytenproduktionsindex
+therapeutischer Aderlass
+Salvage-Therapie
+PICC
+Retikulozytose
+Eisenstatus
+Erythrozytentransfusion
+Bridging-Therapie
+Apheresekatheter
+Polychromasie
+Transferrinsättigung
+Thrombozytentransfusion
+Hochdosistherapie
+Zellseparator
+Anisozytose
+Ferritinbestimmung
+Granulozytentransfusion
+Immunchemotherapie
+Poikilozytose
+löslicher Transferrinrezeptor
+Plasmatransfusion
+zytoreduktive Therapie
+Sphärozyten
+Vitamin-B12-Bestimmung
+Splenektomie
+antithrombotische Prophylaxe
+Elliptozyten
+Holotranscobalamin
+Milzembolisation
+antivirale Prophylaxe
+Schistozyten
+Methylmalonsäure
+intrathekale Chemotherapie
+Pneumocystis-Prophylaxe
+Dakryozyten
+Folsäurebestimmung
+Portimplantation
+Tumorlyseprophylaxe
+Erythroblasten
+direkter Antiglobulintest
+Portexplantation
+Granulozytenkolonie-stimulierender Faktor
+Leukopenie
+indirekter Antiglobulintest
+intravenöse Eisensubstitution
+Leukozytose
+Hämoglobinelektrophorese
+hämostatische Therapie
+Neutropenie
+Hämoglobinchromatographie
+Antifibrinolyse
+Agranulozytose
+osmotische Resistenz
+immunsuppressive Therapie
+Lymphopenie
+Eosin-5-Maleimid-Bindungstest
+Komplementinhibition
+Lymphozytose
+Hämolyseparameter
+B-Zell-Depletion
+Monozytose
+Haptoglobinbestimmung
+Steroidstoßtherapie
+Eosinophilie
+Serumimmunfixation
+Transfusionsstrategie
+Basophilie
+Urinimmunfixation
+leukozytendepletierte Blutprodukte
+Thrombozytopenie
+freie Leichtketten
+HLA-kompatible Thrombozyten
+Thrombozytose
+Kappa-Lambda-Quotient
+Ganzkörperbestrahlung
+Riesenthrombozyten
+quantitative Immunglobuline
+Milzbestrahlung
+Megakaryozytenatypie
+Beta-2-Mikroglobulin
+Involved-Site-Radiotherapie
+Dyserythropoese
+Knochenmarkzytologie
+Watch and Wait
+Dysgranulopoese
+Knochenmarkhistologie
+therapiefreie Remission
+Dysmegakaryopoese
+Zytogenetik
+Posttransplantations-Cyclophosphamid
+Hypersegmentierung
+Karyotypisierung
+Hypogranulation
+Mutationsanalyse
+toxische Granulation
+Fusionsgennachweis
+Blastenausschwemmung
+Klonalitätsanalyse
+Hiatus leucaemicus
+Immunglobulingen-Rearrangement
+hypozelluläres Knochenmark
+T-Zell-Rezeptor-Rearrangement
+hyperzelluläres Knochenmark
+Chimärismusanalyse
+Knochenmarkaplasie
+MRD-Diagnostik
+Lymphadenopathie
+HLA-Typisierung
+Splenomegalie
+Spendersuche
+Hepatosplenomegalie
+Lymphknotenexstirpation
+B-Symptomatik
+Lymphknotenbiopsie
+Petechien
+Low-Dose-Ganzkörper-CT
+Ekchymosen
+Liquorzytologie
+Hämarthros
+Liquor-Durchflusszytometrie
+tiefe Muskelblutung
+Gerinnungsstatus
+Hämoglobinurie
+aktivierte partielle Thromboplastinzeit
+Hämosiderinurie
+Prothrombinzeit
+indirekte Hyperbilirubinämie
+Thrombinzeit
+erniedrigtes Haptoglobin
+Reptilasezeit
+Hyperferritinämie
+Fibrinogenbestimmung
+Hyperurikämie
+Gerinnungsfaktorenanalyse
+Hypofibrinogenämie
+Bethesda-Assay
+Hyperfibrinolyse
+Lupus-Antikoagulans
+D-Dimer-Erhöhung
+Antikardiolipin-Antikörper
+Paraproteinämie
+Beta-2-Glykoprotein-I-Antikörper
+Leichtkettenrestriktion
+Faktor-VIII-Aktivität
+Osteolyse
+Faktor-IX-Aktivität
+pathologische Fraktur
+Faktor-XIII-Aktivität
+Hyperkalzämie
+Ristocetin-Kofaktor-Aktivität
+komplette Remission
+Multimerenanalyse
+partielle Remission
+Plättchenfunktionstest
+refraktäre Erkrankung
+PFA-Verschlusszeit
+hämatologisches Rezidiv
+Thromboelastometrie
+zytogenetische Remission
+Thromboelastographie
+molekulare Remission
+ELN-Risikoklassifikation
+tiefe molekulare Remission
+IPSS-R
+gemischter Chimärismus
+IPSS-M
+vollständiger Donorchimärismus
+International Prognostic Index
+Graft-versus-Leukemia-Effekt
+FLIPI
+verzögertes Engraftment
+MIPI
+Ann-Arbor-Stadium
+Lugano-Klassifikation
+Deauville-Score
+Durie-Salmon-Stadium
+Revised International Staging System
+CRAB-Kriterien
+SLiM-CRAB-Kriterien
+Sokal-Score
+EUTOS-Score
+HCT-CI
+ECOG-Performance-Status
+CD34-Zellzählung
+CD4-Zellzahl
+FLAER-Test
+GPI-Anker-Defizienz
+Philadelphia-Chromosom
+del(5q)
+del(17p)
+komplexer Karyotyp
+AML
+ALL
+APL
+CML
+CLL
+CMML
+MDS
+MPN
+MGUS
+ITP
+TTP
+PNH
+HLH
+DIC
+HIT
+GvHD
+CRS
+ICANS
+DLBCL
+MCL
+MM
+MRD
+DLI
+HSZT
+TFR
+CHIP
+CCUS
+HLA
+aPTT
+INR

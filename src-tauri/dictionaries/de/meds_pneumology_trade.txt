@@ -1,0 +1,36 @@
+# Pneumologie – Handelsnamen (Pneumologie)
+# Quelle: medical_asr generated_v2, Modul meds.pneumology.trade — unveraendert uebernommen.
+#
+# Reihenfolge = ASR-Prioritaet (nicht Korpushaeufigkeit): vorne stehen die
+# Begriffe, an denen ein allgemeines ASR am ehesten scheitert.
+# Stufen 25 / 27 nehmen jeweils die ersten N Zeilen,
+# daher gelten die Stufen per Konstruktion als Praefixe voneinander.
+# Zeilen mit # sind Kommentare. Reihenfolge NICHT alphabetisch sortieren.
+
+Spiriva
+Spiolto Respimat
+Foster
+Trimbow
+Symbicort
+Trelegy Ellipta
+Relvar Ellipta
+Anoro
+Incruse
+Sultanol
+Nucala
+Fasenra
+Dupixent
+Tezspire
+Ofev
+Trixeo Aerosphere
+Viani
+Atmadisc
+Serevent
+Flutide
+Pulmicort
+Oxis
+Budiair
+Forair
+Bramitob
+Quinsair
+Exdensur

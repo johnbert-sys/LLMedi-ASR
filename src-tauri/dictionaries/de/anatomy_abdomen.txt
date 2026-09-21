@@ -1,0 +1,259 @@
+# Anatomie Abdomen (Anatomie Abdomen)
+# Quelle: medical_asr generated_v2, Modul anatomy.abdomen — unveraendert uebernommen.
+#
+# Reihenfolge = ASR-Prioritaet (nicht Korpushaeufigkeit): vorne stehen die
+# Begriffe, an denen ein allgemeines ASR am ehesten scheitert.
+# Stufen 100 / 250 nehmen jeweils die ersten N Zeilen,
+# daher gelten die Stufen per Konstruktion als Praefixe voneinander.
+# Zeilen mit # sind Kommentare. Reihenfolge NICHT alphabetisch sortieren.
+
+Truncus coeliacus
+Arteria mesenterica superior
+Arteria mesenterica inferior
+Arteria hepatica communis
+Arteria hepatica propria
+Arteria gastroduodenalis
+Arteria gastrica sinistra
+Arteria gastrica dextra
+Arteria gastroomentalis dextra
+Arteria gastroomentalis sinistra
+Arteria splenica
+Arteria cystica
+Arteria pancreaticoduodenalis superior
+Arteria pancreaticoduodenalis inferior
+Arteria colica dextra
+Arteria colica media
+Arteria colica sinistra
+Arteria ileocolica
+Arteria appendicularis
+Vena portae hepatis
+Vena mesenterica superior
+Vena mesenterica inferior
+Vena splenica
+Vena hepatica dextra
+Vena hepatica media
+Vena hepatica sinistra
+Vena cava inferior
+Ductus choledochus
+Ductus hepaticus communis
+Ductus hepaticus dexter
+Ductus hepaticus sinister
+Ductus cysticus
+Ductus pancreaticus
+Ductus pancreaticus accessorius
+Papilla duodeni major
+Papilla duodeni minor
+Ampulla hepatopancreatica
+Ligamentum hepatoduodenale
+Ligamentum hepatogastricum
+Ligamentum gastrocolicum
+Ligamentum gastrosplenicum
+Ligamentum splenorenale
+Ligamentum falciforme hepatis
+Ligamentum teres hepatis
+Ligamentum venosum
+Foramen omentale
+Bursa omentalis
+Omentum majus
+Omentum minus
+Mesocolon transversum
+Mesocolon sigmoideum
+Radix mesenterii
+Flexura duodenojejunalis
+Flexura coli dextra
+Flexura coli sinistra
+Recessus hepatorenalis
+Recessus subphrenicus
+Retroperitoneum
+Fascia renalis
+Fascia prerenalis
+Fascia retrorenalis
+Spatium perirenale
+Spatium pararenale
+Processus uncinatus pancreatis
+Isthmus pancreatis
+Caput pancreatis
+Corpus pancreatis
+Cauda pancreatis
+Porta hepatis
+Hilum splenicum
+Hilum renale
+Pelvis renalis
+Calix renalis major
+Calix renalis minor
+Pars abdominalis ureteris
+Arteria renalis
+Vena renalis
+Pars abdominalis oesophagi
+Junctio oesophagogastrica
+Cardia
+Fundus gastricus
+Corpus gastricum
+Antrum pyloricum
+Canalis pyloricus
+Pylorus
+Curvatura major gastrica
+Curvatura minor gastrica
+Incisura angularis
+Incisura cardiaca
+Pars superior duodeni
+Bulbus duodeni
+Pars descendens duodeni
+Pars horizontalis duodeni
+Pars ascendens duodeni
+Musculus suspensorius duodeni
+Jejunum
+Ileum
+Plicae circulares
+Valvula ileocaecalis
+Caecum
+Appendix vermiformis
+Mesoappendix
+Colon ascendens
+Colon transversum
+Colon descendens
+Colon sigmoideum
+Taenia libera
+Taenia omentalis
+Taenia mesocolica
+Haustren
+Appendices epiploicae
+Plicae semilunares coli
+Peritoneum parietale
+Peritoneum viscerale
+Mesenterium
+Recessus paracolicus
+Ligamentum phrenicocolicum
+Ligamentum coronarium hepatis
+Ligamentum triangulare dextrum
+Ligamentum triangulare sinistrum
+Area nuda hepatis
+Lobus hepatis dexter
+Lobus hepatis sinister
+Fossa vesicae biliaris
+Sulcus venae cavae
+Fissura ligamenti teretis
+Fissura ligamenti venosi
+Lebersegment I
+Lebersegment II
+Lebersegment III
+Lebersegment IVa
+Lebersegment IVb
+Lebersegment V
+Lebersegment VI
+Lebersegment VII
+Lebersegment VIII
+Gallenblasenfundus
+Gallenblasenkörper
+Gallenblasenhals
+Infundibulum vesicae biliaris
+Plica spiralis
+Trigonum cystohepaticum
+Musculus sphincter ampullae hepatopancreaticae
+intrahepatische Gallenwege
+extrahepatische Gallenwege
+Milzpol
+Facies diaphragmatica splenis
+Facies gastrica splenis
+Facies renalis splenis
+Cortex renalis
+Medulla renalis
+Columna renalis
+Pyramis renalis
+Papilla renalis
+Sinus renalis
+Capsula fibrosa renis
+Capsula adiposa renis
+Nierenbeckenabgang
+Glandula suprarenalis dextra
+Glandula suprarenalis sinistra
+Cortex glandulae suprarenalis
+Medulla glandulae suprarenalis
+Arteria suprarenalis superior
+Arteria suprarenalis media
+Arteria suprarenalis inferior
+Vena suprarenalis dextra
+Vena suprarenalis sinistra
+Arteria phrenica inferior
+Arteria epigastrica superior
+Arteria epigastrica inferior
+Arteria epigastrica superficialis
+Arteria circumflexa ilium profunda
+Arteriae lumbales
+Arteriae jejunales
+Arteriae ileales
+Arteriae sigmoideae
+Arteria rectalis superior
+Arteriae gastricae breves
+Arteria pancreatica dorsalis
+Vena gastrica sinistra
+Venae paraumbilicales
+Vena epigastrica inferior
+Vena lumbalis ascendens
+Vena testicularis
+Vena ovarica
+Truncus intestinalis
+Truncus lumbalis
+Cisterna chyli
+Nodi lymphoidei coeliaci
+Nodi lymphoidei mesenterici superiores
+Nodi lymphoidei mesenterici inferiores
+Nodi lymphoidei lumbales
+Arteria ovarica
+Arteria testicularis
+Plexus coeliacus
+Plexus mesentericus superior
+Plexus mesentericus inferior
+Plexus aorticus abdominalis
+Plexus renalis
+Ganglion coeliacum
+Ganglion mesentericum superius
+Ganglion mesentericum inferius
+Ganglion aorticorenale
+Truncus vagalis anterior
+Truncus vagalis posterior
+Nervus splanchnicus major
+Nervus splanchnicus minor
+Nervus splanchnicus imus
+Nervi splanchnici lumbales
+Nervus subcostalis
+Nervus iliohypogastricus
+Nervus ilioinguinalis
+Nervus genitofemoralis
+Musculus rectus abdominis
+Musculus obliquus externus abdominis
+Musculus obliquus internus abdominis
+Musculus transversus abdominis
+Musculus quadratus lumborum
+Musculus psoas major
+Musculus iliacus
+Vagina musculi recti abdominis
+Linea alba
+Linea arcuata
+Linea semilunaris
+Fascia transversalis
+Fascia thoracolumbalis
+Ligamentum inguinale
+Canalis inguinalis
+Anulus inguinalis profundus
+Anulus inguinalis superficialis
+Trigonum inguinale
+Fossa inguinalis medialis
+Fossa inguinalis lateralis
+Plica umbilicalis mediana
+Plica umbilicalis medialis
+Plica umbilicalis lateralis
+Ligamentum umbilicale medianum
+Ligamentum umbilicale mediale
+Spatium praeperitoneale
+Spatium retromusculare
+Leistenkanalhinterwand
+Hiatus oesophageus
+Hiatus aorticus
+Foramen venae cavae
+Crus dextrum diaphragmatis
+Crus sinistrum diaphragmatis
+Centrum tendineum
+Ligamentum arcuatum medianum
+Ligamentum arcuatum mediale
+Ligamentum arcuatum laterale

@@ -1,0 +1,509 @@
+# Pneumologie (Pneumologie)
+# Quelle: medical_asr generated_v2, Modul internal.pneumology — unveraendert uebernommen.
+#
+# Reihenfolge = ASR-Prioritaet (nicht Korpushaeufigkeit): vorne stehen die
+# Begriffe, an denen ein allgemeines ASR am ehesten scheitert.
+# Stufen 100 / 250 / 500 nehmen jeweils die ersten N Zeilen,
+# daher gelten die Stufen per Konstruktion als Praefixe voneinander.
+# Zeilen mit # sind Kommentare. Reihenfolge NICHT alphabetisch sortieren.
+
+akute COPD-Exazerbation
+bronchoalveoläre Lavage
+EBUS-TBNA
+Pneumocystis-jirovecii-Pneumonie
+Hämoptoe
+Spiroergometrie
+chronisch thromboembolische pulmonale Hypertonie
+endoskopische Lungenvolumenreduktion
+bronchiektatisch
+Langzeitsauerstofftherapie
+HFNC
+endobronchiales Ventil
+exogen-allergische Alveolitis
+Hypoxämie
+Diffusionskapazitätsmessung
+nichtspezifische interstitielle Pneumonie
+endobronchiale Ventilimplantation
+hyperkapnisch
+High-Flow-Sauerstofftherapie
+DLCO
+Unterkieferprotrusionsschiene
+kryptogen organisierende Pneumonie
+Hyperkapnie
+Bronchodilatationstest
+Bronchiektasen-Erkrankung
+bronchoskopische Rekanalisation
+hypoxämisch
+adaptive Servoventilation
+FeNO
+Traktionsbronchiektase
+Ventilations-Perfusions-Missverhältnis
+transkutane Kapnometrie
+obstruktives Schlafapnoesyndrom
+endobronchiale Kryorekanalisation
+retikulonodulär
+extrakorporale Membranoxygenierung
+LTOT
+Adipositas-Hypoventilationssyndrom
+exspiratorische Flusslimitierung
+fraktioniertes exhaliertes Stickstoffmonoxid
+chronische hyperkapnische respiratorische Insuffizienz
+bronchoskopische Argonplasmakoagulation
+peribronchovaskulär
+prolongiertes Weaning
+CTEPH
+akute hypoxämische respiratorische Insuffizienz
+Air Trapping
+endobronchialer Ultraschall
+nichttuberkulöse Mykobakteriose
+Bronchialarterienembolisation
+zentrilobulär
+mechanische Insufflation-Exsufflation
+IPF
+parapneumonischer Pleuraerguss
+restriktive Ventilationsstörung
+transbronchiale Nadelaspiration
+nichtkleinzelliges Lungenkarzinom
+Pleurodese
+bronchoalveolär
+NSIP
+kleinzelliges Lungenkarzinom
+obstruktive Ventilationsstörung
+transbronchiale Kryobiopsie
+Lymphangiosis carcinomatosa
+Talkumpoudrage
+UIP
+Bronchialhyperreagibilität
+transbronchiale Lungenbiopsie
+videoassistierte Thorakoskopie
+ABPA
+Honigwabenmuster
+hochauflösende Computertomographie
+NSCLC
+Milchglastrübung
+CT-Pulmonalisangiographie
+SCLC
+Mosaikperfusion
+Ventilations-Perfusionsszintigraphie
+Crazy-Paving-Muster
+respiratorische Polygraphie
+Tree-in-Bud-Muster
+Polysomnographie
+zentrilobuläres Lungenemphysem
+Apnoe-Hypopnoe-Index
+mediastinale Lymphadenopathie
+Interferon-Gamma-Release-Assay
+Aspergillus-Galaktomannan
+allergische bronchopulmonale Aspergillose
+eosinophile Granulomatose mit Polyangiitis
+Alpha-1-Antitrypsin-Mangel
+Tracheobronchomalazie
+malignes Pleuramesotheliom
+Checkpoint-Inhibitor-Pneumonitis
+Asthma bronchiale
+Hämoptyse
+Bodyplethysmographie
+Lungenarterienembolie
+Pleurapunktion
+nichtinvasive Beatmung
+NIV
+Spirometrie
+CPAP
+flexible Bronchoskopie
+idiopathische pulmonale Fibrose
+Hypokapnie
+bronchiale Provokation
+progressive pulmonale Fibrose
+chirurgische Lungenvolumenreduktion
+bronchospastisch
+invasive Langzeitbeatmung
+APAP
+Trachealstent
+Sarkoidose
+respiratorische Azidose
+Methacholinprovokation
+Granulomatose mit Polyangiitis
+endobronchiale Lasertherapie
+emphysematös
+Heimbeatmung
+PEEP
+Y-Stent
+diffuse alveoläre Hämorrhagie
+respiratorische Alkalose
+Fluss-Volumen-Kurve
+Mukoviszidose
+Trachealstentimplantation
+subpleural
+druckunterstützte Beatmung
+ARDS
+Bronchialblocker
+chronisch obstruktive Lungenerkrankung
+Diffusionsstörung
+Kohlenmonoxid-Transferfaktor
+eosinophiles Asthma
+Bronchialstentimplantation
+perifissural
+druckkontrollierte Beatmung
+BAL
+Doppellumentubus
+Status asthmaticus
+Gasaustauschstörung
+funktionelle Residualkapazität
+Bronchiolitis obliterans
+endobronchiale Fremdkörperextraktion
+perihilär
+volumenkontrollierte Beatmung
+FEV1
+Pigtail-Pleuradrainage
+Trachealstenose
+Belastungsdesaturation
+forcierte Vitalkapazität
+zentrales Schlafapnoesyndrom
+bronchoskopische Sekretabsaugung
+pleuraständig
+lungenprotektive Beatmung
+FVC
+getunnelter Pleurakatheter
+schlafbezogene Hypoventilation
+dynamische Überblähung
+Einsekundenkapazität
+akutes Lungenversagen
+Thoraxdrainagenanlage
+endobronchial
+Bauchlagerungstherapie
+VATS
+Thoraxsaugdrainage
+akut-auf-chronische respiratorische Insuffizienz
+intrinsischer PEEP
+Peak-Flow-Messung
+alveoläre Hypoventilation
+Lobektomie
+transbronchial
+permissive Hyperkapnie
+PSG
+Sauerstoffkonzentrator
+Zwerchfellparese
+Bronchospasmus
+Tiffeneau-Index
+pulmonalarterielle Hypertonie
+Pneumonektomie
+mukopurulent
+Beatmungsentwöhnung
+AHI
+Dosieraerosol
+Cor pulmonale
+Stridor
+Zwerchfellsonographie
+nosokomiale Pneumonie
+Mediastinoskopie
+granulomatös
+Spontanatmungsversuch
+OSAS
+Pulverinhalator
+beatmungsassoziierte Pneumonie
+inspiratorisches Knisterrasseln
+arterielle Blutgasanalyse
+Aspirationspneumonie
+Lungentransplantation
+eosinophil
+Trachealkanülenentwöhnung
+IGRA
+geblockte Trachealkanüle
+Retentionspneumonie
+exspiratorisches Giemen
+Pulsoxymetrie
+Legionellenpneumonie
+pulmonale Endarteriektomie
+druckunterstützt
+Atemphysiotherapie
+NTM
+fenestrierte Trachealkanüle
+Mykoplasmenpneumonie
+verlängertes Exspirium
+Kapnographie
+Pneumokokkenpneumonie
+Ballonangioplastie der Pulmonalarterien
+weaningfähig
+Sekretmobilisation
+EGFR
+Lungentuberkulose
+Trommelschlegelfinger
+Sechs-Minuten-Gehtest
+invasive pulmonale Aspergillose
+perkutane Dilatationstracheotomie
+dekanüliert
+oszillierende PEP-Therapie
+PD-L1
+chronische pulmonale Aspergillose
+paradoxe Atmung
+Sputuminduktion
+Aspergillom
+Trachealkanülenwechsel
+exazerbiert
+Hustenassistenz
+spontaner Pneumothorax
+Atemhilfsmuskulatureinsatz
+starre Bronchoskopie
+Spannungspneumothorax
+Dekanülierung
+pleuritisch
+Sauerstofftitration
+Hydropneumothorax
+Cheyne-Stokes-Atmung
+endobronchiale Biopsie
+Hämatopneumothorax
+CT-gesteuerte Lungenpunktion
+antifibrotische Therapie
+Chylothorax
+Patient-Ventilator-Asynchronie
+Navigationsbronchoskopie
+Pleuraempyem
+simultane Radiochemotherapie
+maligner Pleuraerguss
+Sekretretention
+medizinische Thorakoskopie
+Pleuritis carcinomatosa
+stereotaktische Bestrahlung
+Pneumomediastinum
+Mukostase
+Pleurabiopsie
+bronchopleurale Fistel
+neoadjuvante Immunchemotherapie
+Plattenepithelkarzinom der Lunge
+mukopurulentes Sputum
+Pleuraergusszytologie
+Adenokarzinom der Lunge
+Pancoast-Tumor
+eosinophile Atemwegsentzündung
+Pleurasonographie
+metastasiertes Bronchialkarzinom
+paraneoplastisches Syndrom
+subpleurale Retikulation
+Low-Dose-CT
+obere Einflussstauung
+Strahlenpneumonitis
+Siegelringzeichen
+Rechtsherzkatheteruntersuchung
+medikamenteninduzierte Pneumonitis
+kollagenoseassoziierte interstitielle Lungenerkrankung
+Bronchialwandverdickung
+Sauerstoffdesaturationsindex
+panlobuläres Lungenemphysem
+Epworth Sleepiness Scale
+paraseptales Lungenemphysem
+CPAP-Titration
+Emphysembulla
+Mykobakterienkultur
+zentrilobulärer Mikronodulus
+Ziehl-Neelsen-Färbung
+solitärer Lungenrundherd
+Beta-D-Glucan
+subsolider Lungenrundherd
+Legionellenantigen im Urin
+spikulierter Rundherd
+Pneumocystis-PCR
+pleuraständige Raumforderung
+spezifisches Immunglobulin E
+hiläre Lymphadenopathie
+Liquid Biopsy
+Kavernenbildung
+molekulares Tumorprofil
+Pleuraplaque
+Next Generation Sequencing
+Pleurakarzinose
+PD-L1-Testung
+Kompressionsatelektase
+TNM-Klassifikation
+Dystelektase
+ECOG-Performance-Status
+Rundatelektase
+RECIST-Kriterien
+Mittellappenatelektase
+GOLD-Klassifikation
+Luftbronchogramm
+mMRC-Dyspnoeskala
+subkutanes Emphysem
+COPD Assessment Test
+bronchiale Schleimhautinfiltration
+CURB-65-Score
+endobronchiale Tumorobstruktion
+PESI-Score
+extrinsische Bronchuskompression
+Wells-Score
+Bluteosinophilie
+Light-Kriterien
+EGFR-Mutation
+ILD-Board
+ALK-Translokation
+KRAS-G12C-Mutation
+PD-L1-Expression
+COPD
+allergisches Asthma
+nächtliche Sauerstoffentsättigung
+totale Lungenkapazität
+Lungeninfarkt
+fibrosierend
+Inhalationstherapie
+Heimbeatmungsgerät
+ambulant erworbene Pneumonie
+abgeschwächtes Atemgeräusch
+kapilläre Blutgasanalyse
+COVID-19-Pneumonie
+nekrotisierend
+Verneblertherapie
+Nasen-Mund-Maske
+Lungenabszess
+vesikuläres Atemgeräusch
+Pricktest
+Lungenmetastase
+Tabakentwöhnung
+Post-COVID-Syndrom
+Orthopnoe
+postinfektiöser Husten
+pulmonale Rehabilitation
+Tachypnoe
+Maskenleckage
+Pleuraverdickung
+desquamative interstitielle Pneumonie
+alveoloarterielle Sauerstoffdifferenz
+Atemwegswiderstandsmessung
+lymphozytäre interstitielle Pneumonie
+Ballondilatation einer Bronchusstenose
+hämosiderinbeladen
+volumenassistierte Beatmung
+ODI
+Flüssigsauerstoffsystem
+respiratorische Bronchiolitis mit interstitieller Lungenerkrankung
+intrapulmonaler Rechts-links-Shunt
+Impulsoszillometrie
+akute interstitielle Pneumonie
+bronchiale Thermoplastie
+anthrakotisch
+extrakorporale Kohlendioxidelimination
+SIADH
+Inhalationskammer
+pulmonale Langerhans-Zell-Histiozytose
+statische Überblähung
+Stickstoffauswaschtest
+Lymphangioleiomyomatose
+Dekortikation
+atemgetriggert
+inspiratorisches Muskeltraining
+Düsenvernebler
+Alveolarproteinose
+Residualvolumenerhöhung
+Transferkoeffizient
+Asbestose
+Pleurektomie
+volumengesichert
+autogene Drainage
+Mesh-Vernebler
+Silikose
+Bronchorrhö
+inspiratorische Kapazität
+Pneumokoniose
+Lungenkeilresektion
+Inhalationstechnikschulung
+Nasenpolstermaske
+Löfgren-Syndrom
+Bronchophonie
+Atemmuskelkraftmessung
+mikroskopische Polyangiitis
+anatomische Segmentresektion
+allergenspezifische Immuntherapie
+Beatmungshelm
+pulmorenales Syndrom
+Uhrglasnagel
+Mundverschlussdruckmessung
+Goodpasture-Syndrom
+Bilobektomie
+Biologikatherapie bei Asthma
+Sprechventil
+primäre ziliäre Dyskinesie
+Platypnoe
+Sniff-Test
+Kartagener-Syndrom
+Manschettenresektion
+pleurale Fibrinolyse
+Hypoglossusstimulator
+Analgetika-Asthma
+Orthodeoxie
+Langzeitpulsoxymetrie
+Belastungsbronchokonstriktion
+endobronchiale Brachytherapie
+eosinophile Bronchitis
+Bradypnoe
+Ein-Minuten-Aufstehtest
+konstriktive Bronchiolitis
+endoskopischer Fistelverschluss
+subglottische Stenose
+ineffektiver Atemtrigger
+Sputumzytologie
+induzierbare laryngeale Obstruktion
+behandlungsinduzierte zentrale Schlafapnoe
+Mundleckage
+Bürstenbiopsie
+Overlap-Syndrom
+posthyperkapnische Alkalose
+Neutrophilie im Sputum
+elektromagnetische Navigation
+neuromuskuläre Ateminsuffizienz
+Kyphoskoliose
+perilymphatische Noduli
+radiale Endosonographie
+pulmonale veno-okklusive Erkrankung
+pulmonale arteriovenöse Malformation
+intrakavitäre Raumforderung
+pulmonale Vasoreagibilitätstestung
+nekrotisierende Pneumonie
+septische Lungenembolie
+Schwartenbildung
+STOP-Bang-Fragebogen
+Miliartuberkulose
+latente tuberkulöse Infektion
+Pleuraspaltseptierung
+Multipler Schlaflatenztest
+Nokardiose
+Pleuritis tuberculosa
+ROS1-Rearrangement
+Tuberkulin-Hauttest
+Pleuritis sicca
+Fibrothorax
+Pneumokokkenantigen im Urin
+Trapped Lung
+bronchoösophageale Fistel
+Schweißtest
+großzelliges neuroendokrines Karzinom
+typisches bronchiales Karzinoid
+nasale NO-Messung
+atypisches bronchiales Karzinoid
+chronische Lungentransplantatdysfunktion
+Zilienfunktionsdiagnostik
+Bronchiolitis-obliterans-Syndrom
+chronisch refraktärer Husten
+Alpha-1-Antitrypsin-Phänotypisierung
+Hustensynkope
+Reexpansionsödem
+Lung-RADS
+akute eosinophile Pneumonie
+chronische eosinophile Pneumonie
+BODE-Index
+rheumatoide Lungenerkrankung
+pleuroparenchymale Fibroelastose
+katamenialer Pneumothorax
+paroxysmale nächtliche Dyspnoe
+berufsbedingtes Asthma
+pleurales Reiben
+alveoläres Volumen
+postinfektiöse Bronchiolitis
+Lungenvenenstenose
+bronchiales Atemgeräusch
+katheterassoziierte Thrombose
+Influenza-Pneumonie
+Fassthorax
+Mediastinitis
+Thymom
+Schleimpfropf
+Thymuskarzinom
+akute Transplantatabstoßung
+Hyperventilationssyndrom

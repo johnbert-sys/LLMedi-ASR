@@ -1,0 +1,509 @@
+# Infektiologie (Infektiologie)
+# Quelle: medical_asr generated_v2, Modul internal.infectiology — unveraendert uebernommen.
+#
+# Reihenfolge = ASR-Prioritaet (nicht Korpushaeufigkeit): vorne stehen die
+# Begriffe, an denen ein allgemeines ASR am ehesten scheitert.
+# Stufen 100 / 250 / 500 nehmen jeweils die ersten N Zeilen,
+# daher gelten die Stufen per Konstruktion als Praefixe voneinander.
+# Zeilen mit # sind Kommentare. Reihenfolge NICHT alphabetisch sortieren.
+
+Staphylococcus-aureus-Bakteriämie
+Blutkulturdiagnostik
+infektiöse Endokarditis
+kalkulierte antiinfektive Therapie
+Staphylococcus aureus
+Prothesenklappenendokarditis
+Endokarditisdiagnostik
+kulturnegative Endokarditis
+erregerspezifische antiinfektive Therapie
+Streptococcus pneumoniae
+Spondylodiszitis
+transösophageale Echokardiographie
+hämatogene Osteomyelitis
+Antibiotic Stewardship
+Streptococcus pyogenes
+periprothetische Gelenkinfektion
+Erregeridentifizierung
+katheterassoziierte Blutstrominfektion
+parenterale Antibiotikatherapie
+Streptococcus agalactiae
+nekrotisierende Fasziitis
+Resistenzbestimmung
+Fournier-Gangrän
+orale Sequenztherapie
+Enterococcus faecium
+septische Arthritis
+minimale Hemmkonzentration
+pyogener Leberabszess
+verlängerte Antibiotikainfusion
+Enterococcus faecalis
+Psoasabszess
+antimikrobielle Empfindlichkeitsprüfung
+Hirnabszess
+antiretrovirale Kombinationstherapie
+Escherichia coli
+bakterielle Meningitis
+Nukleinsäureamplifikationstest
+Herpes-simplex-Enzephalitis
+präemptive antivirale Therapie
+Klebsiella pneumoniae
+tuberkulöse Meningitis
+Multiplex-PCR
+Neuroborreliose
+suppressive Antibiotikatherapie
+Pseudomonas aeruginosa
+Neurosyphilis
+bakterielle Breitspektrum-PCR
+Listeriose
+antimykotische Kombinationstherapie
+Acinetobacter baumannii
+Legionellose
+metagenomische Sequenzierung
+Pneumocystis-jirovecii-Pneumonie
+Tuberkulostatikatherapie
+Stenotrophomonas maltophilia
+invasive Aspergillose
+MALDI-TOF-Massenspektrometrie
+invasive Candidiasis
+Postexpositionsprophylaxe
+Enterobacter cloacae
+Kryptokokkose
+Interferon-Gamma-Release-Assay
+Mukormykose
+Präexpositionsprophylaxe
+Serratia marcescens
+Clostridioides-difficile-Infektion
+Galaktomannan-Antigen
+Zytomegalievirus-Erkrankung
+opportunistische Infektionsprophylaxe
+Clostridioides difficile
+Immune-Reconstitution-Inflammatory-Syndrom
+Beta-D-Glucan
+progressive multifokale Leukenzephalopathie
+Pneumocystis-Prophylaxe
+Bacteroides fragilis
+zerebrale Toxoplasmose
+Kryptokokkenantigen
+atypische Mykobakteriose
+Cutibacterium acnes
+disseminierte Tuberkulose
+Pneumokokken-Urinantigen
+multiresistente Tuberkulose
+Listeria monocytogenes
+komplizierte Malaria
+Legionellen-Urinantigen
+Strongyloides-Hyperinfektionssyndrom
+Neisseria meningitidis
+alveoläre Echinokokkose
+Prothesensonikation
+Neisseria gonorrhoeae
+differenzielle Blutkulturpositivitätszeit
+Haemophilus influenzae
+Legionella pneumophila
+Mycoplasma pneumoniae
+Chlamydia trachomatis
+Coxiella burnetii
+Bartonella henselae
+Tropheryma whipplei
+Mycobacterium tuberculosis
+Mycobacterium avium
+Mycobacterium abscessus
+Candida albicans
+Candida glabrata
+Candida auris
+Aspergillus fumigatus
+Pneumocystis jirovecii
+Cryptococcus neoformans
+Toxoplasma gondii
+Plasmodium falciparum
+Strongyloides stercoralis
+Sepsis
+Fieber unklarer Genese
+septischer Schock
+chirurgische Fokussanierung
+Bakteriämie
+persistierende Bakteriämie
+Fungämie
+Abszessdrainage
+Candidämie
+rezidivierende Bakteriämie
+Urosepsis
+perkutane Drainageanlage
+Cholangiosepsis
+prolongiertes Fieber
+neutropenische Sepsis
+chirurgisches Debridement
+ambulant erworbene Pneumonie
+undulierendes Fieber
+nosokomiale Pneumonie
+infizierte Katheterentfernung
+beatmungsassoziierte Pneumonie
+Eschar
+Aspirationspneumonie
+Prothesenwechsel
+Lungenabszess
+Erythema migrans
+Pleuraempyem
+Implantatentfernung
+septische Lungenembolie
+Erythema nodosum
+Lungentuberkulose
+Gelenkspülung
+Miliartuberkulose
+Exanthem
+Lymphknotentuberkulose
+endokarditische Klappensanierung
+infektiöse Mononukleose
+Enanthem
+HIV-Infektion
+intravitreale Injektion
+akutes retrovirales Syndrom
+Meningismus
+Hepatitis A
+fäkaler Mikrobiomtransfer
+Hepatitis B
+Nackensteifigkeit
+Hepatitis C
+Sequestrektomie
+Hepatitis D
+Koplik-Flecken
+Hepatitis E
+Echinokokkenzystenpunktion
+Virushepatitis
+Janeway-Läsionen
+Influenza
+COVID-19
+Osler-Knötchen
+Post-COVID-Syndrom
+RSV-Infektion
+Roth-Flecken
+Herpes zoster
+disseminierter Herpes zoster
+Milzabszess
+Herpes genitalis
+Varizellen
+septische Embolie
+Masern
+Röteln
+septischer Organinfarkt
+Mumps
+Pertussis
+nekrotische Hautläsion
+Diphtherie
+Tetanus
+Abszessformation
+Mpox
+Gonorrhö
+Fistelbildung
+Syphilis
+Chlamydieninfektion
+Biofilmbildung
+Lymphogranuloma venereum
+Trichomoniasis
+Fremdkörperbesiedlung
+akute Pyelonephritis
+komplizierter Harnwegsinfekt
+Erregerpersistenz
+Prostatitis
+Epididymoorchitis
+Erregerkolonisation
+Erysipel
+Phlegmone
+Virusreaktivierung
+Zellulitis
+Impetigo contagiosa
+Virämie
+Pyodermie
+Wundinfektion
+Viruslastanstieg
+diabetische Fußinfektion
+septische Thrombophlebitis
+Serokonversion
+tiefe Halsinfektion
+Peritonsillarabszess
+Immunsuppression
+Retropharyngealabszess
+Mediastinitis
+Immundefizienz
+Perikarditis
+Myokarditis
+atypische Lymphozytose
+Waterhouse-Friderichsen-Syndrom
+Frühsommer-Meningoenzephalitis
+Linksverschiebung
+Lyme-Borreliose
+Tularämie
+Laktaterhöhung
+Brucellose
+Q-Fieber
+Organfunktionsstörung
+Leptospirose
+Hantavirusinfektion
+Multiorganversagen
+Rickettsiose
+Katzenkratzkrankheit
+Resistenzentwicklung
+Salmonellose
+Campylobacteriose
+Superinfektion
+Shigellose
+Yersiniose
+Koinfektion
+Typhus abdominalis
+Paratyphus
+nosokomiale Übertragung
+Cholera
+Norovirusgastroenteritis
+opportunistische Infektion
+Giardiasis
+Amöbiasis
+latente Infektion
+Kryptosporidiose
+Toxoplasmose
+persistierende Infektion
+Skabies
+Echinokokkose
+fulminanter Verlauf
+Schistosomiasis
+Denguefieber
+antibiotikaassoziierte Diarrhö
+Chikungunyafieber
+Zikavirusinfektion
+Jarisch-Herxheimer-Reaktion
+West-Nil-Fieber
+Gelbfieber
+Malaria tropica
+Malaria tertiana
+viszerale Leishmaniose
+kutane Leishmaniose
+Strongyloidiasis
+Neurozystizerkose
+Aktinomykose
+Nokardiose
+Staphylococcus epidermidis
+Whipple-Krankheit
+Melioidose
+Staphylococcus lugdunensis
+Histoplasmose
+Kokzidioidomykose
+Streptococcus gallolyticus
+Blastomykose
+Sporotrichose
+Streptococcus anginosus
+Fusariose
+CMV-Retinitis
+Proteus mirabilis
+CMV-Kolitis
+EBV-assoziierte lymphoproliferative Erkrankung
+Morganella morganii
+HHV-6-Enzephalitis
+Adenovirusinfektion
+Citrobacter freundii
+BK-Polyomavirus-Nephropathie
+virale hämorrhagische Zystitis
+Salmonella enterica
+Enterovirusmeningitis
+Botulismus
+Campylobacter jejuni
+Babesiose
+Fleckfieber
+Yersinia enterocolitica
+Ornithose
+Bartonellenendokarditis
+Vibrio cholerae
+Coxiellenendokarditis
+hepatosplenische Candidiasis
+Vibrio vulnificus
+ösophageale Candidiasis
+Pilzendokarditis
+Pasteurella multocida
+Pilzsinusitis
+Otitis externa maligna
+Capnocytophaga canimorsus
+Schädelbasisosteomyelitis
+perianaler Abszess
+Fusobacterium necrophorum
+bakterielle Peritonitis
+sekundäre Peritonitis
+Clostridium perfringens
+toxisches Schocksyndrom
+Streptokokken-Toxic-Shock-Syndrom
+Clostridium septicum
+Lemierre-Syndrom
+Chagas-Krankheit
+Bacillus cereus
+afrikanische Trypanosomiasis
+Trichinellose
+Treponema pallidum
+Larva migrans cutanea
+Toxokarose
+Borrelia burgdorferi
+infektionsassoziierte hämophagozytische Lymphohistiozytose
+Leptospira interrogans
+Francisella tularensis
+Brucella melitensis
+Burkholderia pseudomallei
+Candida parapsilosis
+Candida tropicalis
+Histoplasma capsulatum
+Giardia duodenalis
+Entamoeba histolytica
+Cryptosporidium parvum
+Leishmania donovani
+Trypanosoma cruzi
+Echinococcus multilocularis
+Taenia solium
+Plasmodium vivax
+Plasmodium knowlesi
+bakteriämisch
+fungämisch
+virämisch
+septisch
+nosokomial
+opportunistisch
+immunsupprimiert
+neutropenisch
+afebril
+subfebril
+fulminant
+disseminiert
+hämatogen
+lymphogen
+aerogen
+fäkal-oral
+vektorübertragen
+zoonotisch
+kontagiös
+kolonisiert
+superinfiziert
+polymikrobiell
+monomikrobiell
+grampositiv
+gramnegativ
+anaerob
+aerob
+säurefest
+multiresistent
+carbapenemresistent
+vancomycinresistent
+methicillinresistent
+panresistent
+bakterizid
+bakteriostatisch
+fungizid
+fungistatisch
+virostatisch
+virologisch supprimiert
+seropositiv
+seronegativ
+serokonvertiert
+Liquorpunktion
+antibiotische Deeskalation
+Liquorzellzahl
+antimikrobielle Eskalation
+Liquorlaktat
+Therapiedaueranpassung
+Liquor-Serum-Glukose-Quotient
+Dosisanpassung bei Niereninsuffizienz
+intrathekale Antikörpersynthese
+Penetration in den Infektionsherd
+Antikörperindex
+Biofilmtherapie
+Liquorkultur
+Antibiotika-Lock-Therapie
+Liquor-PCR
+ambulante parenterale Antibiotikatherapie
+Sputumkultur
+antimykotische Prophylaxe
+bronchoalveoläre Lavage
+antivirale Prophylaxe
+Trachealsekretkultur
+Resistenzbarriere
+Urinkultur
+Eradikationstherapie
+Stuhlkultur
+MRSA-Dekolonisation
+Gewebekultur
+Kontaktisolierung
+Gelenkpunktion
+Tröpfchenisolierung
+Knochenbiopsie
+aerogene Isolierung
+Gramfärbung
+Umkehrisolierung
+Ziehl-Neelsen-Färbung
+aktive Immunisierung
+Auraminfärbung
+passive Immunisierung
+Grocott-Färbung
+Simultanimpfung
+Giemsa-Färbung
+Totimpfstoff
+Dicker Tropfen
+Lebendimpfstoff
+Blutausstrich
+Konjugatimpfstoff
+Parasitenmikroskopie
+Auffrischimpfung
+Antigennachweis
+Grundimmunisierung
+Antikörpernachweis
+Malariaprophylaxe
+Aviditätsbestimmung
+intravenöse Immunglobuline
+Immunoblot
+antiphlogistische Begleittherapie
+ELISA
+HIV-Kombinationstest
+HIV-RNA
+CD4-Zellzahl
+HIV-Resistenztest
+HBsAg
+Anti-HBc
+HBV-DNA
+HCV-RNA
+HEV-RNA
+CMV-PCR
+EBV-PCR
+Tuberkulinkutantest
+Mykobakterienkultur
+Carbapenemasenachweis
+ESBL-Nachweis
+MRSA-Screening
+VRE-Screening
+nasopharyngealer Abstrich
+Sepsisdiagnostik
+SOFA-Score
+qSOFA
+Duke-Kriterien
+FDG-PET/CT
+infektiologisches Konsil
+Therapeutic Drug Monitoring
+Antibiogramm
+epidemiologische Typisierung
+Ganzgenomsequenzierung
+Kontaktpersonennachverfolgung
+MRSA
+MSSA
+VRE
+MRGN
+ESBL
+CRE
+NTM
+HIV
+AIDS
+ART
+PrEP
+PEP
+IRIS
+CMV
+EBV
+HSV
+VZV
+RSV
+FSME
+OPAT
+ABS
+TDM
+IGRA
+MIC

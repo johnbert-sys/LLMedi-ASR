@@ -1,0 +1,259 @@
+# Anatomie obere Extremität (Anatomie obere Extremität)
+# Quelle: medical_asr generated_v2, Modul anatomy.upper_extremity — unveraendert uebernommen.
+#
+# Reihenfolge = ASR-Prioritaet (nicht Korpushaeufigkeit): vorne stehen die
+# Begriffe, an denen ein allgemeines ASR am ehesten scheitert.
+# Stufen 100 / 250 nehmen jeweils die ersten N Zeilen,
+# daher gelten die Stufen per Konstruktion als Praefixe voneinander.
+# Zeilen mit # sind Kommentare. Reihenfolge NICHT alphabetisch sortieren.
+
+Musculus supraspinatus
+Musculus infraspinatus
+Musculus subscapularis
+Musculus teres minor
+Musculus teres major
+Musculus coracobrachialis
+Musculus brachioradialis
+Musculus pronator teres
+Musculus pronator quadratus
+Musculus supinator
+Musculus flexor carpi radialis
+Musculus flexor carpi ulnaris
+Musculus flexor digitorum superficialis
+Musculus flexor digitorum profundus
+Musculus flexor pollicis longus
+Musculus extensor carpi radialis longus
+Musculus extensor carpi radialis brevis
+Musculus extensor carpi ulnaris
+Musculus extensor pollicis longus
+Musculus extensor pollicis brevis
+Musculus abductor pollicis longus
+Musculus extensor indicis
+Musculus opponens pollicis
+Musculus adductor pollicis
+Nervus suprascapularis
+Nervus axillaris
+Nervus musculocutaneus
+Nervus medianus
+Nervus ulnaris
+Nervus radialis
+Nervus interosseus anterior
+Nervus interosseus posterior
+Nervus cutaneus antebrachii lateralis
+Nervus cutaneus antebrachii medialis
+Ramus profundus nervi radialis
+Ramus superficialis nervi radialis
+Ramus recurrens nervi mediani
+Ramus profundus nervi ulnaris
+Plexus brachialis
+Fasciculus lateralis plexus brachialis
+Fasciculus medialis plexus brachialis
+Fasciculus posterior plexus brachialis
+Arteria axillaris
+Arteria brachialis
+Arteria radialis
+Arteria ulnaris
+Arteria interossea anterior
+Arteria interossea posterior
+Arcus palmaris superficialis
+Arcus palmaris profundus
+Arteria princeps pollicis
+Vena cephalica
+Vena basilica
+Vena mediana cubiti
+Ligamentum coracoacromiale
+Ligamentum coracoclaviculare
+Ligamentum coracohumerale
+Ligamentum glenohumerale inferius
+Ligamentum anulare radii
+Ligamentum collaterale ulnare cubiti
+Ligamentum collaterale radiale cubiti
+Ligamentum scapholunatum
+Ligamentum lunotriquetrum
+Discus articularis radioulnaris
+Retinaculum flexorum manus
+Retinaculum extensorum manus
+Canalis carpi
+Canalis ulnaris
+Sulcus nervi ulnaris
+Sulcus nervi radialis
+Tabatière
+Labrum glenoidale
+Processus coracoideus
+Tuberculum majus humeri
+Tuberculum minus humeri
+Sulcus intertubercularis
+Collum chirurgicum humeri
+Epicondylus medialis humeri
+Epicondylus lateralis humeri
+Olecranon
+Articulatio humeri
+Articulatio acromioclavicularis
+Articulatio sternoclavicularis
+Articulatio cubiti
+Articulatio humeroulnaris
+Articulatio humeroradialis
+Articulatio radioulnaris proximalis
+Articulatio radioulnaris distalis
+Articulatio radiocarpalis
+Articulatio mediocarpalis
+Articulatio carpometacarpalis pollicis
+Articulationes carpometacarpales
+Articulationes metacarpophalangeae
+Articulationes interphalangeae proximales manus
+Articulationes interphalangeae distales manus
+Cavitas glenoidalis
+Tuberculum supraglenoidale
+Tuberculum infraglenoidale
+Spina scapulae
+Acromion
+Angulus inferior scapulae
+Margo medialis scapulae
+Margo lateralis scapulae
+Fossa supraspinata
+Fossa infraspinata
+Fossa subscapularis
+Incisura scapulae
+Incisura spinoglenoidalis
+Collum scapulae
+Extremitas acromialis claviculae
+Extremitas sternalis claviculae
+Tuberculum conoideum
+Linea trapezoidea
+Caput humeri
+Collum anatomicum humeri
+Tuberositas deltoidea
+Crista tuberculi majoris
+Crista tuberculi minoris
+Capitulum humeri
+Trochlea humeri
+Fossa olecrani
+Fossa coronoidea
+Fossa radialis
+Crista supracondylaris lateralis
+Crista supracondylaris medialis
+Processus coronoideus ulnae
+Incisura trochlearis
+Incisura radialis ulnae
+Tuberositas ulnae
+Caput ulnae
+Processus styloideus ulnae
+Caput radii
+Collum radii
+Tuberositas radii
+Incisura ulnaris radii
+Processus styloideus radii
+Tuberculum dorsale radii
+Facies articularis carpalis radii
+Os scaphoideum
+Os lunatum
+Os triquetrum
+Os pisiforme
+Os trapezium
+Os trapezoideum
+Os capitatum
+Os hamatum
+Hamulus ossis hamati
+Tuberculum ossis scaphoidei
+Tuberculum ossis trapezii
+Phalanx proximalis manus
+Phalanx media manus
+Phalanx distalis manus
+Ligamentum conoideum
+Ligamentum trapezoideum
+Ligamentum acromioclaviculare
+Ligamentum sternoclaviculare anterius
+Ligamentum costoclaviculare
+Ligamentum transversum scapulae superius
+Ligamentum transversum scapulae inferius
+Ligamentum glenohumerale superius
+Ligamentum glenohumerale medium
+Ligamentum transversum humeri
+Ligamentum collaterale ulnare laterale
+Membrana interossea antebrachii
+Ligamentum radiocarpale palmare
+Ligamentum radiocarpale dorsale
+Ligamentum ulnocarpale palmare
+Ligamentum collaterale carpi radiale
+Ligamentum collaterale carpi ulnare
+Ligamentum radioulnare palmare
+Ligamentum radioulnare dorsale
+Ligamentum pisohamatum
+Ligamentum pisometacarpale
+Ligamentum metacarpale transversum profundum
+Ligamentum collaterale metacarpophalangeum
+palmare Platte
+Ringband A1
+Ringband A2
+Ringband A4
+Rotatorenintervall
+Rotatorenmanschette
+Bursa subacromialis
+Bursa subdeltoidea
+Bursa subtendinea musculi subscapularis
+Bursa olecrani
+Bursa bicipitoradialis
+Vagina tendinis intertubercularis
+Vagina synovialis communis musculorum flexorum
+Vagina tendinis musculi flexoris pollicis longi
+Aponeurosis palmaris
+Aponeurosis bicipitalis
+Chiasma tendinum
+Dorsalaponeurose
+Connexus intertendinei
+Musculus deltoideus
+Musculus biceps brachii
+Caput longum musculi bicipitis brachii
+Caput breve musculi bicipitis brachii
+Musculus brachialis
+Musculus triceps brachii
+Caput longum musculi tricipitis brachii
+Musculus anconeus
+Musculus palmaris longus
+Musculus extensor digitorum
+Musculus extensor digiti minimi
+Musculus abductor pollicis brevis
+Musculus flexor pollicis brevis
+Musculus abductor digiti minimi manus
+Musculus flexor digiti minimi brevis manus
+Musculus opponens digiti minimi
+Musculi lumbricales manus
+Musculi interossei palmares
+Musculi interossei dorsales manus
+Trigonum deltopectorale
+Fossa axillaris
+Fossa cubitalis
+Sulcus bicipitalis medialis
+Sulcus bicipitalis lateralis
+Foramen quadrilaterum
+Foramen trilaterum
+Hiatus tricipitalis
+Septum intermusculare brachii mediale
+Septum intermusculare brachii laterale
+Fascia antebrachii
+Fascia brachii
+Nervus subscapularis
+Nervus thoracodorsalis
+Nervus thoracicus longus
+Nervus dorsalis scapulae
+Nervus cutaneus brachii medialis
+Nervus cutaneus antebrachii posterior
+Ramus dorsalis nervi ulnaris
+Ramus superficialis nervi ulnaris
+Nervi digitales palmares communes
+Nervi digitales palmares proprii
+Arteria profunda brachii
+Arteria circumflexa humeri anterior
+Arteria circumflexa humeri posterior
+Arteria circumflexa scapulae
+Arteria subscapularis
+Arteria suprascapularis
+Arteria thoracoacromialis
+Arteria recurrens radialis
+Arteria recurrens ulnaris
+Arteriae digitales palmares communes
+Arteriae digitales palmares propriae
+Vena axillaris
+Rete venosum dorsale manus
+Nodi lymphoidei cubitales
+Nodi lymphoidei axillares

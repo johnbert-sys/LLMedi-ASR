@@ -1,0 +1,509 @@
+# Allgemein-/Viszeralchirurgie (Allgemein-/Viszeralchirurgie)
+# Quelle: medical_asr generated_v2, Modul surgery.visceral — unveraendert uebernommen.
+#
+# Reihenfolge = ASR-Prioritaet (nicht Korpushaeufigkeit): vorne stehen die
+# Begriffe, an denen ein allgemeines ASR am ehesten scheitert.
+# Stufen 100 / 250 / 500 nehmen jeweils die ersten N Zeilen,
+# daher gelten die Stufen per Konstruktion als Praefixe voneinander.
+# Zeilen mit # sind Kommentare. Reihenfolge NICHT alphabetisch sortieren.
+
+akute Appendizitis
+Peritonismus
+Ösophagogastroduodenoskopie
+perforierte Appendizitis
+laparoskopische Appendektomie
+perityphlitischer Abszess
+Abwehrspannung
+Ileokoloskopie
+akute Cholezystitis
+laparoskopische Cholezystektomie
+empyematöse Cholezystitis
+Loslassschmerz
+Endosonographie
+gangränöse Cholezystitis
+subtotale Cholezystektomie
+Choledocholithiasis
+kontralateraler Loslassschmerz
+Magnetresonanz-Cholangiopankreatikographie
+akute Cholangitis
+Choledochusrevision
+biliäre Pankreatitis
+meteoristisches Abdomen
+endoskopisch retrograde Cholangiopankreatikographie
+nekrotisierende Pankreatitis
+biliodigestive Anastomose
+infizierte Pankreasnekrose
+hochgestellte Darmgeräusche
+perkutane transhepatische Cholangiographie
+chronische Pankreatitis
+Hepatikojejunostomie
+Pankreaspseudozyste
+Hämatochezie
+intraoperative Cholangiographie
+Pankreasfistel
+Pankreatikoduodenektomie
+Pankreaskopfkarzinom
+Meläna
+diagnostische Laparoskopie
+periampulläres Karzinom
+pyloruserhaltende Pankreaskopfresektion
+Papillenkarzinom
+Hämatemesis
+intraoperative Sonographie
+intraduktale papillär-muzinöse Neoplasie
+Pankreaslinksresektion
+muzinös-zystische Neoplasie
+Miserere
+kontrastverstärkte Abdomensonographie
+neuroendokriner Pankreastumor
+totale Pankreatektomie
+Cholangiokarzinom
+Dysphagie
+CT-Angiographie der Mesenterialgefäße
+Gallenblasenkarzinom
+Pankreatikojejunostomie
+hepatozelluläres Karzinom
+Odynophagie
+Defäkographie
+kolorektale Lebermetastase
+Pankreatikogastrostomie
+Leberabszess
+biliöses Erbrechen
+anorektale Manometrie
+perforierte Sigmadivertikulitis
+Pankreasnekrosektomie
+gedeckt perforierte Divertikulitis
+postprandiale Regurgitation
+transanale Endosonographie
+Kolonkarzinom
+Zystogastrostomie
+Rektumkarzinom
+Cholestase
+hochauflösende Ösophagusmanometrie
+Dünndarmkarzinom
+laparoskopische Leberresektion
+gastrointestinaler Stromatumor
+Sklerenikterus
+Impedanz-pH-Metrie
+Magenkarzinom
+Hemihepatektomie
+Ösophaguskarzinom
+acholischer Stuhl
+intraoperativer Schnellschnitt
+Adenokarzinom des ösophagogastralen Übergangs
+Lebersegmentresektion
+Anastomoseninsuffizienz
+perikolische Abszedierung
+Sentinel-Lymphknotenbiopsie
+Duodenalstumpfinsuffizienz
+atypische Leberresektion
+Gallengangsverletzung
+pericholezystische Flüssigkeit
+Indocyaningrün-Fluoreszenzangiographie
+Gallengangsfistel
+Lebertransplantation
+biliodigestive Anastomosenstenose
+Pneumatosis intestinalis
+abdominelles Kompartmentsyndrom
+Splenektomie
+sekundäre Peritonitis
+portomesenteriales Gas
+Vierquadrantenperitonitis
+Hemikolektomie rechts
+Mesenterialischämie
+Minderperfusion der Darmwand
+Mesenterialvenenthrombose
+Hemikolektomie links
+Strangulationsileus
+mesenteriale Gefäßokklusion
+Bridenileus
+Sigmaresektion
+paralytischer Ileus
+gallehaltiges Drainagesekret
+Invagination
+anteriore Rektumresektion
+Sigmavolvulus
+amylasereiches Drainagesekret
+Zökumvolvulus
+tiefe anteriore Rektumresektion
+Dünndarmperforation
+fäkales Drainagesekret
+Kolonperforation
+abdominoperineale Rektumexstirpation
+Ulkusperforation
+perianale Sekretion
+inkarzerierte Leistenhernie
+subtotale Kolektomie
+Femoralhernie
+Narbenhernie
+Proktokolektomie
+parastomale Hernie
+paraösophageale Hernie
+totale mesorektale Exzision
+Zwerchfellhernie
+Rezidivhernie
+komplette mesokolische Exzision
+Rektumprolaps
+Analfistel
+ileoanale Pouchanlage
+perianaler Abszess
+ischiorektaler Abszess
+Ileozökalresektion
+supralevatorischer Abszess
+Sinus pilonidalis
+Dünndarmsegmentresektion
+nekrotisierende Fasziitis
+Fournier-Gangrän
+Strikturoplastik
+Morbus Crohn
+Colitis ulcerosa
+Adhäsiolyse
+Hartmann-Operation
+Hartmann-Rückverlagerung
+protektive Ileostomie
+doppelläufige Kolostomie
+endständige Kolostomie
+Stomarückverlagerung
+Gastrektomie
+subtotale Magenresektion
+Ösophagektomie
+Ösophagojejunostomie
+Gastrojejunostomie
+Roux-Y-Rekonstruktion
+Roux-Y-Magenbypass
+Schlauchmagenresektion
+Fundoplikatio
+Hiatoplastik
+Heller-Myotomie
+transabdominelle präperitoneale Hernioplastik
+total extraperitoneale Hernioplastik
+Lichtenstein-Operation
+Shouldice-Operation
+retromuskuläre Netzimplantation
+anteriore Komponentenseparation
+Transversus-abdominis-Release
+transanale endoskopische Mikrochirurgie
+Cholezystolithiasis
+Tenesmen
+Rektoskopie
+Mirizzi-Syndrom
+offene Appendektomie
+perioperative Antibiotikaprophylaxe
+Klammernahtgerät
+Porzellangallenblase
+paradoxale Diarrhö
+Proktoskopie
+Gallenblasenpolyp
+offene Cholezystektomie
+kalkulierte Antibiotikatherapie
+Zirkularstapler
+perihiläres Cholangiokarzinom
+Steatorrhö
+Kolonkontrasteinlauf
+Leberadenom
+Cholezystostomie
+resistenzgerechte Antibiotikatherapie
+Linearstapler
+fokal noduläre Hyperplasie
+Sarkopenie
+Fistulographie
+zystische Echinokokkose
+Choledochotomie
+Thromboseprophylaxe
+Ultraschalldissektor
+alveoläre Echinokokkose
+Mangelernährung
+Hepatobiliärszintigraphie
+Milzruptur
+T-Drainage-Einlage
+therapeutische Antikoagulation
+bipolare Gefäßversiegelung
+Milzabszess
+Sepsis
+Schilddrüsensonographie
+Milzinfarkt
+Papillotomie
+enterale Ernährung
+Kompositnetz
+Pfortaderthrombose
+septischer Schock
+Schilddrüsenszintigraphie
+portale Hypertension
+Gallengangsstenteinlage
+parenterale Ernährung
+teilresorbierbares Netz
+Kurzdarmsyndrom
+Laktatazidose
+Nebenschilddrüsenszintigraphie
+enterokutane Fistel
+perkutane transhepatische Cholangiodrainage
+Immunonutrition
+Redon-Drainage
+enteroenterale Fistel
+Hypoalbuminämie
+Feinnadelaspirationszytologie
+enterovesikale Fistel
+Pfortaderembolisation
+orale Nahrungssupplementation
+Robinson-Drainage
+rektovaginale Fistel
+Hyperbilirubinämie
+Stanzbiopsie
+Anastomosenulkus
+Radiofrequenzablation
+multimodale Schmerztherapie
+T-Drainage
+Anastomosenstenose
+Hypokalzämie
+Leberbiopsie
+afferentes Schlingensyndrom
+Mikrowellenablation
+thorakale Periduralanalgesie
+Pigtail-Drainage
+Dumping-Syndrom
+peristomale Hautmazeration
+Peritonealzytologie
+Refluxösophagitis
+transarterielle Chemoembolisation
+patientenkontrollierte Analgesie
+Endosponge
+Barrett-Ösophagus
+enteraler Flüssigkeitsverlust
+histopathologische Aufarbeitung
+Achalasie
+selektive interne Radiotherapie
+Frühmobilisation
+selbstexpandierender Metallstent
+Zenker-Divertikel
+reponible Vorwölbung
+immunhistochemische Untersuchung
+epiphrenisches Divertikel
+Pringle-Manöver
+Stomatherapie
+vollbeschichteter Metallstent
+Boerhaave-Syndrom
+irreponible Hernie
+molekularpathologische Untersuchung
+Magenvolvulus
+vaskuläre Leberausklemmung
+Wundkonditionierung
+teilbeschichteter Metallstent
+Magenausgangsstenose
+Bruchpfortendefekt
+Mikrosatelliteninstabilität
+Dieulafoy-Läsion
+Hepatikusgabelresektion
+sekundäre Wundheilung
+Portkatheter
+familiäre adenomatöse Polyposis
+Fasziendefekt
+RAS-Mutationsanalyse
+Lynch-Syndrom
+Pankreasenukleation
+neoadjuvante Chemotherapie
+Jejunalsonde
+toxisches Megakolon
+Adhäsionen
+BRAF-Mutationsanalyse
+Pouchitis
+duodenumerhaltende Pankreaskopfresektion
+adjuvante Chemotherapie
+Rektusdiastase
+Peritonealkarzinose
+HER2-Testung
+Nabelhernie
+laterale Pankreatikojejunostomie
+neoadjuvante Radiochemotherapie
+epigastrische Hernie
+Serosakarzinose
+PD-L1-Bestimmung
+innere Hernie
+kolorektale Anastomose
+totale neoadjuvante Therapie
+Hiatushernie
+perineurale Invasion
+TNM-Klassifikation
+Analvenenthrombose
+koloanale Anastomose
+perioperative Systemtherapie
+Analfissur
+lymphovaskuläre Invasion
+UICC-Stadium
+Hämorrhoidalleiden
+End-zu-End-Anastomose
+Prärehabilitation
+Analkarzinom
+zirkumferenzieller Resektionsrand
+R-Klassifikation
+Rektumintussuszeption
+Seit-zu-Seit-Anastomose
+Fast-Track-Konzept
+Stuhlinkontinenz
+tumorfreier Sicherheitsabstand
+Clavien-Dindo-Klassifikation
+Rektozele
+End-zu-Seit-Anastomose
+Enzymsubstitution
+obstruktives Defäkationssyndrom
+mesorektale Faszieninfiltration
+Hinchey-Klassifikation
+Adipositas permagna
+Handnahtanastomose
+primärer Hyperparathyreoidismus
+Tumorregression
+Siewert-Klassifikation
+Nebenschilddrüsenadenom
+Stapleranastomose
+papilläres Schilddrüsenkarzinom
+Lymphknotenbefall
+Bismuth-Corlette-Klassifikation
+follikuläres Schilddrüsenkarzinom
+Omentumplastik
+medulläres Schilddrüsenkarzinom
+Gefäßinfiltration
+Milan-Kriterien
+anaplastisches Schilddrüsenkarzinom
+Mesenterialgefäßrekonstruktion
+Struma nodosa
+Zwerchfellhochstand
+Child-Pugh-Klassifikation
+Morbus Basedow
+Darmdetorquierung
+Phäochromozytom
+subphrenischer Verhalt
+MELD-Score
+Nebennierenrindenkarzinom
+Herniotomie
+Conn-Syndrom
+präsakrale Abszesshöhle
+peritonealer Karzinomatoseindex
+Cushing-Syndrom
+Bruchpfortenverschluss
+Wunddehiszenz
+abgekapselte Flüssigkeitsansammlung
+funktionelle Lebervolumetrie
+Platzbauch
+Netzexplantation
+Netzinfektion
+fibrinös-eitriges Exsudat
+intraoperative Parathormonmessung
+Stomanekrose
+laparoskopische Lavage
+Stomaprolaps
+Darmwandödem
+intraoperatives Neuromonitoring
+Stomaretraktion
+Relaparotomie
+Stomastenose
+ischämische Demarkierung
+Anastomosendichtigkeitsprüfung
+High-Output-Stoma
+Second-Look-Laparotomie
+chylöser Aszites
+Anastomosenblutung
+Drainageamylase
+Lymphozele
+temporärer Bauchdeckenverschluss
+Serom
+postoperative Ileussymptomatik
+Drainagebilirubin
+Bilom
+Faszienverschluss
+postoperative Nachblutung
+postoperative Gastroparese
+Vakuumtherapie
+postoperative Pankreatitis
+Rekurrensparese
+Débridement
+Abszessspaltung
+perkutane Abszessdrainage
+Fistulotomie
+Fistulektomie
+Seton-Drainage
+LIFT-Verfahren
+Mukosa-Advancement-Flap
+laterale interne Sphinkterotomie
+Hämorrhoidektomie
+Stapler-Hämorrhoidopexie
+Gummibandligatur
+transanale Rektumresektion
+ventrale Rektopexie
+sakrale Neuromodulation
+Pilonidalsinusexzision
+Karydakis-Plastik
+Limberg-Plastik
+Thyreoidektomie
+Hemithyreoidektomie
+Parathyreoidektomie
+Nebenschilddrüsenautotransplantation
+zentrale Lymphadenektomie
+laterale Neck-Dissection
+Adrenalektomie
+retroperitoneoskopische Adrenalektomie
+Konversion zur offenen Operation
+transhiatale Ösophagusresektion
+Magenhochzug
+Duodenalswitch
+biliopankreatische Diversion
+One-Anastomosis-Gastric-Bypass
+Gastropexie
+Jejunostomie
+zytoreduktive Chirurgie
+hypertherme intraperitoneale Chemotherapie
+Rektum-MRT
+laparoskopisch
+transabdominell
+präperitoneal
+retromuskulär
+intraperitoneal
+retroperitoneal
+transhiatal
+transthorakal
+transanal
+transrektal
+transmesokolisch
+retrokolisch
+antekolisch
+antegastrisch
+retrogastrisch
+isoperistaltisch
+anisoperistaltisch
+devaskularisiert
+nekrotisch
+gangränös
+phlegmonös
+fibrinös
+eitrig
+serosanguinös
+chylös
+biliös
+fäkal
+transmural
+extramural
+intramural
+resektabel
+irresektabel
+en bloc
+nachresezieren
+skelettieren
+ligieren
+anastomosieren
+exstirpieren
+TAPP
+IPOM
+TAR
+TME
+CME
+TEM
+TAMIS
+HIPEC
+PIPAC
+PPPD
+IPMN
+GIST
+ERAS
+PTCD
+CRM
+MSI
+CEA
+CA 19-9
