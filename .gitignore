@@ -45,3 +45,11 @@ result
 
 # Python bytecode (scripts/)
 __pycache__/
+
+# Benchmark: Audio bleibt lokal. Synthetische Dateien erzeugt
+# kardiologie_v1/build_package.py --synthetic neu; menschliche Diktate sind
+# Stimmaufnahmen und gehören nicht in ein öffentliches Repository.
+benchmarks/medical_asr/**/audio/*.wav
+
+# Quellmaterial der Wörterbücher (liegt außerhalb der App)
+Wörterbuch/

@@ -1,0 +1,15 @@
+{
+  "active_dictionaries": [
+    "core_medical",
+    "internal_cardiology",
+    "anatomy_heart_vessels",
+    "meds_cardiology_generic"
+  ],
+  "dictionary_levels": {
+    "core_medical": 250,
+    "internal_cardiology": 250,
+    "anatomy_heart_vessels": 100,
+    "meds_cardiology_generic": 50
+  },
+  "custom_words": []
+}

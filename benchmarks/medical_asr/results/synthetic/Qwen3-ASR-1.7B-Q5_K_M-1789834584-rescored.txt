@@ -1,0 +1,81 @@
+Qwen3-ASR-1.7B-Q5_K_M (qwen3_asr, Q5_K_M) — rescored
+======================================================
+
+574 result rows
+
+Mode A — Baseline (no context, no fuzzy)
+  Budget |     WER | MedTermAcc | FalseBias | ExactSent |    RTF |   Tokens |  Defer | KV MiB
+  --------------------------------------------------------------------------------------------
+       0 |  23.0 % |     54.3 % |  0.00/100 |    41.5 % |  0.09x |        0 |      0 |    112
+  Budget |  Medikam. | Verneing. |    Zahlen | Verwechs. |  Ungespr. |  FuzzyErr |    Fuzzy↓ |    Unklar | Fallb/Err
+       0 |    77.8 % |    80.0 % |     0.0 % |         0 |       0→0 |         0 |         0 |         0 |       0/0
+  target terms in context: n/a   not in context: 54.3 %
+
+Mode B — Fuzzy only
+  Budget |     WER | MedTermAcc | FalseBias | ExactSent |    RTF |   Tokens |  Defer | KV MiB
+  --------------------------------------------------------------------------------------------
+       0 |  20.7 % |     62.9 % |  0.00/100 |    48.8 % |  0.09x |        0 |      0 |    112
+  Budget |  Medikam. | Verneing. |    Zahlen | Verwechs. |  Ungespr. |  FuzzyErr |    Fuzzy↓ |    Unklar | Fallb/Err
+       0 |    77.8 % |    80.0 % |     0.0 % |         0 |       0→0 |         0 |         0 |         1 |       0/0
+  target terms in context: n/a   not in context: 62.9 %
+
+Mode C — Context + fuzzy over the rest
+  Budget |     WER | MedTermAcc | FalseBias | ExactSent |    RTF |   Tokens |  Defer | KV MiB
+  --------------------------------------------------------------------------------------------
+       0 |  20.7 % |     62.9 % |  0.00/100 |    48.8 % |  0.09x |        0 |      0 |    112
+      30 |  11.0 % |     80.0 % |  0.00/100 |    63.4 % |  0.13x |      267 |      0 |    112
+      60 |  12.4 % |     80.0 % |  0.00/100 |    63.4 % |  0.17x |      519 |      0 |    112
+     120 |  13.5 % |     80.0 % |  0.00/100 |    58.5 % |  0.27x |      947 |      0 |    224
+     240 |  13.5 % |     85.7 % |  0.00/100 |    63.4 % |  0.49x |     1781 |      0 |    448
+     400 |  14.0 % |     85.7 % |  0.00/100 |    63.4 % |  0.73x |     2740 |      0 |    448
+  Budget |  Medikam. | Verneing. |    Zahlen | Verwechs. |  Ungespr. |  FuzzyErr |    Fuzzy↓ |    Unklar | Fallb/Err
+       0 |    77.8 % |    80.0 % |     0.0 % |         0 |       0→0 |         0 |         0 |         1 |       0/0
+      30 |    77.8 % |   100.0 % |    11.1 % |         0 |       2→2 |         0 |         0 |         0 |       0/0
+      60 |    77.8 % |   100.0 % |    22.2 % |         0 |       1→2 |         0 |         0 |         0 |       0/0
+     120 |    77.8 % |   100.0 % |     0.0 % |         0 |       0→1 |         0 |         0 |         0 |       0/0
+     240 |    77.8 % |   100.0 % |     0.0 % |         0 |       1→1 |         0 |         0 |         0 |       1/0
+     400 |    77.8 % |   100.0 % |     0.0 % |         0 |       1→1 |         0 |         0 |         0 |       0/0
+  target terms in context: 75.0 %   not in context: 100.0 %
+
+Mode D — Context + fuzzy over everything
+  Budget |     WER | MedTermAcc | FalseBias | ExactSent |    RTF |   Tokens |  Defer | KV MiB
+  --------------------------------------------------------------------------------------------
+       0 |  20.7 % |     62.9 % |  0.00/100 |    48.8 % |  0.10x |        0 |      0 |    112
+      30 |  11.0 % |     80.0 % |  0.00/100 |    63.4 % |  0.14x |      267 |      0 |    112
+      60 |  10.0 % |     82.9 % |  0.00/100 |    65.9 % |  0.19x |      519 |      0 |    112
+     120 |  11.1 % |     82.9 % |  0.00/100 |    61.0 % |  0.28x |      947 |      0 |    224
+     240 |   8.7 % |     94.3 % |  0.00/100 |    70.7 % |  0.59x |     1781 |      0 |    448
+     400 |   8.9 % |     97.1 % |  0.00/100 |    73.2 % |  0.82x |     2740 |      0 |    448
+  Budget |  Medikam. | Verneing. |    Zahlen | Verwechs. |  Ungespr. |  FuzzyErr |    Fuzzy↓ |    Unklar | Fallb/Err
+       0 |    77.8 % |    80.0 % |     0.0 % |         0 |       0→0 |         0 |         0 |         1 |       0/0
+      30 |    77.8 % |   100.0 % |    11.1 % |         0 |       2→2 |         0 |         0 |         0 |       0/0
+      60 |    77.8 % |   100.0 % |    22.2 % |         0 |       1→2 |         0 |         0 |         0 |       0/0
+     120 |    77.8 % |   100.0 % |     0.0 % |         0 |       0→1 |         0 |         0 |         0 |       0/0
+     240 |    88.9 % |   100.0 % |     0.0 % |         0 |       1→1 |         0 |         1 |         0 |       1/0
+     400 |    88.9 % |   100.0 % |     0.0 % |         0 |       1→1 |         0 |         1 |         0 |       0/0
+  target terms in context: 95.0 %   not in context: 100.0 %
+
+Mode C vs D — is it worth keeping context terms in fuzzy?
+---------------------------------------------------------
+   Budget |       ΔWER (D-C) |  ΔMedTermAcc (D-C) |     ΔFalseBias |  ΔUngesprochen
+  -------------------------------------------------------------------------------
+        0 |           +0.00% |             +0.00% |             +0 |             +0
+       30 |           +0.00% |             +0.00% |             +0 |             +0
+       60 |           -2.44% |             +2.86% |             +0 |             +0
+      120 |           -2.44% |             +2.86% |             +0 |             +0
+      240 |           -4.80% |             +8.57% |             +0 |             +0
+      400 |           -5.10% |            +11.43% |             +0 |             +0
+
+  Negative ΔWER and positive ΔMedTermAcc favour D. Weigh any gain
+  against ΔFalseBias: accuracy bought with hallucinated terms is not a win.
+
+Legend: Tokens = measured context tokens (model tokenizer); Defer = selected
+terms that did not fit the token window and went to fuzzy correction instead;
+KV MiB = decoder cache derived from the library's allocation rule, not measured.
+Medikam./Verneing./Zahlen = share preserved in the final transcript;
+Verwechs. = similar-sounding terms that appeared although not spoken;
+Ungespr. = dictionary terms in the output that were never spoken, raw→final
+(every pool term checked, not only the listed confounders);
+FuzzyErr = terms fuzzy correction inserted that the reference lacks;
+Fuzzy↓ = cases where correction made WER worse; Unklar = ambiguous spans skipped;
+Fallb/Err = runs repeated without context after failing / runs with no text.

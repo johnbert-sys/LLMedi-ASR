@@ -19,3 +19,6 @@ src-tauri/src/catalog/catalog.json
 # Misc
 .DS_Store
 *.log
+
+# Benchmark output (generated)
+benchmarks/medical_asr/results
