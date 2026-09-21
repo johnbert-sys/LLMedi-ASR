@@ -12,11 +12,132 @@
   "sidebar": {
     "general": "General",
     "models": "Models",
+    "dictionary": "Dictionary",
     "advanced": "Advanced",
     "postProcessing": "Post Process",
     "history": "History",
     "debug": "Debug",
     "about": "About"
+  },
+  "dictionary": {
+    "groups": {
+      "core": "Core vocabulary",
+      "specialty": "Specialties",
+      "anatomy": "Anatomy",
+      "medication": "Medication"
+    },
+    "groupHints": {
+      "core": "Cross-specialty terms that come up in almost any dictation.",
+      "anatomy": "Selectable per body region and combinable with any specialty.",
+      "medication": "Kept apart from clinical vocabulary. Trade names load only if you switch them on."
+    },
+    "searchPlaceholder": "Search dictionaries…",
+    "searchEmpty": "No dictionary matches “{{query}}”.",
+    "levelSelect": "Set {{name}} to {{count}} terms",
+    "names": {
+      "core_medical": "Medical Core",
+      "internal_cardiology": "Cardiology",
+      "anatomy_heart_vessels": "Heart and vessels",
+      "meds_cardiology_generic": "Cardiology – active substances",
+      "meds_cardiology_classes": "Cardiology – drug classes",
+      "meds_cardiology_trade": "Cardiology – trade names",
+      "internal_angiology": "Angiology",
+      "internal_endocrinology_diabetology": "Endocrinology and diabetology",
+      "internal_gastro_hepatology": "Gastroenterology and hepatology",
+      "internal_hematology": "Hematology",
+      "internal_infectiology": "Infectious diseases",
+      "internal_nephrology": "Nephrology",
+      "internal_oncology": "Oncology",
+      "internal_pneumology": "Pulmonology",
+      "internal_rheumatology": "Rheumatology",
+      "neurology": "Neurology",
+      "radiology": "Radiology",
+      "surgery_visceral": "General and visceral surgery",
+      "anatomy_abdomen": "Abdomen",
+      "anatomy_cns": "Central nervous system",
+      "anatomy_head_neck": "Head and neck",
+      "anatomy_lower_extremity": "Lower extremity",
+      "anatomy_pelvis": "Pelvis",
+      "anatomy_spine": "Spine",
+      "anatomy_thorax": "Thorax",
+      "anatomy_upper_extremity": "Upper extremity",
+      "meds_gastro_hepatology_generic": "Gastroenterology – agents",
+      "meds_gastro_hepatology_classes": "Gastroenterology – drug classes",
+      "meds_gastro_hepatology_trade": "Gastroenterology – trade names",
+      "meds_neurology_generic": "Neurology – agents",
+      "meds_neurology_classes": "Neurology – drug classes",
+      "meds_neurology_trade": "Neurology – trade names",
+      "meds_pneumology_generic": "Pulmonology – agents",
+      "meds_pneumology_classes": "Pulmonology – drug classes",
+      "meds_pneumology_trade": "Pulmonology – trade names"
+    },
+    "wordCount_one": "{{count}} term",
+    "wordCount_other": "{{count}} terms",
+    "modifiedBadge": "customized",
+    "activeToggle": "Enable {{name}}",
+    "addPlaceholder": "Add a word",
+    "add": "Add",
+    "filterPlaceholder": "Search…",
+    "duplicate": "\"{{word}}\" already exists",
+    "removeWord": "Remove {{word}}",
+    "empty": "No words yet — add your first term above.",
+    "reset": "Reset to default",
+    "resetDone": "Dictionary restored to its shipped word list",
+    "export": "Export",
+    "exportDone": "Dictionary exported",
+    "import": "Import",
+    "importHint": ".txt, .csv (first column) or .json (term field)",
+    "importDone": "\"{{name}}\" imported ({{count}} terms)",
+    "create": "Add dictionary",
+    "createNamePlaceholder": "Name (e.g. Gynecology)",
+    "createConfirm": "Create",
+    "cancel": "Cancel",
+    "rename": "Rename",
+    "renameConfirm": "Save",
+    "delete": "Delete",
+    "deleteConfirm": "Really delete?",
+    "overview": {
+      "lastRun": "Last dictation:",
+      "lastRunSent": "{{sent}} of {{selected}} selected terms sent as context",
+      "lastRunTokens": "({{tokens}} of {{room}} available tokens).",
+      "lastRunUnmeasured": "(token use could not be measured).",
+      "lastRunDeferred_one": "{{count}} term did not fit and went through fuzzy correction.",
+      "lastRunDeferred_other": "{{count}} terms did not fit and went through fuzzy correction.",
+      "lastRunFellBack": "The run with context failed; it was repeated without context and every term went through post-correction.",
+      "contextPersonal_one": "Including {{count}} of your own words.",
+      "contextPersonal_other": "Including {{count}} of your own words.",
+      "candidates_one": "{{count}} term from {{dictionaries}} dictionaries is available for selection.",
+      "candidates_other": "{{count}} terms from {{dictionaries}} dictionaries are available for selection.",
+      "candidatesHint": "Only a selection of these goes to the model per dictation. How many depends on the model and the length of the dictation — the line below shows the actual number."
+    },
+    "fuzzy": {
+      "tab": "Post-correction",
+      "intro": "Post-correction compares the finished text against the dictionaries. It always uses the complete word list and does not influence recognition itself.",
+      "allSwitch": "All dictionaries for post-correction",
+      "allSwitchHint": "On switches every dictionary on, off takes them all back out. While it is on, newly imported dictionaries join automatically. You can still switch individual ones off below.",
+      "allSwitchCount": "{{active}} of {{total}} on"
+    },
+    "context": {
+      "tab": "Context",
+      "intro": "Context helps the model while it recognises. It is limited: only a dictionary's top terms are sent, and how many depends on the tier, the budget and the model.",
+      "offered": "Up to {{count}} of {{total}} terms as context",
+      "notOffered": "{{count}} terms, no context at the moment",
+      "levelHint": "How far down the list the context reaches.",
+      "toggle": "Send {{name}} as context",
+      "bulkOff": "Clear context",
+      "bulkDone_one": "{{count}} dictionary no longer sends context.",
+      "bulkDone_other": "{{count}} dictionaries no longer send context.",
+      "bulkNone": "No dictionary is sending context at the moment.",
+      "undo": "Undo",
+      "undone": "Previous context selection restored.",
+      "personalNote": "Your own words are not part of any dictionary and are still sent as context.",
+      "activeHeading_one": "In context ({{count}} dictionary)",
+      "activeHeading_other": "In context ({{count}} dictionaries)",
+      "addHeading_one": "Add another dictionary ({{count}})",
+      "addHeading_other": "Add more dictionaries ({{count}})",
+      "emptyActive": "No dictionary in context yet. The model then only gets your own words.",
+      "editHint": "The word list belongs to the dictionary itself — changes here also apply to post-correction. How many of these words go out as context is set by the tier."
+    }
   },
   "onboarding": {
     "subtitle": "To get started, choose a transcription model",
@@ -101,7 +222,7 @@
     },
     "permissions": {
       "title": "Permissions Required",
-      "description": "Handy needs a couple of permissions to work properly.",
+      "description": "llmedi needs a couple of permissions to work properly.",
       "microphone": {
         "title": "Microphone Access",
         "description": "Required to hear your voice for transcription."
@@ -161,7 +282,7 @@
     "general": {
       "title": "General",
       "shortcut": {
-        "title": "Handy Shortcuts",
+        "title": "llmedi Shortcuts",
         "description": "Configure keyboard shortcuts to trigger speech-to-text recording",
         "loading": "Loading shortcuts...",
         "none": "No shortcuts configured",
@@ -215,7 +336,7 @@
       },
       "rescan": {
         "label": "Rescan",
-        "tooltip": "Rescan for models added to the models folder or Hugging Face cache outside Handy"
+        "tooltip": "Rescan for models added to the models folder or Hugging Face cache outside llmedi"
       },
       "noModelsMatch": "No models match this filter."
     },
@@ -283,11 +404,11 @@
       },
       "autostart": {
         "label": "Launch on Startup",
-        "description": "Automatically start Handy when you log in to your computer."
+        "description": "Automatically start llmedi when you log in to your computer."
       },
       "showTrayIcon": {
         "label": "Show Tray Icon",
-        "description": "Display the Handy icon in the system tray."
+        "description": "Display the llmedi icon in the system tray."
       },
       "overlay": {
         "style": {
@@ -482,7 +603,7 @@
       },
       "updateChecks": {
         "label": "Check for Updates",
-        "description": "Automatically check for new versions of Handy"
+        "description": "Automatically check for new versions of llmedi"
       },
       "whatsNewPreview": {
         "title": "Preview What's New",
@@ -562,7 +683,7 @@
       },
       "keyboardDiagnostic": {
         "title": "Keyboard Diagnostic",
-        "description": "Checks whether keyboard events reach Handy. Only event counts are recorded — never which keys you press.",
+        "description": "Checks whether keyboard events reach llmedi. Only event counts are recorded — never which keys you press.",
         "run": "Run 10s diagnostic",
         "running": "Listening… press your shortcut a few times (e.g. Option+Space)",
         "secureInputLabel": "Secure Input",
@@ -576,7 +697,7 @@
         "mouse": "Mouse",
         "verdictBlocked": "Secure Input is blocking key events — keyed shortcuts cannot work until it is resolved.",
         "verdictSuspicious": "Modifier events arrived but no key events — something is suppressing keys even though Secure Input reports disabled. Please report this on GitHub.",
-        "verdictOk": "Key events are reaching Handy normally.",
+        "verdictOk": "Key events are reaching llmedi normally.",
         "verdictNoEvents": "No events captured — did you press any keys during the test?",
         "failed": "Diagnostic failed: {{error}}"
       }
@@ -585,15 +706,15 @@
       "title": "About",
       "version": {
         "title": "Version",
-        "description": "Current version of Handy"
+        "description": "Current version of llmedi"
       },
       "whatsNewUpdates": {
         "label": "Show What's New",
-        "description": "Show release notes after Handy updates"
+        "description": "Show release notes after llmedi updates"
       },
       "appDataDirectory": {
         "title": "App Data Directory",
-        "description": "Location where Handy stores its data"
+        "description": "Location where llmedi stores its data"
       },
       "sourceCode": {
         "title": "Source Code",
@@ -602,7 +723,7 @@
       },
       "supportDevelopment": {
         "title": "Support Development",
-        "description": "Help us continue building Handy",
+        "description": "Help us continue building llmedi",
         "button": "Donate"
       },
       "acknowledgments": {
@@ -610,7 +731,7 @@
         "ggml": {
           "title": "ggml",
           "description": "High-performance tensor library for on-device machine learning inference",
-          "details": "Handy's local speech-to-text is built on transcribe.cpp and ggml. Thanks to the amazing work by Georgi Gerganov and contributors."
+          "details": "llmedi's local speech-to-text is built on transcribe.cpp and ggml. Thanks to the amazing work by Georgi Gerganov and contributors."
         }
       }
     }
@@ -631,7 +752,7 @@
     "portableUpdateBrowseButton": "Open GitHub Releases"
   },
   "whatsNew": {
-    "title": "New in Handy v{{version}}"
+    "title": "New in llmedi v{{version}}"
   },
   "common": {
     "loading": "Loading...",
@@ -643,7 +764,7 @@
     "noOptionsFound": "No options found"
   },
   "accessibility": {
-    "permissionsDescription": "Handy needs accessibility permissions to type transcribed text.",
+    "permissionsDescription": "llmedi needs accessibility permissions to type transcribed text.",
     "openSettings": "Open System Settings"
   },
   "errors": {
@@ -666,11 +787,11 @@
   },
   "appLanguage": {
     "title": "Application Language",
-    "description": "Change the language of the Handy interface"
+    "description": "Change the language of the llmedi interface"
   },
   "theme": {
     "title": "Application Theme",
-    "description": "Choose whether Handy follows your system theme or stays light or dark",
+    "description": "Choose whether llmedi follows your system theme or stays light or dark",
     "options": {
       "system": "System",
       "light": "Light",

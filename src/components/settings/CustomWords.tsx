@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { toast } from "sonner";
 import { useSettings } from "../../hooks/useSettings";
@@ -19,11 +19,20 @@ const normalizeCustomWord = (word: string) =>
 
 export const CustomWords: React.FC<CustomWordsProps> = React.memo(
   ({ descriptionMode = "tooltip", grouped = false }) => {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
     const { getSetting, updateSetting, isUpdating } = useSettings();
     const [newWord, setNewWord] = useState("");
     const customWords = getSetting("custom_words") || [];
     const normalizedWord = normalizeCustomWord(newWord);
+
+    // Sorted for display only — `custom_words` stays in insertion order because
+    // the backend treats it as priority order when building the model prompt.
+    // Intl collation keeps umlauts with their base letter (Ödem after Ohr, not
+    // after Zyanose), which a plain string compare gets wrong.
+    const sortedWords = useMemo(() => {
+      const collator = new Intl.Collator(i18n.language, { numeric: true });
+      return [...customWords].sort(collator.compare);
+    }, [customWords, i18n.language]);
 
     const handleAddWord = () => {
       if (normalizedWord && normalizedWord.length <= 50) {
@@ -91,7 +100,7 @@ export const CustomWords: React.FC<CustomWordsProps> = React.memo(
           <div
             className={`px-4 p-2 ${grouped ? "" : "rounded-lg border border-mid-gray/20"} flex flex-wrap gap-1`}
           >
-            {customWords.map((word) => (
+            {sortedWords.map((word) => (
               <Button
                 key={word}
                 onClick={() => handleRemoveWord(word)}

@@ -304,6 +304,147 @@ async updateCustomWords(words: string[]) : Promise<Result<null, string>> {
     else return { status: "error", error: e  as any };
 }
 },
+async updateActiveDictionaries(ids: string[]) : Promise<Result<null, string>> {
+    try {
+    return { status: "ok", data: await TAURI_INVOKE("update_active_dictionaries", { ids }) };
+} catch (e) {
+    if(e instanceof Error) throw e;
+    else return { status: "error", error: e  as any };
+}
+},
+/**
+ * Which dictionaries may offer terms as model context. Separate from
+ * `update_active_dictionaries`: that one is the post-correction list, and the
+ * two steps are chosen independently.
+ */
+async updateContextDictionaries(ids: string[]) : Promise<Result<null, string>> {
+    try {
+    return { status: "ok", data: await TAURI_INVOKE("update_context_dictionaries", { ids }) };
+} catch (e) {
+    if(e instanceof Error) throw e;
+    else return { status: "error", error: e  as any };
+}
+},
+async listDictionaries() : Promise<DictionaryInfo[]> {
+    return await TAURI_INVOKE("list_dictionaries");
+},
+async getVocabularySummary() : Promise<VocabularySummary> {
+    return await TAURI_INVOKE("get_vocabulary_summary");
+},
+async getLastContextUsage() : Promise<LastContextUsage | null> {
+    return await TAURI_INVOKE("get_last_context_usage");
+},
+async getDictionaryWords(id: string) : Promise<Result<DictionaryWord[], string>> {
+    try {
+    return { status: "ok", data: await TAURI_INVOKE("get_dictionary_words", { id }) };
+} catch (e) {
+    if(e instanceof Error) throw e;
+    else return { status: "error", error: e  as any };
+}
+},
+/**
+ * Switch a tiered dictionary to one of its offered tiers.
+ */
+async setDictionaryLevel(id: string, level: number) : Promise<Result<null, string>> {
+    try {
+    return { status: "ok", data: await TAURI_INVOKE("set_dictionary_level", { id, level }) };
+} catch (e) {
+    if(e instanceof Error) throw e;
+    else return { status: "error", error: e  as any };
+}
+},
+/**
+ * Put every dictionary into post-correction, or take every one out.
+ * 
+ * The switch does what it says in both directions: on enrols everything that
+ * exists (and, while it stays on, anything imported later); off empties the
+ * list again. Individual dictionaries can be switched back on afterwards —
+ * that leaves the switch in its "some of them" state and does not change
+ * whether new imports are enrolled.
+ * 
+ * Context selection is untouched either way: that step shapes what the model
+ * writes, so it is never changed on someone's behalf.
+ */
+async setFuzzyAllDictionaries(enabled: boolean) : Promise<void> {
+    await TAURI_INVOKE("set_fuzzy_all_dictionaries", { enabled });
+},
+async addDictionaryWord(id: string, word: string) : Promise<Result<null, string>> {
+    try {
+    return { status: "ok", data: await TAURI_INVOKE("add_dictionary_word", { id, word }) };
+} catch (e) {
+    if(e instanceof Error) throw e;
+    else return { status: "error", error: e  as any };
+}
+},
+async removeDictionaryWord(id: string, word: string) : Promise<Result<null, string>> {
+    try {
+    return { status: "ok", data: await TAURI_INVOKE("remove_dictionary_word", { id, word }) };
+} catch (e) {
+    if(e instanceof Error) throw e;
+    else return { status: "error", error: e  as any };
+}
+},
+/**
+ * Drop all user edits of a bundled dictionary, restoring the shipped list.
+ */
+async resetDictionary(id: string) : Promise<Result<null, string>> {
+    try {
+    return { status: "ok", data: await TAURI_INVOKE("reset_dictionary", { id }) };
+} catch (e) {
+    if(e instanceof Error) throw e;
+    else return { status: "error", error: e  as any };
+}
+},
+async createCustomDictionary(name: string) : Promise<Result<DictionaryInfo, string>> {
+    try {
+    return { status: "ok", data: await TAURI_INVOKE("create_custom_dictionary", { name }) };
+} catch (e) {
+    if(e instanceof Error) throw e;
+    else return { status: "error", error: e  as any };
+}
+},
+async renameCustomDictionary(id: string, name: string) : Promise<Result<null, string>> {
+    try {
+    return { status: "ok", data: await TAURI_INVOKE("rename_custom_dictionary", { id, name }) };
+} catch (e) {
+    if(e instanceof Error) throw e;
+    else return { status: "error", error: e  as any };
+}
+},
+async deleteCustomDictionary(id: string) : Promise<Result<null, string>> {
+    try {
+    return { status: "ok", data: await TAURI_INVOKE("delete_custom_dictionary", { id }) };
+} catch (e) {
+    if(e instanceof Error) throw e;
+    else return { status: "error", error: e  as any };
+}
+},
+/**
+ * Write the dictionary's current (effective) word list to `path` as plain
+ * text — the same format the bundled dictionaries use, so exports can be
+ * re-imported anywhere.
+ */
+async exportDictionary(id: string, path: string) : Promise<Result<null, string>> {
+    try {
+    return { status: "ok", data: await TAURI_INVOKE("export_dictionary", { id, path }) };
+} catch (e) {
+    if(e instanceof Error) throw e;
+    else return { status: "error", error: e  as any };
+}
+},
+/**
+ * Import a word list as a new user dictionary, named after the file. Accepts a
+ * plain `.txt` list, a `.csv` spreadsheet export (first column only) or a
+ * `.json` word list. Returns the created dictionary's info.
+ */
+async importDictionary(path: string) : Promise<Result<DictionaryInfo, string>> {
+    try {
+    return { status: "ok", data: await TAURI_INVOKE("import_dictionary", { path }) };
+} catch (e) {
+    if(e instanceof Error) throw e;
+    else return { status: "error", error: e  as any };
+}
+},
 /**
  * Temporarily unregister all bindings while the user is recording a
  * shortcut in the UI. This avoids firing actions while keys are recorded.
@@ -932,6 +1073,36 @@ streamTextEvent: "stream-text-event"
 /** user-defined types **/
 
 /**
+ * One active dictionary as the overview shows it.
+ */
+export type ActiveDictionarySummary = { id: string; 
+/**
+ * Display name for user-created dictionaries; bundled ones are named by
+ * the frontend from the id.
+ */
+name: string | null; 
+/**
+ * Selected tier, for tiered dictionaries. Applies to the context only.
+ */
+level: number | null; 
+/**
+ * Terms this dictionary holds (the whole list).
+ */
+terms: number; 
+/**
+ * Terms it may offer as context at the selected tier; 0 when it is not
+ * part of context selection.
+ */
+context_terms: number; 
+/**
+ * Whether its whole list takes part in post-correction.
+ */
+fuzzy_enabled: boolean; 
+/**
+ * Whether it may offer terms as model context.
+ */
+context_enabled: boolean }
+/**
  * The container-level `serde(default)` (backed by the `Default` impl below)
  * guarantees every field — including ones added in the future — falls back to
  * its `get_default_settings()` value when missing from a stored settings
@@ -961,7 +1132,50 @@ whats_new_last_seen_version?: string; selected_model?: string; onboarding_comple
  * Which input channel to use on the selected microphone device.
  * None means "average all channels" (original behavior).
  */
-selected_channel?: number | null; clamshell_microphone?: string | null; selected_output_device?: string | null; translate_to_english?: boolean; selected_language?: string; overlay_position?: OverlayPosition; debug_mode?: boolean; log_level?: LogLevel; custom_words?: string[]; model_unload_timeout?: ModelUnloadTimeout; word_correction_threshold?: number; history_limit?: number; recording_retention_period?: RecordingRetentionPeriod; paste_method?: PasteMethod; clipboard_handling?: ClipboardHandling; auto_submit?: boolean; auto_submit_key?: AutoSubmitKey; post_process_enabled?: boolean; post_process_provider_id?: string; post_process_providers?: PostProcessProvider[]; post_process_api_keys?: SecretMap; post_process_models?: Partial<{ [key in string]: string }>; post_process_prompts?: LLMPrompt[]; post_process_selected_prompt_id?: string | null; mute_while_recording?: boolean; append_trailing_space?: boolean; app_language?: string; theme?: Theme; experimental_enabled?: boolean; lazy_stream_close?: boolean; keyboard_implementation?: KeyboardImplementation; show_tray_icon?: boolean; paste_delay_ms?: number; paste_delay_after_ms?: number; 
+selected_channel?: number | null; clamshell_microphone?: string | null; selected_output_device?: string | null; translate_to_english?: boolean; selected_language?: string; overlay_position?: OverlayPosition; debug_mode?: boolean; log_level?: LogLevel; custom_words?: string[]; 
+/**
+ * Ids of domain dictionaries (bundled or user-created, see
+ * `crate::dictionaries`) whose **whole** word list is compared against the
+ * finished transcript by fuzzy post-correction. No tier applies here:
+ * correcting a term costs nothing at recognition time, so the list is used
+ * in full.
+ */
+active_dictionaries?: string[]; 
+/**
+ * Ids of dictionaries allowed to offer terms as *model context*. This is
+ * the expensive, risky direction — it shapes what the model writes — so it
+ * is a separate choice, and it is limited by
+ * [`AppSettings::dictionary_levels`] and the model's own window.
+ * 
+ * Independent of `active_dictionaries`: a dictionary may take part in one
+ * step, both, or neither.
+ */
+context_dictionaries?: string[]; 
+/**
+ * When on, every dictionary takes part in post-correction, including ones
+ * imported or created later. Individual dictionaries can still be switched
+ * off; this only decides what a *new* one starts as.
+ */
+fuzzy_all_dictionaries?: boolean; 
+/**
+ * Per-dictionary user edits to the bundled word lists, keyed by
+ * dictionary id.
+ */
+dictionary_customizations?: Partial<{ [key in string]: DictionaryCustomization }>; 
+/**
+ * How many terms of a tiered dictionary may reach the **model context**,
+ * keyed by dictionary id. A tiered list is ordered by ASR priority and its
+ * tiers are prefixes of one another (100 ⊂ 250 ⊂ 500), so the level is
+ * just a take-count. An absent entry means the dictionary's smallest tier
+ * — keeping the model context small until the user opts into more.
+ * 
+ * Post-correction ignores this: it always compares against the whole list.
+ */
+dictionary_levels?: Partial<{ [key in string]: number }>; 
+/**
+ * Dictionaries the user created themselves.
+ */
+custom_dictionaries?: CustomDictionary[]; model_unload_timeout?: ModelUnloadTimeout; word_correction_threshold?: number; history_limit?: number; recording_retention_period?: RecordingRetentionPeriod; paste_method?: PasteMethod; clipboard_handling?: ClipboardHandling; auto_submit?: boolean; auto_submit_key?: AutoSubmitKey; post_process_enabled?: boolean; post_process_provider_id?: string; post_process_providers?: PostProcessProvider[]; post_process_api_keys?: SecretMap; post_process_models?: Partial<{ [key in string]: string }>; post_process_prompts?: LLMPrompt[]; post_process_selected_prompt_id?: string | null; mute_while_recording?: boolean; append_trailing_space?: boolean; app_language?: string; theme?: Theme; experimental_enabled?: boolean; lazy_stream_close?: boolean; keyboard_implementation?: KeyboardImplementation; show_tray_icon?: boolean; paste_delay_ms?: number; paste_delay_after_ms?: number; 
 /**
  * Debug-gated ("beta") receipt-sequenced paste: restore the clipboard only
  * after the target app actually reads the transcript, instead of after a
@@ -989,7 +1203,92 @@ export type AutoSubmitKey = "enter" | "ctrl_enter" | "cmd_enter"
 export type AvailableAccelerators = { transcribe: string[]; ort: string[]; gpu_devices: GpuDeviceOption[] }
 export type BindingResponse = { success: boolean; binding: ShortcutBinding | null; error: string | null }
 export type ClipboardHandling = "dont_modify" | "copy_to_clipboard"
+/**
+ * A dictionary the user created themselves (own specialty), fully editable.
+ */
+export type CustomDictionary = { id: string; name: string; words?: string[] }
 export type CustomSounds = { start: boolean; stop: boolean }
+/**
+ * Per-user modification of a bundled dictionary: extra words the user added
+ * plus bundled words the user removed. Keyed by dictionary id in
+ * [`AppSettings::dictionary_customizations`]; the bundled word list itself
+ * stays untouched, so a reset simply drops this entry.
+ */
+export type DictionaryCustomization = { added_words?: string[]; hidden_words?: string[] }
+/**
+ * Which section of the settings page a dictionary belongs to. Purely a
+ * grouping hint for the UI; it has no effect on what reaches the model.
+ */
+export type DictionaryGroup = 
+/**
+ * Cross-specialty vocabulary that is useful in almost any dictation.
+ */
+"core" | 
+/**
+ * A clinical specialty.
+ */
+"specialty" | 
+/**
+ * Anatomy, selectable per body region and combinable with any specialty.
+ */
+"anatomy" | 
+/**
+ * Drug vocabulary, kept apart from clinical terms: agents, drug classes
+ * and — opt-in only — trade names.
+ */
+"medication"
+/**
+ * Dictionary metadata surfaced to the settings UI.
+ */
+export type DictionaryInfo = { id: string; 
+/**
+ * Display name for user-created dictionaries. `None` for bundled ones —
+ * the frontend resolves those via i18n from the id.
+ */
+name: string | null; 
+/**
+ * Whether this is a compiled-in dictionary (word list resettable but not
+ * deletable) as opposed to a user-created one.
+ */
+builtin: boolean; 
+/**
+ * Number of words the dictionary currently contributes (after the tier
+ * cutoff and the user's additions and removals).
+ */
+word_count: number; 
+/**
+ * Whether a bundled dictionary deviates from its shipped word list.
+ */
+modified: boolean; 
+/**
+ * Which settings section this belongs to.
+ */
+group: DictionaryGroup; 
+/**
+ * Selectable tier sizes, ascending; empty for an all-or-nothing list.
+ */
+levels: number[]; 
+/**
+ * The tier currently in use, or `None` when the list has no tiers.
+ */
+selected_level: number | null; 
+/**
+ * Whether its whole list takes part in post-correction.
+ */
+fuzzy_enabled: boolean; 
+/**
+ * Whether it may offer terms as model context.
+ */
+context_enabled: boolean; 
+/**
+ * How many of its terms the selected tier lets into the context.
+ */
+context_word_count: number }
+/**
+ * One word in the dictionary editor. `builtin` distinguishes shipped words
+ * (removing hides them) from user-added ones (removing deletes them).
+ */
+export type DictionaryWord = { word: string; builtin: boolean }
 export type EngineType = 
 /**
  * Any GGML/GGUF model loaded through transcribe-cpp (Whisper, Parakeet,
@@ -1015,6 +1314,40 @@ export type KeyboardDiagnosticReport = { secure_input_enabled: boolean; culprit_
 key_down: number; key_up: number; flags_changed: number; mouse: number; duration_ms: number }
 export type KeyboardImplementation = "tauri" | "handy_keys"
 export type LLMPrompt = { id: string; name: string; prompt: string }
+/**
+ * What the most recent transcription actually did with the vocabulary, kept so
+ * the settings page can show it. Numbers only — no transcript text.
+ */
+export type LastContextUsage = { model_arch: string; 
+/**
+ * Terms the term budget selected.
+ */
+selected: number; 
+/**
+ * Terms actually sent to the model.
+ */
+sent: number; 
+/**
+ * Selected terms that did not fit the token window; covered by fuzzy
+ * correction instead.
+ */
+deferred: number; 
+/**
+ * Measured token cost of what was sent, if the tokenizer could measure it.
+ */
+context_tokens: number | null; 
+/**
+ * Token room the backend left the context, if it reported one.
+ */
+context_room: number | null; 
+/**
+ * Size of the active pool fuzzy correction drew from.
+ */
+pool: number; 
+/**
+ * The run failed with context and was repeated without it.
+ */
+fell_back_without_context: boolean }
 export type LogLevel = "trace" | "debug" | "info" | "warn" | "error"
 export type ModelInfo = { id: string; name: string; description: string; filename: string; source: ModelSource; size_mb: number; is_downloaded: boolean; is_downloading: boolean; partial_size: number; is_directory: boolean; engine_type: EngineType; accuracy_score: number; speed_score: number; supports_translation: boolean; is_recommended: boolean; supported_languages: string[]; supports_language_selection: boolean; is_custom: boolean; supports_streaming: boolean; supports_language_detection: boolean }
 export type ModelLoadStatus = { is_loaded: boolean; current_model: string | null }
@@ -1132,6 +1465,38 @@ export type Theme = "system" | "light" | "dark"
 export type TranscribeAcceleratorSetting = "auto" | "cpu" | "gpu"
 export type TypingTool = "auto" | "wtype" | "kwtype" | "dotool" | "ydotool" | "xdotool"
 export type VadBackend = "silero" | "earshot"
+/**
+ * What the active vocabulary adds up to, for the settings overview.
+ */
+export type VocabularySummary = { 
+/**
+ * Every dictionary taking part in either step, in settings order.
+ */
+active: ActiveDictionarySummary[]; personal_words: number; 
+/**
+ * Unique terms across both steps — what "active vocabulary" adds up to.
+ */
+total_terms: number; 
+/**
+ * Terms post-correction can draw on: the whole list of every dictionary
+ * switched on for it, plus the personal words. Terms that were sent to
+ * the model stay available for the comparison afterwards.
+ */
+fuzzy_terms: number; 
+/**
+ * Terms *allowed* to be selected as model context — an upper bound, not
+ * what a dictation actually sends.
+ */
+context_terms: number; 
+/**
+ * Of those, the personal words, which are not part of any dictionary in
+ * the list and therefore unaffected by the per-dictionary setting.
+ */
+context_personal_words: number; 
+/**
+ * Terms counted in more than one source, merged into one.
+ */
+duplicates_merged: number }
 export type WindowsMicrophonePermissionStatus = { supported: boolean; overall_access: PermissionAccess; device_access: PermissionAccess; app_access: PermissionAccess; desktop_app_access: PermissionAccess }
 
 /** tauri-specta globals **/

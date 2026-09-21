@@ -12,11 +12,132 @@
   "sidebar": {
     "general": "Allgemein",
     "models": "Modelle",
+    "dictionary": "Wörterbuch",
     "advanced": "Erweitert",
     "postProcessing": "Nachbearbeitung",
     "history": "Verlauf",
     "debug": "Debug",
     "about": "Info"
+  },
+  "dictionary": {
+    "groups": {
+      "core": "Grundwortschatz",
+      "specialty": "Fachgebiete",
+      "anatomy": "Anatomie",
+      "medication": "Medikamente"
+    },
+    "groupHints": {
+      "core": "Fachübergreifende Begriffe, die in fast jedem Diktat vorkommen.",
+      "anatomy": "Nach Körperregion wählbar und mit jedem Fachgebiet kombinierbar.",
+      "medication": "Getrennt vom Fachvokabular. Handelsnamen werden nur geladen, wenn du sie ausdrücklich aktivierst."
+    },
+    "searchPlaceholder": "Wörterbuch suchen…",
+    "searchEmpty": "Kein Wörterbuch passt zu „{{query}}“.",
+    "levelSelect": "{{name}} auf {{count}} Begriffe setzen",
+    "names": {
+      "core_medical": "Medical Core",
+      "internal_cardiology": "Kardiologie",
+      "anatomy_heart_vessels": "Herz und Gefäße",
+      "meds_cardiology_generic": "Kardiologie – Wirkstoffe",
+      "meds_cardiology_classes": "Kardiologie – Wirkstoffklassen",
+      "meds_cardiology_trade": "Kardiologie – Handelsnamen",
+      "internal_angiology": "Angiologie",
+      "internal_endocrinology_diabetology": "Endokrinologie und Diabetologie",
+      "internal_gastro_hepatology": "Gastroenterologie und Hepatologie",
+      "internal_hematology": "Hämatologie",
+      "internal_infectiology": "Infektiologie",
+      "internal_nephrology": "Nephrologie",
+      "internal_oncology": "Onkologie",
+      "internal_pneumology": "Pneumologie",
+      "internal_rheumatology": "Rheumatologie",
+      "neurology": "Neurologie",
+      "radiology": "Radiologie",
+      "surgery_visceral": "Allgemein- und Viszeralchirurgie",
+      "anatomy_abdomen": "Abdomen",
+      "anatomy_cns": "Zentrales Nervensystem",
+      "anatomy_head_neck": "Kopf und Hals",
+      "anatomy_lower_extremity": "Untere Extremität",
+      "anatomy_pelvis": "Becken",
+      "anatomy_spine": "Wirbelsäule",
+      "anatomy_thorax": "Thorax",
+      "anatomy_upper_extremity": "Obere Extremität",
+      "meds_gastro_hepatology_generic": "Gastroenterologie – Wirkstoffe",
+      "meds_gastro_hepatology_classes": "Gastroenterologie – Wirkstoffklassen",
+      "meds_gastro_hepatology_trade": "Gastroenterologie – Handelsnamen",
+      "meds_neurology_generic": "Neurologie – Wirkstoffe",
+      "meds_neurology_classes": "Neurologie – Wirkstoffklassen",
+      "meds_neurology_trade": "Neurologie – Handelsnamen",
+      "meds_pneumology_generic": "Pneumologie – Wirkstoffe",
+      "meds_pneumology_classes": "Pneumologie – Wirkstoffklassen",
+      "meds_pneumology_trade": "Pneumologie – Handelsnamen"
+    },
+    "wordCount_one": "{{count}} Begriff",
+    "wordCount_other": "{{count}} Begriffe",
+    "modifiedBadge": "angepasst",
+    "activeToggle": "{{name}} aktivieren",
+    "addPlaceholder": "Wort hinzufügen",
+    "add": "Hinzufügen",
+    "filterPlaceholder": "Suchen…",
+    "duplicate": "\"{{word}}\" existiert bereits",
+    "removeWord": "{{word}} entfernen",
+    "empty": "Noch keine Wörter — füge oben den ersten Begriff hinzu.",
+    "reset": "Zurücksetzen",
+    "resetDone": "Wörterbuch auf den Auslieferungszustand zurückgesetzt",
+    "export": "Exportieren",
+    "exportDone": "Wörterbuch exportiert",
+    "import": "Importieren",
+    "importHint": ".txt, .csv (erste Spalte) oder .json (Begriffsfeld)",
+    "importDone": "\"{{name}}\" importiert ({{count}} Begriffe)",
+    "create": "Wörterbuch hinzufügen",
+    "createNamePlaceholder": "Name (z. B. Gynäkologie)",
+    "createConfirm": "Anlegen",
+    "cancel": "Abbrechen",
+    "rename": "Umbenennen",
+    "renameConfirm": "Speichern",
+    "delete": "Löschen",
+    "deleteConfirm": "Wirklich löschen?",
+    "overview": {
+      "lastRun": "Letztes Diktat:",
+      "lastRunSent": "{{sent}} von {{selected}} ausgewählten Begriffen als Kontext gesendet",
+      "lastRunTokens": "({{tokens}} von {{room}} verfügbaren Tokens).",
+      "lastRunUnmeasured": "(Tokenverbrauch nicht messbar).",
+      "lastRunDeferred_one": "{{count}} Begriff passte nicht mehr und lief über die Nachkorrektur.",
+      "lastRunDeferred_other": "{{count}} Begriffe passten nicht mehr und liefen über die Nachkorrektur.",
+      "lastRunFellBack": "Mit Kontext schlug die Transkription fehl; sie wurde ohne Kontext wiederholt und alle Begriffe liefen über die Nachkorrektur.",
+      "contextPersonal_one": "Davon {{count}} eigenes Wort.",
+      "contextPersonal_other": "Davon {{count}} eigene Wörter.",
+      "candidates_one": "{{count}} Begriff aus {{dictionaries}} Wörterbüchern steht zur Auswahl.",
+      "candidates_other": "{{count}} Begriffe aus {{dictionaries}} Wörterbüchern stehen zur Auswahl.",
+      "candidatesHint": "Davon geht pro Diktat nur eine Auswahl an das Modell. Wie viele es sind, hängt vom Modell und der Diktatlänge ab — die tatsächliche Zahl steht unten beim letzten Diktat."
+    },
+    "fuzzy": {
+      "tab": "Nachkorrektur",
+      "intro": "Die Nachkorrektur gleicht den fertigen Text mit den Wörterbüchern ab. Sie nutzt immer die komplette Wortliste und beeinflusst die Erkennung selbst nicht.",
+      "allSwitch": "Alle Wörterbücher für die Nachkorrektur",
+      "allSwitchHint": "An schaltet alle Wörterbücher ein, aus nimmt alle wieder heraus. Solange der Schalter an ist, kommen neu importierte automatisch dazu. Einzelne Wörterbücher kannst du darunter jederzeit abwählen.",
+      "allSwitchCount": "{{active}} von {{total}} aktiv"
+    },
+    "context": {
+      "tab": "Kontext",
+      "intro": "Kontext hilft dem Modell schon während der Erkennung. Er ist begrenzt: Nur die obersten Begriffe eines Wörterbuchs werden gesendet, wie viele entscheiden Umfangsstufe, Budget und Modell.",
+      "offered": "Bis zu {{count}} von {{total}} Begriffen als Kontext",
+      "notOffered": "{{count}} Begriffe, derzeit kein Kontext",
+      "levelHint": "Wie weit oben in der Liste der Kontext endet.",
+      "toggle": "{{name}} als Kontext senden",
+      "bulkOff": "Kontext leeren",
+      "bulkDone_one": "{{count}} Wörterbuch sendet keinen Kontext mehr.",
+      "bulkDone_other": "{{count}} Wörterbücher senden keinen Kontext mehr.",
+      "bulkNone": "Derzeit sendet kein Wörterbuch Kontext.",
+      "undo": "Rückgängig",
+      "undone": "Frühere Kontextauswahl wiederhergestellt.",
+      "personalNote": "Deine eigenen Wörter gehören zu keinem Wörterbuch und werden weiterhin als Kontext gesendet.",
+      "activeHeading_one": "Im Kontext ({{count}} Wörterbuch)",
+      "activeHeading_other": "Im Kontext ({{count}} Wörterbücher)",
+      "addHeading_one": "Weiteres Wörterbuch hinzufügen ({{count}})",
+      "addHeading_other": "Weitere Wörterbücher hinzufügen ({{count}})",
+      "emptyActive": "Noch kein Wörterbuch im Kontext. Das Modell bekommt dann nur deine eigenen Wörter.",
+      "editHint": "Die Wortliste gehört zum Wörterbuch selbst — Änderungen hier wirken auch in der Nachkorrektur. Wie viele dieser Wörter als Kontext gehen, bestimmt die Stufe."
+    }
   },
   "onboarding": {
     "subtitle": "Wähle ein Transkriptionsmodell, um loszulegen",
@@ -101,7 +222,7 @@
     },
     "permissions": {
       "title": "Berechtigungen erforderlich",
-      "description": "Handy benötigt einige Berechtigungen, um richtig zu funktionieren.",
+      "description": "llmedi benötigt einige Berechtigungen, um richtig zu funktionieren.",
       "microphone": {
         "title": "Mikrofonzugriff",
         "description": "Erforderlich, um deine Stimme für die Transkription zu hören."
@@ -175,13 +296,13 @@
       "searchPlaceholder": "Modelle nach Namen suchen…",
       "rescan": {
         "label": "Neu scannen",
-        "tooltip": "Erneut nach Modellen scannen, die außerhalb von Handy zum Modellordner oder Hugging-Face-Cache hinzugefügt wurden"
+        "tooltip": "Erneut nach Modellen scannen, die außerhalb von llmedi zum Modellordner oder Hugging-Face-Cache hinzugefügt wurden"
       }
     },
     "general": {
       "title": "Allgemein",
       "shortcut": {
-        "title": "Handy-Tastenkürzel",
+        "title": "llmedi-Tastenkürzel",
         "description": "Tastenkürzel für die Sprachaufnahme konfigurieren",
         "loading": "Tastenkürzel werden geladen...",
         "none": "Keine Tastenkürzel konfiguriert",
@@ -283,11 +404,11 @@
       },
       "autostart": {
         "label": "Beim Start ausführen",
-        "description": "Handy automatisch beim Anmelden starten."
+        "description": "llmedi automatisch beim Anmelden starten."
       },
       "showTrayIcon": {
         "label": "Taskleistensymbol anzeigen",
-        "description": "Das Handy-Symbol in der Taskleiste anzeigen."
+        "description": "Das llmedi-Symbol in der Taskleiste anzeigen."
       },
       "overlay": {
         "style": {
@@ -482,7 +603,7 @@
       },
       "updateChecks": {
         "label": "Nach Updates suchen",
-        "description": "Automatisch nach neuen Versionen von Handy suchen"
+        "description": "Automatisch nach neuen Versionen von llmedi suchen"
       },
       "soundTheme": {
         "label": "Sound-Thema",
@@ -555,7 +676,7 @@
       },
       "keyboardDiagnostic": {
         "title": "Tastatur-Diagnose",
-        "description": "Prüft, ob Tastaturereignisse Handy erreichen. Es wird nur die Anzahl der Ereignisse erfasst — niemals, welche Tasten du drückst.",
+        "description": "Prüft, ob Tastaturereignisse llmedi erreichen. Es wird nur die Anzahl der Ereignisse erfasst — niemals, welche Tasten du drückst.",
         "run": "10-Sekunden-Diagnose starten",
         "running": "Lauscht… drücke dein Tastenkürzel ein paar Mal (z. B. Option+Space)",
         "secureInputLabel": "Secure Input",
@@ -569,7 +690,7 @@
         "mouse": "Maus",
         "verdictBlocked": "Secure Input blockiert Tastenereignisse — Tastenkürzel mit einer normalen Taste können erst wieder funktionieren, wenn das behoben ist.",
         "verdictSuspicious": "Es kamen Modifikator-Ereignisse an, aber keine Tastenereignisse — irgendetwas unterdrückt Tasten, obwohl Secure Input als deaktiviert gemeldet wird. Bitte melde das auf GitHub.",
-        "verdictOk": "Tastenereignisse erreichen Handy normal.",
+        "verdictOk": "Tastenereignisse erreichen llmedi normal.",
         "verdictNoEvents": "Keine Ereignisse erfasst — hast du während des Tests Tasten gedrückt?",
         "failed": "Diagnose fehlgeschlagen: {{error}}"
       },
@@ -585,11 +706,11 @@
       "title": "Info",
       "version": {
         "title": "Version",
-        "description": "Aktuelle Version von Handy"
+        "description": "Aktuelle Version von llmedi"
       },
       "appDataDirectory": {
         "title": "App-Datenverzeichnis",
-        "description": "Speicherort der Handy-Daten"
+        "description": "Speicherort der llmedi-Daten"
       },
       "sourceCode": {
         "title": "Quellcode",
@@ -598,7 +719,7 @@
       },
       "supportDevelopment": {
         "title": "Entwicklung unterstützen",
-        "description": "Hilf uns, Handy weiterzuentwickeln",
+        "description": "Hilf uns, llmedi weiterzuentwickeln",
         "button": "Spenden"
       },
       "acknowledgments": {
@@ -606,12 +727,12 @@
         "ggml": {
           "title": "ggml",
           "description": "Hochleistungs-Inferenz des Whisper-Spracherkennungsmodells von OpenAI",
-          "details": "Handy verwendet ggml für schnelle, lokale Sprach-zu-Text-Verarbeitung. Dank an Georgi Gerganov und die Mitwirkenden für ihre großartige Arbeit."
+          "details": "llmedi verwendet ggml für schnelle, lokale Sprach-zu-Text-Verarbeitung. Dank an Georgi Gerganov und die Mitwirkenden für ihre großartige Arbeit."
         }
       },
       "whatsNewUpdates": {
         "label": "Neuerungen anzeigen",
-        "description": "Versionshinweise nach Handy-Updates anzeigen"
+        "description": "Versionshinweise nach llmedi-Updates anzeigen"
       }
     }
   },
@@ -640,7 +761,7 @@
     "noOptionsFound": "Keine Optionen gefunden"
   },
   "accessibility": {
-    "permissionsDescription": "Handy benötigt Bedienungshilfen-Berechtigungen, um transkribierten Text einzugeben.",
+    "permissionsDescription": "llmedi benötigt Bedienungshilfen-Berechtigungen, um transkribierten Text einzugeben.",
     "openSettings": "Systemeinstellungen öffnen"
   },
   "errors": {
@@ -663,11 +784,11 @@
   },
   "appLanguage": {
     "title": "Anwendungssprache",
-    "description": "Sprache der Handy-Oberfläche ändern"
+    "description": "Sprache der llmedi-Oberfläche ändern"
   },
   "theme": {
     "title": "Anwendungsdesign",
-    "description": "Wählen Sie, ob Handy dem Systemthema folgt oder hell bzw. dunkel bleibt",
+    "description": "Wählen Sie, ob llmedi dem Systemthema folgt oder hell bzw. dunkel bleibt",
     "options": {
       "system": "System",
       "light": "Hell",
@@ -679,7 +800,7 @@
     "processing": "Verarbeite..."
   },
   "whatsNew": {
-    "title": "Neu in Handy v{{version}}"
+    "title": "Neu in llmedi v{{version}}"
   },
   "secureInput": {
     "blockedWithCulprit_one": "{{name}} blockiert möglicherweise 1 Tastenkürzel",
