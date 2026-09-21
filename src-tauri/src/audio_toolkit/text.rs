@@ -1,237 +1,774 @@
-use natural::phonetics::soundex;
 use once_cell::sync::Lazy;
 use regex::Regex;
 use strsim::levenshtein;
 
-/// Builds an n-gram string by cleaning and concatenating words
+// ---------------------------------------------------------------------------
+// Fuzzy correction of transcripts against the active vocabulary.
+//
+// Designed for German medical dictation, where the cost of a wrong replacement
+// is far higher than the cost of a missed one: turning "Mitralklappenstenose"
+// into "Mitralklappeninsuffizienz", or swallowing the "kein" in "kein
+// Perikarderguss", changes a finding. Every rule below therefore errs towards
+// leaving the transcript alone. An uncertain replacement is simply skipped.
+//
+// Deliberately *not* used: Soundex. It is an English algorithm that encodes
+// only the first letter plus three consonants, so long German compounds that
+// share a prefix ("Mitralklappen…") collide and received a large score boost —
+// that is exactly how the diagnosis swaps above happened. Matching is plain
+// normalised edit distance on an orthographically folded key.
+// ---------------------------------------------------------------------------
+
+/// German inflectional endings. A transcript word that differs from a
+/// dictionary term only by one of these is a correctly recognised inflected
+/// form ("Stenosen", "linksventrikulären") and must not be flattened to the
+/// dictionary's base form.
+const INFLECTION_SUFFIXES: &[&str] = &["e", "n", "en", "s", "es", "er", "em", "ern", "ens", "nen"];
+
+/// Derivational endings. A transcript word that is the term's stem plus one of
+/// these is a *different word* — usually another part of speech
+/// ("echokardiographisch" beside "Echokardiographie") — and must not be turned
+/// into the term.
+const DERIVATIONAL_ENDINGS: &[&str] = &[
+    "isch", "ische", "ischen", "ischer", "isches", "ischem", "lich", "liche", "lichen", "licher",
+    "liches", "lichem",
+];
+
+/// Negations. Never replaced, never absorbed into a multi-word span: losing one
+/// inverts the finding.
+const NEGATIONS: &[&str] = &[
+    "kein", "keine", "keinen", "keinem", "keiner", "keines", "nicht", "nichts", "ohne", "nie",
+    "niemals", "weder",
+];
+
+/// Units that follow a dose. Protected like negations so "Ramipril 5 mg" can
+/// never have its dose folded into a drug name.
+const DOSE_UNITS: &[&str] = &[
+    "mg", "g", "kg", "µg", "ug", "mcg", "ml", "l", "ie", "iu", "mmol", "mval", "meq", "mmhg", "h",
+];
+
+/// A correction is skipped when some *other* term is at most this many edits
+/// further from the transcript than the best one. Counted in whole edits, not
+/// normalised distance, because the danger is concrete: "Nitedipin" is one
+/// edit from Nifedipin and two from Nitrendipin, and guessing between two drugs
+/// is worse than leaving the word as heard.
+const AMBIGUITY_EDIT_MARGIN: usize = 1;
+
+/// When a span and a term split into a different number of words — the
+/// transcript joined or split a compound — words cannot be compared one by one,
+/// so the whole span may differ from the term by at most this many edits.
+/// Without this cap, a long term tolerates enough edits to swap one of its
+/// words entirely ("…mit erhaltener…" for "…mit reduzierter…").
+const MISALIGNED_EDIT_CAP: usize = 2;
+
+/// Spans are never longer than this many transcript words, whatever the
+/// dictionary contains.
+const MAX_SPAN_WORDS: usize = 6;
+
+/// Lower-case a word and fold German orthography to its standard ASCII
+/// transliteration (ä→ae, ö→oe, ü→ue, ß→ss) plus a small table of Latin
+/// accents, then keep letters and digits only.
 ///
-/// Strips punctuation from each word, lowercases, and joins without spaces.
-/// This allows matching "Charge B" against "ChargeBee".
-fn build_ngram(words: &[&str]) -> String {
-    words
-        .iter()
-        .map(|w| build_match_key(w))
-        .collect::<Vec<_>>()
-        .concat()
-}
-
-fn build_match_key(word: &str) -> String {
-    word.chars()
-        .filter(|c| c.is_alphanumeric())
-        .flat_map(|c| c.to_lowercase())
-        .collect()
-}
-
-struct CustomWordMatchKey {
-    word_index: usize,
-    key: String,
-}
-
-fn build_custom_word_match_keys(word: &str, word_index: usize) -> Vec<CustomWordMatchKey> {
-    let primary_key = build_match_key(word);
-    let mut keys = Vec::with_capacity(2);
-
-    // The fallback matcher is intentionally limited to ASCII terms. Its
-    // whitespace tokenization and Soundex scoring are not suitable for CJK
-    // scripts. Unicode custom words remain available to models that accept
-    // them as native decode prompts; they are simply skipped by this fallback.
-    if is_supported_fuzzy_key(&primary_key) {
-        keys.push(CustomWordMatchKey {
-            word_index,
-            key: primary_key.clone(),
-        });
-    }
-
-    if word.contains('&') {
-        let expanded_key = build_match_key(&word.replace('&', " and "));
-        if is_supported_fuzzy_key(&expanded_key) && expanded_key != primary_key {
-            keys.push(CustomWordMatchKey {
-                word_index,
-                key: expanded_key,
-            });
+/// ä→ae is the orthographic equivalence German itself uses, so "Mehrgefässerkrankung"
+/// and "Mehrgefäßerkrankung" share a key. It does *not* collapse ä into a: "a"
+/// and "ae" stay distinct, so different words never merge through folding.
+/// Non-Latin scripts are left as they are and are then rejected as unsupported.
+fn fold_key(word: &str) -> String {
+    let mut out = String::with_capacity(word.len());
+    for c in word.chars().flat_map(char::to_lowercase) {
+        match c {
+            'ä' => out.push_str("ae"),
+            'ö' => out.push_str("oe"),
+            'ü' => out.push_str("ue"),
+            'ß' => out.push_str("ss"),
+            'à' | 'á' | 'â' | 'ã' | 'å' => out.push('a'),
+            'ç' => out.push('c'),
+            'è' | 'é' | 'ê' | 'ë' => out.push('e'),
+            'ì' | 'í' | 'î' | 'ï' => out.push('i'),
+            'ñ' => out.push('n'),
+            'ò' | 'ó' | 'ô' | 'õ' | 'ø' => out.push('o'),
+            'ù' | 'ú' | 'û' => out.push('u'),
+            c if c.is_alphanumeric() => out.push(c),
+            _ => {}
         }
     }
-
-    keys
+    out
 }
 
-fn is_supported_fuzzy_key(key: &str) -> bool {
+/// A folded key is usable when it is non-empty and entirely ASCII after
+/// folding. CJK and other scripts fall outside: whitespace tokenisation and
+/// character edit distance do not fit them.
+fn is_supported_key(key: &str) -> bool {
     !key.is_empty() && key.chars().all(|c| c.is_ascii_alphanumeric())
 }
 
-fn supports_soundex(key: &str) -> bool {
-    !key.is_empty() && key.chars().all(|c| c.is_ascii_alphabetic())
+fn digits_of(key: &str) -> String {
+    key.chars().filter(char::is_ascii_digit).collect()
 }
 
-/// Finds the best matching custom word for a candidate string
-///
-/// Uses Levenshtein distance and Soundex phonetic matching to find
-/// the best match above the given threshold.
-///
-/// # Arguments
-/// * `candidate` - The cleaned/lowercased candidate string to match
-/// * `custom_words` - Original custom words (for returning the replacement)
-/// * `custom_word_match_keys` - Normalized custom-word keys for comparison
-/// * `threshold` - Maximum similarity score to accept
-///
-/// # Returns
-/// The best matching custom word and its score, if any match was found
-fn find_best_match<'a>(
-    candidate: &str,
-    custom_words: &'a [String],
-    custom_word_match_keys: &[CustomWordMatchKey],
-    threshold: f64,
-) -> Option<(&'a String, f64)> {
-    if !is_supported_fuzzy_key(candidate) || candidate.chars().count() > 50 {
-        return None;
-    }
-
-    let mut best_match: Option<&String> = None;
-    let mut best_score = f64::MAX;
-
-    for custom_word_key in custom_word_match_keys {
-        // Skip if lengths are too different (optimization + prevents over-matching)
-        // Use percentage-based check: max 25% length difference (prevents n-grams from
-        // matching significantly shorter custom words, e.g., "openaigpt" vs "openai")
-        let candidate_len = candidate.chars().count();
-        let custom_word_len = custom_word_key.key.chars().count();
-        let len_diff = candidate_len.abs_diff(custom_word_len) as f64;
-        let max_len = candidate_len.max(custom_word_len) as f64;
-        let max_allowed_diff = (max_len * 0.25).max(2.0); // At least 2 chars difference allowed
-        if len_diff > max_allowed_diff {
-            continue;
-        }
-
-        // Calculate Levenshtein distance (normalized by length)
-        let levenshtein_dist = levenshtein(candidate, &custom_word_key.key);
-        let levenshtein_score = if max_len > 0.0 {
-            levenshtein_dist as f64 / max_len
-        } else {
-            1.0
-        };
-
-        // Soundex is an English/ASCII phonetic algorithm. Numeric terms can
-        // still use edit distance, but must not receive a phonetic boost.
-        let phonetic_match = supports_soundex(candidate)
-            && supports_soundex(&custom_word_key.key)
-            && soundex(candidate, &custom_word_key.key);
-
-        // Combine scores: favor phonetic matches, but also consider string similarity
-        let combined_score = if phonetic_match {
-            levenshtein_score * 0.3 // Give significant boost to phonetic matches
-        } else {
-            levenshtein_score
-        };
-
-        // Accept if the score is good enough (configurable threshold)
-        if combined_score < threshold && combined_score < best_score {
-            best_match = Some(&custom_words[custom_word_key.word_index]);
-            best_score = combined_score;
-        }
-    }
-
-    best_match.map(|m| (m, best_score))
+fn is_negation(word: &str) -> bool {
+    NEGATIONS.contains(&fold_key(word).as_str())
 }
 
-/// Applies custom word corrections to transcribed text using fuzzy matching
-///
-/// This function corrects words in the input text by finding the best matches
-/// from a list of custom words using a combination of:
-/// - Levenshtein distance for string similarity
-/// - Soundex phonetic matching for pronunciation similarity
-/// - N-gram matching for multi-word speech artifacts (e.g., "Charge B" -> "ChargeBee")
-///
-/// # Arguments
-/// * `text` - The input text to correct
-/// * `custom_words` - List of custom words to match against
-/// * `threshold` - Maximum similarity score to accept (0.0 = exact match, 1.0 = any match)
-///
-/// # Returns
-/// The corrected text with custom words applied
-pub fn apply_custom_words(text: &str, custom_words: &[String], threshold: f64) -> String {
-    if custom_words.is_empty() {
-        return text.to_string();
-    }
+fn is_dose_unit(word: &str) -> bool {
+    DOSE_UNITS.contains(&fold_key(word).as_str())
+}
 
-    // Pre-compute normalized comparison keys to avoid repeated allocations.
-    let custom_word_match_keys: Vec<CustomWordMatchKey> = custom_words
+fn has_digit(word: &str) -> bool {
+    word.chars().any(|c| c.is_ascii_digit())
+}
+
+/// Which words a correction must never touch or absorb: negations everywhere,
+/// and dose units where they follow a number ("5 mg", "10 IE"). A unit is only
+/// protected in that position — on its own, "G" in a spelled-out "Chat G P T"
+/// is just a letter.
+fn protected_words(words: &[&str]) -> Vec<bool> {
+    words
         .iter()
         .enumerate()
-        .flat_map(|(index, word)| build_custom_word_match_keys(word, index))
+        .map(|(i, w)| is_negation(w) || (is_dose_unit(w) && i > 0 && has_digit(words[i - 1])))
+        .collect()
+}
+
+/// Whether the transcript word `spoken` is `term` in another grammatical form,
+/// compared on folded keys, rather than a misspelling of it.
+///
+/// Accepted:
+/// - `spoken` adds or swaps an ending: "Stenosen" / "Stenose",
+///   "linksventrikulären" / "linksventrikulärer", "Ergusses" / "Erguss";
+/// - `spoken` is the "-e" form of an adjective the dictionary lists as
+///   "-er/-en/-es/-em": "linksventrikuläre" / "linksventrikulärer".
+///
+/// Rejected — these are truncations or typos, and should be corrected:
+/// - `spoken` merely lacks the term's last letter where no ending was dropped:
+///   "Ejektionsfraktio" / "Ejektionsfraktion";
+/// - the difference is a doubled letter: "Perikardergus" / "Perikarderguss".
+///
+/// A shared stem of at least five letters is required, so short words cannot
+/// pass as each other's inflections.
+fn is_inflection_variant(spoken: &str, term: &str) -> bool {
+    let s: Vec<char> = fold_key(spoken).chars().collect();
+    let t: Vec<char> = fold_key(term).chars().collect();
+    if s == t {
+        return true;
+    }
+    let common = s.iter().zip(&t).take_while(|(x, y)| x == y).count();
+    let is_ending = |rest: &[char]| {
+        let rest: String = rest.iter().collect();
+        INFLECTION_SUFFIXES.contains(&rest.as_str())
+    };
+    // The shared stem may have swallowed the first letter of both endings
+    // ("-en" / "-er" share their "e"), so step back up to three letters.
+    for p in (5..=common).rev().take(4) {
+        let (rest_s, rest_t) = (&s[p..], &t[p..]);
+        let stem_last = s[p - 1];
+        let doubled = |rest: &[char]| rest.first() == Some(&stem_last);
+        if doubled(rest_s) || doubled(rest_t) {
+            continue;
+        }
+        if rest_s.is_empty() {
+            // Spoken form is shorter: only the adjective "-e" form qualifies.
+            if stem_last == 'e' && matches!(rest_t, ['r'] | ['n'] | ['s'] | ['m']) {
+                return true;
+            }
+            continue;
+        }
+        if is_ending(rest_s) && (rest_t.is_empty() || is_ending(rest_t)) {
+            return true;
+        }
+    }
+    false
+}
+
+/// A term split into the words a transcript would show, and the separator
+/// that followed each word in the dictionary spelling ("-", "/", " " or "").
+fn term_parts(term: &str) -> (Vec<&str>, Vec<&str>) {
+    let mut words = Vec::new();
+    let mut seps = Vec::new();
+    let mut start: Option<usize> = None;
+    let mut sep_start = 0;
+    for (index, c) in term.char_indices() {
+        let is_sep = c.is_whitespace() || c == '-' || c == '/';
+        match (is_sep, start) {
+            (false, None) => {
+                if !words.is_empty() {
+                    seps.push(&term[sep_start..index]);
+                }
+                start = Some(index);
+            }
+            (true, Some(word_start)) => {
+                words.push(&term[word_start..index]);
+                start = None;
+                sep_start = index;
+            }
+            _ => {}
+        }
+    }
+    if let Some(word_start) = start {
+        words.push(&term[word_start..]);
+    }
+    seps.push("");
+    (words, seps)
+}
+
+/// Split a dictionary term into the words a transcript would show.
+fn term_words(term: &str) -> Vec<&str> {
+    term_parts(term).0
+}
+
+/// Whether `spoken` is a word *derived* from the term's stem — the stem plus a
+/// derivational ending such as "-isch" — rather than the term misspelt.
+fn is_derived_form(spoken: &str, term: &str) -> bool {
+    let (s, t) = (fold_key(spoken), fold_key(term));
+    DERIVATIONAL_ENDINGS.iter().any(|ending| {
+        s.strip_suffix(ending).is_some_and(|stem| {
+            stem.chars().count() >= 5 && t.starts_with(stem) && !t.ends_with(ending)
+        })
+    })
+}
+
+/// The class of a folded key's first sound. ASR confusions keep a word's onset
+/// far more often than they change it, and the classes only merge spellings of
+/// one sound: c/k/z ("Cyanose", "Kyanose", "Zyanose"), f/v/w and "ph", t/d, p/b.
+/// "Funktion" (f) and "Punktion" (p) therefore differ — one edit apart, but a
+/// normal word and a procedure.
+fn onset_class(key: &str) -> Option<char> {
+    let first = if key.starts_with("ph") {
+        'f'
+    } else {
+        key.chars().next()?
+    };
+    Some(match first {
+        'c' | 'k' | 'z' | 'q' => 'k',
+        'f' | 'v' | 'w' => 'f',
+        't' | 'd' => 't',
+        'p' | 'b' => 'p',
+        other => other,
+    })
+}
+
+/// How close one transcript word must be to its counterpart in the term: same
+/// onset class, and within the threshold on its own.
+fn word_close(spoken: &str, term_word: &str, threshold: f64) -> bool {
+    let (a, b) = (fold_key(spoken), fold_key(term_word));
+    if onset_class(&a) != onset_class(&b) {
+        return false;
+    }
+    let max_len = a.chars().count().max(b.chars().count()).max(1) as f64;
+    (levenshtein(&a, &b) as f64 / max_len) < threshold
+}
+
+fn letters(word: &str) -> impl Iterator<Item = char> + '_ {
+    word.chars().filter(|c| c.is_alphabetic())
+}
+
+/// An abbreviation written in capitals ("DES", "EKG", "INR"). Many coincide
+/// with ordinary German words ("des"), so one may only replace a transcript
+/// token that is itself written in capitals.
+fn is_capitals_abbreviation(word: &str) -> bool {
+    letters(word).count() >= 2 && letters(word).all(char::is_uppercase)
+}
+
+fn has_lowercase(word: &str) -> bool {
+    letters(word).any(char::is_lowercase)
+}
+
+struct TermKey {
+    term_index: usize,
+    key: String,
+    digits: String,
+}
+
+/// Precomputed comparison data for the active vocabulary.
+struct Matcher<'a> {
+    terms: &'a [String],
+    keys: Vec<TermKey>,
+    /// Longest span worth trying: the most words any term splits into.
+    max_span: usize,
+    /// Longest candidate worth scoring: past this, the 25 % length rule would
+    /// reject every term anyway. Derived from the vocabulary rather than fixed,
+    /// so the longest real terms stay reachable.
+    max_candidate_len: usize,
+    threshold: f64,
+}
+
+/// Outcome of scoring one candidate span.
+#[derive(Debug, Clone, Copy)]
+enum Verdict {
+    NoMatch,
+    /// Two different terms are about equally close — do not guess.
+    Ambiguous,
+    Match {
+        term_index: usize,
+        score: f64,
+    },
+}
+
+impl<'a> Matcher<'a> {
+    fn new(terms: &'a [String], threshold: f64) -> Self {
+        let mut keys = Vec::new();
+        let mut max_span = 3;
+        let mut max_key_len = 0;
+        for (term_index, term) in terms.iter().enumerate() {
+            let key = fold_key(term);
+            if is_supported_key(&key) {
+                max_key_len = max_key_len.max(key.chars().count());
+                max_span = max_span.max(term_words(term).len());
+                // A capitals abbreviation can arrive spelled out letter by
+                // letter ("N S T E M I"), one transcript word per letter.
+                if is_capitals_abbreviation(term) {
+                    max_span = max_span.max(letters(term).count());
+                }
+                keys.push(TermKey {
+                    term_index,
+                    digits: digits_of(&key),
+                    key: key.clone(),
+                });
+            }
+            if term.contains('&') {
+                let expanded = fold_key(&term.replace('&', " and "));
+                if is_supported_key(&expanded) && expanded != key {
+                    max_key_len = max_key_len.max(expanded.chars().count());
+                    keys.push(TermKey {
+                        term_index,
+                        digits: digits_of(&expanded),
+                        key: expanded,
+                    });
+                }
+            }
+        }
+        let slack = ((max_key_len as f64) * 0.25).ceil().max(2.0) as usize;
+        Matcher {
+            terms,
+            keys,
+            max_span: max_span.min(MAX_SPAN_WORDS),
+            max_candidate_len: max_key_len + slack,
+            threshold,
+        }
+    }
+
+    /// Score a folded candidate against every term.
+    fn score(&self, candidate: &str) -> Verdict {
+        let candidate_len = candidate.chars().count();
+        if !is_supported_key(candidate) || candidate_len > self.max_candidate_len {
+            return Verdict::NoMatch;
+        }
+        let candidate_digits = digits_of(candidate);
+
+        // Every term close enough in length to be comparable: (term, edits,
+        // normalised score). Kept whole so ambiguity can be judged against
+        // terms that miss the acceptance threshold too.
+        let mut comparable: Vec<(usize, usize, f64)> = Vec::new();
+        for term_key in &self.keys {
+            // Numbers are never altered: a candidate may only match a term with
+            // the identical digit sequence ("HbA 1c" → "HbA1c" yes,
+            // "Ramipril 5" → "Ramipril" no, "T2 Mapping" → "T1-Mapping" no).
+            if term_key.digits != candidate_digits {
+                continue;
+            }
+            let term_len = term_key.key.chars().count();
+            let max_len = candidate_len.max(term_len) as f64;
+            let max_allowed_diff = (max_len * 0.25).max(2.0);
+            if candidate_len.abs_diff(term_len) as f64 > max_allowed_diff {
+                continue;
+            }
+            let edits = levenshtein(candidate, &term_key.key);
+            comparable.push((term_key.term_index, edits, edits as f64 / max_len));
+        }
+
+        let Some(&(term_index, edits, score)) = comparable
+            .iter()
+            .filter(|(_, _, score)| *score < self.threshold)
+            .min_by(|a, b| a.2.partial_cmp(&b.2).unwrap_or(std::cmp::Ordering::Equal))
+        else {
+            return Verdict::NoMatch;
+        };
+        // An exact key match is never ambiguous.
+        if edits == 0 {
+            return Verdict::Match { term_index, score };
+        }
+        let rival = comparable.iter().any(|&(other, other_edits, _)| {
+            other != term_index && other_edits <= edits + AMBIGUITY_EDIT_MARGIN
+        });
+        if rival {
+            Verdict::Ambiguous
+        } else {
+            Verdict::Match { term_index, score }
+        }
+    }
+
+    /// Fewest edits between `candidate` and any key of the given term.
+    fn edits_to(&self, term_index: usize, candidate: &str) -> usize {
+        self.keys
+            .iter()
+            .filter(|k| k.term_index == term_index)
+            .map(|k| levenshtein(candidate, &k.key))
+            .min()
+            .unwrap_or(usize::MAX)
+    }
+
+    fn score_span(&self, keys: &[String]) -> Verdict {
+        self.score(&keys.concat())
+    }
+}
+
+/// The best span found at one position: (words, term index, score), and
+/// whether any span there was rejected as ambiguous.
+#[derive(Debug, Clone, Copy, Default)]
+struct SpanChoice {
+    best: Option<(usize, usize, f64)>,
+    ambiguous: bool,
+}
+
+fn verdict_score(verdict: Verdict) -> Option<f64> {
+    match verdict {
+        Verdict::Match { score, .. } => Some(score),
+        _ => None,
+    }
+}
+
+/// One replacement the corrector made, or chose not to make.
+#[derive(Debug, Clone, PartialEq)]
+pub struct CorrectionEvent {
+    /// The transcript text the decision was about.
+    pub original: String,
+    /// The dictionary term involved.
+    pub term: String,
+    /// Normalised edit distance (0 = identical key).
+    pub score: f64,
+    pub kind: CorrectionKind,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum CorrectionKind {
+    /// The span was replaced by the term's canonical spelling.
+    Replaced,
+    /// The span already was a correctly inflected form of the term; kept.
+    KeptInflected,
+}
+
+/// Text after correction plus an audit trail of what changed.
+#[derive(Debug, Clone, Default)]
+pub struct CorrectionReport {
+    pub text: String,
+    pub events: Vec<CorrectionEvent>,
+    /// Spans left alone because two terms matched about equally well.
+    pub ambiguous_spans: Vec<String>,
+}
+
+/// Correct `text` against the active vocabulary and report every decision.
+///
+/// A span of up to [`MAX_SPAN_WORDS`] words is replaced by the canonical
+/// spelling of a dictionary term only when all of these hold:
+///
+/// - its folded key is within `threshold` normalised edit distance of the term,
+///   and no other term is within [`AMBIGUITY_EDIT_MARGIN`] further edits;
+/// - it contains no negation or dose unit, and its digits match the term's;
+/// - it does not cross a punctuation boundary;
+/// - every word in it contributes — dropping its first or last word must not
+///   match as well, otherwise that edge word (an article, a "kein") would be
+///   swallowed;
+/// - it is not already a correctly inflected form of the term.
+pub fn correct_with_vocabulary(
+    text: &str,
+    custom_words: &[String],
+    threshold: f64,
+) -> CorrectionReport {
+    if custom_words.is_empty() {
+        return CorrectionReport {
+            text: text.to_string(),
+            ..Default::default()
+        };
+    }
+    let matcher = Matcher::new(custom_words, threshold);
+    let words: Vec<&str> = text.split_whitespace().collect();
+    // Per-word facts, computed once rather than for every span that
+    // contains the word.
+    let keys: Vec<String> = words.iter().map(|w| fold_key(w)).collect();
+    let protected = protected_words(&words);
+    let trailing_punct: Vec<bool> = words
+        .iter()
+        .map(|w| !extract_punctuation(w).1.is_empty())
         .collect();
 
-    let words: Vec<&str> = text.split_whitespace().collect();
-    let mut result = Vec::new();
+    // Best acceptable span starting at `i`, memoised because the look-ahead
+    // below asks for position i+1 before the loop gets there.
+    let mut memo: Vec<Option<SpanChoice>> = vec![None; words.len()];
+    let mut best_at = |i: usize| -> SpanChoice {
+        if let Some(choice) = memo[i] {
+            return choice;
+        }
+        let mut choice = SpanChoice::default();
+        for n in (1..=matcher.max_span).rev() {
+            if i + n > words.len() || protected[i..i + n].iter().any(|&p| p) {
+                continue;
+            }
+            // Never consume across a punctuation boundary: only the last word
+            // of a span may carry trailing punctuation.
+            if trailing_punct[i..i + n - 1].iter().any(|&p| p) {
+                continue;
+            }
+            let span_keys = &keys[i..i + n];
+            let (term_index, score) = match matcher.score_span(span_keys) {
+                Verdict::Match { term_index, score } => (term_index, score),
+                Verdict::Ambiguous => {
+                    choice.ambiguous = true;
+                    continue;
+                }
+                Verdict::NoMatch => continue,
+            };
+            // Every word must pull its weight: if the span minus its first or
+            // last word matches as well, that edge word (an article, a filler)
+            // is not part of the term and must not be swallowed. On an exact
+            // tie a single letter is kept — it is a fragment of a spelled-out
+            // abbreviation ("N S T E M E"), not a word of its own.
+            if n > 1 {
+                let edge_is_extraneous = |sub: Option<f64>, edge_word: &str| {
+                    sub.is_some_and(|s| {
+                        s < score || (s == score && letters(edge_word).count() >= 2)
+                    })
+                };
+                let without_first = verdict_score(matcher.score_span(&span_keys[1..]));
+                let without_last = verdict_score(matcher.score_span(&span_keys[..n - 1]));
+                if edge_is_extraneous(without_first, words[i])
+                    || edge_is_extraneous(without_last, words[i + n - 1])
+                {
+                    continue;
+                }
+            }
+            if choice.best.is_none_or(|(_, _, best)| score < best) {
+                choice.best = Some((n, term_index, score));
+            }
+        }
+        memo[i] = Some(choice);
+        choice
+    };
+
+    let mut report = CorrectionReport::default();
+    let mut out: Vec<String> = Vec::with_capacity(words.len());
     let mut i = 0;
-
     while i < words.len() {
-        let mut best_match: Option<(usize, &String, f64)> = None;
-
-        // Consider n-grams up to three words and choose the closest match. A
-        // longest-first match can consume a following ordinary word when both
-        // candidates happen to share a Soundex code (for example,
-        // "Charge B, che" matching "ChargeBee").
-        for n in (1..=3).rev() {
-            if i + n > words.len() {
-                continue;
-            }
-
-            let ngram_words = &words[i..i + n];
-            // Do not consume across a punctuation boundary. In
-            // "Charge B, che", the comma closes the candidate at "B,".
-            if ngram_words[..n.saturating_sub(1)]
-                .iter()
-                .any(|word| !extract_punctuation(word).1.is_empty())
-            {
-                continue;
-            }
-            let ngram = build_ngram(ngram_words);
-
-            if let Some((replacement, score)) =
-                find_best_match(&ngram, custom_words, &custom_word_match_keys, threshold)
-            {
-                let is_better = best_match
-                    .as_ref()
-                    .is_none_or(|(_, _, best_score)| score < *best_score);
-                if is_better {
-                    best_match = Some((n, replacement, score));
+        let here = best_at(i);
+        let mut chosen = here.best;
+        // Look-ahead: a multi-word span starting here must not beat a strictly
+        // better span that starts on its second word — otherwise a leading word
+        // ("è Charge" before "Charge B") gets absorbed into the wrong match.
+        if let Some((n, _, score)) = chosen {
+            if n > 1 && i + 1 < words.len() {
+                if let Some((_, _, next_score)) = best_at(i + 1).best {
+                    if next_score < score {
+                        chosen = None;
+                    }
                 }
             }
         }
 
-        if let Some((n, replacement, _)) = best_match {
-            let ngram_words = &words[i..i + n];
-            // Extract punctuation from first and last words of the n-gram.
-            let (prefix, _) = extract_punctuation(ngram_words[0]);
-            let (_, suffix) = extract_punctuation(ngram_words[n - 1]);
-
-            // Preserve case from first word.
-            let corrected = preserve_case_pattern(ngram_words[0], replacement);
-
-            result.push(format!("{}{}{}", prefix, corrected, suffix));
-            i += n;
-        } else {
-            result.push(words[i].to_string());
+        let Some((n, term_index, score)) = chosen else {
+            if here.ambiguous && here.best.is_none() {
+                report.ambiguous_spans.push(words[i].to_string());
+            }
+            out.push(words[i].to_string());
             i += 1;
+            continue;
+        };
+
+        let span = &words[i..i + n];
+        let term = &matcher.terms[term_index];
+        let original = span.join(" ");
+        let (prefix, _) = extract_punctuation(span[0]);
+        let (_, suffix) = extract_punctuation(span[n - 1]);
+
+        let Some(resolution) = resolve_span(&matcher, span, &keys[i..i + n], term_index) else {
+            // The best-scoring term does not survive the word-level checks:
+            // leave this word as spoken and move on.
+            out.push(words[i].to_string());
+            i += 1;
+            continue;
+        };
+
+        match resolution {
+            Resolution::KeepAsSpoken => {
+                report.events.push(CorrectionEvent {
+                    original: original.clone(),
+                    term: term.clone(),
+                    score,
+                    kind: CorrectionKind::KeptInflected,
+                });
+                out.extend(span.iter().map(|w| w.to_string()));
+            }
+            Resolution::Replace(core) => {
+                let at_sentence_start = i == 0
+                    || words[i - 1]
+                        .chars()
+                        .last()
+                        .is_some_and(|c| matches!(c, '.' | '!' | '?' | ':'));
+                let rendered = format!(
+                    "{}{}{}",
+                    prefix,
+                    adapt_case(span, &core, at_sentence_start),
+                    suffix
+                );
+                if rendered != original {
+                    report.events.push(CorrectionEvent {
+                        original,
+                        term: term.clone(),
+                        score,
+                        kind: CorrectionKind::Replaced,
+                    });
+                }
+                out.push(rendered);
+            }
         }
+        i += n;
     }
 
-    result.join(" ")
+    report.text = out.join(" ");
+    report
 }
 
-/// Preserves the case pattern of the original word when applying a replacement
-fn preserve_case_pattern(original: &str, replacement: &str) -> String {
-    if original.chars().all(|c| c.is_uppercase()) {
-        replacement.to_uppercase()
-    } else if original.chars().next().is_some_and(|c| c.is_uppercase()) {
-        let mut chars: Vec<char> = replacement.chars().collect();
-        if let Some(first_char) = chars.get_mut(0) {
-            *first_char = first_char.to_uppercase().next().unwrap_or(*first_char);
-        }
-        chars.into_iter().collect()
-    } else {
-        replacement.to_string()
+/// Correct `text` against the active vocabulary. See
+/// [`correct_with_vocabulary`] for the rules; this drops the audit trail.
+pub fn apply_custom_words(text: &str, custom_words: &[String], threshold: f64) -> String {
+    correct_with_vocabulary(text, custom_words, threshold).text
+}
+
+enum Resolution {
+    /// The span already is the term in another grammatical form.
+    KeepAsSpoken,
+    /// Replace the span with this text (before case adaptation).
+    Replace(String),
+}
+
+/// Decide what a matched span becomes, checking it word by word.
+///
+/// When span and term have the same number of words, each word must either be
+/// the term's word (up to spelling), an inflected form of it, or within the
+/// threshold on its own. A single substituted word fails the whole match, even
+/// when the span as a whole is close — that is what keeps "…mit erhaltener
+/// Ejektionsfraktion" from becoming "…mit reduzierter Ejektionsfraktion".
+/// Inflected words are kept as spoken; the rest take the dictionary spelling,
+/// rejoined with the term's own hyphens, slashes and spaces.
+///
+/// When the word counts differ, the transcript split or joined a compound:
+///
+/// - more transcript words than term words — the model split the term
+///   ("N S T E M I", "Mehrgefäß Erkrankung"): at most [`MISALIGNED_EDIT_CAP`]
+///   edits, same onset, and not a span written entirely in lower case when the
+///   term is a capitals abbreviation;
+/// - fewer transcript words — the term has a word the speaker did not say
+///   ("Koronarangiographie" vs "CT-Koronarangiographie"): only a pure joining,
+///   with zero edits, is accepted. Anything else would add content.
+fn resolve_span(
+    matcher: &Matcher,
+    span: &[&str],
+    span_keys: &[String],
+    term_index: usize,
+) -> Option<Resolution> {
+    let term = &matcher.terms[term_index];
+    let (term_words, seps) = term_parts(term);
+
+    if term_words.len() != span.len() {
+        let joined = span_keys.concat();
+        let edits = matcher.edits_to(term_index, &joined);
+        let allowed = if span.len() > term_words.len() {
+            edits <= MISALIGNED_EDIT_CAP
+                && onset_class(&joined) == onset_class(&fold_key(term))
+                && !(is_capitals_abbreviation(term)
+                    && span.iter().all(|w| !letters(w).any(char::is_uppercase)))
+        } else {
+            edits == 0
+        };
+        return allowed.then(|| Resolution::Replace(term.clone()));
     }
+
+    let mut pieces: Vec<String> = Vec::with_capacity(span.len());
+    let mut kept_inflection = false;
+    let mut corrected_spelling = false;
+    for (word, term_word) in span.iter().zip(&term_words) {
+        let core = {
+            let (prefix, suffix) = extract_punctuation(word);
+            &word[prefix.len()..word.len() - suffix.len()]
+        };
+        // A capitals abbreviation never replaces an ordinary lower-case word,
+        // not even on an exact key match: "des" is an article, not "DES".
+        if is_capitals_abbreviation(term_word) && has_lowercase(core) {
+            return None;
+        }
+        if fold_key(core) == fold_key(term_word) {
+            if core != *term_word {
+                corrected_spelling = true;
+            }
+            pieces.push(term_word.to_string());
+        } else if is_inflection_variant(core, term_word) || is_derived_form(core, term_word) {
+            kept_inflection = true;
+            pieces.push(core.to_string());
+        } else if word_close(core, term_word, matcher.threshold) {
+            corrected_spelling = true;
+            pieces.push(term_word.to_string());
+        } else {
+            return None;
+        }
+    }
+
+    // Hyphens, slashes and spaces the transcript lost are a spelling fix too.
+    let rejoined: String = pieces
+        .iter()
+        .zip(&seps)
+        .map(|(piece, sep)| format!("{}{}", piece, sep))
+        .collect();
+    let spoken_joined = span
+        .iter()
+        .map(|w| {
+            let (prefix, suffix) = extract_punctuation(w);
+            &w[prefix.len()..w.len() - suffix.len()]
+        })
+        .collect::<Vec<_>>()
+        .join(" ");
+    if rejoined != spoken_joined {
+        corrected_spelling = true;
+    }
+
+    if kept_inflection && !corrected_spelling {
+        Some(Resolution::KeepAsSpoken)
+    } else {
+        Some(Resolution::Replace(rejoined))
+    }
+}
+
+/// The canonical dictionary spelling, adjusted only where the transcript's
+/// casing carries meaning:
+///
+/// - a span written entirely in capitals keeps that ("CHARGE B" → "CHARGEBEE");
+///   a leading abbreviation alone ("AV Knoten …") does not count;
+/// - at the start of a sentence, a capital the transcript already had is kept
+///   even if the dictionary spells the term in lower case ("Paroxysmale …").
+///
+/// Otherwise the dictionary's own spelling wins, including umlauts, hyphens and
+/// slashes the transcript may have lost.
+fn adapt_case(span: &[&str], canonical: &str, at_sentence_start: bool) -> String {
+    let letters_upper = |w: &&str| {
+        let letters: Vec<char> = w.chars().filter(|c| c.is_alphabetic()).collect();
+        !letters.is_empty() && letters.iter().all(|c| c.is_uppercase())
+    };
+    let shouting = span.iter().all(letters_upper)
+        && span
+            .iter()
+            .any(|w| w.chars().filter(|c| c.is_alphabetic()).count() >= 2);
+    if shouting {
+        return canonical.to_uppercase();
+    }
+    let original_capitalised = span
+        .first()
+        .and_then(|w| w.chars().find(|c| c.is_alphabetic()))
+        .is_some_and(char::is_uppercase);
+    if at_sentence_start && original_capitalised {
+        let mut chars = canonical.chars();
+        if let Some(first) = chars.next() {
+            if first.is_lowercase() {
+                return first.to_uppercase().chain(chars).collect();
+            }
+        }
+    }
+    canonical.to_string()
 }
 
 /// Extracts punctuation prefix and suffix from a word
@@ -467,10 +1004,25 @@ mod tests {
     }
 
     #[test]
-    fn test_preserve_case_pattern() {
-        assert_eq!(preserve_case_pattern("HELLO", "world"), "WORLD");
-        assert_eq!(preserve_case_pattern("Hello", "world"), "World");
-        assert_eq!(preserve_case_pattern("hello", "WORLD"), "WORLD");
+    fn test_adapt_case() {
+        // A fully capitalised span stays capitalised.
+        assert_eq!(adapt_case(&["HELLO"], "world", false), "WORLD");
+        // A sentence-initial capital the transcript had is kept…
+        assert_eq!(adapt_case(&["Hello"], "world", true), "World");
+        // …but mid-sentence the dictionary's spelling wins.
+        assert_eq!(adapt_case(&["Hello"], "world", false), "world");
+        // An uncapitalised original never forces capitals.
+        assert_eq!(adapt_case(&["hello"], "WORLD", true), "WORLD");
+        assert_eq!(adapt_case(&["hello"], "world", true), "world");
+        // A leading abbreviation does not make the whole span "shouting".
+        assert_eq!(
+            adapt_case(
+                &["AV", "Knoten", "Reentrytachykardie"],
+                "AV-Knoten-Reentrytachykardie",
+                true
+            ),
+            "AV-Knoten-Reentrytachykardie"
+        );
     }
 
     #[test]
@@ -824,5 +1376,409 @@ mod tests {
         let custom_words = vec!["你号".to_string()];
         let result = apply_custom_words(text, &custom_words, 1.0);
         assert_eq!(result, text);
+    }
+
+    // -----------------------------------------------------------------------
+    // German medical regression suite. Terms are taken verbatim from the
+    // bundled dictionaries; threshold is the app default (0.18). Each negative
+    // case is a correct transcript that an unsafe corrector would change.
+    // -----------------------------------------------------------------------
+
+    const T: f64 = 0.18;
+
+    fn fix(text: &str, dict: &[&str]) -> String {
+        let dict: Vec<String> = dict.iter().map(|s| s.to_string()).collect();
+        apply_custom_words(text, &dict, T)
+    }
+
+    // --- positive: realistic ASR variants that should be repaired ----------
+
+    #[test]
+    fn de_umlaut_written_as_plain_vowel_is_restored() {
+        assert_eq!(
+            fix(
+                "mit linksventrikularer Ausflusstrakt",
+                &["linksventrikulärer Ausflusstrakt"]
+            ),
+            "mit linksventrikulärer Ausflusstrakt"
+        );
+        assert_eq!(
+            fix("ein Praexzitationssyndrom", &["Präexzitationssyndrom"]),
+            "ein Präexzitationssyndrom"
+        );
+    }
+
+    #[test]
+    fn de_sharp_s_written_as_ss_is_restored() {
+        assert_eq!(
+            fix("bekannte Mehrgefässerkrankung", &["Mehrgefäßerkrankung"]),
+            "bekannte Mehrgefäßerkrankung"
+        );
+    }
+
+    #[test]
+    fn de_ph_f_spelling_variant_is_normalised() {
+        assert_eq!(
+            fix("die Echokardiografie zeigte", &["Echokardiographie"]),
+            "die Echokardiographie zeigte"
+        );
+    }
+
+    #[test]
+    fn de_split_compounds_regain_hyphens_and_slashes() {
+        assert_eq!(
+            fix(
+                "Verdacht auf Wolff Parkinson White Syndrom",
+                &["Wolff-Parkinson-White-Syndrom"]
+            ),
+            "Verdacht auf Wolff-Parkinson-White-Syndrom"
+        );
+        assert_eq!(
+            fix(
+                "eine Torsade de Pointes Tachykardie",
+                &["Torsade-de-pointes-Tachykardie"]
+            ),
+            "eine Torsade-de-pointes-Tachykardie"
+        );
+        assert_eq!(
+            fix(
+                "Umstellung auf Sacubitril Valsartan",
+                &["Sacubitril/Valsartan"]
+            ),
+            "Umstellung auf Sacubitril/Valsartan"
+        );
+    }
+
+    #[test]
+    fn de_long_multiword_terms_are_reachable() {
+        // 53-character key, five words — beyond the old 50-char / 3-word limits.
+        assert_eq!(
+            fix(
+                "Herzinsuffizienz mit leicht reduzierter Ejektionsfraktio bekannt",
+                &["Herzinsuffizienz mit leicht reduzierter Ejektionsfraktion"]
+            ),
+            "Herzinsuffizienz mit leicht reduzierter Ejektionsfraktion bekannt"
+        );
+        assert_eq!(
+            fix(
+                "Stenose der Arteria karotis communis dextra",
+                &["Arteria carotis communis dextra"]
+            ),
+            "Stenose der Arteria carotis communis dextra"
+        );
+    }
+
+    #[test]
+    fn de_terms_with_digits_match_only_the_same_digits() {
+        assert_eq!(
+            fix("der CHA2DS2 VASc Score", &["CHA2DS2-VASc-Score"]),
+            "der CHA2DS2-VASc-Score"
+        );
+        assert_eq!(
+            fix("ein P2Y12 Inhibitor", &["P2Y12-Inhibitor"]),
+            "ein P2Y12-Inhibitor"
+        );
+        // T2 is never "corrected" into T1 — the digits differ.
+        assert_eq!(fix("im T2 Mapping", &["T1-Mapping"]), "im T2 Mapping");
+        assert_eq!(
+            fix("im T2 Mapping", &["T1-Mapping", "T2-Mapping"]),
+            "im T2-Mapping"
+        );
+    }
+
+    #[test]
+    fn de_drug_typo_is_fixed_and_its_dose_kept() {
+        assert_eq!(
+            fix("Bisoprolo 2,5 mg morgens", &["Bisoprolol", "Metoprolol"]),
+            "Bisoprolol 2,5 mg morgens"
+        );
+    }
+
+    // --- negative: correct transcripts that must stay exactly as they are --
+
+    #[test]
+    fn de_a_different_diagnosis_is_never_substituted() {
+        assert_eq!(
+            fix("Mitralklappenstenose", &["Mitralklappeninsuffizienz"]),
+            "Mitralklappenstenose"
+        );
+        assert_eq!(
+            fix(
+                "Z. n. Mitralklappenrekonstruktion",
+                &["Mitralklappeninsuffizienz", "Mitralklappenanulus"]
+            ),
+            "Z. n. Mitralklappenrekonstruktion"
+        );
+        assert_eq!(
+            fix(
+                "Herzinsuffizienz mit erhaltener Ejektionsfraktion",
+                &["Herzinsuffizienz mit reduzierter Ejektionsfraktion"]
+            ),
+            "Herzinsuffizienz mit erhaltener Ejektionsfraktion"
+        );
+    }
+
+    /// Opposite findings that differ by only a few letters. The dictionary
+    /// holds one side; the transcript correctly says the other.
+    #[test]
+    fn de_opposite_findings_are_never_substituted() {
+        assert_eq!(
+            fix("bekannte arterielle Hypotonie", &["arterielle Hypertonie"]),
+            "bekannte arterielle Hypotonie"
+        );
+        assert_eq!(fix("Hypotonie", &["Hypertonie"]), "Hypotonie");
+        assert_eq!(
+            fix("Sinusbradykardie", &["Sinustachykardie"]),
+            "Sinusbradykardie"
+        );
+        assert_eq!(
+            fix(
+                "im rechtsventrikulären Ausflusstrakt",
+                &["linksventrikulärer Ausflusstrakt"]
+            ),
+            "im rechtsventrikulären Ausflusstrakt"
+        );
+        assert_eq!(
+            fix(
+                "im rechtsventrikulärer Ausflusstrakt",
+                &["linksventrikulärer Ausflusstrakt"]
+            ),
+            "im rechtsventrikulärer Ausflusstrakt"
+        );
+    }
+
+    #[test]
+    fn de_sides_are_never_swapped() {
+        let dict = [
+            "Arteria carotis communis dextra",
+            "Arteria carotis communis sinistra",
+        ];
+        assert_eq!(
+            fix("Arteria carotis communis sinistra", &dict),
+            "Arteria carotis communis sinistra"
+        );
+        assert_eq!(
+            fix("Arteria carotis communis dextra", &dict),
+            "Arteria carotis communis dextra"
+        );
+    }
+
+    #[test]
+    fn de_negations_are_never_removed_or_absorbed() {
+        let dict = ["Aortenklappenstenose", "Perikarderguss"];
+        assert_eq!(
+            fix("kein Aortenklappenstenose", &dict),
+            "kein Aortenklappenstenose"
+        );
+        assert_eq!(
+            fix("keine Aortenklappenstenose", &dict),
+            "keine Aortenklappenstenose"
+        );
+        assert_eq!(fix("kein Perikardergus", &dict), "kein Perikarderguss");
+        assert_eq!(fix("nicht Perikarderguss", &dict), "nicht Perikarderguss");
+        assert_eq!(fix("ohne Perikarderguss", &dict), "ohne Perikarderguss");
+    }
+
+    #[test]
+    fn de_inflected_forms_are_left_as_spoken() {
+        assert_eq!(
+            fix("mehrere Aortenklappenstenosen", &["Aortenklappenstenose"]),
+            "mehrere Aortenklappenstenosen"
+        );
+        assert_eq!(
+            fix(
+                "des linksventrikulären Ausflusstrakts",
+                &["linksventrikulärer Ausflusstrakt"]
+            ),
+            "des linksventrikulären Ausflusstrakts"
+        );
+    }
+
+    #[test]
+    fn de_ordinary_words_are_not_turned_into_terms() {
+        assert_eq!(
+            fix("Urlaub in den Tropen", &["Troponin"]),
+            "Urlaub in den Tropen"
+        );
+        assert_eq!(fix("ich habe ein EKG", &["EKG"]), "ich habe ein EKG");
+        assert_eq!(
+            fix("Die Werte sind normal", &["Aorta", "Ileus"]),
+            "Die Werte sind normal"
+        );
+    }
+
+    #[test]
+    fn de_numbers_and_doses_are_never_changed() {
+        let dict = ["Ramipril", "Bisoprolol"];
+        assert_eq!(fix("Ramipril 5 mg täglich", &dict), "Ramipril 5 mg täglich");
+        assert_eq!(fix("Ramipril 2,5 mg", &dict), "Ramipril 2,5 mg");
+        assert_eq!(
+            fix("Bisoprolol 10 mg 1-0-0", &dict),
+            "Bisoprolol 10 mg 1-0-0"
+        );
+        assert_eq!(fix("RR 135/85 mmHg", &dict), "RR 135/85 mmHg");
+    }
+
+    #[test]
+    fn de_sentence_boundaries_are_respected() {
+        assert_eq!(
+            fix("Vorhof. Flimmern", &["Vorhofflimmern"]),
+            "Vorhof. Flimmern"
+        );
+    }
+
+    #[test]
+    fn de_near_equal_drug_candidates_cause_abstention() {
+        // One edit to Nifedipin, two to Nitrendipin: too close to call.
+        assert_eq!(
+            fix("Gabe von Nitedipin", &["Nifedipin", "Nitrendipin"]),
+            "Gabe von Nitedipin"
+        );
+        // With only one plausible drug, the fix is made.
+        assert_eq!(
+            fix("Gabe von Nitedipin", &["Nifedipin"]),
+            "Gabe von Nifedipin"
+        );
+        let report = correct_with_vocabulary(
+            "Gabe von Nitedipin",
+            &["Nifedipin".to_string(), "Nitrendipin".to_string()],
+            T,
+        );
+        assert_eq!(report.ambiguous_spans, vec!["Nitedipin".to_string()]);
+    }
+
+    #[test]
+    fn de_report_lists_every_replacement_and_kept_inflection() {
+        let report = correct_with_vocabulary(
+            "Echokardiografie ohne Aortenklappenstenosen",
+            &[
+                "Echokardiographie".to_string(),
+                "Aortenklappenstenose".to_string(),
+            ],
+            T,
+        );
+        assert_eq!(report.text, "Echokardiographie ohne Aortenklappenstenosen");
+        let kinds: Vec<CorrectionKind> = report.events.iter().map(|e| e.kind).collect();
+        assert_eq!(
+            kinds,
+            vec![CorrectionKind::Replaced, CorrectionKind::KeptInflected]
+        );
+        assert_eq!(report.events[0].original, "Echokardiografie");
+        assert_eq!(report.events[0].term, "Echokardiographie");
+    }
+
+    #[test]
+    fn de_correct_terms_are_untouched_and_unreported() {
+        let report = correct_with_vocabulary(
+            "Die Echokardiographie war unauffällig.",
+            &["Echokardiographie".to_string()],
+            T,
+        );
+        assert_eq!(report.text, "Die Echokardiographie war unauffällig.");
+        assert!(report.events.is_empty());
+    }
+
+    // Found by the synthetic benchmark run on 2026-09-19: each of these was a
+    // correct transcript that the corrector damaged.
+
+    #[test]
+    fn de_a_term_is_not_padded_with_a_word_the_speaker_did_not_say() {
+        // Only the CT variant was in the active pool.
+        assert_eq!(
+            fix(
+                "zur Koronarangiographie aufgenommen",
+                &["CT-Koronarangiographie"]
+            ),
+            "zur Koronarangiographie aufgenommen"
+        );
+        // Joining without any edit is still a legitimate repair.
+        assert_eq!(
+            fix("eine Sinustachykardie", &["Sinus-Tachykardie"]),
+            "eine Sinus-Tachykardie"
+        );
+    }
+
+    #[test]
+    fn de_derived_words_keep_their_part_of_speech() {
+        assert_eq!(
+            fix("Echokardiographisch zeigte sich", &["Echokardiographie"]),
+            "Echokardiographisch zeigte sich"
+        );
+        assert_eq!(
+            fix("echokardiographische Kontrolle", &["Echokardiographie"]),
+            "echokardiographische Kontrolle"
+        );
+    }
+
+    #[test]
+    fn de_a_changed_onset_is_not_a_spelling_slip() {
+        assert_eq!(
+            fix(
+                "Die linksventrikuläre Funktion war erhalten.",
+                &["Punktion"]
+            ),
+            "Die linksventrikuläre Funktion war erhalten."
+        );
+        // Onset classes still cover real spelling variants.
+        assert_eq!(
+            fix("Arteria karotis communis", &["Arteria carotis communis"]),
+            "Arteria carotis communis"
+        );
+        assert_eq!(fix("Fenprocoumon", &["Phenprocoumon"]), "Phenprocoumon");
+    }
+
+    #[test]
+    fn de_capitals_abbreviations_never_replace_ordinary_words() {
+        assert_eq!(
+            fix("Pointe des Tachykardie", &["DES"]),
+            "Pointe des Tachykardie"
+        );
+        assert_eq!(fix("Des Weiteren", &["DES"]), "Des Weiteren");
+        // Written in capitals, the abbreviation is still recognised.
+        assert_eq!(
+            fix("Implantation eines DES", &["DES"]),
+            "Implantation eines DES"
+        );
+        assert_eq!(fix("bei N S T E M E", &["NSTEMI"]), "bei NSTEMI");
+        assert_eq!(fix("bei n s t e m i", &["NSTEMI"]), "bei n s t e m i");
+    }
+
+    /// Guards against pathological slowdowns with the full bundled vocabulary —
+    /// every module at its largest tier, which is the worst case a user can
+    /// configure (~9 900 terms).
+    ///
+    /// Measured 2026-09-20 on an M5: the release build needs 0.33 s for a
+    /// 130-word dictation against that pool, the debug build roughly 30x that.
+    /// The sentence is kept short so the suite stays quick; the bound is
+    /// deliberately generous (debug build, shared CI machines), and the
+    /// benchmark harness is where real latency is measured.
+    #[test]
+    fn de_full_vocabulary_stays_fast() {
+        let dir = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("dictionaries/de");
+        let mut pool: Vec<String> = Vec::new();
+        for entry in std::fs::read_dir(dir).unwrap() {
+            let raw = std::fs::read_to_string(entry.unwrap().path()).unwrap();
+            pool.extend(
+                raw.lines()
+                    .map(str::trim)
+                    .filter(|l| !l.is_empty() && !l.starts_with('#'))
+                    .map(String::from),
+            );
+        }
+        assert!(
+            pool.len() > 1000,
+            "expected the full bundle, got {}",
+            pool.len()
+        );
+        let sentence = "Bei Aufnahme zeigte sich in der Echokardiografie eine hochgradige \
+            Aortenklappenstenose ohne Perikarderguss, Ramipril 5 mg wurde fortgeführt. ";
+        let text = sentence.repeat(2); // ~33 words, a short dictation
+        let started = std::time::Instant::now();
+        let out = apply_custom_words(&text, &pool, T);
+        let elapsed = started.elapsed();
+        assert!(out.contains("Echokardiographie"));
+        assert!(out.contains("ohne Perikarderguss"));
+        assert!(out.contains("Ramipril 5 mg"));
+        assert!(elapsed.as_secs_f64() < 10.0, "took {:?}", elapsed);
     }
 }
