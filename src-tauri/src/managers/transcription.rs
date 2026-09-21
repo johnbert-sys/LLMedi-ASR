@@ -1,8 +1,9 @@
 use crate::audio_toolkit::{
-    apply_custom_words, detect_output_language, normalize_transcription_output,
-    remove_filler_words, OutputLanguageEvidence,
+    detect_output_language, normalize_transcription_output, remove_filler_words,
+    OutputLanguageEvidence,
 };
 use crate::managers::audio::AudioRecordingManager;
+use crate::managers::context_window::{fit_context, ContextTokenLimit};
 use crate::managers::model::{EngineType, ModelManager};
 use crate::settings::{
     get_settings, AppSettings, ModelUnloadTimeout, OrtAcceleratorSetting,
@@ -38,6 +39,230 @@ use transcribe_rs::{
 
 const STREAM_PERF_LOG_INTERVAL: Duration = Duration::from_secs(5);
 const STREAM_FINALIZE_REPLY_TIMEOUT: Duration = Duration::from_secs(30);
+/// Whisper's *selection* budget, counted in terms.
+///
+/// This is how many terms are picked, not how many reach the model: whisper
+/// keeps at most 223 prompt tokens, and German medical terms cost about eight
+/// tokens each with its tokenizer (measured with whisper-large-v3-turbo: 120
+/// terms = 995 tokens, 23 fit). The earlier rationale here ("~2 tokens per
+/// term") was wrong by a factor of four. The real cut is now made in tokens by
+/// `context_window::fit_context`, which keeps the highest-priority prefix and
+/// defers the rest to fuzzy correction; this number only bounds how many
+/// candidates that fitting considers.
+pub const WHISPER_CONTEXT_BUDGET: usize = 120;
+
+/// Conservative starting *selection* budget for an LLM-style decoder
+/// (qwen3_asr and relatives), counted in terms.
+///
+/// Not a model limit. Measured on Qwen3-ASR-1.7B: the decoder window is 65 536
+/// tokens and 120 selected terms cost 947 tokens, so the window is rarely what
+/// binds for dictation-length audio; `context_window::fit_context` still checks
+/// every run against it, including long clips where audio and context compete.
+/// The value is a deliberate caution — an over-stuffed biasing context invites
+/// the model to emit terms that were never spoken — and stays equal to
+/// whisper's until the benchmark shows a better one. Choosing it is an open
+/// decision, not a result.
+pub const LLM_DECODER_CONTEXT_BUDGET: usize = 120;
+
+/// How a model takes biasing terms. The two channels are genuinely different
+/// API surfaces, not styles of the same one.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum ContextChannel {
+    /// Whisper's decode prompt, carried by the whisper-tagged run extension.
+    /// Kind-checked natively, so it may only be attached to a whisper model.
+    InitialPrompt,
+    /// `RunOptions::context` — free background text a model uses to bias
+    /// recognition of names and jargon. Explicitly *not* an instruction prompt,
+    /// and passed through byte-for-byte by the library.
+    RecognitionContext,
+}
+
+/// Decode-time context biasing — an initial prompt, hotword list or system
+/// prompt vocabulary — that a loaded model can actually receive *through the
+/// backend this app calls*.
+///
+/// Deliberately a property of the ASR layer rather than the dictionary layer:
+/// `crate::dictionaries` only knows how to pick the best N terms, and the
+/// backend decides whether it can deliver any and how many.
+///
+/// `budget` counts terms, not tokens. A token budget would be the better unit
+/// ("Herz" and "transkatheter Aortenklappenimplantation" are not equally
+/// expensive), and the shape here allows that later: the field and
+/// [`crate::dictionaries::context_vocabulary`]'s parameter change together,
+/// with no effect on module selection or tiers.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct ContextBiasing {
+    /// `None` when the model takes no biasing terms at all.
+    pub channel: Option<ContextChannel>,
+    pub budget: usize,
+}
+
+impl ContextBiasing {
+    pub const NONE: Self = ContextBiasing {
+        channel: None,
+        budget: 0,
+    };
+
+    pub fn supported(self) -> bool {
+        self.channel.is_some()
+    }
+
+    /// The terms to hand this model, already budgeted and fairly shared across
+    /// the active dictionary modules. Empty when the model takes no context —
+    /// the full pool then reaches fuzzy post-correction instead.
+    pub fn terms(self, settings: &AppSettings) -> Vec<String> {
+        if !self.supported() {
+            return Vec::new();
+        }
+        crate::dictionaries::context_vocabulary(settings, self.budget)
+    }
+}
+
+/// How a loaded transcribe-cpp model can receive biasing terms.
+///
+/// `supports_recognition_context` is the model's own `Feature::Context` probe,
+/// passed in rather than read here so this stays a pure function.
+///
+/// Whisper is matched on its architecture, not on a feature: its channel is the
+/// kind-tagged whisper run extension, which is rejected with INVALID_ARG on any
+/// other arch (see #1601) — a feature flag alone would not make it safe to
+/// attach. Every other model goes through `RunOptions::context`, which is a
+/// plain field with no kind check, so probing the capability is both sufficient
+/// and future-proof: a new arch that advertises it works without a code change.
+pub fn transcribe_cpp_context_biasing(
+    arch: &str,
+    supports_recognition_context: bool,
+) -> ContextBiasing {
+    if arch == "whisper" {
+        return ContextBiasing {
+            channel: Some(ContextChannel::InitialPrompt),
+            budget: WHISPER_CONTEXT_BUDGET,
+        };
+    }
+    if supports_recognition_context {
+        return ContextBiasing {
+            channel: Some(ContextChannel::RecognitionContext),
+            budget: LLM_DECODER_CONTEXT_BUDGET,
+        };
+    }
+    ContextBiasing::NONE
+}
+
+/// Render biasing terms into the string a backend sends to the model.
+///
+/// A bare comma-separated list. It is what whisper's initial prompt expects,
+/// and it suits a recognition context too: upstream documents that field as
+/// background text kept byte-for-byte and explicitly *not* an instruction, so
+/// framing it with a sentence would only add tokens the model might echo.
+/// Multi-word terms stay whole — nothing here splits on whitespace. No scores,
+/// module names, rankings or other metadata ever appear: the dictionary layer
+/// hands over terms only.
+pub fn format_context_terms(terms: &[String]) -> String {
+    terms.join(", ")
+}
+
+/// Run a transcription; if it fails while a biasing context was attached, run
+/// it once more without one.
+///
+/// A context can push a model into a loop until it hits its output cap —
+/// measured on Qwen3-ASR with "Atorvastatin 40 mg zur Nacht" and 240+ context
+/// terms — and the run then errors out. Losing the dictation to the context is
+/// never acceptable, so the context is dropped instead. Returns the result and
+/// whether the retry was needed; the caller must then hand fuzzy correction the
+/// whole pool, since the model saw no context after all.
+pub fn run_with_context_fallback(
+    session: &mut transcribe_cpp::Session,
+    audio: &[f32],
+    options: &RunOptions,
+) -> (transcribe_cpp::Result<transcribe_cpp::Transcript>, bool) {
+    let had_context = options.context.is_some() || options.family.is_some();
+    match session.run(audio, options) {
+        Err(error) if had_context => {
+            warn!(
+                "transcription with biasing context failed ({}); retrying without context",
+                error
+            );
+            let mut bare = options.clone();
+            bare.context = None;
+            bare.family = None;
+            (session.run(audio, &bare), true)
+        }
+        other => (other, false),
+    }
+}
+
+/// What the most recent transcription actually did with the vocabulary, kept so
+/// the settings page can show it. Numbers only — no transcript text.
+#[derive(Debug, Clone, Serialize, Deserialize, Type)]
+pub struct LastContextUsage {
+    pub model_arch: String,
+    /// Terms the term budget selected.
+    pub selected: u32,
+    /// Terms actually sent to the model.
+    pub sent: u32,
+    /// Selected terms that did not fit the token window; covered by fuzzy
+    /// correction instead.
+    pub deferred: u32,
+    /// Measured token cost of what was sent, if the tokenizer could measure it.
+    pub context_tokens: Option<u32>,
+    /// Token room the backend left the context, if it reported one.
+    pub context_room: Option<u32>,
+    /// Size of the active pool fuzzy correction drew from.
+    pub pool: u32,
+    /// The run failed with context and was repeated without it.
+    pub fell_back_without_context: bool,
+}
+
+static LAST_CONTEXT_USAGE: std::sync::Mutex<Option<LastContextUsage>> = std::sync::Mutex::new(None);
+
+fn remember_context_usage(usage: LastContextUsage) {
+    if let Ok(mut slot) = LAST_CONTEXT_USAGE.lock() {
+        *slot = Some(usage);
+    }
+}
+
+fn mark_context_fallback() {
+    if let Ok(mut slot) = LAST_CONTEXT_USAGE.lock() {
+        if let Some(usage) = slot.as_mut() {
+            usage.fell_back_without_context = true;
+            usage.sent = 0;
+            usage.context_tokens = Some(0);
+        }
+    }
+}
+
+#[tauri::command]
+#[specta::specta]
+pub fn get_last_context_usage() -> Option<LastContextUsage> {
+    LAST_CONTEXT_USAGE.lock().ok().and_then(|slot| slot.clone())
+}
+
+/// Put the rendered biasing terms into whichever `RunOptions` slot `biasing`
+/// names, leaving both untouched for a model that takes none rather than
+/// forcing an extension the native side would reject.
+///
+/// This is the single place that knows how a context reaches a model, shared by
+/// the live transcription path and the benchmark harness so the two can never
+/// drift apart.
+pub fn apply_context_to_run_options(
+    biasing: ContextBiasing,
+    terms: &[String],
+    options: &mut RunOptions,
+) {
+    let rendered = (!terms.is_empty()).then(|| format_context_terms(terms));
+    match biasing.channel {
+        Some(ContextChannel::InitialPrompt) => {
+            options.family = rendered.map(|prompt| {
+                RunExtension::Whisper(WhisperRunOptions {
+                    initial_prompt: Some(prompt),
+                    ..Default::default()
+                })
+            });
+        }
+        Some(ContextChannel::RecognitionContext) => options.context = rendered,
+        None => {}
+    }
+}
 
 fn panic_payload_message(payload: &(dyn std::any::Any + Send)) -> String {
     if let Some(message) = payload.downcast_ref::<&str>() {
@@ -1125,11 +1350,10 @@ impl TranscriptionManager {
 
         let settings = get_settings(&self.app_handle);
         // Streaming models do not receive a decode prompt, so custom words
-        // always go through the shared fuzzy post-correction path.
+        // reach the text only through the shared fuzzy post-correction path.
         let filtered = post_process_transcription_text(
             finalized.text,
             &settings,
-            false,
             &finalized.output_language,
             &finalized.supported_languages,
         );
@@ -1224,18 +1448,16 @@ impl TranscriptionManager {
             );
         }
 
-        // Whether the loaded transcribe-cpp model advertises
-        // Feature::InitialPrompt. Informational (logged below); the whisper
-        // run extension and the fuzzy-correction skip are gated on
-        // `model_is_whisper` instead, since non-whisper archs can advertise
-        // the feature while rejecting the whisper-kind extension.
-        let mut model_takes_initial_prompt = false;
-        // Whether the loaded model is actually whisper-family (arch string).
-        // Non-whisper archs (e.g. Voxtral Small) can advertise
-        // Feature::InitialPrompt yet reject the whisper-kind run extension
-        // with INVALID_ARG, so the whisper extension must be gated on the
-        // arch, not on the feature (see #1601).
-        let mut model_is_whisper = false;
+        // Filled in once the loaded model's architecture is known, since what
+        // it can receive as context — and how much — is a property of the
+        // model, not a global constant. `context_words` outlives the engine
+        // block because post-correction needs to know what the model already
+        // saw.
+        let mut context_biasing = ContextBiasing::NONE;
+        let context_words: Vec<String>;
+        let mut fitted_context: Option<Vec<String>> = None;
+        // Set when a run with context failed and was repeated without it.
+        let mut context_fell_back = false;
 
         // Perform transcription with the appropriate engine.
         // We use catch_unwind to prevent engine panics from poisoning the mutex,
@@ -1275,8 +1497,14 @@ impl TranscriptionManager {
             if let LoadedEngine::TranscribeCpp(session) = &engine {
                 let model = session.model();
                 let caps = model.capabilities();
-                model_takes_initial_prompt = model.supports(Feature::InitialPrompt);
-                model_is_whisper = model.arch() == "whisper";
+                // Informational only: the whisper extension is gated on the
+                // architecture inside `transcribe_cpp_context_biasing`, because
+                // a non-whisper arch (Voxtral Small) can advertise
+                // Feature::InitialPrompt and still reject the whisper-kind
+                // extension with INVALID_ARG (#1601).
+                let model_takes_initial_prompt = model.supports(Feature::InitialPrompt);
+                context_biasing =
+                    transcribe_cpp_context_biasing(&model.arch(), model.supports(Feature::Context));
                 model_supports_translate = caps.supports_translate;
                 model_languages = caps.languages;
                 debug!(
@@ -1287,25 +1515,63 @@ impl TranscriptionManager {
                     model_supports_translate,
                     model_languages
                 );
+
+                // Select by the term budget, then fit what was selected into the
+                // token room this model and this clip actually leave. Terms that
+                // do not fit are deferred to fuzzy correction rather than handed
+                // to a backend that would silently cut them.
+                let selected = context_biasing.terms(&settings);
+                if !selected.is_empty() {
+                    let (n_ctx, max_audio_ms) = session
+                        .limits()
+                        .map(|l| (l.effective_n_ctx as i64, l.effective_max_audio_ms))
+                        .unwrap_or((0, 0));
+                    let limit = ContextTokenLimit::for_channel(
+                        context_biasing.channel,
+                        n_ctx,
+                        max_audio_ms,
+                    );
+                    let audio_ms = (audio.len() as u64 * 1000) / 16_000;
+                    let tokenize = |text: &str| model.tokenize(text).ok().map(|t| t.len());
+                    let fit = fit_context(&selected, limit, audio_ms, &tokenize);
+                    let pool = crate::dictionaries::full_vocabulary(&settings).len();
+                    info!(
+                        "context: pool={} selected={} sent={} deferred={} tokens={} room={} audio_tokens={} verified={}",
+                        pool,
+                        selected.len(),
+                        fit.sent.len(),
+                        fit.deferred.len(),
+                        fit.context_tokens.map_or("?".into(), |t| t.to_string()),
+                        fit.context_room.map_or("?".into(), |t| t.to_string()),
+                        fit.audio_tokens.map_or("-".into(), |t| t.to_string()),
+                        fit.verified()
+                    );
+                    if !fit.deferred.is_empty() {
+                        debug!("context deferred to fuzzy correction: {:?}", fit.deferred);
+                    }
+                    remember_context_usage(LastContextUsage {
+                        model_arch: model.arch(),
+                        selected: selected.len() as u32,
+                        sent: fit.sent.len() as u32,
+                        deferred: fit.deferred.len() as u32,
+                        context_tokens: fit.context_tokens.map(|t| t as u32),
+                        context_room: fit.context_room.map(|t| t as u32),
+                        pool: pool as u32,
+                        fell_back_without_context: false,
+                    });
+                    fitted_context = Some(fit.sent);
+                }
             }
+
+            // Terms the loaded model actually receives: budgeted for its
+            // architecture, fairly shared across the active dictionary modules
+            // and fitted into its token window. Empty for a model that accepts
+            // none — its vocabulary then reaches fuzzy post-correction in full.
+            context_words = fitted_context.take().unwrap_or_default();
 
             let transcribe_result = catch_unwind(AssertUnwindSafe(|| -> Result<String> {
                 match &mut engine {
                     LoadedEngine::TranscribeCpp(session) => {
-                        // Custom words become the initial prompt ONLY for models
-                        // that accept one (whisper family). Attaching the
-                        // whisper run extension to a non-whisper arch is rejected
-                        // with INVALID_ARG, so skip it there and let the fuzzy
-                        // post-correction handle custom words instead.
-                        let family = if settings.custom_words.is_empty() || !model_is_whisper {
-                            None
-                        } else {
-                            Some(RunExtension::Whisper(WhisperRunOptions {
-                                initial_prompt: Some(settings.custom_words.join(", ")),
-                                ..Default::default()
-                            }))
-                        };
-
                         let run_plan = transcribe_cpp_run_plan(
                             settings.translate_to_english,
                             &validated_language,
@@ -1315,23 +1581,30 @@ impl TranscriptionManager {
                         output_was_translated = run_plan.target_language.as_deref() == Some("en");
                         applied_language_hint = run_plan.language.clone();
 
-                        let run_options = RunOptions {
+                        let mut run_options = RunOptions {
                             task: run_plan.task,
                             language: run_plan.language,
                             target_language: run_plan.target_language,
-                            family,
                             ..Default::default()
                         };
-
-                        debug!(
-                            "transcribe-cpp run: task={:?}, language={:?}, initial_prompt={}",
-                            run_options.task,
-                            run_options.language,
-                            run_options.family.is_some()
+                        apply_context_to_run_options(
+                            context_biasing,
+                            &context_words,
+                            &mut run_options,
                         );
 
-                        session
-                            .run(&audio, &run_options)
+                        debug!(
+                            "transcribe-cpp run: task={:?}, language={:?}, channel={:?}, terms={}",
+                            run_options.task,
+                            run_options.language,
+                            context_biasing.channel,
+                            context_words.len()
+                        );
+
+                        let (outcome, fell_back) =
+                            run_with_context_fallback(session, &audio, &run_options);
+                        context_fell_back = fell_back;
+                        outcome
                             .map(|t| {
                                 // Whisper's audio-based LID (auto mode only;
                                 // `None` when a language hint was passed).
@@ -1478,18 +1751,16 @@ impl TranscriptionManager {
             (text, output_language, model_languages)
         };
 
-        // Apply fuzzy word correction if custom words are configured — UNLESS the
-        // words were already handed to the model as an initial prompt (whisper
-        // family). We don't pass a prompt to non-whisper models (it requires the
-        // whisper-kind run extension), so they still get fuzzy correction here,
-        // same as the ONNX engines.
-        let filtered_result = post_process_transcription_text(
-            result,
-            &settings,
-            model_is_whisper,
-            &output_language,
-            &model_languages,
-        );
+        if context_fell_back {
+            mark_context_fallback();
+        }
+        // Fuzzy correction always works against the *whole* active pool,
+        // including the terms the model already received as context: a term in
+        // the prompt is no guarantee the model used it. Whether a run sent
+        // context, sent none, or fell back after a failure therefore makes no
+        // difference here.
+        let filtered_result =
+            post_process_transcription_text(result, &settings, &output_language, &model_languages);
 
         let et = std::time::Instant::now();
         let translation_note = if settings.translate_to_english {
@@ -1759,20 +2030,52 @@ fn transcribe_cpp_run_plan(
     }
 }
 
+/// Fuzzy-correct and normalise a finished transcript.
+///
+/// The correction pool is the *whole* active vocabulary
+/// ([`crate::dictionaries::full_vocabulary`]), regardless of what the model was
+/// given as context: terms that were sent stay available for the comparison
+/// afterwards, because a term appearing in a prompt does not mean the model
+/// wrote it. This is the arrangement the benchmark calls strategy D; the
+/// earlier one (pool minus context, strategy C) remains available there for
+/// comparison. Which of the two is better for real dictation is not settled —
+/// that needs recordings from human speakers, not synthetic ones.
 fn post_process_transcription_text(
     raw: String,
     settings: &AppSettings,
-    custom_words_already_prompted: bool,
     output_language: &OutputLanguageEvidence,
     supported_languages: &[String],
 ) -> String {
     fail_open_text_transform(raw, |raw| {
-        let corrected = if !settings.custom_words.is_empty() && !custom_words_already_prompted {
-            apply_custom_words(
+        let fuzzy_words = crate::dictionaries::full_vocabulary(settings);
+        let corrected = if !fuzzy_words.is_empty() {
+            let report = crate::audio_toolkit::correct_with_vocabulary(
                 &raw,
-                &settings.custom_words,
+                &fuzzy_words,
                 settings.word_correction_threshold,
-            )
+            );
+            let replaced = report
+                .events
+                .iter()
+                .filter(|e| e.kind == crate::audio_toolkit::CorrectionKind::Replaced)
+                .count();
+            info!(
+                "fuzzy correction: pool={} replaced={} kept_inflected={} skipped_ambiguous={}",
+                fuzzy_words.len(),
+                replaced,
+                report.events.len() - replaced,
+                report.ambiguous_spans.len()
+            );
+            for event in &report.events {
+                debug!(
+                    "fuzzy {:?}: '{}' -> '{}' (score {:.3})",
+                    event.kind,
+                    crate::utils::redact_text(&event.original),
+                    event.term,
+                    event.score
+                );
+            }
+            report.text
         } else {
             raw
         };
@@ -2148,6 +2451,366 @@ mod tests {
         codes.iter().map(|code| (*code).to_string()).collect()
     }
 
+    // ---------------------------------------------------------------------
+    // Dictionary → allocator → backend → model context
+    //
+    // These walk the same two steps the run path takes for a loaded model:
+    // `transcribe_cpp_context_biasing(arch)` decides what the model may
+    // receive, `ContextBiasing::terms` fills the budget, and
+    // `format_context_terms` renders exactly the string handed to the engine.
+    // Only the native call itself (which needs a real model on disk) is left
+    // out.
+    // ---------------------------------------------------------------------
+
+    /// Build the very `RunOptions` the run path hands to `session.run()` for a
+    /// model of `arch`, so a test can read the context out of the same struct
+    /// that crosses the FFI boundary rather than out of an intermediate list.
+    ///
+    /// Mirrors the channel dispatch in `transcribe`: the rendered terms go into
+    /// `RunOptions::context` for a recognition-context model and into the
+    /// whisper run extension's `initial_prompt` for whisper.
+    fn run_options_for(settings: &AppSettings, arch: &str, supports_context: bool) -> RunOptions {
+        let biasing = transcribe_cpp_context_biasing(arch, supports_context);
+        let terms = biasing.terms(settings);
+        let rendered = (!terms.is_empty()).then(|| format_context_terms(&terms));
+        let (family, context) = match biasing.channel {
+            Some(ContextChannel::InitialPrompt) => (
+                rendered.map(|prompt| {
+                    RunExtension::Whisper(WhisperRunOptions {
+                        initial_prompt: Some(prompt),
+                        ..Default::default()
+                    })
+                }),
+                None,
+            ),
+            Some(ContextChannel::RecognitionContext) => (None, rendered),
+            None => (None, None),
+        };
+        RunOptions {
+            family,
+            context,
+            ..Default::default()
+        }
+    }
+
+    /// The recognition context actually sitting in `RunOptions::context`.
+    fn qwen_run_context(settings: &AppSettings) -> Option<String> {
+        run_options_for(settings, "qwen3_asr", true).context
+    }
+
+    /// The initial prompt actually sitting in the whisper run extension.
+    fn whisper_run_prompt(settings: &AppSettings) -> Option<String> {
+        match run_options_for(settings, "whisper", false).family {
+            Some(RunExtension::Whisper(options)) => options.initial_prompt,
+            _ => None,
+        }
+    }
+
+    /// The context string a model would be given through whichever channel it
+    /// uses, or `None` when it takes none.
+    fn model_context_string(
+        settings: &AppSettings,
+        arch: &str,
+        supports_context: bool,
+    ) -> Option<String> {
+        let options = run_options_for(settings, arch, supports_context);
+        options.context.or(match options.family {
+            Some(RunExtension::Whisper(w)) => w.initial_prompt,
+            _ => None,
+        })
+    }
+
+    /// Dictionaries switched on for both steps — post-correction over the whole
+    /// list, context selection limited by the tier.
+    fn settings_with(dictionaries: &[&str]) -> AppSettings {
+        let mut settings = crate::settings::get_default_settings();
+        settings.active_dictionaries = dictionaries.iter().map(|d| d.to_string()).collect();
+        settings.context_dictionaries = settings.active_dictionaries.clone();
+        settings
+    }
+
+    #[test]
+    fn whisper_receives_a_medical_context_built_from_the_active_dictionary() {
+        let settings = settings_with(&["internal_cardiology"]);
+        let context = whisper_run_prompt(&settings).expect("whisper takes context");
+        // A high-priority cardiology term reaches the actual model string, not
+        // just the dictionary layer's return value.
+        assert!(
+            context.contains("AV-Knoten-Reentrytachykardie"),
+            "context was: {}",
+            context
+        );
+        // Multi-word terms survive the trip intact.
+        assert!(context.contains("paroxysmale supraventrikuläre Tachykardie"));
+        // No metadata rides along.
+        assert!(!context.contains("rank") && !context.contains("module_id"));
+    }
+
+    #[test]
+    fn model_context_stays_within_the_architecture_budget() {
+        let settings = settings_with(&["internal_cardiology", "core_medical"]);
+        let terms = transcribe_cpp_context_biasing("whisper", false).terms(&settings);
+        assert_eq!(terms.len(), WHISPER_CONTEXT_BUDGET);
+        // The rendered string carries exactly those terms, comma separated.
+        let context = format_context_terms(&terms);
+        assert_eq!(context.split(", ").count(), WHISPER_CONTEXT_BUDGET);
+    }
+
+    #[test]
+    fn every_active_module_is_represented_in_the_model_context() {
+        let ids = [
+            "internal_cardiology",
+            "anatomy_heart_vessels",
+            "meds_cardiology_generic",
+        ];
+        let settings = settings_with(&ids);
+        let context = whisper_run_prompt(&settings).unwrap();
+        // One recognisable term from each module's top ranks.
+        assert!(
+            context.contains("Tachykardie-Bradykardie-Syndrom"),
+            "cardiology missing"
+        );
+        assert!(
+            context.contains("Sinus transversus pericardii"),
+            "anatomy missing"
+        );
+        assert!(
+            context.contains("unfraktioniertes Heparin"),
+            "medication missing"
+        );
+    }
+
+    #[test]
+    fn a_personal_word_leads_the_model_context() {
+        let mut settings = settings_with(&["internal_cardiology"]);
+        settings.custom_words = vec!["Blatt-Schmidt-Zeichen".to_string()];
+        let context = whisper_run_prompt(&settings).unwrap();
+        assert!(
+            context.starts_with("Blatt-Schmidt-Zeichen, "),
+            "context was: {}",
+            context
+        );
+    }
+
+    #[test]
+    fn a_term_beyond_the_budget_is_absent_from_the_context_but_kept_for_correction() {
+        let mut settings = settings_with(&["internal_cardiology"]);
+        settings
+            .dictionary_levels
+            .insert("internal_cardiology".to_string(), 500);
+        let terms = transcribe_cpp_context_biasing("whisper", false).terms(&settings);
+        let context = format_context_terms(&terms);
+
+        let full = crate::dictionaries::full_vocabulary(&settings);
+        let dropped = &full[WHISPER_CONTEXT_BUDGET + 20];
+        assert!(
+            !context.contains(dropped.as_str()),
+            "{} should not be in context",
+            dropped
+        );
+
+        // Correction draws on the whole pool (strategy D), so the dropped term
+        // is caught afterwards — and so are the ones that were sent.
+        assert!(full.contains(dropped), "{} lost from the pool", dropped);
+    }
+
+    #[test]
+    fn qwen_advertising_the_capability_receives_a_recognition_context() {
+        let biasing = transcribe_cpp_context_biasing("qwen3_asr", true);
+        assert!(biasing.supported(), "qwen3_asr should take context");
+        assert_eq!(biasing.channel, Some(ContextChannel::RecognitionContext));
+        assert_eq!(biasing.budget, LLM_DECODER_CONTEXT_BUDGET);
+
+        // …and it lands in the field that crosses the FFI boundary, not in the
+        // whisper extension.
+        let settings = settings_with(&["internal_cardiology"]);
+        let options = run_options_for(&settings, "qwen3_asr", true);
+        assert!(options.family.is_none(), "qwen must not get a whisper ext");
+        let context = options.context.expect("recognition context missing");
+        assert!(
+            context.contains("AV-Knoten-Reentrytachykardie"),
+            "context was: {}",
+            context
+        );
+    }
+
+    #[test]
+    fn qwen_recognition_context_carries_every_active_module_and_leads_with_personal_words() {
+        let ids = [
+            "core_medical",
+            "internal_cardiology",
+            "anatomy_heart_vessels",
+            "meds_cardiology_generic",
+        ];
+        let mut settings = settings_with(&ids);
+        settings.custom_words = vec!["Blatt-Schmidt-Zeichen".to_string()];
+        let context = qwen_run_context(&settings).expect("recognition context missing");
+
+        assert!(context.starts_with("Blatt-Schmidt-Zeichen, "));
+        for term in [
+            "reduzierter Allgemeinzustand",
+            "Tachykardie-Bradykardie-Syndrom",
+            "Sinus transversus pericardii",
+            "unfraktioniertes Heparin",
+        ] {
+            assert!(context.contains(term), "missing {}", term);
+        }
+        // Budget honoured, multi-word terms whole, no metadata. The markers are
+        // harness field names and JSON punctuation — deliberately not bare words
+        // like "rank", which is a substring of "koronare Herzkrankheit".
+        assert_eq!(context.split(", ").count(), LLM_DECODER_CONTEXT_BUDGET);
+        for marker in [
+            "term_id",
+            "module_id",
+            "asr_priority_score",
+            "frequency_score",
+            "{",
+            "}",
+            "\"",
+        ] {
+            assert!(
+                !context.contains(marker),
+                "metadata marker {} leaked",
+                marker
+            );
+        }
+    }
+
+    #[test]
+    fn a_qwen_term_beyond_the_budget_is_absent_but_still_fuzzy_corrected() {
+        let mut settings = settings_with(&["internal_cardiology"]);
+        settings
+            .dictionary_levels
+            .insert("internal_cardiology".to_string(), 500);
+        let context = qwen_run_context(&settings).unwrap();
+
+        let full = crate::dictionaries::full_vocabulary(&settings);
+        let dropped = &full[LLM_DECODER_CONTEXT_BUDGET + 20];
+        assert!(!context.contains(dropped.as_str()), "{} leaked", dropped);
+        assert!(full.contains(dropped), "{} lost from the pool", dropped);
+    }
+
+    /// A dictionary limited to post-correction must not reach any context
+    /// channel — neither whisper's prompt nor Qwen's recognition context —
+    /// while every one of its terms stays available for the correction.
+    #[test]
+    fn a_fuzzy_only_dictionary_reaches_no_context_channel() {
+        let mut settings = settings_with(&["internal_cardiology"]);
+        // Post-correction only: in the correction pool, out of every context.
+        settings.context_dictionaries.clear();
+        for (arch, supports) in [("whisper", false), ("qwen3_asr", true)] {
+            let biasing = transcribe_cpp_context_biasing(arch, supports);
+            assert!(biasing.supported(), "{} should support context", arch);
+            assert!(
+                biasing.terms(&settings).is_empty(),
+                "{} received restricted terms",
+                arch
+            );
+            assert_eq!(model_context_string(&settings, arch, supports), None);
+        }
+        let full = crate::dictionaries::full_vocabulary(&settings);
+        assert!(full.iter().any(|w| w == "AV-Knoten-Reentrytachykardie"));
+    }
+
+    /// Strategy D end to end: a term that *was* sent as context is still
+    /// corrected in the finished text. Under the earlier split (strategy C)
+    /// this misspelling would have survived untouched.
+    #[test]
+    fn a_term_that_was_sent_as_context_is_still_corrected_afterwards() {
+        let settings = settings_with(&["internal_cardiology"]);
+        let sent = transcribe_cpp_context_biasing("qwen3_asr", true).terms(&settings);
+        assert!(
+            sent.iter().any(|w| w == "Herzkatheteruntersuchung"),
+            "the term must be in the context for this test to mean anything"
+        );
+        let corrected = post_process_transcription_text(
+            "Es erfolgte eine Herzkatheterunterschung.".to_string(),
+            &settings,
+            &OutputLanguageEvidence::Unknown,
+            &languages(&["de"]),
+        );
+        assert!(
+            corrected.contains("Herzkatheteruntersuchung"),
+            "correction skipped a context term: {}",
+            corrected
+        );
+    }
+
+    /// After a failed context run the app repeats without context. The
+    /// correction pool is the whole active vocabulary either way, so nothing
+    /// about that second attempt narrows what can still be repaired.
+    #[test]
+    fn the_correction_pool_is_the_same_with_context_without_and_after_a_fallback() {
+        let settings = settings_with(&["internal_cardiology"]);
+        let pool = crate::dictionaries::full_vocabulary(&settings);
+        for arch in ["qwen3_asr", "whisper", "parakeet"] {
+            let sent = transcribe_cpp_context_biasing(arch, arch == "qwen3_asr").terms(&settings);
+            // Whatever the run sent — many terms, none, or none after a
+            // fallback — post-correction sees the identical pool.
+            assert_eq!(
+                crate::dictionaries::full_vocabulary(&settings),
+                pool,
+                "{} changed the correction pool (sent {})",
+                arch,
+                sent.len()
+            );
+        }
+    }
+
+    /// A model that advertises neither channel must be left alone: forcing the
+    /// whisper extension onto a foreign arch is rejected natively with
+    /// INVALID_ARG (#1601), and `RunOptions::context` would be ignored at best.
+    /// Its vocabulary reaches fuzzy correction in full instead.
+    #[test]
+    fn a_model_without_any_context_channel_gets_none_and_keeps_its_full_pool() {
+        let settings = settings_with(&["internal_cardiology"]);
+        for arch in ["parakeet", "moonshine", "sensevoice"] {
+            let biasing = transcribe_cpp_context_biasing(arch, false);
+            assert!(!biasing.supported(), "{} claims context support", arch);
+            assert!(biasing.terms(&settings).is_empty(), "{} got terms", arch);
+
+            let options = run_options_for(&settings, arch, false);
+            assert!(options.context.is_none(), "{} got a context", arch);
+            assert!(options.family.is_none(), "{} got an extension", arch);
+            assert_eq!(model_context_string(&settings, arch, false), None);
+        }
+        let full = crate::dictionaries::full_vocabulary(&settings);
+        assert!(full.iter().any(|w| w == "AV-Knoten-Reentrytachykardie"));
+    }
+
+    #[test]
+    fn each_architecture_gets_its_own_channel_and_budget() {
+        let whisper = transcribe_cpp_context_biasing("whisper", false);
+        assert_eq!(whisper.channel, Some(ContextChannel::InitialPrompt));
+        assert_eq!(whisper.budget, WHISPER_CONTEXT_BUDGET);
+
+        let qwen = transcribe_cpp_context_biasing("qwen3_asr", true);
+        assert_eq!(qwen.channel, Some(ContextChannel::RecognitionContext));
+        assert_eq!(qwen.budget, LLM_DECODER_CONTEXT_BUDGET);
+
+        // The capability probe, not a hardcoded arch list, is what opens the
+        // recognition-context channel — a future arch needs no code change.
+        assert!(transcribe_cpp_context_biasing("some_future_arch", true).supported());
+        assert_eq!(
+            transcribe_cpp_context_biasing("qwen3_asr", false),
+            ContextBiasing::NONE
+        );
+    }
+
+    #[test]
+    fn formatting_keeps_terms_verbatim_and_adds_nothing() {
+        let terms = vec![
+            "AV-Knoten-Reentrytachykardie".to_string(),
+            "Arteria cerebri media".to_string(),
+            "Sacubitril/Valsartan".to_string(),
+        ];
+        assert_eq!(
+            format_context_terms(&terms),
+            "AV-Knoten-Reentrytachykardie, Arteria cerebri media, Sacubitril/Valsartan"
+        );
+        assert!(format_context_terms(&[]).is_empty());
+    }
+
     #[test]
     fn normal_hosts_preserve_every_transcribe_accelerator_setting() {
         for setting in [
@@ -2225,7 +2888,6 @@ mod tests {
         let result = post_process_transcription_text(
             "eu vi um carro".to_string(),
             &settings,
-            false,
             &evidence,
             &supported,
         );
@@ -2251,7 +2913,6 @@ mod tests {
         let result = post_process_transcription_text(
             "um uhm ok".to_string(),
             &settings,
-            false,
             &evidence,
             &languages(&["en", "pt"]),
         );
@@ -2271,7 +2932,6 @@ mod tests {
             "um so the weather forecast said it would probably rain throughout the whole weekend"
                 .to_string(),
             &settings,
-            false,
             &OutputLanguageEvidence::Unknown,
             &languages(&["en", "pt", "es", "de"]),
         );
@@ -2292,7 +2952,6 @@ mod tests {
         let result = post_process_transcription_text(
             "eu vi um carro na rua ontem de manhã quando fui ao mercado".to_string(),
             &settings,
-            false,
             &OutputLanguageEvidence::Unknown,
             &languages(&["en", "pt", "es", "de"]),
         );
@@ -2378,7 +3037,6 @@ mod tests {
         let result = post_process_transcription_text(
             "eu vi um carro".to_string(),
             &settings,
-            false,
             &evidence,
             &supported,
         );

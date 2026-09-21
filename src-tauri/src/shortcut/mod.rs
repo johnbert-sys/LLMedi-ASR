@@ -820,6 +820,27 @@ pub fn update_custom_words(app: AppHandle, words: Vec<String>) -> Result<(), Str
 
 #[tauri::command]
 #[specta::specta]
+pub fn update_active_dictionaries(app: AppHandle, ids: Vec<String>) -> Result<(), String> {
+    let mut settings = settings::get_settings(&app);
+    settings.active_dictionaries = ids;
+    settings::write_settings(&app, settings);
+    Ok(())
+}
+
+/// Which dictionaries may offer terms as model context. Separate from
+/// `update_active_dictionaries`: that one is the post-correction list, and the
+/// two steps are chosen independently.
+#[tauri::command]
+#[specta::specta]
+pub fn update_context_dictionaries(app: AppHandle, ids: Vec<String>) -> Result<(), String> {
+    let mut settings = settings::get_settings(&app);
+    settings.context_dictionaries = ids;
+    settings::write_settings(&app, settings);
+    Ok(())
+}
+
+#[tauri::command]
+#[specta::specta]
 pub fn change_word_correction_threshold_setting(
     app: AppHandle,
     threshold: f64,

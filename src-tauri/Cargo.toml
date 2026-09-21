@@ -1,11 +1,15 @@
 [package]
 name = "handy"
 version = "0.9.6"
-description = "Handy"
+description = "llmedi — lokale medizinische Spracherkennung"
 authors = ["cjpais"]
 edition = "2021"
 license = "MIT"
-default-run = "handy"
+# macOS shows the *binary* name in the Dock, the menu bar and the privacy
+# settings whenever the app runs unbundled, which is what `tauri dev` does. The
+# crate keeps its upstream name so `handy_app_lib` imports and merges stay
+# intact; only the binary is renamed.
+default-run = "llmedi"
 
 [profile.dev]
 incremental = true # Compile your binary in smaller steps.
@@ -18,6 +22,10 @@ incremental = true # Compile your binary in smaller steps.
 # This seems to be only an issue on Windows, see https://github.com/rust-lang/cargo/issues/8519
 name = "handy_app_lib"
 crate-type = ["staticlib", "cdylib", "rlib"]
+
+[[bin]]
+name = "llmedi"
+path = "src/main.rs"
 
 # [[bin]]
 # name = "cli"
@@ -183,6 +191,33 @@ transcribe-cpp = { version = "0.2.0", default-features = false, features = [
 [patch.crates-io]
 tao = { git = "https://github.com/cjpais/tao", rev = "c3bee28c1d446d95f08c95c3b6f8d4bde052b876" }
 tao-macros = { git = "https://github.com/cjpais/tao", rev = "c3bee28c1d446d95f08c95c3b6f8d4bde052b876" }
+
+# Recognition context for Qwen3-ASR. No published transcribe-cpp (through 0.2.3)
+# carries it: `RunOptions` has no context field and the C API's only prompt
+# channel is the whisper-tagged run extension, so llmedi's medical dictionaries
+# could never reach a Qwen decoder — they only ever fed fuzzy post-correction.
+#
+# This pins the branch of upstream PR #144 ("Add recognition context support for
+# Qwen3-ASR", https://github.com/handy-computer/transcribe.cpp/pull/144), which
+# adds `transcribe_run_params::context`, the TRANSCRIBE_FEATURE_CONTEXT
+# capability and `RunOptions::context`. It is pinned to an exact rev rather than
+# the branch so a force-push cannot silently change what we build.
+#
+# The PR is NOT merged: the maintainer asked for a broader biasing API covering
+# several model families first, so the final upstream shape may differ. Nothing
+# outside `managers/transcription.rs` depends on it — the dictionary layer stays
+# model-agnostic — so returning to a released crate means deleting these two
+# lines and letting `ContextBiasing` report Qwen as unsupported again.
+transcribe-cpp = { git = "https://github.com/yuku-contrib/transcribe.cpp", rev = "986757bc508524c16f7fd00a3700012120a9d8d2" }
+transcribe-cpp-sys = { git = "https://github.com/yuku-contrib/transcribe.cpp", rev = "986757bc508524c16f7fd00a3700012120a9d8d2" }
+
+# Benchmark harness for the medical dictionaries (see
+# benchmarks/medical_asr/README.md). A separate target on purpose: it links the
+# app's lib to drive the *real* transcription path, but is never bundled by
+# `tauri build`, so none of it reaches the shipped app.
+[[bin]]
+name = "medical-asr-benchmark"
+path = "src/bin/medical_asr_benchmark/main.rs"
 
 [dev-dependencies]
 tempfile = "3"

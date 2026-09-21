@@ -311,7 +311,7 @@ pub enum VadBackend {
 
 #[derive(Clone, Serialize, Deserialize, Type)]
 #[serde(transparent)]
-pub(crate) struct SecretMap(HashMap<String, String>);
+pub struct SecretMap(HashMap<String, String>);
 
 impl fmt::Debug for SecretMap {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
@@ -335,6 +335,27 @@ impl std::ops::DerefMut for SecretMap {
     fn deref_mut(&mut self) -> &mut Self::Target {
         &mut self.0
     }
+}
+
+/// Per-user modification of a bundled dictionary: extra words the user added
+/// plus bundled words the user removed. Keyed by dictionary id in
+/// [`AppSettings::dictionary_customizations`]; the bundled word list itself
+/// stays untouched, so a reset simply drops this entry.
+#[derive(Debug, Clone, Default, PartialEq, Serialize, Deserialize, Type)]
+pub struct DictionaryCustomization {
+    #[serde(default)]
+    pub added_words: Vec<String>,
+    #[serde(default)]
+    pub hidden_words: Vec<String>,
+}
+
+/// A dictionary the user created themselves (own specialty), fully editable.
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize, Type)]
+pub struct CustomDictionary {
+    pub id: String,
+    pub name: String,
+    #[serde(default)]
+    pub words: Vec<String>,
 }
 
 /* still handy for composing the initial JSON in the store ------------- */
@@ -405,6 +426,43 @@ pub struct AppSettings {
     pub log_level: LogLevel,
     #[serde(default)]
     pub custom_words: Vec<String>,
+    /// Ids of domain dictionaries (bundled or user-created, see
+    /// `crate::dictionaries`) whose **whole** word list is compared against the
+    /// finished transcript by fuzzy post-correction. No tier applies here:
+    /// correcting a term costs nothing at recognition time, so the list is used
+    /// in full.
+    #[serde(default)]
+    pub active_dictionaries: Vec<String>,
+    /// Ids of dictionaries allowed to offer terms as *model context*. This is
+    /// the expensive, risky direction — it shapes what the model writes — so it
+    /// is a separate choice, and it is limited by
+    /// [`AppSettings::dictionary_levels`] and the model's own window.
+    ///
+    /// Independent of `active_dictionaries`: a dictionary may take part in one
+    /// step, both, or neither.
+    #[serde(default)]
+    pub context_dictionaries: Vec<String>,
+    /// When on, every dictionary takes part in post-correction, including ones
+    /// imported or created later. Individual dictionaries can still be switched
+    /// off; this only decides what a *new* one starts as.
+    #[serde(default)]
+    pub fuzzy_all_dictionaries: bool,
+    /// Per-dictionary user edits to the bundled word lists, keyed by
+    /// dictionary id.
+    #[serde(default)]
+    pub dictionary_customizations: HashMap<String, DictionaryCustomization>,
+    /// How many terms of a tiered dictionary may reach the **model context**,
+    /// keyed by dictionary id. A tiered list is ordered by ASR priority and its
+    /// tiers are prefixes of one another (100 ⊂ 250 ⊂ 500), so the level is
+    /// just a take-count. An absent entry means the dictionary's smallest tier
+    /// — keeping the model context small until the user opts into more.
+    ///
+    /// Post-correction ignores this: it always compares against the whole list.
+    #[serde(default)]
+    pub dictionary_levels: HashMap<String, u32>,
+    /// Dictionaries the user created themselves.
+    #[serde(default)]
+    pub custom_dictionaries: Vec<CustomDictionary>,
     #[serde(default)]
     pub model_unload_timeout: ModelUnloadTimeout,
     #[serde(default = "default_word_correction_threshold")]
@@ -498,7 +556,7 @@ fn default_model() -> String {
     "".to_string()
 }
 
-const CURRENT_SETTINGS_SCHEMA_VERSION: u32 = 2;
+const CURRENT_SETTINGS_SCHEMA_VERSION: u32 = 3;
 
 fn default_settings_schema_version() -> u32 {
     CURRENT_SETTINGS_SCHEMA_VERSION
@@ -525,7 +583,9 @@ fn default_autostart_enabled() -> bool {
 }
 
 fn default_update_checks_enabled() -> bool {
-    true
+    // Fork: upstream Handy's update feed would replace llmedi with Handy, so
+    // automatic update checks stay off until the fork has its own feed.
+    false
 }
 
 fn default_show_whats_new_on_update() -> bool {
@@ -611,10 +671,13 @@ fn default_post_process_enabled() -> bool {
     false
 }
 
+/// llmedi ships for German-speaking clinicians, so the UI starts in German
+/// instead of following the OS locale the way upstream Handy does — an English
+/// or French macOS would otherwise put a German medical tool into a language
+/// its users did not ask for. Only the *first* launch is affected: any choice
+/// made in Settings is persisted and read back before this default applies.
 fn default_app_language() -> String {
-    tauri_plugin_os::locale()
-        .map(|l| l.replace('_', "-"))
-        .unwrap_or_else(|| "en".to_string())
+    "de".to_string()
 }
 
 fn default_show_tray_icon() -> bool {
@@ -910,6 +973,12 @@ pub fn get_default_settings() -> AppSettings {
         debug_mode: false,
         log_level: default_log_level(),
         custom_words: Vec::new(),
+        active_dictionaries: Vec::new(),
+        context_dictionaries: Vec::new(),
+        fuzzy_all_dictionaries: false,
+        dictionary_customizations: HashMap::new(),
+        dictionary_levels: HashMap::new(),
+        custom_dictionaries: Vec::new(),
         model_unload_timeout: ModelUnloadTimeout::default(),
         word_correction_threshold: default_word_correction_threshold(),
         history_limit: default_history_limit(),
@@ -1112,6 +1181,30 @@ fn apply_settings_migrations(
         if had_positive_legacy_selection {
             settings.transcribe_accelerator = TranscribeAcceleratorSetting::Auto;
         }
+    }
+    if stored_schema_version < 3 && settings_value.get("context_dictionaries").is_none() {
+        // Context used to be implied by activation (and, briefly, by a
+        // `dictionary_usage` map). Carry that choice over verbatim: every
+        // dictionary that was feeding the model keeps feeding it, and one that
+        // had been limited to post-correction stays limited.
+        let restricted: Vec<&str> = settings_value
+            .get("dictionary_usage")
+            .and_then(|value| value.as_object())
+            .map(|map| {
+                map.iter()
+                    .filter(|(_, usage)| usage.as_str() == Some("fuzzy_only"))
+                    .map(|(id, _)| id.as_str())
+                    .collect()
+            })
+            .unwrap_or_default();
+        settings.context_dictionaries = settings
+            .active_dictionaries
+            .iter()
+            .filter(|id| !restricted.contains(&id.as_str()))
+            .cloned()
+            .collect();
+        settings.settings_schema_version = CURRENT_SETTINGS_SCHEMA_VERSION;
+        updated = true;
     }
     if stored_schema_version < 2 {
         // transcribe.cpp 0.2 replaced integer registry indices with opaque
@@ -1360,6 +1453,85 @@ mod tests {
         assert_eq!(salvaged.sound_theme, default_sound_theme());
     }
 
+    /// Settings written before the two steps were separated must load
+    /// unchanged and keep feeding the model exactly what they fed before.
+    #[test]
+    fn old_settings_migrate_activation_into_both_steps() {
+        let mut stored = default_settings_json();
+        let map = stored.as_object_mut().unwrap();
+        map.insert("settings_schema_version".into(), serde_json::json!(2));
+        map.remove("context_dictionaries");
+        map.insert(
+            "active_dictionaries".into(),
+            serde_json::json!(["internal_cardiology", "core_medical"]),
+        );
+        // The short-lived usage map: one dictionary had been limited to
+        // post-correction, and that choice must survive the migration.
+        map.insert(
+            "dictionary_usage".into(),
+            serde_json::json!({ "core_medical": "fuzzy_only" }),
+        );
+        map.insert(
+            "dictionary_levels".into(),
+            serde_json::json!({ "internal_cardiology": 250 }),
+        );
+
+        let mut settings: AppSettings = serde_json::from_value(stored.clone()).unwrap();
+        let updated = apply_settings_migrations(&mut settings, &stored);
+        assert!(updated, "migration must persist the derived lists");
+        assert_eq!(
+            settings.active_dictionaries,
+            vec!["internal_cardiology", "core_medical"],
+            "post-correction keeps every previously active dictionary"
+        );
+        assert_eq!(
+            settings.context_dictionaries,
+            vec!["internal_cardiology"],
+            "the restricted dictionary stays out of the context"
+        );
+        assert_eq!(
+            settings.dictionary_levels.get("internal_cardiology"),
+            Some(&250)
+        );
+        assert_eq!(
+            settings.settings_schema_version,
+            CURRENT_SETTINGS_SCHEMA_VERSION
+        );
+    }
+
+    /// Settings that already carry the new lists are left alone.
+    #[test]
+    fn current_settings_are_not_migrated_again() {
+        let mut stored = default_settings_json();
+        let map = stored.as_object_mut().unwrap();
+        map.insert(
+            "active_dictionaries".into(),
+            serde_json::json!(["internal_cardiology"]),
+        );
+        map.insert("context_dictionaries".into(), serde_json::json!([]));
+        let mut settings: AppSettings = serde_json::from_value(stored.clone()).unwrap();
+        apply_settings_migrations(&mut settings, &stored);
+        assert!(
+            settings.context_dictionaries.is_empty(),
+            "a deliberate empty context list must not be refilled"
+        );
+    }
+
+    /// The two lists and the "all dictionaries" default survive a round trip,
+    /// which is what makes the choice durable rather than session-local.
+    #[test]
+    fn the_two_dictionary_lists_round_trip() {
+        let mut settings = get_default_settings();
+        settings.active_dictionaries = vec!["core_medical".to_string()];
+        settings.context_dictionaries = vec!["internal_cardiology".to_string()];
+        settings.fuzzy_all_dictionaries = true;
+        let json = serde_json::to_value(&settings).unwrap();
+        let back: AppSettings = serde_json::from_value(json).unwrap();
+        assert_eq!(back.active_dictionaries, settings.active_dictionaries);
+        assert_eq!(back.context_dictionaries, settings.context_dictionaries);
+        assert!(back.fuzzy_all_dictionaries);
+    }
+
     #[test]
     fn salvage_drops_only_wrong_typed_fields() {
         let mut stored = default_settings_json();
@@ -1439,6 +1611,14 @@ mod tests {
             settings.settings_schema_version,
             CURRENT_SETTINGS_SCHEMA_VERSION
         );
+    }
+
+    /// llmedi is a German medical tool, so a fresh install must come up in
+    /// German regardless of the host's locale — not English, and not whatever
+    /// the OS happens to be set to (see `default_app_language`).
+    #[test]
+    fn default_app_language_is_german() {
+        assert_eq!(get_default_settings().app_language, "de");
     }
 
     #[cfg(not(target_os = "linux"))]

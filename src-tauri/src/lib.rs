@@ -8,6 +8,7 @@ mod catalog;
 pub mod cli;
 mod clipboard;
 mod commands;
+pub mod dictionaries;
 mod helpers;
 mod input;
 mod llm_client;
@@ -17,7 +18,7 @@ mod overlay;
 mod paste_tx;
 pub mod portable;
 mod secure_input;
-mod settings;
+pub mod settings;
 mod shortcut;
 mod signal_handle;
 mod transcription_coordinator;
@@ -39,6 +40,17 @@ use std::sync::atomic::{AtomicBool, AtomicU8, Ordering};
 use std::sync::Arc;
 use tauri::image::Image;
 pub use transcription_coordinator::TranscriptionCoordinator;
+
+// Narrow re-export of the ASR context-biasing seam. `managers` stays private;
+// only the pieces the benchmark harness needs to drive the *production* context
+// path (rather than reimplement it) are surfaced here.
+pub use managers::context_window::{
+    fit_context, ContextTokenLimit, WindowFit, QWEN_OUTPUT_RESERVE, QWEN_TEMPLATE_OVERHEAD,
+};
+pub use managers::transcription::{
+    apply_context_to_run_options, format_context_terms, run_with_context_fallback,
+    transcribe_cpp_context_biasing, ContextBiasing, ContextChannel,
+};
 
 use tauri::tray::TrayIconBuilder;
 use tauri::{AppHandle, Emitter, Listener, Manager};
@@ -653,6 +665,22 @@ pub fn run(cli_args: CliArgs) {
             shortcut::delete_post_process_prompt,
             shortcut::set_post_process_selected_prompt,
             shortcut::update_custom_words,
+            shortcut::update_active_dictionaries,
+            shortcut::update_context_dictionaries,
+            dictionaries::list_dictionaries,
+            dictionaries::get_vocabulary_summary,
+            managers::transcription::get_last_context_usage,
+            dictionaries::get_dictionary_words,
+            dictionaries::set_dictionary_level,
+            dictionaries::set_fuzzy_all_dictionaries,
+            dictionaries::add_dictionary_word,
+            dictionaries::remove_dictionary_word,
+            dictionaries::reset_dictionary,
+            dictionaries::create_custom_dictionary,
+            dictionaries::rename_custom_dictionary,
+            dictionaries::delete_custom_dictionary,
+            dictionaries::export_dictionary,
+            dictionaries::import_dictionary,
             shortcut::suspend_all_bindings,
             shortcut::resume_all_bindings,
             shortcut::change_mute_while_recording_setting,
@@ -899,7 +927,7 @@ pub fn run(cli_args: CliArgs) {
             // for portable mode (redirects WebView2 cache to portable Data dir)
             let mut win_builder =
                 tauri::WebviewWindowBuilder::new(app, "main", tauri::WebviewUrl::App("/".into()))
-                    .title("Handy")
+                    .title("llmedi")
                     .inner_size(680.0, 570.0)
                     .min_inner_size(680.0, 570.0)
                     .resizable(true)
