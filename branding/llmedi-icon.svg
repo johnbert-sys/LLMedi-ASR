@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- App icon: white rounded square, black stethoscope glyph -->
+  <rect x="0" y="0" width="512" height="512" rx="114" fill="#ffffff"/>
+  <g transform="translate(38,66) scale(0.80)">
+    <g fill="none" stroke="#000000" stroke-width="46" stroke-linecap="round" stroke-linejoin="round">
+      <!-- left ear tube: curl + leg + bottom sweep up to the chest piece -->
+      <path d="M 124 86 A 30 30 0 1 0 66 100 L 66 268 A 172 172 0 0 0 410 268 L 410 222"/>
+      <!-- right ear tube: curl + leg merging into the sweep -->
+      <path d="M 250 86 A 30 30 0 1 1 308 100 L 308 258 Q 310 336 356 396"/>
+    </g>
+    <!-- chest piece: ring with hole -->
+    <path fill="#000000" fill-rule="evenodd" d="M 410 92 A 62 62 0 1 0 410.01 92 Z M 410 132 A 22 22 0 1 1 409.99 132 Z"/>
+  </g>
+</svg>

@@ -85,11 +85,16 @@ export const getSupportedLanguage = (
   return supported ? supported.code : null;
 };
 
-// Initialize i18n with English as default
-// Language will be synced from settings after init
+// Start in German — llmedi's default UI language (see `default_app_language`
+// in settings.rs). `syncLanguageFromSettings()` below replaces this with the
+// user's stored choice a moment later; starting on the common case avoids a
+// flash of the wrong language in between.
+//
+// `fallbackLng` stays English on purpose: it only kicks in for keys a locale
+// is missing, and English is the more widely readable stand-in there.
 i18n.use(initReactI18next).init({
   resources,
-  lng: "en",
+  lng: "de",
   fallbackLng: "en",
   interpolation: {
     escapeValue: false, // React already escapes values
